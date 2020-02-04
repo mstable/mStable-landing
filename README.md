@@ -5,19 +5,15 @@
 
 ## Develop
 
-    ```shell
     npm install -g gatsby-cli
     gatsby develop
-    ```
 
 
 ## Build
 
-    ```shell
     gatsby build
-    ```
-
-    All files are in /public. That's the only thing that's need to be deployed to static hosting.
+    
+All files are in /public. That's the only thing that's need to be deployed to static hosting.
 
 
 ## Files
