@@ -1,0 +1,85 @@
+
+#animation
+	--black $black
+	--yellow $yellow
+	position sticky
+	top 15%
+
+.stage-1
+.stage-2
+	#aniMeta
+	#aniSdk
+		opacity 0
+
+.stage-2
+	#aniMeta
+		opacity 1
+		transition opacity 1s ease !important
+	#aniSdk
+		opacity 0
+		transition opacity 0.5s ease !important
+
+.stage-2-start
+	.coins
+		transition transform 1s ease, opacity 5s ease;
+		transform translate(0, 0)
+		opacity 0
+	#aniMeta
+		transition all 1s ease !important
+		opacity 1 !important
+
+.stage-3
+	.coins
+		opacity 0
+	#aniSdk
+		transition opacity 1s ease
+		opacity 1
+		stroke-dasharray 1000 
+		stroke-dashoffset 1000
+		animation adash 1s linear forwards
+
+
+
+.coins
+	transform scale(1.75)
+	transform-origin 22% 55%
+
+.coin
+	font-size 64px
+	font-weight 700
+
+.buck
+	animation abuck 2s ease-in-out infinite both
+.quid
+	animation aquid 2.1s ease-in-out infinite both
+.euro
+	animation aeuro 2.2s ease-in infinite both
+.gold
+	animation agold 1.9s ease-out infinite both
+
+
+@keyframes abuck {
+	0% {		transform: translate(0) }
+	50% {		transform: translate(0, -2px) }
+	100% {	transform: translate(0) }
+}
+@keyframes aquid {
+	0% {		transform: translate(0) }
+	50% {		transform: translate(0, -2px) }
+	100% {	transform: translate(0) }
+}
+@keyframes aeuro {
+	0% {		transform: translate(0) }
+	50% {		transform: translate(0, -2px) }
+	100% {	transform: translate(0) }
+}
+@keyframes agold {
+	0% {		transform: translate(0) }
+	50% {		transform: translate(0, -2px) }
+	100% {	transform: translate(0) }
+}
+
+
+@keyframes adash {
+	to { stroke-dashoffset: 0; }
+}

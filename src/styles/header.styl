@@ -1,0 +1,61 @@
+
+
+#header
+  --blue $blue
+  --yellow $yellow
+  --black $black
+  margin-top calc(40px + 2em)
+  // background #eee
+  width 100vw
+  height 90vh
+
+
+.dash
+	transform-origin center
+	transform-box fill-box
+
+// .dash:hover
+// 	animation: awiggle 1s ease-in-out 1 both !important;
+
+.wiggle-1
+  transform rotate(0deg)
+  transition all 0.2s ease-in
+  &:hover
+    transform rotate(10deg)
+
+.wiggle-2
+  transform rotate(0deg)
+  transition all 0.1s ease-out
+  &:hover
+    transform rotate(-15deg)
+
+.wiggle-3
+  transform rotate(0deg)
+  transition all 0.15s ease-out
+  &:hover
+    transform rotate(15deg)
+
+
+@keyframes arotate-1 {
+  0% { transform: rotate(90deg); }
+  25% { transform: rotate(-20deg); }
+  50% { transform: rotate(10deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes arotate-2 {
+  0% { transform: rotate(50deg); }
+  25% { transform: rotate(-40deg); }
+  50% { transform: rotate(20deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes arotate-3 {
+  0% { transform: rotate(30deg); }
+  25% { transform: rotate(-40deg); }
+  50% { transform: rotate(20deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
