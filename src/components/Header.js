@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 
 import React from 'react'
 
@@ -27,7 +28,7 @@ const viewBox = [
 	width,
 	height,
 ]
-			
+
 const dashes = []
 
 const clearance = 60
@@ -47,12 +48,12 @@ for (let y = rowsOffset; y < rows+rowsOffset; y++) {
 			x: (x * (dashW + 30)) + dashOffsetX,
 			y: (y * rowH) + dashOffsetY,
 		}
-		if ((!(y%2) && x%2) || 
+		if ((!(y%2) && x%2) ||
 				(y%2 && !(x%2)) ||
-				isWithin(coors.x, coors.y) || 
-				isWithin(coors.x+dashW, coors.y) || 
+				isWithin(coors.x, coors.y) ||
+				isWithin(coors.x+dashW, coors.y) ||
 				isWithin(coors.x+dashW, coors.y+dashH) ||
-				isWithin(coors.x, coors.y+dashH)			
+				isWithin(coors.x, coors.y+dashH)
 		) continue
 		dashes.push(coors)
 	}
@@ -82,7 +83,7 @@ for (let i = 0; i < 3; i++) {
 
 export default () => (
 
-	<svg 
+	<svg
 		id="header"
 		viewBox={viewBox.join(' ')}
 		preserveAspectRatio="xMidYMid slice"
@@ -90,13 +91,13 @@ export default () => (
 	>
 
 		<g id="header-logo">
-			<use xlinkHref={`#logo-m`} 
+			<use xlinkHref={`#logo-m`}
 				x='0'
 				y='0'
 				width='216'
 				height='192'
 			/>
-			<use xlinkHref={`#logo-stable`} 
+			<use xlinkHref={`#logo-stable`}
 				x='216'
 				y='0'
 				width='892'
@@ -104,13 +105,14 @@ export default () => (
 			/>
 		</g>
 
-		{ dashes.map((coors, idx) => 
+
+		{ dashes.map((coors, idx) =>
 			<rect key={idx}
 				className='dash'
 				fill={`var(--${coors.color || 'black'})`}
 				width={dashW}
 				height={dashH}
-				x={coors.x} 
+				x={coors.x}
 				y={coors.y}
 				onMouseOver={e => e.target.classList.add(`wiggle-${Math.round(Math.random()*3)}`)}
 				style={{
@@ -120,5 +122,5 @@ export default () => (
 		)}
 
 	</svg>
-	
+
 )
