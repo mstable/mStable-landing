@@ -23,13 +23,13 @@ export default () => (
 			</address>
 
 			<div id='social'>
-				
+
 				<a href='https://twitter.com/mstable_' target='_blank' rel='noopener noreferrer'>
 					<svg xmlns="http://www.w3.org/2000/svg"
 						aria-label="Twitter" role="img"
 						viewBox="0 0 512 512">
 							<path fill="currentColor" d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/>
-					</svg>					
+					</svg>
 				</a>
 
 				<a href='https://medium.com/mstable' target='_blank' rel='noopener noreferrer'>
@@ -37,7 +37,7 @@ export default () => (
 						aria-label="Medium" role="img"
 						viewBox="0 0 512 512">
 						<path fill="currentColor" d="M125 173c0-4-2-9-5-11l-31-38v-6h98l75 166 67-166h93v6l-27 26c-2 1-3 4-3 7v190c0 3 1 6 3 8l27 25v6H289v-6l27-26c3-3 3-4 3-8V193l-76 192h-10l-88-192v129c-1 5 1 11 5 15l35 43v5H85v-5l35-43c4-4 6-10 5-15z"/>
-					</svg>					
+					</svg>
 				</a>
 
 				<a href='https://discord.gg/raSYRj' target='_blank' rel='noopener noreferrer'>
@@ -48,7 +48,7 @@ export default () => (
 					</svg>
 				</a>
 
-				<a href='mailto:nfo@mstable.org '>
+				<a href='mailto:info@mstable.org '>
 					<svg xmlns="http://www.w3.org/2000/svg"
 						aria-label="Email" role="img"
 						viewBox="0 0 512 512">
@@ -60,6 +60,6 @@ export default () => (
 			</div>
 
 		</div>
-		
+
 	</footer>
 )
