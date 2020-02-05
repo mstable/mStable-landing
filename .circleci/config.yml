@@ -1,0 +1,69 @@
+version: 2.1
+
+executors:
+  gcp:
+    docker:
+      - image: alsco77/node-gcp-dockerfile:origin
+
+jobs:
+  build:
+    executor: gcp
+    steps:
+      - checkout
+      - run:
+          name: "Install and build"
+          command: |
+            yarn
+            yarn build
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project/public
+            - project/*
+  deployStaging:
+    executor: gcp
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: "Deploy"
+          command: |
+            echo "Deploy to staging target GAE instance with project ID $S_GCP_PROJECT_ID"
+            echo $S_GCP_KEY > /tmp/$CI_PIPELINE_ID.json
+            gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
+            gcloud config set project $S_GCP_PROJECT_ID
+            gcloud --quiet app deploy app.yml
+  deployProd:
+    executor: gcp
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: "Deploy"
+          command: |
+            echo "Deploy to prod target GAE instance with project ID $P_GCP_PROJECT_ID"
+            echo $P_GCP_KEY > /tmp/$CI_PIPELINE_ID.json
+            gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
+            gcloud config set project $P_GCP_PROJECT_ID
+            gcloud --quiet app deploy app.yml
+workflows:
+  version: 2.1
+  staging:
+    jobs:
+      - build
+      - Approval:
+          type: approval
+      - deployStaging:
+          requires:
+            - Approval
+            - build
+  prod:
+    jobs:
+      - Approval:
+          type: approval
+      - build:
+          requires:
+            - Approval
+      - deployProd:
+          requires:
+            - build
