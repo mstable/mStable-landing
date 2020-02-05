@@ -12,7 +12,7 @@ export default () => (
 		<ul>
 			<li><a href='#about'>About</a></li>
 			<li><a href='#rewards'>Rewards</a></li>
-			<li><a href='#career'>Career</a></li>
+			<li><a href='#more'>Career</a></li>
 		</ul>
 
 	</nav>

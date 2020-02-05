@@ -1,11 +1,5 @@
 
 
-.stickytest
-	position sticky
-	display block
-	background red
-	top 0
-
 html
 	background $white
 	color $black
@@ -189,10 +183,21 @@ footer
 		margin-top 15vw !important
 		max-height 600px
 
+
 @media (max-width: 550px)
+	nav
+		position static
 	#header
 		margin-top 150px
 		max-height 400px
+	#intro
+		padding 20vh 0 15vh 0
+	#about 
+		padding 5vh 0
+		.right > div
+			padding 0 !important
+	#rewards
+		padding 15vh 0
 
 
 @media (max-width: 750px)

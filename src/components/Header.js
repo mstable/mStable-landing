@@ -7,10 +7,10 @@ const logoW = 1108,
 const cols = 15,
 			rows = 6
 
-const rowH = 180
+const rowH = 200
 
 const dashW = 192,
-			dashH = 30
+			dashH = 28
 
 const dashOffsetX = 10,
 			dashOffsetY = 154
@@ -44,11 +44,8 @@ const isWithin = (x, y) =>
 for (let y = rowsOffset; y < rows+rowsOffset; y++) {
 	for (let x = colsOffset; x < cols+colsOffset; x++) {
 		const coors = {
-			x: (x * dashW) + dashOffsetX,
-			// x: (x * dashW) + dashOffsetX + (y%2)*dashW,
-			// x: (x * dashW) + dashOffsetX + viewBox[0] + (y%2)*dashW,
+			x: (x * (dashW + 30)) + dashOffsetX,
 			y: (y * rowH) + dashOffsetY,
-			// y: (y * dashW) + dashOffsetY + viewBox[1],
 		}
 		if ((!(y%2) && x%2) || 
 				(y%2 && !(x%2)) ||
@@ -61,14 +58,25 @@ for (let y = rowsOffset; y < rows+rowsOffset; y++) {
 	}
 }
 
-const colorDice = () => {
-	const rand = Math.random()
-	if (rand < 0.1) {
-		return 'blue'
-	} else if (rand < 0.25) {
-		return 'yellow'
-	}
-	return 'black'
+// const colorDice = () => {
+// 	const rand = Math.random()
+// 	if (rand < 0.1) {
+// 		return 'blue'
+// 	} else if (rand < 0.25) {
+// 		return 'yellow'
+// 	}
+// 	return 'black'
+// }
+
+
+for (let i = 0; i < 7; i++) {
+	const index = Math.round(Math.random() * (dashes.length - 1))
+	dashes[index].color = 'yellow'
+}
+
+for (let i = 0; i < 3; i++) {
+	const index = Math.round(Math.random() * (dashes.length - 1))
+	dashes[index].color = 'blue'
 }
 
 
@@ -99,7 +107,7 @@ export default () => (
 		{ dashes.map((coors, idx) => 
 			<rect key={idx}
 				className='dash'
-				fill={`var(--${colorDice()})`}
+				fill={`var(--${coors.color || 'black'})`}
 				width={dashW}
 				height={dashH}
 				x={coors.x} 
