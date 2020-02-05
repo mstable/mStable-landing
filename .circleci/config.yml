@@ -19,11 +19,12 @@ jobs:
           root: ~/
           paths:
             - project/public
+            - project/*
   deployStaging:
     executor: gcp
     steps:
       - attach_workspace:
-          at: ~/project
+          at: ~/
       - run:
           name: "Deploy"
           command: |
@@ -36,7 +37,7 @@ jobs:
     executor: gcp
     steps:
       - attach_workspace:
-          at: /tmp/public
+          at: ~/
       - run:
           name: "Deploy"
           command: |
