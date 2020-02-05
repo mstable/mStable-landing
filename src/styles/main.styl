@@ -1,5 +1,3 @@
-
-
 html
 	background $white
 	color $black
@@ -97,7 +95,9 @@ nav
 
 #stage-2
 	padding 15vh 0 10vh 0
-	margin-bottom 10vh
+	ul
+		list-style-type square
+		margin-left 2vh
 
 #stage-3
 	padding 15vh 0 22vh 0
@@ -139,6 +139,19 @@ nav
 	&:before
 		display none !important
 
+.email-subscription
+	input
+		background white
+		border 1px #ccc solid
+		font-size 16px
+		padding 10px
+		width calc(70% - 48px)
+		&[type="submit"]
+			appearance none
+			border-left none
+			cursor pointer
+			width 48px
+
 #more
 footer
 	background $black
@@ -162,7 +175,7 @@ footer
 	p
 		flex 3
 		margin 0
-	address
+	.address
 		flex 3
 		&:last-child
 			flex 2
