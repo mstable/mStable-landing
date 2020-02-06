@@ -5,7 +5,10 @@ export default () => (
     <div className="wrap">
       <p>
         Stability Labs GmbH
-        <br />
+      </p>
+
+      <p>
+        Powered by Ethereum
       </p>
 
       <p className="address">
