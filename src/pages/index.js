@@ -124,7 +124,8 @@ export default () => {
               <div id="stage-1">
                 <h2>mStable assets</h2>
                 <p>
-                  mStable assets are each backed 1:1 by a basket of existing tokens of the same asset.
+                  mStable assets are each backed 1:1 by a basket of existing
+                  tokens of the same asset.
                 </p>
                 <p>
                   mStable unites existing tokenised assets into one optimised
@@ -134,7 +135,7 @@ export default () => {
                   Our first assets include a fiat currency (mUSD), a commodity
                   (mGLD), and Bitcoin.
                 </p>
-                <a href="https://docs.mstable.org">
+                <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
                   <span>learn more</span>
                 </a>
               </div>
@@ -142,14 +143,13 @@ export default () => {
               <div id="stage-2">
                 <h2>Meta</h2>
                 <p>Meta is the mStable system token that:</p>
-                <br />
                 <ul>
                   <li>Pays redemption fees across mStable assets</li>
                   <li>Coordinates decentralised governance</li>
                   <li>Incentivises mStable asset growth</li>
                 </ul>
                 <br />
-                <a href="https://docs.mstable.org">
+                <a href="https://docs.mstable.org/mstable-assets/functions">
                   <span>learn more</span>
                 </a>
               </div>
@@ -157,11 +157,11 @@ export default () => {
               <div id="stage-3">
                 <h2>SDK</h2>
                 <p>
-                  mStable is a product that can be integrated into
-                  applications or exchanges as an SDK. mStable unites tokenised
-                  assets for end users.
+                  mStable is a product that can be integrated into applications
+                  or exchanges as an SDK.
                 </p>
-                <a href="https://docs.mstable.org">
+                <p>mStable unites tokenised assets for end users.</p>
+                <a href="https://docs.mstable.org/mstable-assets/interfacing-with-mstable/sdk" title="mStable SDK">
                   <span>learn more</span>
                 </a>
               </div>
@@ -187,10 +187,8 @@ export default () => {
                   Receive Meta for minting mStable assets. Minting is just
                   swapping tokens of equal value.
                 </p>
-                <p>
-                  Receive additional Meta for contributing to DeFi.
-                </p>
-                <a href="https://docs.mstable.org">
+                <p>Receive additional Meta for contributing to DeFi.</p>
+                <a href="https://docs.mstable.org/meta-rewards-1/introduction" title="DeFi ecosystem rewards">
                   <span>learn more</span>
                 </a>
               </div>
@@ -211,7 +209,7 @@ export default () => {
               <ul>
                 <li>
                   <a
-                    href="https://docs.mstable.org"
+                    href="https://docs.mstable.org/appendix/about-us"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -229,7 +227,7 @@ export default () => {
                 </li>
                 <li>
                   <a
-                    href="https://discord.gg/raSYRj"
+                    href="https://discord.gg/pgCVG7e"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -238,7 +236,7 @@ export default () => {
                 </li>
                 <li>
                   <a
-                    href="https://docs.mstable.org"
+                    href="https://docs.mstable.org/appendix/roadmap"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

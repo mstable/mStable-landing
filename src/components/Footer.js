@@ -55,7 +55,7 @@ export default () => (
         </a>
 
         <a
-          href="https://discord.gg/raSYRj"
+          href="https://discord.gg/pgCVG7e"
           target="_blank"
           rel="noopener noreferrer"
         >
