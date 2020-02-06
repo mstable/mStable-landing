@@ -99,7 +99,7 @@ export default () => {
 
             <div className="right">
               <p>
-                An open source protocol for unifying, securing and governing
+                A permissionless protocol for unifying, securing and governing
                 tokenised assets.
               </p>
               <p>
@@ -123,6 +123,9 @@ export default () => {
             <div className="right">
               <div id="stage-1">
                 <h2>mStable assets</h2>
+                <p>
+                  mStable assets are each backed 1:1 by a basket of existing tokens of the same asset.
+                </p>
                 <p>
                   mStable unites existing tokenised assets into one optimised
                   token per-peg.
@@ -154,8 +157,8 @@ export default () => {
               <div id="stage-3">
                 <h2>SDK</h2>
                 <p>
-                  mStable is a product that can be integrated into any
-                  application or exchange as an SDK. mStable unites tokenised
+                  mStable is a product that can be integrated into
+                  applications or exchanges as an SDK. mStable unites tokenised
                   assets for end users.
                 </p>
                 <a href="https://docs.mstable.org">
@@ -185,8 +188,7 @@ export default () => {
                   swapping tokens of equal value.
                 </p>
                 <p>
-                  Receive additional Meta for contributing to our liquidity or
-                  lending markets.
+                  Receive additional Meta for contributing to DeFi.
                 </p>
                 <a href="https://docs.mstable.org">
                   <span>learn more</span>
