@@ -87,7 +87,7 @@ export default () => {
         <section id="intro">
           <div className="wrap">
             <div className="left">
-              <h1>Radically safer and more useful assets</h1>
+              <h1>We make digital money safe, stable and accessible</h1>
               <a
                 href="https://docs.mstable.org"
                 target="_blank"
@@ -99,16 +99,19 @@ export default () => {
 
             <div className="right">
               <p>
-                A permissionless protocol for unifying, securing and governing
-                tokenised assets.
+                From debt markets to derivatives, finance is being rebuilt, repackaged, and shipped on Ethereum. This is decentralised finance (DeFi): open, transparent and built entirely with software.
               </p>
               <p>
-                An SDK for DApps and exchanges to expand and simplify stablecoin
-                user experience.
+                Each DeFi application relies on assets that are compatible with smart contracts.
               </p>
               <p>
-                An open reward pool to bootstrap liquidity, utility and a
-                decentralised community of governors.
+                But today, tokenised assets are highly fragmented and display dangerously concentrated counter-party risk.
+              </p>
+              <p>
+                mStable is built to unite the tokenised asset economy into one standard that is more secure and useable than the sum of its parts.
+              </p>
+              <p>
+                DeFi needs a sustainable and secure assets. Help us build them.
               </p>
             </div>
           </div>
@@ -171,7 +174,7 @@ export default () => {
 
         <section id="rewards">
           <div className="wrap">
-            <h2>Earn rewards for contributing to mStable</h2>
+            <h2>Earn Rewards</h2>
 
             <div>
               <div className="left">
@@ -181,10 +184,10 @@ export default () => {
 
               <div className="right">
                 <p>
-                  20% of Meta will be emitted as part of this open reward pool.
+                  20% of Meta (MTA) will be paid out as part of this open reward pool.
                 </p>
                 <p>
-                  Receive Meta for minting mStable assets. Minting is just
+                  Receive Meta for minting mStable assets. Minting is simply
                   swapping tokens of equal value.
                 </p>
                 <p>Receive additional Meta for contributing to DeFi.</p>
