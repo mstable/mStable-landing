@@ -108,10 +108,10 @@ export default () => {
                 But today, tokenised assets are highly fragmented and display dangerously concentrated counter-party risk.
               </p>
               <p>
-                mStable is built to unite the tokenised asset economy into one standard that is more secure and useable than the sum of its parts.
+                mStable is built to unite the tokenised asset economy into one standard that is more secure and usable than the sum of its parts.
               </p>
               <p>
-                DeFi needs a sustainable and secure assets. Help us build them.
+                DeFi needs sustainable and secure assets. Help us build them.
               </p>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default () => {
                 <h2>mStable assets</h2>
                 <p>
                   mStable assets are each backed 1:1 by a basket of existing
-                  tokens of the same asset.
+                  tokens of the same asset type.
                 </p>
                 <p>
                   mStable unites existing tokenised assets into one optimised
@@ -178,7 +178,7 @@ export default () => {
 
             <div>
               <div className="left">
-                <p className="large">Sign up and get notified</p>
+                <p className="large">Get notified when rewards begin</p>
                 <Signup />
               </div>
 
