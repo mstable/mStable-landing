@@ -138,6 +138,9 @@ export default () => {
                   Our first assets include a fiat currency (mUSD), a commodity
                   (mGLD), and Bitcoin.
                 </p>
+                <p>
+                  Each mStable asset earns an optimised native interest rate, so you can get the best return that DeFi has to offer.
+                </p>
                 <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
                   <span>learn more</span>
                 </a>
