@@ -139,7 +139,7 @@ export default () => {
                   (mGLD), and Bitcoin.
                 </p>
                 <p>
-                  Each mStable asset earns an optimised native interest rate, so you can get the best return that DeFi has to offer.
+                  mUSD will be launched with a native interest rate from day one.
                 </p>
                 <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
                   <span>learn more</span>
