@@ -87,7 +87,7 @@ export default () => {
         <section id="intro">
           <div className="wrap">
             <div className="left">
-              <h1>mStable <span className="yellow-font">makes</span> stablecoins <span class="yellow-font">easy, robust &amp; profitable</span>.</h1>
+              <h1>mStable <span className="yellow-font">makes</span> stablecoins <span className="yellow-font">easy, robust &amp; profitable</span>.</h1>
               <a
                 href="https://docs.mstable.org"
                 target="_blank"
@@ -119,7 +119,8 @@ export default () => {
                 <h2>mStable assets</h2>
                 <p>
                   mStable assets are liquidity shares that also function as stablecoins in their own right.
-                  <br />
+                </p>
+                <p>
                   Our first asset is mUSD.
                 </p>
                 <p>
