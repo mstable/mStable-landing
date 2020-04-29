@@ -87,7 +87,7 @@ export default () => {
         <section id="intro">
           <div className="wrap">
             <div className="left">
-              <h1>mStable <span class="yellow-font">makes</span> stablecoins <span class="yellow-font">easy, robust &amp; profitable</span>.</h1>
+              <h1>mStable <span className="yellow-font">makes</span> stablecoins <span class="yellow-font">easy, robust &amp; profitable</span>.</h1>
               <a
                 href="https://docs.mstable.org"
                 target="_blank"
@@ -99,10 +99,10 @@ export default () => {
 
             <div className="right">
               <p>
-                mStable <span class="yellow-font">unifies</span> stablecoins, lending and swapping into <span class="yellow-font">one standard</span>.
+                mStable <span className="yellow-font">unifies</span> stablecoins, lending and swapping into <span className="yellow-font">one standard</span>.
               </p>
               <p>
-                By reducing complexity and fragmentation, mStable is a <span class="yellow-font">step-change</span> in the usability of stablecoins.
+                By reducing complexity and fragmentation, mStable is a <span className="yellow-font">step-change</span> in the usability of stablecoins.
               </p>
             </div>
           </div>
@@ -119,15 +119,14 @@ export default () => {
                 <h2>mStable assets</h2>
                 <p>
                   mStable assets are liquidity shares that also function as stablecoins in their own right.
-                </p>
-                <p>
+                  <br />
                   Our first asset is mUSD.
                 </p>
                 <p>
-                  <span style={{ fontWeight: 700 }}>MINT</span> mUSD assets with your stablecoin, at a 1:1 ratio.
+                  <span style={{ fontWeight: 700 }}>MINT</span> mUSD assets with your stablecoin, at a 1:1 ratio
                 </p>
                 <p>
-                  <span style={{ fontWeight: 700 }}>SAVE</span> mUSD in the mStable savings contract.
+                  <span style={{ fontWeight: 700 }}>SAVE</span> mUSD in the mStable savings contract
                 </p>
                 <p>
                   <span style={{ fontWeight: 700 }}>SWAP</span> USD stablecoins at zero slippage
