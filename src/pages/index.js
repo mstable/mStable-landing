@@ -124,13 +124,13 @@ export default () => {
                   Our first asset is mUSD.
                 </p>
                 <p>
-                  <span style="font-weight: 700">MINT</span> mUSD assets with your stablecoin, at a 1:1 ratio.
+                  <span style={{ fontWeight: 700 }}>MINT</span> mUSD assets with your stablecoin, at a 1:1 ratio.
                 </p>
                 <p>
-                  <span style="font-weight: 700">SAVE</span> mUSD in the mStable savings contract.
+                  <span style={{ fontWeight: 700 }}>SAVE</span> mUSD in the mStable savings contract.
                 </p>
                 <p>
-                  <span style="font-weight: 700">SWAP</span> USD stablecoins at zero slippage
+                  <span style={{ fontWeight: 700 }}>SWAP</span> USD stablecoins at zero slippage
                 </p>
                 <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
                   <span>learn more</span>
@@ -141,8 +141,8 @@ export default () => {
                 <h2>Meta</h2>
                 <p>Meta is the mStable protocol token that:</p>
                 <ul>
-                  <li><span style="font-weight: 700">Earns</span> mStable assets for <span style="font-weight: 700">insuring</span> mStable</li>
-                  <li><span style="font-weight: 700">Rewards</span> early users</li>
+                  <li><span style={{ fontWeight: 700 }}>Earns</span> mStable assets for <span style={{ fontWeight: 700 }}>insuring</span> mStable</li>
+                  <li><span style={{ fontWeight: 700 }}>Rewards</span> early users</li>
                 </ul>
                 <br />
                 <a href="https://docs.mstable.org/mstable-assets/functions">
