@@ -87,7 +87,7 @@ export default () => {
         <section id="intro">
           <div className="wrap">
             <div className="left">
-              <h1>We make digital money safe, stable and accessible</h1>
+              <h1>mStable <span class="yellow-font">makes</span> stablecoins <span class="yellow-font">easy, robust &amp; profitable</span>.</h1>
               <a
                 href="https://docs.mstable.org"
                 target="_blank"
@@ -99,19 +99,10 @@ export default () => {
 
             <div className="right">
               <p>
-                From debt markets to derivatives, finance is being rebuilt, repackaged, and shipped on Ethereum. This is decentralised finance (DeFi): open, transparent and built entirely with software.
+                mStable <span class="yellow-font">unifies</span> stablecoins, lending and swapping into <span class="yellow-font">one standard</span>.
               </p>
               <p>
-                Each DeFi application relies on assets that are compatible with smart contracts.
-              </p>
-              <p>
-                But today, tokenised assets are highly fragmented and display dangerously concentrated counter-party risk.
-              </p>
-              <p>
-                mStable is built to unite the tokenised asset economy into one standard that is more secure and usable than the sum of its parts.
-              </p>
-              <p>
-                DeFi needs sustainable and secure assets. Help us build them.
+                By reducing complexity and fragmentation, mStable is a <span class="yellow-font">step-change</span> in the usability of stablecoins.
               </p>
             </div>
           </div>
@@ -127,19 +118,19 @@ export default () => {
               <div id="stage-1">
                 <h2>mStable assets</h2>
                 <p>
-                  mStable assets are each backed 1:1 by a basket of existing
-                  tokens of the same asset type.
+                  mStable assets are liquidity shares that also function as stablecoins in their own right.
                 </p>
                 <p>
-                  mStable unites existing tokenised assets into one optimised
-                  token per-peg.
+                  Our first asset is mUSD.
                 </p>
                 <p>
-                  Our first assets include a fiat currency (mUSD), a commodity
-                  (mGLD), and Bitcoin.
+                  <span style="font-weight: 700">MINT</span> mUSD assets with your stablecoin, at a 1:1 ratio.
                 </p>
                 <p>
-                  mUSD will be launched with a native interest rate from day one.
+                  <span style="font-weight: 700">SAVE</span> mUSD in the mStable savings contract.
+                </p>
+                <p>
+                  <span style="font-weight: 700">SWAP</span> USD stablecoins at zero slippage
                 </p>
                 <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
                   <span>learn more</span>
@@ -148,11 +139,10 @@ export default () => {
 
               <div id="stage-2">
                 <h2>Meta</h2>
-                <p>Meta is the mStable system token that:</p>
+                <p>Meta is the mStable protocol token that:</p>
                 <ul>
-                  <li>Pays redemption fees across mStable assets</li>
-                  <li>Coordinates decentralised governance</li>
-                  <li>Incentivises mStable asset growth</li>
+                  <li><span style="font-weight: 700">Earns</span> mStable assets for <span style="font-weight: 700">insuring</span> mStable</li>
+                  <li><span style="font-weight: 700">Rewards</span> early users</li>
                 </ul>
                 <br />
                 <a href="https://docs.mstable.org/mstable-assets/functions">
@@ -166,7 +156,7 @@ export default () => {
                   mStable is a product that can be integrated into applications
                   or exchanges as an SDK.
                 </p>
-                <p>mStable unites tokenised assets for end users.</p>
+                <p>mStable unites stablecoins for end users.</p>
                 <a href="https://docs.mstable.org/mstable-assets/interfacing-with-mstable/sdk" title="mStable SDK">
                   <span>learn more</span>
                 </a>
@@ -187,13 +177,8 @@ export default () => {
 
               <div className="right">
                 <p>
-                  20% of Meta (MTA) will be paid out as part of this open reward pool.
+                  Earn mStable's protocol token, Meta, when you contribute to mStable's growth.
                 </p>
-                <p>
-                  Receive Meta for minting mStable assets. Minting is simply
-                  swapping tokens of equal value.
-                </p>
-                <p>Receive additional Meta for contributing to DeFi.</p>
                 <a href="https://docs.mstable.org/meta-rewards-1/introduction" title="DeFi ecosystem rewards">
                   <span>learn more</span>
                 </a>

@@ -52,9 +52,9 @@ export default ({ stage }) => (
           $
         </Coin>
       </g>
-      <g className="coin quid">
+      <g className="coin bit">
         <Coin x="68" y="155">
-          £
+          ₿
         </Coin>
       </g>
       <g className="coin euro">
