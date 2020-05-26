@@ -1,9 +1,10 @@
 {
-  "name": "mstable",
+  "name": "mstable-landing",
+  "version": "1.0.0",
   "private": true,
   "description": "mStable Landing Page",
-  "version": "0.1.0",
-  "author": "Gregory Bober <g.bober@gmail.com>",
+  "author": "Stability Labs Pty. Ltd. <hello@stabilitylabs.co>",
+  "license": "LGPL-3.0-or-later",
   "dependencies": {
     "gatsby": "^2.19.7",
     "gatsby-plugin-favicon": "^3.1.6",
@@ -22,7 +23,6 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -34,9 +34,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "git+https://github.com/mstable/mstable-landing.git"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/mstable/mstable-landing/issues"
   }
 }
