@@ -27,6 +27,14 @@ section a
 		margin-right .25em
 		content "➔"
 
+	&#app-link
+		padding 2px 8px
+		margin-left 10px
+		border 1px $black solid
+		border-radius 2px
+		&:before
+			display none !important
+
 
 h1, h2, h3, h4, p
 	margin-bottom 2rem
@@ -78,6 +86,7 @@ nav
 		height 40px
 	ul
 		display flex
+		align-items center
 		li
 			margin-left 1.5em
 

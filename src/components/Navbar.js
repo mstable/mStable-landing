@@ -16,6 +16,9 @@ export default () => (
       <li>
         <a href="#more">More</a>
       </li>
+      <li>
+        <a id="app-button" href="https://app.mstable.org">Go to App</a>
+      </li>
     </ul>
   </nav>
 );
