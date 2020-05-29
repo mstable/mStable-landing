@@ -87,7 +87,7 @@ export default () => {
         <section id="intro">
           <div className="wrap">
             <div className="left">
-              <h1>mStable <span className="yellow-font">makes</span> stablecoins <span className="yellow-font">easy, robust &amp; profitable</span>.</h1>
+              <h1>mStable makes stablecoins <span className="yellow-font">easy, robust &amp; profitable</span>.</h1>
               <a
                 href="https://docs.mstable.org"
                 target="_blank"
@@ -132,9 +132,14 @@ export default () => {
                 <p>
                   <span style={{ fontWeight: 700 }}>SWAP</span> USD stablecoins at zero slippage
                 </p>
-                <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
-                  <span>learn more</span>
-                </a>
+                <p>
+                  <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
+                    <span>learn more</span>
+                  </a> or
+                  <a id="app-link" href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
+                    <span>Go to App</span>
+                  </a>
+                </p>
               </div>
 
               <div id="stage-2">
