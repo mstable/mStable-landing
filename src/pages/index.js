@@ -87,7 +87,7 @@ export default () => {
         <section id="intro">
           <div className="wrap">
             <div className="left">
-              <h1>mStable makes stablecoins <span className="yellow-font">easy, robust &amp; profitable</span>.</h1>
+              <h1>mStable makes stablecoins <span className="yellow-font">easy, robust &amp; profitable.</span></h1>
               <a
                 href="https://docs.mstable.org"
                 target="_blank"
@@ -98,8 +98,8 @@ export default () => {
             </div>
 
             <div className="right">
-              <p>
-                mStable <span className="yellow-font">unifies</span> stablecoins, lending and swapping into <span className="yellow-font">one standard</span>.
+              <p className="bold">
+                mStable unifies stablecoins, lending and swapping into one standard.
               </p>
               <p>
                 By reducing complexity and fragmentation, mStable is a <span className="yellow-font">step-change</span> in the usability of stablecoins.
@@ -136,7 +136,7 @@ export default () => {
                   <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
                     <span>learn more</span>
                   </a> or
-                  <a id="app-link" href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
+                  <a id="app-link" href="https://app.mstable.org" title="mStable App">
                     <span>Go to App</span>
                   </a>
                 </p>
