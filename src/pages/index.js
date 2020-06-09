@@ -136,7 +136,7 @@ export default () => {
                   <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
                     <span>learn more</span>
                   </a> or
-                  <a id="app-link" href="https://app.mstable.org" title="mStable assets">
+                  <a id="app-link" href="https://app.mstable.org" title="mStable App">
                     <span>Go to App</span>
                   </a>
                 </p>
