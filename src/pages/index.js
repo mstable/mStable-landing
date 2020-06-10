@@ -98,7 +98,7 @@ export default () => {
             </div>
 
             <div className="right">
-              <p className="bold">
+              <p>
                 mStable unifies stablecoins, lending and swapping into one standard.
               </p>
               <p>
