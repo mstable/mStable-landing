@@ -93,6 +93,8 @@ nav
 		li
 			margin-left 1.5em
 
+.header-wrapper
+	overflow-x hidden
 
 #intro
 	padding 34vh 0 24vh 0
@@ -175,6 +177,32 @@ footer
 	a
 		color $white
 
+#partners
+	padding 2vh 0 10vh 0
+	background #ffffff
+	.wrap
+		> div
+			width 100%
+	h3
+		font-size $fontL
+	.logos
+		width 100%
+		display flex
+		justify-content space-around
+		align-items center
+		padding 2vh 0
+		li
+			margin 10px
+		a
+			display flex
+			justify-content space-between
+			text-align center
+			flex-direction column
+			&:before
+				display none
+		img
+			width 100%
+			height auto
 
 #more
 	padding 20vh 0

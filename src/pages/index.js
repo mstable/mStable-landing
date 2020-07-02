@@ -8,6 +8,10 @@ import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Animation from "../components/Animation";
 import Signup from "../components/Signup";
+import DefiPulse from "../images/defi-pulse.svg"
+import OneInch from "../images/1inch.svg"
+import Uniswap from "../images/uniswap.svg"
+import Balancer from "../images/balancer.svg"
 
 const pauseAnimationEvent = e => {
   e.target.style.animationPlayState = "paused";
@@ -82,7 +86,9 @@ export default () => {
       <Navbar />
 
       <main>
-        <Header />
+        <div className="header-wrapper">
+          <Header />
+        </div>
 
         <section id="intro">
           <div className="wrap">
@@ -188,6 +194,49 @@ export default () => {
                   <span>learn more</span>
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="partners">
+          <div className="wrap">
+            <div>
+              <h3 className="large">Integrated with</h3>
+              <ul className="logos">
+                <li>
+                  <a href="https://pools.balancer.exchange/#/pool/0x72Cd8f4504941Bf8c5a21d1Fd83A96499FD71d2C" rel="noopener noreferrer" target="_blank">
+                    <div>
+                      <img src={Balancer} alt="Balancer" />
+                    </div>
+                    <div>Balancer</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://1inch.exchange/#/USDC/USDT" rel="noopener noreferrer" target="_blank">
+                    <div>
+                      <img src={OneInch} alt="1inch" />
+                    </div>
+                    <div>1inch</div>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://app.uniswap.org" rel="noopener noreferrer" target="_blank">
+                    <div>
+                      <img src={Uniswap} alt="Uniswap" />
+                    </div>
+                    <div>Uniswap</div>
+                  </a>
+                </li>
+              </ul>
+              <ul className="logos">
+                <li>
+                  <a href="https://defipulse.com/" rel="noopener noreferrer" target="_blank">
+                    <div>
+                      <img src={DefiPulse} alt="DeFi Pulse" />
+                    </div>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
