@@ -6,7 +6,7 @@
   "author": "Stability Labs Pty. Ltd. <hello@stabilitylabs.co>",
   "license": "LGPL-3.0-or-later",
   "dependencies": {
-    "gatsby": "^2.23.15",
+    "gatsby": "^2.23.18",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-analytics": "^2.1.35",
     "gatsby-plugin-react-helmet": "^3.1.21",
