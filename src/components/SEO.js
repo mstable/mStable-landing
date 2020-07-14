@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 export default () => {
   const title = "mStable";
   const description =
-    "mStable makes stablecoins easy, robust & profitable. mStable unifies stablecoins, lending and swapping into one standard.";
+    "mStable unites stablecoins, lending and swapping into one standard.";
   const url = "https://mstable.org";
 
   return (
