@@ -4,7 +4,7 @@ export default () => (
   <footer>
     <div className="wrap">
       <p>
-        Stability Labs GmbH
+        Stability Labs Pty Ltd
       </p>
 
       <p>
