@@ -133,7 +133,10 @@ export default () => {
                   <span style={{ fontWeight: 700 }}>SAVE</span> mUSD in the mStable savings contract
                 </p>
                 <p>
-                  <span style={{ fontWeight: 700 }}>SWAP</span> USD stablecoins at zero slippage
+                  <span style={{ fontWeight: 700 }}>SAVE</span> mUSD in the mStable savings contract
+                </p>
+                <p>
+                  <span style={{ fontWeight: 700 }}>EARN</span> DeFi ecosystem rewards with mStable
                 </p>
                 <p>
                   <a href="https://docs.mstable.org/mstable-assets/massets" title="mStable assets">
