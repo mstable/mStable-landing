@@ -3,19 +3,7 @@ import React from "react";
 export default () => (
   <footer>
     <div className="wrap">
-      <p>
-        Stability Labs Pty Ltd
-      </p>
-
-      <p>
-        Powered by Ethereum
-      </p>
-
-      <p className="address">
-        Full Node Skalitzer Str. 85
-        <br />
-        Berlin, Germany
-      </p>
+      <p>Powered by Ethereum</p>
 
       <div id="social">
         <a
