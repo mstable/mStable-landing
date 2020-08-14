@@ -3,9 +3,7 @@ import React from "react";
 export default () => (
   <footer>
     <div className="wrap">
-      <p>
-        Powered by Ethereum
-      </p>
+      <p>Powered by Ethereum</p>
 
       <div id="social">
         <a
