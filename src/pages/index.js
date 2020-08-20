@@ -138,8 +138,7 @@ export default () => {
                   mStable savings contract
                 </p>
                 <p>
-                  <span style={{ fontWeight: 700 }}>SAVE</span> mUSD in the
-                  mStable savings contract
+                  <span style={{ fontWeight: 700 }}>SWAP</span> USD stablecoins at zero slippage
                 </p>
                 <p>
                   <span style={{ fontWeight: 700 }}>EARN</span> DeFi ecosystem
