@@ -174,10 +174,17 @@ export default () => {
                   <li>
                     <span style={{ fontWeight: 700 }}>Rewards</span> early users
                   </li>
+                  <li>
+                    <span style={{ fontWeight: 700 }}>Governs</span> the mStable protocol
+                  </li>
                 </ul>
                 <br />
                 <a href="https://docs.mstable.org/mstable-assets/functions">
                   <span>learn more</span>
+                </a>
+                <span style={{marginLeft: 10, marginRight: 10}}>or</span>
+                <a href="https://governance.mstable.org">
+                  <span>go to governance</span>
                 </a>
               </div>
 
