@@ -17,6 +17,11 @@ export default () => (
         <a href="#more">More</a>
       </li>
       <li>
+        <a id="app-button" href="https://governance.mstable.org">
+          System Governance
+        </a>
+      </li>
+      <li>
         <a id="app-button" href="https://app.mstable.org">
           Go to App
         </a>
