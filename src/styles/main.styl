@@ -90,6 +90,7 @@ nav
 	ul
 		display flex
 		align-items center
+		flex-flow: wrap;
 		li
 			margin-left 1.5em
 
@@ -244,6 +245,10 @@ footer
 @media (max-width: 550px)
 	nav
 		position static
+	ul
+		justify-content: center;
+		flex: 3; 
+
 	#header
 		margin-top 150px
 		max-height 400px
