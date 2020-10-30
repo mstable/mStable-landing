@@ -6,19 +6,49 @@
   "author": "Stability Labs Pty. Ltd. <hello@stabilitylabs.co>",
   "license": "LGPL-3.0-or-later",
   "dependencies": {
-    "gatsby": "^2.23.18",
+    "@types/numeral": "^0.0.28",
+    "@types/react-countup": "^4.3.0",
+    "@types/react-helmet": "^6.1.0",
+    "@types/recharts": "^1.8.16",
+    "@types/styled-components": "^5.1.4",
+    "date-fns": "^2.16.1",
+    "flex-gap-polyfill": "^1.0.4",
+    "gatsby": "^2.24.85",
     "gatsby-plugin-favicon": "^3.1.6",
-    "gatsby-plugin-google-analytics": "^2.1.35",
-    "gatsby-plugin-react-helmet": "^3.1.21",
-    "gatsby-plugin-stylus": "^2.1.20",
-    "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-plugin-google-analytics": "^2.3.19",
+    "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-styled-components": "^3.3.14",
+    "gatsby-plugin-stylus": "^2.3.13",
+    "gatsby-source-filesystem": "^2.3.35",
+    "numeral": "^2.0.6",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react": "^16.14.0",
+    "react-countup": "^4.3.3",
+    "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0",
+    "react-hook-inview": "^4.3.3",
+    "react-loading-skeleton": "^2.1.1",
+    "react-scripts": "^3.4.4",
+    "react-use": "^15.3.4",
+    "recharts": "^1.8.5",
+    "resize-observer-polyfill": "^1.5.1",
+    "styled-components": "^5.2.0",
+    "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c"
   },
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ],
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "babel-core": "^6.26.3",
+    "babel-plugin-styled-components-postcss": "^1.0.5-alpha.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-gatsby": "^0.5.14",
+    "babel-preset-react": "^6.24.1",
+    "postcss": "^6.0.23",
+    "prettier": "^2.1.2"
   },
   "keywords": [
     "gatsby"
@@ -26,7 +56,7 @@
   "scripts": {
     "build": "yarn gatsby build",
     "develop": "yarn gatsby develop",
-    "format": "yarn prettier --write \"**/*.{js,jsx,json,md}\"",
+    "lint": "yarn prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "start": "yarn develop",
     "serve": "yarn gatsby serve",
     "clean": "yarn gatsby clean",
