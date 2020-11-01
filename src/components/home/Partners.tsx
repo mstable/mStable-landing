@@ -1,20 +1,21 @@
-import styled from 'styled-components'
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
-import Aave from '../../images/aave.svg'
-import Argent from '../../images/argent.svg'
-import Balancer from '../../images/balancer-small.svg'
-import Compound from '../../images/compound.svg'
-import Curve from '../../images/curve.svg'
-import Matcha from '../../images/matcha.png'
-import OneInch from '../../images/1inch-small.svg'
-import Sablier from '../../images/sablier.svg'
-import Uniswap from '../../images/uniswap-small.svg'
-import IntegrationsBackground from '../../images/integrations-background.svg'
-import { Section } from '../layout/Section'
-import { FullBleed } from '../layout/FullBleed'
-import { Colors } from '../../theme'
-import { ExternalLink } from '../ExternalLink'
+import styled from 'styled-components';
+
+import OneInch from '../../images/1inch-small.svg';
+import Aave from '../../images/aave.svg';
+import Argent from '../../images/argent.svg';
+import Balancer from '../../images/balancer-small.svg';
+import Compound from '../../images/compound.svg';
+import Curve from '../../images/curve.svg';
+import IntegrationsBackground from '../../images/integrations-background.svg';
+import Matcha from '../../images/matcha.png';
+import Sablier from '../../images/sablier.svg';
+import Uniswap from '../../images/uniswap-small.svg';
+import { Colors } from '../../theme';
+import { ExternalLink } from '../ExternalLink';
+import { FullBleed } from '../layout/FullBleed';
+import { Section } from '../layout/Section';
 
 interface PartnerProps {
   title: string
@@ -51,7 +52,7 @@ const Header = styled.div`
   }
 `
 
-const PartnerLink = styled(ExternalLink)<{ colour: string }>`
+const PartnerLink = styled(ExternalLink) <{ colour: string }>`
   background: black;
   border-radius: 6px;
   padding: 8px 16px;
@@ -96,7 +97,7 @@ const PartnersGrid = styled.div`
     margin-bottom: 0;
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 480px) {
     grid-template-columns: 1fr 1fr;
   }
 
