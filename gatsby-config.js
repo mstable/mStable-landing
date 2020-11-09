@@ -45,9 +45,7 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
-          default: require.resolve(
-            `${__dirname}/src/templates/post-template.js`,
-          ),
+          default: require.resolve(`${__dirname}/src/templates/Template.tsx`),
         },
       },
     },
