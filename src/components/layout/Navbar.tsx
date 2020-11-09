@@ -6,6 +6,7 @@ import M from '../../images/mstable-m.svg'
 import Ether from '../../images/ether-logo.svg'
 import { ExternalLink } from '../ExternalLink'
 import { useLogoVisibility } from './Page'
+import { Constants } from '../../theme'
 
 const AppLink = styled(ExternalLink)`
   display: flex;
@@ -29,7 +30,7 @@ const FixedContainer = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  height: 48px;
+  height: ${Constants.navHeight};
   background: black;
   z-index: 1;
 

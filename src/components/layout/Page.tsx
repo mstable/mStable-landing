@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import styled from 'styled-components'
 import createStateContext from 'react-use/lib/createStateContext'
 
@@ -14,6 +14,7 @@ interface Props {
 const Container = styled.div`
   display: grid;
   overflow-x: hidden;
+  height: 100%;
 
   grid-template-columns:
     1fr
@@ -27,19 +28,21 @@ const Container = styled.div`
 
 const [useLogoVisibility, LogoVisibilityProvider] = createStateContext(false)
 
-export const Page: FC<Props> = ({ title, subtitle, children }) => (
-  <LogoVisibilityProvider>
-    <Container>
-      <NavBar />
-      {title && (
-        <header>
-          <Section title={title} subtitle={subtitle} />
-        </header>
-      )}
-      {children}
-      <Footer />
-    </Container>
-  </LogoVisibilityProvider>
-)
+export const Page: FC<Props> = ({ title, subtitle, children }) => {
+  return (
+    <LogoVisibilityProvider>
+      <Container>
+        <NavBar />
+        {!!title && (
+          <header>
+            <Section title={title} subtitle={subtitle} />
+          </header>
+        )}
+        {children}
+        <Footer />
+      </Container>
+    </LogoVisibilityProvider>
+  )
+}
 
 export { useLogoVisibility }
