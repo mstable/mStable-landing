@@ -31,23 +31,21 @@ const Frontmatter = styled.div`
   }
 `
 
-export default ({ children, pageContext }) => {
-  const { frontmatter: data } = pageContext
-
-  return (
-    <Page>
-      <Container>
-        <Frontmatter>
-          <h1>{data.title}</h1>
+export default ({ children, pageContext: { frontmatter } }) => (
+  <Page>
+    <Container>
+      <Frontmatter>
+        <h1>{frontmatter?.title}</h1>
+        {!!frontmatter?.author && (
           <h4>
-            posted by <span>{data.author}</span> on {data.date}
+            posted by <span>{frontmatter?.author}</span> on {frontmatter?.date}
           </h4>
-        </Frontmatter>
-        {children}
-      </Container>
-    </Page>
-  )
-}
+        )}
+      </Frontmatter>
+      {children}
+    </Container>
+  </Page>
+)
 
 export const pageQuery = graphql`
   query {
