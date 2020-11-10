@@ -1,8 +1,9 @@
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components'
-import { Page, useLogoVisibility } from '../components/layout/Page'
+import { Wrapper, useLogoVisibility } from '../components/layout/Wrapper'
 import { Constants } from '../theme'
 import { PageProps } from 'gatsby'
+import { metadata as md } from '../strings'
 
 type PostProps = PageProps & {
   pageContext: {
@@ -49,8 +50,13 @@ const ToggleLogo: FC = () => {
 const Template: FC<PostProps> = ({ children, pageContext }) => {
   const { frontmatter } = pageContext
 
+  const metadata = {
+    title: frontmatter?.title,
+    description: frontmatter?.description,
+  }
+
   return (
-    <Page>
+    <Wrapper {...metadata}>
       <Container>
         <Frontmatter>
           <ToggleLogo />
@@ -64,7 +70,7 @@ const Template: FC<PostProps> = ({ children, pageContext }) => {
         </Frontmatter>
         {children}
       </Container>
-    </Page>
+    </Wrapper>
   )
 }
 

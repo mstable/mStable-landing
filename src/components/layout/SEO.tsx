@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
 import Helmet from 'react-helmet'
 
-export const SEO: FC = () => {
-  const title =
-    'mStable – Autonomous and non-custodial stablecoin infrastructure'
-  const description =
-    'mStable unites stablecoins, lending and swapping into one standard.'
+export interface Props {
+  title: string
+  description: string
+}
+
+export const SEO: FC<Props> = ({ title, description }) => {
   const url = 'https://mstable.org'
 
   return (
