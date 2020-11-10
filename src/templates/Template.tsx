@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Wrapper, useLogoVisibility } from '../components/layout/Wrapper'
 import { Constants } from '../theme'
 import { PageProps } from 'gatsby'
-import { metadata as md } from '../strings'
 
 type PostProps = PageProps & {
   pageContext: {
@@ -22,9 +21,13 @@ const Container = styled.div`
   color: black;
 `
 
+const Content = styled.div`
+  width: 65ch;
+`
+
 const Frontmatter = styled.div`
   margin-bottom: 32px;
-  max-width: 65ch;
+  width: 65ch;
 
   h1 {
     font-size: 48px;
@@ -68,7 +71,7 @@ const Template: FC<PostProps> = ({ children, pageContext }) => {
             </h4>
           )}
         </Frontmatter>
-        {children}
+        <Content>{children}</Content>
       </Container>
     </Wrapper>
   )

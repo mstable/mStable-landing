@@ -17,7 +17,7 @@ interface Props {
 const Container = styled.div`
   display: grid;
   overflow-x: hidden;
-  height: 100%;
+  min-height: 100vh;
 
   grid-template-columns:
     1fr
