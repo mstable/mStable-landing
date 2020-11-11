@@ -67,7 +67,7 @@ export const Governance: FC = () => {
           </Links>
         </GetInformed>
         <Jobs>
-          <h3>We're hiring</h3>
+          <h3>We’re hiring</h3>
           <CTA
             arrow
             href="https://cryptocurrencyjobs.co/engineering/mstable-protocol-developer-defi/"
