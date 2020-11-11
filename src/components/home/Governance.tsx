@@ -5,7 +5,6 @@ import { Section } from '../layout/Section'
 import { AppCTA, CTA } from '../CTA'
 import { MainAndAside } from '../layout/Grid'
 import { FullBleed } from '../layout/FullBleed'
-import { Colors } from '../../theme'
 
 const Links = styled.div`
   display: flex;
@@ -13,10 +12,6 @@ const Links = styled.div`
 
   > * {
     margin-right: 16px;
-  }
-
-  a:hover {
-    color: ${Colors.gold};
   }
 `
 
