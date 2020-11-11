@@ -1,7 +1,23 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  input {
+    appearance: none;
+    outline: none;
+    user-select: none;
+    background: rgb(255, 255, 255);
+    color: rgb(37, 39, 45);
+    cursor: pointer;
+    padding: 8px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    margin-left: 8px;
+  }
+`
 
 const Signup = () => (
-  <div id="mc_embed_signup" className="email-subscription">
+  <Wrapper id="mc_embed_signup" className="email-subscription">
     <form
       action="https://mstable.us20.list-manage.com/subscribe/post?u=2e21fb84ad1d1a9efaed19688&amp;id=e2c186e2c7"
       method="post"
@@ -68,7 +84,7 @@ const Signup = () => (
         </div>
       </div>
     </form>
-  </div>
+  </Wrapper>
 )
 
 export default Signup
