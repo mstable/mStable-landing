@@ -9,7 +9,8 @@ import { MainAndAside } from '../layout/Grid'
 import { useLogoVisibility } from '../layout/Page'
 import { FullBleed } from '../layout/FullBleed'
 import { BigStats } from './BigStats'
-import { AppCTA } from '../CTA'
+import { AppCTA, CTA } from '../CTA'
+import { Colors } from '../../theme'
 
 const LogoImg = styled.img`
   width: 100%;
@@ -27,7 +28,7 @@ const Logo: FC = () => {
 
 const MissionText = styled.h1`
   margin-top: -5px;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
   font-size: 24px;
   font-weight: normal;
 
@@ -50,6 +51,20 @@ const StyledFullBleed = styled(FullBleed)`
   padding-bottom: 200px;
 `
 
+const HireText = styled.h3`
+  margin-top: 32px;
+
+  a {
+    color: ${Colors.lightBlue};
+    text-shadow: rgba(0, 153, 255, 0.5) 0 0 8px;
+  }
+
+  a:hover {
+    color: ${Colors.gold};
+    text-shadow: rgba(124, 95, 0, 0.4) 0 1px 1px;
+  }
+`
+
 export const Intro: FC = () => {
   const { y } = useWindowScroll()
   const [ref, { height, top }] = useMeasure()
@@ -66,6 +81,11 @@ export const Intro: FC = () => {
         <MainAndAside>
           <MissionText>
             Autonomous and non-custodial stablecoin infrastructure.
+            <HireText>
+              <a href="https://cryptocurrencyjobs.co/engineering/mstable-protocol-developer-defi/">
+                We’re hiring ➔
+              </a>
+            </HireText>
           </MissionText>
           <div>
             <AppCTA href="https://app.mstable.org">Use the app</AppCTA>

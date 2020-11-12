@@ -44,7 +44,7 @@ export const Security: FC = () => {
       <Section title="Secure, non-custodial contracts">
         <TwoColumns>
           <Header>
-            <p>Smart contract security is mStable's first priority.</p>
+            <p>Smart contract security is mStable’s first priority.</p>
             <p>
               The mStable protocol was fully audited by Consensys Diligence and
               no critical bugs were found.

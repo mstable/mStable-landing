@@ -113,7 +113,7 @@ const partnersList: PartnerProps[] = [
     subtitle: 'Native interest rate',
     colour: '#ab3994',
     description:
-      'The mStable protocol programmatically lends deposits via Aave\'s lending markets',
+      'The mStable protocol programmatically lends deposits via Aave’s lending markets',
     href: 'https://aave.com/',
     image: Aave,
   },
@@ -139,7 +139,7 @@ const partnersList: PartnerProps[] = [
     subtitle: 'Native interest rate',
     colour: '#00d395',
     description:
-      'The mStable protocol programmatically lends deposits via Compound\'s lending markets',
+      'The mStable protocol programmatically lends deposits via Compound’s lending markets',
     href: 'https://compound.finance/',
     image: Compound,
   },

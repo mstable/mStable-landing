@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
-import CountUp from 'react-countup';
-import 'use-slider/lib/slider.min.css';
+import React, { FC } from 'react'
+import CountUp from 'react-countup'
+import 'use-slider/lib/slider.min.css'
 
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { Slider } from '../Slider';
-import { useData } from './DataProvider';
+import { Slider } from '../Slider'
+import { useData } from './DataProvider'
+import { Colors } from '../../theme'
 
 const StyledCountUp = styled(CountUp)`
   font-family: 'DM Mono', monospace;
@@ -21,7 +22,7 @@ const BigStat = styled.div`
 `
 
 const Blue = styled.span`
-  color: rgb(20, 160, 255);
+  color: ${Colors.lightBlue};
   text-shadow: rgba(0, 153, 255, 0.5) 0 0 8px;
 `
 
