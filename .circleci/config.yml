@@ -4,16 +4,17 @@ executors:
   gcp:
     docker:
       - image: alsco77/node-gcp-dockerfile:origin
-
+    resource_class: large
 jobs:
   build:
     executor: gcp
     steps:
       - checkout
       - run:
-          name: "Install and build"
+          name: 'Install and build'
           command: |
             yarn
+            yarn clean
             yarn build
       - persist_to_workspace:
           root: ~/
@@ -26,7 +27,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: "Deploy"
+          name: 'Deploy'
           command: |
             echo "Deploy to staging target GAE instance with project ID $S_GCP_PROJECT_ID"
             echo $S_GCP_KEY > /tmp/$CI_PIPELINE_ID.json
@@ -39,7 +40,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: "Deploy"
+          name: 'Deploy'
           command: |
             echo "Deploy to prod target GAE instance with project ID $P_GCP_PROJECT_ID"
             echo $P_GCP_KEY > /tmp/$CI_PIPELINE_ID.json

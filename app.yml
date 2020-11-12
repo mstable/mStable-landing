@@ -9,9 +9,15 @@ handlers:
     upload: public/(.*)
     http_headers:
       X-Frame-Options: deny
-  - url: /(.*)
+  - url: /
     static_files: public/index.html
     secure: always
     upload: public/index.html
+    http_headers:
+      X-Frame-Options: deny
+  - url: /(.*)/$
+    static_files: public/(.*)/index.html
+    secure: always
+    upload: public/(.*)/index.html
     http_headers:
       X-Frame-Options: deny

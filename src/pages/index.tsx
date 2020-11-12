@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { Page } from '../components/layout/Page'
+import { Wrapper } from '../components/layout/Wrapper'
 import { About } from '../components/home/About'
 import { Partners } from '../components/home/Partners'
 import { Intro } from '../components/home/Intro'
@@ -11,7 +11,7 @@ import { DataProvider } from '../components/home/DataProvider'
 
 const Home: FC = () => {
   return (
-    <Page>
+    <Wrapper>
       <DataProvider>
         <Intro />
         <About />
@@ -20,7 +20,7 @@ const Home: FC = () => {
         <Partners />
         <Governance />
       </DataProvider>
-    </Page>
+    </Wrapper>
   )
 }
 

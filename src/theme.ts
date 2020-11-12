@@ -11,3 +11,7 @@ export enum Colors {
   blackTransparent = 'rgba(0,0,0,0.2)',
   whiteTransparent = 'rgba(255,255,255,0.5)',
 }
+
+export enum Constants {
+  navHeight = '48px',
+}
