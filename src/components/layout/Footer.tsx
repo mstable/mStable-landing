@@ -10,6 +10,7 @@ import Telegram from '../../images/telegram.svg'
 import { ExternalLink } from '../ExternalLink'
 import { Grid } from './Grid'
 import { FullBleed } from './FullBleed'
+import Signup from '../Signup'
 
 const Header = styled.h4`
   margin: 8px 0;
@@ -32,6 +33,8 @@ const EasterEgg = styled.div`
 `
 
 const Social = styled.div`
+  margin: 4px 0 8px 0;
+
   ${Links} {
     display: flex;
     gap: 16px;
@@ -130,6 +133,7 @@ export const Footer: FC = () => {
                 <img src={Telegram} alt="Telegram" />
               </ExternalLink>
             </Links>
+            <Signup />
           </Social>
         </Top>
         <Bottom>
