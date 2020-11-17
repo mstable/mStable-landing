@@ -84,8 +84,7 @@ const MetricsGrid = styled.div`
   margin-bottom: 32px;
 
   @media (min-width: 520px) {
-    //grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 `
 
@@ -117,12 +116,15 @@ export const Growth: FC = () => {
             <Skeleton height={100} />
           ) : (
             <MetricsGrid>
-              <Metric value={value.totalGenerated} label="Generated" />
+              <Metric value={value.cumulativeMinted} label="Generated" />
               <Metric value={value.cumulativeSwapped} label="Swapped" />
               <Metric value={value.totalSupply} label="Supply" />
               <Metric value={value.totalSavings} label="Saved" />
-              {/*<Metric value={581212} label="Interest" />*/}
-              {/*<Metric value={4963} label="Holders" />*/}
+              {/*<Metric*/}
+              {/*  value={value.cumulativeWithdrawn - value.cumulativeDeposited}*/}
+              {/*  label="Interest"*/}
+              {/*/>*/}
+              {/*<Metric value={value.totalTransfers} label="Transfers" />*/}
             </MetricsGrid>
           )}
           <TwoColumns>

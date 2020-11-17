@@ -7,12 +7,19 @@ interface Data {
   timestamp: number
   totalSupply: number
   totalSavings: number
-  totalGenerated: number
+  cumulativeMinted: number
   cumulativeSwapped: number
-  cumulativeInterest: number // includes lending and fees
+  cumulativeFeesPaid: number
+  cumulativeDeposited: number
+  cumulativeWithdrawn: number
   totalHolders: number
   totalStaked: number
   totalStakers: number
+  totalTransfers: number
+  totalMints: number
+  totalSwaps: number
+  dailyAPY: number
+  utilisationRate: number
 }
 
 const URL = `${STATS_API_ENDPOINT}/key-metrics`

@@ -40,43 +40,49 @@ export const BigStats: FC = () => {
   return loading || !value?.totalSupply ? (
     <Empty />
   ) : (
-      <StyledSlider>
-        <BigStat>
-          mStable users have minted a total of{' '}
-          <Blue>
-            <StyledCountUp separator="," end={value.totalGenerated} /> mUSD
-          </Blue>
-        </BigStat>
-        <BigStat>
-          The mStable protocol has swapped{' '}
-          <Blue>
-            {'$'}
-            <StyledCountUp separator="," end={value.cumulativeSwapped} />
-          </Blue>
-          {' '}worth of stablecoins
-        </BigStat>
-        {/*<BigStat>*/}
-        {/*  The mStable protocol has paid savers{' '}*/}
-        {/*  <Blue>*/}
-        {/*    <StyledCountUp prefix="$" separator="," end={4028182} /> interest*/}
-        {/*  </Blue>*/}
-        {/*</BigStat>*/}
-        <BigStat>
-          The mStable protocol has{' '}
-          <Blue>
-            <StyledCountUp separator="," end={value.totalSupply} /> mUSD
-          </Blue>{' '}in circulation
+    <StyledSlider>
+      <BigStat>
+        mStable users have minted a total of{' '}
+        <Blue>
+          <StyledCountUp separator="," end={value.cumulativeMinted} /> mUSD
+        </Blue>
       </BigStat>
-        <BigStat>
-          mStable has{' '}<Blue>
-            <StyledCountUp separator="," end={498} />{' '}governors
+      <BigStat>
+        The mStable protocol has swapped{' '}
+        <Blue>
+          {'$'}
+          <StyledCountUp separator="," end={value.cumulativeSwapped} />
+        </Blue>{' '}
+        worth of stablecoins
+      </BigStat>
+      {/*<BigStat>*/}
+      {/*  The mStable protocol has paid savers{' '}*/}
+      {/*  <Blue>*/}
+      {/*    <StyledCountUp*/}
+      {/*      prefix="$"*/}
+      {/*      separator=","*/}
+      {/*      end={value.cumulativeWithdrawn - value.cumulativeDeposited}*/}
+      {/*    />{' '}*/}
+      {/*    interest*/}
+      {/*  </Blue>*/}
+      {/*</BigStat>*/}
+      <BigStat>
+        The mStable protocol has{' '}
+        <Blue>
+          <StyledCountUp separator="," end={value.totalSupply} /> mUSD
+        </Blue>{' '}
+        in circulation
+      </BigStat>
+      <BigStat>
+        mStable has{' '}
+        <Blue>
+          <StyledCountUp separator="," end={value.totalStakers} /> governors
         </Blue>{' '}
         staking a total of{' '}
-          <Blue>
-            <StyledCountUp separator="," end={value.totalStaked} /> MTA
+        <Blue>
+          <StyledCountUp separator="," end={value.totalStaked} /> MTA
         </Blue>
-
-        </BigStat>
-      </StyledSlider>
-    )
+      </BigStat>
+    </StyledSlider>
+  )
 }
