@@ -56,7 +56,7 @@
     "gatsby"
   ],
   "scripts": {
-    "build": "yarn gatsby build",
+    "build": "yarn gatsby build --verbose",
     "develop": "yarn gatsby develop",
     "lint": "yarn prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "start": "yarn develop",
