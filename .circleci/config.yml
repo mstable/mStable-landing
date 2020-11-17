@@ -23,7 +23,7 @@ jobs:
           command: |
             yarn install
             yarn clean
-            timeout 120 yarn build --verbose
+            (timeout 120s yarn build --verbose; exit 0)
             yarn build --verbose
       - persist_to_workspace:
           root: ~/
