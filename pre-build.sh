@@ -1,8 +1,10 @@
 #!/bin/bash
 
-timeout 120s yarn build
-status="$?"
-if (( status == 124 )); then
+timeout 120 yarn build
+if [ $? = 124 ] ; then
+    yarn build
+else
     exit 0
 fi
-exit "$status"
+
+exit 0
