@@ -23,8 +23,8 @@ jobs:
           command: |
             yarn install
             yarn clean
-            (timeout 120s yarn build --verbose; exit 0)
-            yarn build --verbose
+            sh ./pre-build.sh
+            yarn build
       - persist_to_workspace:
           root: ~/
           paths:
