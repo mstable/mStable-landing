@@ -5,9 +5,13 @@ executors:
     docker:
       - image: alsco77/node-gcp-dockerfile:origin
     resource_class: large
+  node:
+    docker:
+      - image: circleci/node:10.13.0
+    resource_class: large
 jobs:
   build:
-    executor: gcp
+    executor: node
     steps:
       - checkout
       - run:
