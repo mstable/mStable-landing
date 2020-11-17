@@ -117,10 +117,18 @@ export const Growth: FC = () => {
             <Skeleton height={100} />
           ) : (
             <MetricsGrid>
-              <Metric value={value.totalGenerated} label="Generated" />
-              <Metric value={value.cumulativeSwapped} label="Swapped" />
-              <Metric value={value.totalSupply} label="Supply" />
-              <Metric value={value.totalSavings} label="Saved" />
+              {value.totalGenerated > 0 && (
+                <Metric value={value.totalGenerated} label="Generated" />
+              )}
+              {value.cumulativeSwapped > 0 && (
+                <Metric value={value.cumulativeSwapped} label="Swapped" />
+              )}
+              {value.totalSupply > 0 && (
+                <Metric value={value.totalSupply} label="Supply" />
+              )}
+              {value.totalSavings > 0 && (
+                <Metric value={value.totalSavings} label="Saved" />
+              )}
               {/*<Metric value={581212} label="Interest" />*/}
               {/*<Metric value={4963} label="Holders" />*/}
             </MetricsGrid>
