@@ -115,7 +115,7 @@ export const Growth: FC = () => {
           {loading || !value ? (
             <Skeleton height={100} />
           ) : (
-            <MetricsGrid
+            <MetricsGrid>
               {value.cumulativeMinted > 0 && (
                 <Metric value={value.cumulativeMinted} label="Generated" />
               )}
