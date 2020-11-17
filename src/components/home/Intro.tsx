@@ -26,14 +26,16 @@ const Logo: FC = () => {
   return <LogoImg src={LogoSvg} alt="mStable" />
 }
 
-const MissionText = styled.h1`
-  margin-top: -5px;
-  margin-bottom: 32px;
-  font-size: 24px;
-  font-weight: normal;
+const MissionText = styled.div`
+  h1 {
+    margin-top: -5px;
+    margin-bottom: 32px;
+    font-size: 24px;
+    font-weight: normal;
 
-  @media (min-width: 400px) {
-    font-size: 36px;
+    @media (min-width: 400px) {
+      font-size: 36px;
+    }
   }
 `
 
@@ -80,7 +82,7 @@ export const Intro: FC = () => {
         <Logo />
         <MainAndAside>
           <MissionText>
-            Autonomous and non-custodial stablecoin infrastructure.
+            <h1>Autonomous and non-custodial stablecoin infrastructure.</h1>
             <HireText>
               <a href="https://cryptocurrencyjobs.co/engineering/mstable-protocol-developer-defi/">
                 We’re hiring ➔
