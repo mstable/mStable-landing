@@ -33,28 +33,28 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts`,
-      },
-    },
-    `gatsby-transformer-remark`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: {
-          default: require.resolve(`${__dirname}/src/templates/Template.tsx`),
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/posts`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `posts`,
+    //     path: `${__dirname}/src/posts`,
+    //   },
+    // },
+    // `gatsby-transformer-remark`,
+    // {
+    //   resolve: `gatsby-plugin-mdx`,
+    //   options: {
+    //     defaultLayouts: {
+    //       default: require.resolve(`${__dirname}/src/templates/Template.tsx`),
+    //     },
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-page-creator`,
+    //   options: {
+    //     path: `${__dirname}/src/posts`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
