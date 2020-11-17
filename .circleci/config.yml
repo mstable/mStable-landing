@@ -22,7 +22,9 @@ jobs:
           name: 'Install and build'
           command: |
             yarn install
-            GATSBY_LOGGER=json yarn build
+            yarn clean
+            timeout 120 yarn build --verbose
+            yarn build --verbose
       - persist_to_workspace:
           root: ~/
           paths:
