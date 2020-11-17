@@ -37,7 +37,7 @@ const StyledSlider = styled(Slider)`
 export const BigStats: FC = () => {
   const { loading, value } = useData()
 
-  return loading || !value?.totalSupply ? (
+  return loading || !(value && value.totalSupply && value.cumulativeMinted) ? (
     <Empty />
   ) : (
     <StyledSlider>
