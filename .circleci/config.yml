@@ -14,10 +14,14 @@ jobs:
     executor: node
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - restore_cache:
+          key: dependency-cache-v1-{{ checksum "yarn.lock" }}
       - run:
           name: 'Install and build'
           command: |
-            yarn
+            yarn install --frozen-lockfile
             yarn clean
             yarn build
       - persist_to_workspace:
@@ -25,6 +29,10 @@ jobs:
           paths:
             - project/public
             - project/*
+      - save_cache:
+          key: dependency-cache-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
   deployStaging:
     executor: gcp
     steps:
