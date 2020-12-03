@@ -24,16 +24,6 @@ const GetInformed = styled.div`
   margin-top: 32px;
 `
 
-const Jobs = styled.div`
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-
-  > a {
-    margin-bottom: 8px;
-  }
-`
-
 export const Governance: FC = () => {
   return (
     <StyledFullBleed>
@@ -66,15 +56,6 @@ export const Governance: FC = () => {
             </CTA>
           </Links>
         </GetInformed>
-        <Jobs>
-          <h3>We’re hiring</h3>
-          <CTA
-            arrow
-            href="https://cryptocurrencyjobs.co/engineering/mstable-protocol-developer-defi/"
-          >
-            Smart Contract Developer
-          </CTA>
-        </Jobs>
       </Section>
     </StyledFullBleed>
   )
