@@ -4,11 +4,11 @@ executors:
   gcp:
     docker:
       - image: alsco77/node-gcp-dockerfile:origin
-    resource_class: large
+    resource_class: medium+
   node:
     docker:
       - image: circleci/node:10.13.0
-    resource_class: large
+    resource_class: medium+
 jobs:
   build:
     executor: node
