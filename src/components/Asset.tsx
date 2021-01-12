@@ -7,10 +7,18 @@ const Icon = styled.img`
   height: auto;
 `
 
-const Address = styled(ExternalLink)`
-  display: block;
-  font-weight: normal;
-  font-size: 14px;
+const Links = styled.div`
+  display: flex;
+
+  ${ExternalLink} {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+  }
+
+  span {
+    margin: 0 0.5rem;
+  }
 `
 
 const HeaderGroup = styled.div`
@@ -49,9 +57,17 @@ export const Asset: FC<{
         <HeaderGroup>
           <h3>{symbol}</h3>
           <p>{description}</p>
-          <Address href={`https://etherscan.io/token/${address}`}>
-            Etherscan
-          </Address>
+          <Links>
+            <ExternalLink href={`https://etherscan.io/token/${address}`}>
+              Etherscan
+            </ExternalLink>
+            <span>|</span>
+            <ExternalLink
+              href={`https://www.duneanalytics.com/alsco77/mstable_5`}
+            >
+              Dune Analytics
+            </ExternalLink>
+          </Links>
         </HeaderGroup>
       </Header>
       <Content>{children}</Content>

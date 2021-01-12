@@ -7,6 +7,7 @@ import Twitter from '../../images/twitter.svg'
 import Github from '../../images/github.svg'
 import Email from '../../images/email.svg'
 import Telegram from '../../images/telegram.svg'
+import DefiPulse from '../../images/defi-pulse-short.svg'
 import { ExternalLink } from '../ExternalLink'
 import { Grid } from './Grid'
 import { FullBleed } from './FullBleed'
@@ -37,9 +38,13 @@ const Social = styled.div`
 
   ${Links} {
     display: flex;
+    align-items: center;
     gap: 16px;
     > * {
       display: block;
+    }
+    img {
+      height: 28px;
     }
   }
 
@@ -131,6 +136,9 @@ export const Footer: FC = () => {
               </ExternalLink>
               <ExternalLink href="https://t.me/mstableofficial">
                 <img src={Telegram} alt="Telegram" />
+              </ExternalLink>
+              <ExternalLink href="https://defipulse.com/mstable">
+                <img src={DefiPulse} alt="Defi Pulse" />
               </ExternalLink>
             </Links>
             <Signup />
