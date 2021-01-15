@@ -10,6 +10,7 @@ import { useLogoVisibility } from '../layout/Wrapper'
 import { FullBleed } from '../layout/FullBleed'
 import { BigStats } from './BigStats'
 import { AppCTA } from '../CTA'
+import { Colors } from '../../theme'
 
 const LogoImg = styled.img`
   width: 100%;
@@ -52,6 +53,18 @@ const StyledFullBleed = styled(FullBleed)`
   padding-bottom: 200px;
 `
 
+const HireText = styled.h3`
+  margin-top: 32px;
+  a {
+    color: ${Colors.lightBlue};
+    text-shadow: rgba(0, 153, 255, 0.5) 0 0 8px;
+  }
+  a:hover {
+    color: ${Colors.gold};
+    text-shadow: rgba(124, 95, 0, 0.4) 0 1px 1px;
+  }
+`
+
 export const Intro: FC = () => {
   const { y } = useWindowScroll()
   const [ref, { height, top }] = useMeasure()
@@ -68,6 +81,11 @@ export const Intro: FC = () => {
         <MainAndAside>
           <MissionText>
             <h1>Autonomous and non-custodial stablecoin infrastructure.</h1>
+            <HireText>
+              <a href="https://cryptocurrencyjobs.co/startups/mstable/">
+                We’re hiring ➔
+              </a>
+            </HireText>
           </MissionText>
           <div>
             <AppCTA href="https://app.mstable.org">Use the app</AppCTA>
