@@ -13,8 +13,6 @@ import { STATS_API_ENDPOINT } from '../../constants'
 import { Graph } from '../Graph'
 import { Colors } from '../../theme'
 
-const URL = `${STATS_API_ENDPOINT}/musd-totals`
-
 const TotalsGraph: FC<{
   data: { d: string; m: number; s: number; r: number }[]
   isMobile: boolean
@@ -99,6 +97,11 @@ const TotalsGraph: FC<{
   )
 }
 
-export const MusdTotals: FC = () => {
-  return <Graph url={URL} component={TotalsGraph} />
+export const Totals: FC<{ masset: 'mbtc' | 'musd' }> = ({ masset }) => {
+  return (
+    <Graph
+      url={`${STATS_API_ENDPOINT}/${masset as string}-totals`}
+      component={TotalsGraph}
+    />
+  )
 }
