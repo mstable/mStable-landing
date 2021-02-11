@@ -5,12 +5,13 @@ import { useInView } from 'react-hook-inview'
 import Skeleton from 'react-loading-skeleton'
 
 import Musd from '../../images/musd.svg'
+import Mbtc from '../../images/mbtc.svg'
 import { Section } from '../layout/Section'
 import { FullBleed } from '../layout/FullBleed'
 import { TwoColumns } from '../layout/Grid'
 import { toK } from '../../utils'
-import { MusdTotals } from './MusdTotals'
-import { MusdSupply } from './MusdSupply'
+import { Totals } from './Totals'
+import { Supply } from './Supply'
 import { Asset } from '../Asset'
 import { Colors } from '../../theme'
 import { useData } from './DataProvider'
@@ -101,49 +102,80 @@ const Graph = styled.div`
   }
 `
 
+type MassetType = 'mbtc' | 'musd'
+
+const assetDetails: Record<
+  MassetType,
+  { symbol: string; description: string; address: string; icon: string }
+> = {
+  musd: {
+    symbol: 'mUSD',
+    description: 'mStable USD',
+    address: '0xe2f2a5c287993345a840db3b0845fbc70f5935a5',
+    icon: Musd,
+  },
+  mbtc: {
+    symbol: 'mBTC',
+    description: 'mStable BTC',
+    address: '0xe2f2a5c287993345a840db3b0845fbc70f5935a5',
+    icon: Mbtc,
+  },
+}
+
 export const Growth: FC = () => {
   const { loading, value } = useData()
+  const assets = { musd: value?.musd, mbtc: value?.mbtc }
+
   return (
     <FullBleed dark>
-      <Section>
-        <Asset
-          symbol="mUSD"
-          icon={Musd}
-          address="0xe2f2a5c287993345a840db3b0845fbc70f5935a5"
-          description="mStable USD"
-        >
-          {loading || !value ? (
-            <Skeleton height={100} />
-          ) : (
-            <MetricsGrid>
-              {value.cumulativeMinted > 0 && (
-                <Metric value={value.cumulativeMinted} label="Generated" />
+      {Object.keys(assets).map((asset) => {
+        const masset = assets[asset as MassetType]
+        const { symbol, icon, address, description } = assetDetails[
+          asset as MassetType
+        ]
+
+        if (!masset) return null
+
+        return (
+          <Section key={asset}>
+            <Asset
+              symbol={symbol}
+              icon={icon}
+              address={address}
+              description={description}
+            >
+              {loading || !masset ? (
+                <Skeleton height={100} />
+              ) : (
+                <MetricsGrid>
+                  {masset.cumulativeMinted > 0 && (
+                    <Metric value={masset.cumulativeMinted} label="Generated" />
+                  )}
+                  {masset.cumulativeSwapped > 0 && (
+                    <Metric value={masset.cumulativeSwapped} label="Swapped" />
+                  )}
+                  {masset.totalSupply > 0 && (
+                    <Metric value={masset.totalSupply} label="Supply" />
+                  )}
+                  {masset.totalSavings > 0 && (
+                    <Metric value={masset.totalSavings} label="Saved" />
+                  )}
+                </MetricsGrid>
               )}
-              {value.cumulativeSwapped > 0 && (
-                <Metric value={value.cumulativeSwapped} label="Swapped" />
-              )}
-              {value.totalSupply > 0 && (
-                <Metric value={value.totalSupply} label="Supply" />
-              )}
-              {value.totalSavings > 0 && (
-                <Metric value={value.totalSavings} label="Saved" />
-              )}
-              {/*<Metric value={581212} label="Interest" />*/}
-              {/*<Metric value={4963} label="Holders" />*/}
-            </MetricsGrid>
-          )}
-          <TwoColumns>
-            <Graph>
-              <MusdSupply />
-              <h4>Total Supply</h4>
-            </Graph>
-            <Graph>
-              <MusdTotals />
-              <h4>Cumulative Volumes</h4>
-            </Graph>
-          </TwoColumns>
-        </Asset>
-      </Section>
+              <TwoColumns>
+                <Graph>
+                  <Supply masset={symbol.toLowerCase() as MassetType} />
+                  <h4>Total Supply</h4>
+                </Graph>
+                <Graph>
+                  <Totals masset={symbol.toLowerCase() as MassetType} />
+                  <h4>Cumulative Volumes</h4>
+                </Graph>
+              </TwoColumns>
+            </Asset>
+          </Section>
+        )
+      })}
     </FullBleed>
   )
 }
