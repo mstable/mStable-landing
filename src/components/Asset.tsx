@@ -40,7 +40,7 @@ const Content = styled.div``
 const Container = styled.div`
   background-color: rgba(255, 255, 255, 0.1);
   padding: 16px;
-  border-radius: 6px;
+  border-radius: 1rem;
   overflow: hidden;
 `
 
