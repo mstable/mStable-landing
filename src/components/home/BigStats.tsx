@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
-import CountUp from 'react-countup'
 import 'use-slider/lib/slider.min.css'
-
 import styled from 'styled-components'
+import CountUp from 'react-countup'
 
 import { Slider } from '../Slider'
 import { useData } from './DataProvider'
@@ -36,51 +35,43 @@ const StyledSlider = styled(Slider)`
 
 export const BigStats: FC = () => {
   const { loading, value } = useData()
+  const musd = value?.musd
+  const mta = value?.mta
 
-  return loading || !(value && value.totalSupply && value.cumulativeMinted) ? (
+  return loading ||
+    !(musd && musd.totalSupply && musd.cumulativeMinted && mta) ? (
     <Empty />
   ) : (
     <StyledSlider>
       <BigStat>
         mStable users have minted a total of{' '}
         <Blue>
-          <StyledCountUp separator="," end={value.cumulativeMinted} /> mUSD
+          <StyledCountUp separator="," end={musd.cumulativeMinted} /> mUSD
         </Blue>
       </BigStat>
       <BigStat>
         The mStable protocol has swapped{' '}
         <Blue>
           {'$'}
-          <StyledCountUp separator="," end={value.cumulativeSwapped} />
+          <StyledCountUp separator="," end={musd.cumulativeSwapped} />
         </Blue>{' '}
         worth of stablecoins
       </BigStat>
-      {/*<BigStat>*/}
-      {/*  The mStable protocol has paid savers{' '}*/}
-      {/*  <Blue>*/}
-      {/*    <StyledCountUp*/}
-      {/*      prefix="$"*/}
-      {/*      separator=","*/}
-      {/*      end={value.cumulativeWithdrawn - value.cumulativeDeposited}*/}
-      {/*    />{' '}*/}
-      {/*    interest*/}
-      {/*  </Blue>*/}
-      {/*</BigStat>*/}
       <BigStat>
         The mStable protocol has{' '}
         <Blue>
-          <StyledCountUp separator="," end={value.totalSupply} /> mUSD
+          <StyledCountUp separator="," end={musd.totalSupply} /> mUSD
         </Blue>{' '}
         in circulation
       </BigStat>
       <BigStat>
         mStable has{' '}
         <Blue>
-          <StyledCountUp separator="," end={value.totalStakers} /> governors
+          <StyledCountUp separator="," end={mta.totalStakers} /> governors
         </Blue>{' '}
         staking a total of{' '}
         <Blue>
-          <StyledCountUp separator="," end={value.totalStaked} /> MTA
+          <StyledCountUp separator="," end={mta.totalStaked} /> MTA
         </Blue>
       </BigStat>
     </StyledSlider>
