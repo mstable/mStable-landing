@@ -13,8 +13,6 @@ import { STATS_API_ENDPOINT } from '../../constants'
 import { Graph } from '../Graph'
 import { Colors } from '../../theme'
 
-const URL = `${STATS_API_ENDPOINT}/musd-supply`
-
 const SupplyGraph: FC<{
   data: { d: string; $: number }[]
   isMobile: boolean
@@ -73,6 +71,8 @@ const SupplyGraph: FC<{
   </ResponsiveContainer>
 )
 
-export const MusdSupply: FC = () => {
-  return <Graph url={URL} component={SupplyGraph} />
+export const Supply: FC = () => {
+  return (
+    <Graph url={`${STATS_API_ENDPOINT}/musd-supply`} component={SupplyGraph} />
+  )
 }

@@ -5,19 +5,19 @@ import { Colors } from '../theme'
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  padding: 12px 32px;
-  height: 54px;
+  padding: 0.75rem 2rem;
+  height: 3.5rem;
   white-space: nowrap;
 
   background: white;
   border: 4px ${Colors.blue} solid;
-  border-radius: 2px;
+  border-radius: 1.75rem;
   justify-content: center;
   color: ${Colors.blue};
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: background-color 1s ease;
 
