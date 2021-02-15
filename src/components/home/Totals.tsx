@@ -97,11 +97,8 @@ const TotalsGraph: FC<{
   )
 }
 
-export const Totals: FC<{ masset: 'mbtc' | 'musd' }> = ({ masset }) => {
+export const Totals: FC = () => {
   return (
-    <Graph
-      url={`${STATS_API_ENDPOINT}/${masset as string}-totals`}
-      component={TotalsGraph}
-    />
+    <Graph url={`${STATS_API_ENDPOINT}/musd-totals`} component={TotalsGraph} />
   )
 }

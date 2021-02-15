@@ -71,11 +71,8 @@ const SupplyGraph: FC<{
   </ResponsiveContainer>
 )
 
-export const Supply: FC<{ masset: 'mbtc' | 'musd' }> = ({ masset }) => {
+export const Supply: FC = () => {
   return (
-    <Graph
-      url={`${STATS_API_ENDPOINT}/${masset as string}-supply`}
-      component={SupplyGraph}
-    />
+    <Graph url={`${STATS_API_ENDPOINT}/musd-supply`} component={SupplyGraph} />
   )
 }

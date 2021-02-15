@@ -165,11 +165,11 @@ export const Growth: FC = () => {
               {asset === 'musd' && (
                 <TwoColumns>
                   <Graph>
-                    <Supply masset={symbol.toLowerCase() as MassetType} />
+                    <Supply />
                     <h4>Total Supply</h4>
                   </Graph>
                   <Graph>
-                    <Totals masset={symbol.toLowerCase() as MassetType} />
+                    <Totals />
                     <h4>Cumulative Volumes</h4>
                   </Graph>
                 </TwoColumns>
