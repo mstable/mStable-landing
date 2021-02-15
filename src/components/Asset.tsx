@@ -50,6 +50,7 @@ export const Asset: FC<{
   symbol: string
   icon: string
 }> = ({ icon, symbol, address, children, description }) => {
+  const isMusd = symbol === 'mUSD'
   return (
     <Container>
       <Header>
@@ -61,12 +62,16 @@ export const Asset: FC<{
             <ExternalLink href={`https://etherscan.io/token/${address}`}>
               Etherscan
             </ExternalLink>
-            <span>|</span>
-            <ExternalLink
-              href={`https://www.duneanalytics.com/alsco77/mstable_5`}
-            >
-              Dune Analytics
-            </ExternalLink>
+            {isMusd && (
+              <>
+                <span>|</span>
+                <ExternalLink
+                  href={`https://www.duneanalytics.com/alsco77/mstable_5`}
+                >
+                  Dune Analytics
+                </ExternalLink>
+              </>
+            )}
           </Links>
         </HeaderGroup>
       </Header>

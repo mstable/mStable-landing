@@ -117,7 +117,7 @@ const assetDetails: Record<
   mbtc: {
     symbol: 'mBTC',
     description: 'mStable BTC',
-    address: '0xe2f2a5c287993345a840db3b0845fbc70f5935a5',
+    address: '0x945facb997494cc2570096c74b5f66a3507330a1',
     icon: Mbtc,
   },
 }
@@ -162,16 +162,18 @@ export const Growth: FC = () => {
                   )}
                 </MetricsGrid>
               )}
-              <TwoColumns>
-                <Graph>
-                  <Supply masset={symbol.toLowerCase() as MassetType} />
-                  <h4>Total Supply</h4>
-                </Graph>
-                <Graph>
-                  <Totals masset={symbol.toLowerCase() as MassetType} />
-                  <h4>Cumulative Volumes</h4>
-                </Graph>
-              </TwoColumns>
+              {asset === 'musd' && (
+                <TwoColumns>
+                  <Graph>
+                    <Supply masset={symbol.toLowerCase() as MassetType} />
+                    <h4>Total Supply</h4>
+                  </Graph>
+                  <Graph>
+                    <Totals masset={symbol.toLowerCase() as MassetType} />
+                    <h4>Cumulative Volumes</h4>
+                  </Graph>
+                </TwoColumns>
+              )}
             </Asset>
           </Section>
         )
