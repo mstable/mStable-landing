@@ -70,7 +70,11 @@ const Metric: FC<{ value: number; label: string }> = ({ value, label }) => {
   return (
     <MetricContainer ref={ref}>
       <div>
-        <ReactCountUp end={inView ? value : 0} formattingFn={toK} />
+        <ReactCountUp
+          end={inView ? value : 0}
+          formattingFn={toK}
+          decimals={2}
+        />
         <div>{label}</div>
       </div>
     </MetricContainer>
