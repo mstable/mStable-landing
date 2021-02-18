@@ -82,14 +82,11 @@ export const Security: FC = () => {
               <p>
                 An open reward pool for discovering and reporting
                 vulnerabilities in mStable is ongoing, with rewards of up to
-                US$25,000.
+                US$50,000.
               </p>
             </div>
             <Links>
-              <CTA
-                arrow
-                href="https://docs.mstable.org/protocol/security/mstable-bug-bounty"
-              >
+              <CTA arrow href="https://immunefi.com/bounty/mstable/">
                 Learn More
               </CTA>
             </Links>
