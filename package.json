@@ -1,0 +1,55 @@
+{
+  "name": "landing-vite",
+  "version": "0.0.0",
+  "license": "ISC",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@types/numeral": "^2.0.1",
+    "@types/react-countup": "^4.3.0",
+    "@types/react-helmet": "^6.1.0",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/recharts": "^1.8.19",
+    "@types/styled-components": "^5.1.7",
+    "countup.js": "^2.0.7",
+    "date-fns": "^2.19.0",
+    "flex-gap-polyfill": "^2.2.1",
+    "numeral": "^2.0.6",
+    "react": "^17.0.0",
+    "react-countup-v2": "^3.0.1",
+    "react-dom": "^17.0.0",
+    "react-helmet": "^6.1.0",
+    "react-hook-inview": "^4.3.8",
+    "react-loading-skeleton": "^2.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "react-use": "15.3.8",
+    "recharts": "^1.8.5",
+    "resize-observer-polyfill": "^1.5.1",
+    "styled-components": "^5.2.1",
+    "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "postcss": "^8.2.7",
+    "prettier": "^2.2.1",
+    "serve-static": "^1.14.1",
+    "stylus": "0.53.0",
+    "typescript": "^4.1.2",
+    "vite": "^2.0.5"
+  },
+  "prettier": {
+    "printWidth": 140,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
