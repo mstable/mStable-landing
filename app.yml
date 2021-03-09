@@ -13,7 +13,7 @@ handlers:
     upload: dist/client/ssr-manifest.json
     http_headers:
       X-Frame-Options: deny
-  - url: /(.*\.(gif|png|svg|ttf|jpeg|jpg|css|css.map|js|jsx|ts|tsx|pdf|scss|ico|json|json.map|txt))$
+  - url: /assets/(.*\.(gif|png|svg|ttf|jpeg|jpg|css|css.map|js|jsx|ts|tsx|pdf|scss|ico|json|json.map|txt))$
     static_files: dist/client/assets/\1
     secure: always
     upload: dist/client/assets/(.*)
