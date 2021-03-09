@@ -10,7 +10,7 @@ import Mbtc from '../../images/mbtc.svg'
 import { Section } from '../layout/Section'
 import { FullBleed } from '../layout/FullBleed'
 import { TwoColumns } from '../layout/Grid'
-import { toK } from '../../utils'
+import { toK, toK2 } from '../../utils'
 import { Totals } from './Totals'
 import { Supply } from './Supply'
 import { Asset } from '../Asset'
@@ -66,12 +66,12 @@ const MetricContainer = styled.div`
   }
 `
 
-const Metric: FC<{ value: number; label: string }> = ({ value, label }) => {
+const Metric: FC<{ value: number; label: string; options: { decimalPlaces: number } }> = ({ value, label, options }) => {
   const [ref, inView] = useInView({ unobserveOnEnter: true, threshold: 1 })
   return (
     <MetricContainer ref={ref}>
       <div>
-        <ReactCountUp endVal={inView ? value : 0} formattingFn={toK} decimals={2} />
+        <ReactCountUp endVal={inView ? value : 0} formattingFn={toK} options={options} />
         <div>{label}</div>
       </div>
     </MetricContainer>
@@ -120,6 +120,9 @@ const assetDetails: Record<MassetType, { symbol: string; description: string; ad
   },
 }
 
+const musdOptions = { decimalPlaces: 0, formattingFn: toK }
+const mbtcOptions = { decimalPlaces: 2, formattingFn: toK2 }
+
 export const Growth: FC = () => {
   const { loading, value } = useData()
   const assets = { musd: value?.musd, mbtc: value?.mbtc }
@@ -132,6 +135,8 @@ export const Growth: FC = () => {
 
         if (!masset) return null
 
+        const options = symbol === 'mUSD' ? musdOptions : mbtcOptions
+
         return (
           <Section key={asset}>
             <Asset symbol={symbol} icon={icon} address={address} description={description}>
@@ -139,10 +144,10 @@ export const Growth: FC = () => {
                 <Skeleton height={100} />
               ) : (
                 <MetricsGrid>
-                  {masset.cumulativeMinted > 0 && <Metric value={masset.cumulativeMinted} label="Generated" />}
-                  {masset.cumulativeSwapped > 0 && <Metric value={masset.cumulativeSwapped} label="Swapped" />}
-                  {masset.totalSupply > 0 && <Metric value={masset.totalSupply} label="Supply" />}
-                  {masset.totalSavings > 0 && <Metric value={masset.totalSavings} label="Saved" />}
+                  {masset.cumulativeMinted > 0 && <Metric options={options} value={masset.cumulativeMinted} label="Generated" />}
+                  {masset.cumulativeSwapped > 0 && <Metric options={options} value={masset.cumulativeSwapped} label="Swapped" />}
+                  {masset.totalSupply > 0 && <Metric options={options} value={masset.totalSupply} label="Supply" />}
+                  {masset.totalSavings > 0 && <Metric options={options} value={masset.totalSavings} label="Saved" />}
                 </MetricsGrid>
               )}
               {asset === 'musd' && (
