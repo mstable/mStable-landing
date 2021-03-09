@@ -1,21 +1,21 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import OneInch from '../../images/1inch-small.svg';
-import Aave from '../../images/aave.svg';
-import Argent from '../../images/argent.svg';
-import Balancer from '../../images/balancer-small.svg';
-import Compound from '../../images/compound.svg';
-import Curve from '../../images/curve.svg';
-import IntegrationsBackground from '../../images/integrations-background.svg';
-import Matcha from '../../images/matcha.png';
-import Sablier from '../../images/sablier.svg';
-import Uniswap from '../../images/uniswap-small.svg';
-import { Colors } from '../../theme';
-import { ExternalLink } from '../ExternalLink';
-import { FullBleed } from '../layout/FullBleed';
-import { Section } from '../layout/Section';
+import OneInch from '../../images/1inch-small.svg'
+import Aave from '../../images/aave.svg'
+import Argent from '../../images/argent.svg'
+import Balancer from '../../images/balancer-small.svg'
+import Compound from '../../images/compound.svg'
+import Curve from '../../images/curve.svg'
+import IntegrationsBackground from '../../images/integrations-background.svg'
+import Matcha from '../../images/matcha.png'
+import Sablier from '../../images/sablier.svg'
+import Uniswap from '../../images/uniswap-small.svg'
+import { Colors } from '../../theme'
+import { ExternalLink } from '../ExternalLink'
+import { FullBleed } from '../layout/FullBleed'
+import { Section } from '../layout/Section'
 
 interface PartnerProps {
   title: string
@@ -52,7 +52,7 @@ const Header = styled.div`
   }
 `
 
-const PartnerLink = styled(ExternalLink) <{ colour: string }>`
+const PartnerLink = styled(ExternalLink)<{ colour: string }>`
   background: black;
   border-radius: 6px;
   padding: 8px 16px;
@@ -66,14 +66,7 @@ const PartnerLink = styled(ExternalLink) <{ colour: string }>`
   }
 `
 
-const Partner: FC<PartnerProps> = ({
-  href,
-  colour,
-  image,
-  subtitle,
-  title,
-  description,
-}) => {
+const Partner: FC<PartnerProps> = ({ href, colour, image, subtitle, title, description }) => {
   return (
     <PartnerLink colour={colour} href={href} title={title}>
       <Header>
@@ -112,8 +105,7 @@ const partnersList: PartnerProps[] = [
     title: 'Aave',
     subtitle: 'Native interest rate',
     colour: '#ab3994',
-    description:
-      'The mStable protocol programmatically lends deposits via Aave’s lending markets',
+    description: 'The mStable protocol programmatically lends deposits via Aave’s lending markets',
     href: 'https://aave.com/',
     image: Aave,
   },
@@ -129,8 +121,7 @@ const partnersList: PartnerProps[] = [
     title: 'Balancer',
     subtitle: 'Ecosystem liquidity',
     colour: '#fff',
-    description:
-      'mStable leverages Balancer to produce deep liquidity for mStable assets',
+    description: 'mStable leverages Balancer to produce deep liquidity for mStable assets',
     href: 'https://balancer.exchange/',
     image: Balancer,
   },
@@ -138,8 +129,7 @@ const partnersList: PartnerProps[] = [
     title: 'Compound',
     subtitle: 'Native interest rate',
     colour: '#00d395',
-    description:
-      'The mStable protocol programmatically lends deposits via Compound’s lending markets',
+    description: 'The mStable protocol programmatically lends deposits via Compound’s lending markets',
     href: 'https://compound.finance/',
     image: Compound,
   },
@@ -147,7 +137,7 @@ const partnersList: PartnerProps[] = [
     title: 'Curve',
     subtitle: 'Optionality and liquidity',
     colour: '#00e5dd',
-    description: 'Highly efficient mUSD/stablecoin liquidity',
+    description: 'Highly efficient mUSD liquidity',
     href: 'https://www.curve.fi/',
     image: Curve,
   },
@@ -171,8 +161,7 @@ const partnersList: PartnerProps[] = [
     title: 'Uniswap',
     subtitle: 'Ecosystem liquidity',
     colour: '#ff007a',
-    description:
-      'The mStable protocol leverages Uniswap to produce deep liquidity for mStable assets',
+    description: 'The mStable protocol leverages Uniswap to produce deep liquidity for mStable assets',
     href: 'https://uniswap.org/',
     image: Uniswap,
   },
@@ -191,19 +180,9 @@ export const Partners: FC = () => {
     <FullBleed background={IntegrationsBackground} dark>
       <Section title="Integrated with leading protocols">
         <PartnersGrid>
-          {partnersList.map(
-            ({ image, description, title, subtitle, href, colour }) => (
-              <Partner
-                key={title}
-                title={title}
-                colour={colour}
-                subtitle={subtitle}
-                description={description}
-                image={image}
-                href={href}
-              />
-            ),
-          )}
+          {partnersList.map(({ image, description, title, subtitle, href, colour }) => (
+            <Partner key={title} title={title} colour={colour} subtitle={subtitle} description={description} image={image} href={href} />
+          ))}
         </PartnersGrid>
       </Section>
     </FullBleed>

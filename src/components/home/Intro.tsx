@@ -76,7 +76,7 @@ export const Intro: FC = () => {
         <LogoImg src={LogoSvg} alt="mStable" />
         <MainAndAside>
           <MissionText>
-            <h1>Autonomous and non-custodial stablecoin infrastructure.</h1>
+            <h1>Autonomous and non-custodial infrastructure for pegged-value crypto assets.</h1>
             <HireText>
               <a href="https://cryptocurrencyjobs.co/startups/mstable/">We’re hiring ➔</a>
             </HireText>

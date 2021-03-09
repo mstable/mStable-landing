@@ -55,7 +55,7 @@ export const BigStats: FC = () => {
           {'$'}
           <StyledCountUp separator="," endVal={musd.cumulativeSwapped} />
         </Blue>{' '}
-        worth of stablecoins
+        worth of pegged-value crypto assets
       </BigStat>
       <BigStat>
         The mStable protocol has{' '}
