@@ -135,7 +135,7 @@ export const Growth: FC = () => {
 
         if (!masset) return null
 
-        const options = symbol === 'mUSD' ? musdOptions : mbtcOptions
+        const options = asset === 'musd' ? musdOptions : mbtcOptions
 
         return (
           <Section key={asset}>
@@ -150,18 +150,16 @@ export const Growth: FC = () => {
                   {masset.totalSavings > 0 && <Metric options={options} value={masset.totalSavings} label="Saved" />}
                 </MetricsGrid>
               )}
-              {asset === 'musd' && (
-                <TwoColumns>
-                  <Graph>
-                    <Supply />
-                    <h4>Total Supply</h4>
-                  </Graph>
-                  <Graph>
-                    <Totals />
-                    <h4>Cumulative Volumes</h4>
-                  </Graph>
-                </TwoColumns>
-              )}
+              <TwoColumns>
+                <Graph>
+                  <Supply asset={asset as 'musd' | 'mbtc'} />
+                  <h4>Total Supply</h4>
+                </Graph>
+                <Graph>
+                  <Totals asset={asset as 'musd' | 'mbtc'} />
+                  <h4>Cumulative Volumes</h4>
+                </Graph>
+              </TwoColumns>
             </Asset>
           </Section>
         )

@@ -31,6 +31,7 @@ const MissionText = styled.div`
 
     @media (min-width: 400px) {
       font-size: 36px;
+      margin-right: 4.5rem;
     }
   }
 `

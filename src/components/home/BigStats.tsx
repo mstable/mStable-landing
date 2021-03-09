@@ -34,44 +34,66 @@ const StyledSlider = styled(Slider)`
   min-height: 300px;
 `
 
+const apyOptions = { decimalPlaces: 2, suffix: '%' }
+
 export const BigStats: FC = () => {
   const { loading, value } = useData()
-  const musd = value?.musd
-  const mta = value?.mta
 
-  return loading || !(musd && musd.totalSupply && musd.cumulativeMinted && mta) ? (
+  return loading || !value ? (
     <Empty />
   ) : (
     <StyledSlider>
       <BigStat>
+        mStable Save currently has a{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.musd.dailyAPY} options={apyOptions} />
+        </Blue>{' '}
+        interest rate for mUSD and a{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.mbtc.dailyAPY} options={apyOptions} />
+        </Blue>{' '}
+        interest rate for mBTC
+      </BigStat>
+      <BigStat>
         mStable users have minted a total of{' '}
         <Blue>
-          <StyledCountUp separator="," endVal={musd.cumulativeMinted} /> mUSD
+          <StyledCountUp separator="," endVal={value.musd.cumulativeMinted} /> mUSD
+        </Blue>{' '}
+        and{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.mbtc.cumulativeMinted} /> mBTC
         </Blue>
       </BigStat>
       <BigStat>
         The mStable protocol has swapped{' '}
         <Blue>
           {'$'}
-          <StyledCountUp separator="," endVal={musd.cumulativeSwapped} />
+          <StyledCountUp separator="," endVal={value.musd.cumulativeSwapped} />
         </Blue>{' '}
-        worth of pegged-value crypto assets
+        worth of pegged-value crypto assets, and{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.mbtc.cumulativeSwapped} /> BTC
+        </Blue>
       </BigStat>
       <BigStat>
         The mStable protocol has{' '}
         <Blue>
-          <StyledCountUp separator="," endVal={musd.totalSupply} /> mUSD
+          <StyledCountUp separator="," endVal={value.musd.totalSupply} /> mUSD
         </Blue>{' '}
+        and{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.mbtc.totalSupply} /> mBTC{' '}
+        </Blue>
         in circulation
       </BigStat>
       <BigStat>
         mStable has{' '}
         <Blue>
-          <StyledCountUp separator="," endVal={mta.totalStakers} /> governors
+          <StyledCountUp separator="," endVal={value.mta.totalStakers} /> governors
         </Blue>{' '}
         staking a total of{' '}
         <Blue>
-          <StyledCountUp separator="," endVal={mta.totalStaked} /> MTA
+          <StyledCountUp separator="," endVal={value.mta.totalStaked} /> MTA
         </Blue>
       </BigStat>
     </StyledSlider>

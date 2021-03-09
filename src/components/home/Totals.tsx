@@ -1,36 +1,27 @@
 import React, { FC } from 'react'
-import {
-  Area,
-  XAxis,
-  YAxis,
-  Tooltip,
-  AreaChart,
-  ResponsiveContainer,
-} from 'recharts'
+import { Area, XAxis, YAxis, Tooltip, AreaChart, ResponsiveContainer } from 'recharts'
 
-import { formatDollarAmount, formatISODate, toK } from '../../utils'
+import { formatBTCAmount, formatDollarAmount, formatISODate, toK, toK2 } from '../../utils'
 import { STATS_API_ENDPOINT } from '../../constants'
 import { Graph } from '../Graph'
 import { Colors } from '../../theme'
 
 const TotalsGraph: FC<{
+  asset: 'musd' | 'mbtc'
   data: { d: string; m: number; s: number; r: number }[]
   isMobile: boolean
-}> = ({ data, isMobile }) => {
+}> = ({ data, isMobile, asset }) => {
+  const suffix = asset === 'mbtc' ? 'BTC ' : '$'
   return (
     <ResponsiveContainer aspect={isMobile ? 60 / 24 : 60 / 18}>
-      <AreaChart
-        margin={{ top: 0, right: 10, bottom: 6, left: 10 }}
-        barCategoryGap={1}
-        data={data}
-      >
+      <AreaChart margin={{ top: 0, right: 10, bottom: 6, left: 10 }} barCategoryGap={1} data={data}>
         <XAxis hide dataKey="d" />
         <YAxis
           hide={isMobile}
           type="number"
           tickMargin={16}
           orientation="left"
-          tickFormatter={formatDollarAmount}
+          tickFormatter={asset === 'mbtc' ? formatBTCAmount : formatDollarAmount}
           axisLine={false}
           tickLine={false}
           interval="preserveEnd"
@@ -40,7 +31,7 @@ const TotalsGraph: FC<{
         />
         <Tooltip
           cursor={true}
-          formatter={(value) => toK(value as number)}
+          formatter={(value) => (asset === 'mbtc' ? toK2(value as number) : toK(value as number))}
           labelFormatter={formatISODate}
           separator=""
           contentStyle={{
@@ -62,7 +53,7 @@ const TotalsGraph: FC<{
           type="monotone"
           label={false}
           dataKey="m"
-          name="Minted $"
+          name={`Minted ${suffix}`}
           yAxisId={0}
           opacity={1}
           fill="none"
@@ -74,7 +65,7 @@ const TotalsGraph: FC<{
           type="monotone"
           label={false}
           dataKey="r"
-          name="Redeemed $"
+          name={`Redeemed ${suffix}`}
           yAxisId={0}
           opacity={1}
           fill="none"
@@ -86,7 +77,7 @@ const TotalsGraph: FC<{
           type="monotone"
           label={false}
           dataKey="s"
-          name="Swapped $"
+          name={`Swapped ${suffix}`}
           yAxisId={0}
           opacity={1}
           fill="none"
@@ -97,8 +88,6 @@ const TotalsGraph: FC<{
   )
 }
 
-export const Totals: FC = () => {
-  return (
-    <Graph url={`${STATS_API_ENDPOINT}/musd-totals`} component={TotalsGraph} />
-  )
+export const Totals: FC<{ asset: 'musd' | 'mbtc' }> = ({ asset }) => {
+  return <Graph url={`${STATS_API_ENDPOINT}/${asset}-totals`} component={TotalsGraph} asset={asset} />
 }

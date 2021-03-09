@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const FullBleed = styled.div<{ background?: string; dark?: boolean }>`
-  background-image: ${({ background }) =>
-    background ? `url(${background})` : 'none'};
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: ${({ dark }) => (dark ? 'black' : 'white')};
-  color: ${({ dark }) => (dark ? 'white' : 'black')};
+  ${({ background, dark }) => `
+    background-image: ${background ? `url(${background})` : 'none'};
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: ${dark ? '#010610' : 'white'};
+    color: ${dark ? 'white' : '#010204'};
+  `}
   width: 100%;
   grid-column: 1 / 4 !important;
   padding-top: 160px;

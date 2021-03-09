@@ -10,7 +10,7 @@ const Icon = styled.img`
 const Links = styled.div`
   display: flex;
 
-  ${ExternalLink} {
+  ${ExternalLink as any} {
     display: block;
     font-weight: normal;
     font-size: 14px;
@@ -38,7 +38,7 @@ const Header = styled.div`
 const Content = styled.div``
 
 const Container = styled.div`
-  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px rgba(255, 255, 255, 0.07) solid;
   padding: 16px;
   border-radius: 1rem;
   overflow: hidden;
@@ -59,17 +59,11 @@ export const Asset: FC<{
           <h3>{symbol}</h3>
           <p>{description}</p>
           <Links>
-            <ExternalLink href={`https://etherscan.io/token/${address}`}>
-              Etherscan
-            </ExternalLink>
+            <ExternalLink href={`https://etherscan.io/token/${address}`}>Etherscan</ExternalLink>
             {isMusd && (
               <>
                 <span>|</span>
-                <ExternalLink
-                  href={`https://www.duneanalytics.com/alsco77/mstable_5`}
-                >
-                  Dune Analytics
-                </ExternalLink>
+                <ExternalLink href={`https://www.duneanalytics.com/alsco77/mstable_5`}>Dune Analytics</ExternalLink>
               </>
             )}
           </Links>
