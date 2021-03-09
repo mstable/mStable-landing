@@ -1,36 +1,44 @@
 {
-  "name": "landing-vite",
-  "version": "0.0.0",
-  "license": "ISC",
+  "name": "mstable-landing",
+  "version": "2.0.0",
+  "private": true,
+  "description": "mStable Landing Page",
+  "author": "Stability Labs Pty. Ltd. <hello@stabilitylabs.co>",
+  "license": "LGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mstable/mstable-landing/issues"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
+    "dev": "yarn vite --port 1337 --open --force",
+    "build": "rm -rf dist && yarn vite-ssr build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@types/numeral": "^2.0.1",
     "@types/react-countup": "^4.3.0",
-    "@types/react-helmet": "^6.1.0",
+    "@types/react-router-config": "^5.0.2",
     "@types/react-router-dom": "^5.1.7",
     "@types/recharts": "^1.8.19",
     "@types/styled-components": "^5.1.7",
-    "countup.js": "^2.0.7",
+    "countup.js": "./lib/countup.js",
     "date-fns": "^2.19.0",
     "flex-gap-polyfill": "^2.2.1",
     "numeral": "^2.0.6",
     "react": "^17.0.0",
     "react-countup-v2": "^3.0.1",
     "react-dom": "^17.0.0",
-    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^1.0.9",
     "react-hook-inview": "^4.3.8",
     "react-loading-skeleton": "^2.2.0",
+    "react-router-config": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-use": "15.3.8",
     "recharts": "^1.8.5",
     "resize-observer-polyfill": "^1.5.1",
     "styled-components": "^5.2.1",
-    "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c"
+    "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c",
+    "vite-ssr": "JamesLefrere/vite-ssr#5e921bcd00558156427ba2fc2b5ef744a44d16f9"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
@@ -39,12 +47,16 @@
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
     "postcss": "^8.2.7",
     "prettier": "^2.2.1",
     "serve-static": "^1.14.1",
     "stylus": "0.53.0",
     "typescript": "^4.1.2",
     "vite": "^2.0.5"
+  },
+  "resolutions": {
+    "countup.js": "./lib/countup.js"
   },
   "prettier": {
     "printWidth": 140,

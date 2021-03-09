@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 
-import { Wrapper } from '../components/layout/Wrapper'
 import { About } from '../components/home/About'
 import { Partners } from '../components/home/Partners'
 import { Intro } from '../components/home/Intro'

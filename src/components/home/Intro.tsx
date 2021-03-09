@@ -1,4 +1,4 @@
-import React, { FC, useContext, useLayoutEffect } from 'react'
+import React, { FC, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import { useWindowScroll, useMeasure } from 'react-use'
 import type { UseMeasureRef } from 'react-use/lib/useMeasure'
@@ -21,10 +21,6 @@ const LogoImg = styled.img`
     width: 35%;
   }
 `
-
-const Logo: FC = () => {
-  return <LogoImg src={LogoSvg} alt="mStable" />
-}
 
 const MissionText = styled.div`
   h1 {
@@ -70,14 +66,14 @@ export const Intro: FC = () => {
   const [ref, { height, top }] = useMeasure()
   const [, setLogoVisibility] = useContext(logoVisibilityCtx)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setLogoVisibility(y > height + top)
   }, [y, height, top])
 
   return (
     <StyledFullBleed dark ref={ref as UseMeasureRef<HTMLDivElement>}>
       <Section>
-        <Logo />
+        <LogoImg src={LogoSvg} alt="mStable" />
         <MainAndAside>
           <MissionText>
             <h1>Autonomous and non-custodial stablecoin infrastructure.</h1>

@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import useInterval from 'react-use/lib/useInterval'
 import useSlider from 'use-slider'
@@ -48,11 +48,7 @@ const Container = styled.div`
   overflow: hidden;
 `
 
-const Controls: FC<{ remaining: number; current: number; length: number }> = ({
-  remaining,
-  current,
-  length,
-}) => {
+const Controls: FC<{ remaining: number; current: number; length: number }> = ({ remaining, current, length }) => {
   return (
     <ControlsContainer>
       <CurrentSlide>
@@ -82,7 +78,7 @@ export const Slider: FC<{ className?: string }> = ({ children, className }) => {
 
   const [remaining, setRemaining] = useState(DURATION)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setRemaining(DURATION)
   }, [curIndex])
 
@@ -95,11 +91,7 @@ export const Slider: FC<{ className?: string }> = ({ children, className }) => {
       <SlidesContainer ref={ref as (instance: HTMLDivElement) => void}>
         <Slides curIndex={curIndex}>{children}</Slides>
       </SlidesContainer>
-      <Controls
-        remaining={+((remaining / DURATION) * 100).toFixed(1)}
-        current={curIndex + 1}
-        length={length}
-      />
+      <Controls remaining={+((remaining / DURATION) * 100).toFixed(1)} current={curIndex + 1} length={length} />
     </Container>
   )
 }
