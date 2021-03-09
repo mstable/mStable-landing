@@ -38,7 +38,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "styled-components": "^5.2.1",
     "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c",
-    "vite-ssr": "JamesLefrere/vite-ssr#5e921bcd00558156427ba2fc2b5ef744a44d16f9"
+    "vite-ssr": "JamesLefrere/vite-ssr#7b50e4f10e44b716c726e278b070a88f5bf4bbe3"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
