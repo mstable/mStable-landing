@@ -3,17 +3,26 @@ import styled from 'styled-components'
 
 export const FullBleed = styled.div<{ background?: string; dark?: boolean }>`
   ${({ background, dark }) => `
-    background-image: ${background ? `url(${background})` : 'none'};
+    background-image: ${
+      background ? `url(${background})` : dark ? 'rgb(0,3,9)' : 'linear-gradient(0deg, rgb(0,3,9) 0%, rgb(5,7,20) 86%, rgb(0,3,9) 100%)'
+    };
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: ${dark ? '#010610' : 'white'};
-    color: ${dark ? 'white' : '#010204'};
+    background-color: ${dark ? 'rgb(0,3,9)' : 'rgb(5,6,20)'};
+    color: #b4bbc6;
   `}
   width: 100%;
   grid-column: 1 / 4 !important;
   padding-top: 160px;
   padding-bottom: 96px;
+
+  text-shadow: rgb(0, 6, 16) 0 2px 2px;
+
+  h1,
+  h2 {
+    color: white;
+  }
 
   @media (min-width: 400px) {
     > * {

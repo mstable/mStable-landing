@@ -7,7 +7,6 @@ import Ether from '../images/ether-logo.svg'
 import { Button } from './Button'
 
 const StyledExternalLink = styled(ExternalLink)<{ arrow?: boolean }>`
-  text-transform: uppercase;
   font-weight: bold;
 
   &:before {
@@ -32,27 +31,15 @@ export const AppCTAButton = styled(Button)`
   }
 `
 
-export const CTA: FC<
-  ComponentProps<typeof ExternalLink> & { arrow?: boolean }
-> = ({ arrow, children, className, title, href }) => {
+export const CTA: FC<ComponentProps<typeof ExternalLink> & { arrow?: boolean }> = ({ arrow, children, className, title, href }) => {
   return (
-    <StyledExternalLink
-      className={className}
-      href={href}
-      title={title}
-      arrow={arrow}
-    >
+    <StyledExternalLink className={className} href={href} title={title} arrow={arrow}>
       {children}
     </StyledExternalLink>
   )
 }
 
-export const AppCTA: FC<ComponentProps<typeof ExternalLink>> = ({
-  children,
-  className,
-  title,
-  href,
-}) => {
+export const AppCTA: FC<ComponentProps<typeof ExternalLink>> = ({ children, className, title, href }) => {
   return (
     <ExternalLink href={href} title={title}>
       <AppCTAButton className={className}>

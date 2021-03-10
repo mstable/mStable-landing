@@ -30,7 +30,7 @@ const Links = styled.div`
 
 const EasterEgg = styled.div`
   font-size: 10px;
-  opacity: 0.08;
+  opacity: 0.1;
 `
 
 const Social = styled.div`
@@ -81,8 +81,7 @@ const Container = styled.footer``
 const StyledFullBleed = styled(FullBleed)`
   padding-top: 16px;
   padding-bottom: 32px;
-  background-color: #f6f6f6;
-  color: #666;
+  background-image: none;
 `
 
 export const Footer: FC = () => {
@@ -94,26 +93,16 @@ export const Footer: FC = () => {
             <Header>Protocol</Header>
             <Links>
               <ExternalLink href="https://app.mstable.org">App</ExternalLink>
-              <ExternalLink href="https://docs.mstable.org">
-                Documentation
-              </ExternalLink>
-              <ExternalLink href="https://github.com/mstable">
-                Developers
-              </ExternalLink>
+              <ExternalLink href="https://docs.mstable.org">Documentation</ExternalLink>
+              <ExternalLink href="https://github.com/mstable">Developers</ExternalLink>
             </Links>
           </div>
           <div>
             <Header>Governance</Header>
             <Links>
-              <ExternalLink href="https://governance.mstable.org">
-                Governance App
-              </ExternalLink>
-              <ExternalLink href="https://forum.mstable.org">
-                Forum
-              </ExternalLink>
-              <ExternalLink href="https://snapshot.page/#/mstable">
-                Vote
-              </ExternalLink>
+              <ExternalLink href="https://governance.mstable.org">Governance App</ExternalLink>
+              <ExternalLink href="https://forum.mstable.org">Forum</ExternalLink>
+              <ExternalLink href="https://snapshot.page/#/mstable">Vote</ExternalLink>
             </Links>
           </div>
           <Social>
@@ -147,14 +136,10 @@ export const Footer: FC = () => {
         <Bottom>
           <Links>
             <div>
-              Powered by{' '}
-              <ExternalLink href="https://ethereum.org/en/">
-                Ethereum
-              </ExternalLink>
+              Powered by <ExternalLink href="https://ethereum.org/en/">Ethereum</ExternalLink>
             </div>
             <div>
-              Hosted on{' '}
-              <ExternalLink href="https://ipfs.io/">IPFS</ExternalLink>
+              Hosted on <ExternalLink href="https://ipfs.io/">IPFS</ExternalLink>
             </div>
           </Links>
           <EasterEgg>Ape Together Strong 💪</EasterEgg>

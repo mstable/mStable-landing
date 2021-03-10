@@ -55,7 +55,7 @@ html {
 }
 a {
     text-decoration: none;
-    color: #0061e3;
+    color: rgb(23,110,222);
     font-weight: 700;
     transition: color 1s ease;
 }

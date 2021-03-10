@@ -83,7 +83,7 @@ export const Intro: FC = () => {
             </HireText>
           </MissionText>
           <div>
-            <AppCTA href="https://app.mstable.org">Use the app</AppCTA>
+            <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
           </div>
         </MainAndAside>
       </Section>

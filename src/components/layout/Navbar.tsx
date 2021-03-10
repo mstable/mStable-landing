@@ -10,11 +10,10 @@ import { Constants } from '../../theme'
 
 const AppLink = styled(ExternalLink)`
   display: flex;
-  align-items: center;
 
   img {
     position: relative;
-    top: -2px;
+    top: -3px;
     height: 20px;
   }
 
@@ -46,7 +45,6 @@ const FixedContainer = styled.div`
 `
 
 const Nav = styled.nav`
-  text-transform: uppercase;
   display: flex;
   justify-content: space-between;
   align-items: center;

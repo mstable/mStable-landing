@@ -28,7 +28,6 @@ const SupplyGraph: FC<{
           interval="preserveEnd"
           minTickGap={60}
           yAxisId={0}
-          label={suffix}
           dataKey={asset}
         />
         <Tooltip

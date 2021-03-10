@@ -25,6 +25,7 @@ const HeaderGroup = styled.div`
   h3 {
     font-size: 32px;
     margin-bottom: 0;
+    color: white;
   }
 `
 
@@ -38,9 +39,9 @@ const Header = styled.div`
 const Content = styled.div``
 
 const Container = styled.div`
-  border: 2px rgba(255, 255, 255, 0.07) solid;
-  padding: 16px;
-  border-radius: 1rem;
+  background-image: linear-gradient(95deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  padding: 2rem;
+  border-radius: 5rem;
   overflow: hidden;
 `
 

@@ -34,7 +34,7 @@ const MetricContainer = styled.div`
     }
 
     > :last-child {
-      color: ${Colors.whiteTransparent};
+      opacity: 0.6;
       font-size: 16px;
     }
   }
@@ -86,7 +86,7 @@ const MetricsGrid = styled.div`
   margin-bottom: 32px;
 
   @media (min-width: 520px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 `
 
@@ -122,6 +122,7 @@ const assetDetails: Record<MassetType, { symbol: string; description: string; ad
 
 const musdOptions = { decimalPlaces: 0, formattingFn: toK }
 const mbtcOptions = { decimalPlaces: 2, formattingFn: toK2 }
+const apyOptions = { decimalPlaces: 2, suffix: '%' }
 
 export const Growth: FC = () => {
   const { loading, value } = useData()
@@ -144,6 +145,7 @@ export const Growth: FC = () => {
                 <Skeleton height={100} />
               ) : (
                 <MetricsGrid>
+                  {masset.dailyAPY > 0 && <Metric options={apyOptions} value={masset.dailyAPY} label="Current APY" />}
                   {masset.cumulativeMinted > 0 && <Metric options={options} value={masset.cumulativeMinted} label="Generated" />}
                   {masset.cumulativeSwapped > 0 && <Metric options={options} value={masset.cumulativeSwapped} label="Swapped" />}
                   {masset.totalSupply > 0 && <Metric options={options} value={masset.totalSupply} label="Supply" />}

@@ -44,15 +44,15 @@ export const BigStats: FC = () => {
   ) : (
     <StyledSlider>
       <BigStat>
-        mStable Save currently has a{' '}
+        Currently earning{' '}
         <Blue>
           <StyledCountUp separator="," endVal={value.musd.dailyAPY} options={apyOptions} />
         </Blue>{' '}
-        interest rate for mUSD and a{' '}
+        interest for mUSD and{' '}
         <Blue>
           <StyledCountUp separator="," endVal={value.mbtc.dailyAPY} options={apyOptions} />
         </Blue>{' '}
-        interest rate for mBTC
+        interest for mBTC
       </BigStat>
       <BigStat>
         mStable users have minted a total of{' '}
