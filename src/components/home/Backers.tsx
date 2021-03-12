@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { FullBleed } from '../layout/FullBleed'
 import { Section } from '../layout/Section'
@@ -19,7 +19,7 @@ const Title = styled.h4`
   margin: 0;
 `
 
-const BackerLink = styled(ExternalLink)<{ colour: string }>`
+const backerCss = css<{ colour: string }>`
   background: black;
   border-radius: 1rem;
   padding: 0.7rem 1rem;
@@ -34,11 +34,23 @@ const BackerLink = styled(ExternalLink)<{ colour: string }>`
   }
 `
 
-const Backer: FC<BackerProps> = ({ colour, title, href = '#' }) => {
-  return (
+const BackerLink = styled(ExternalLink)<{ colour: string }>`
+  ${backerCss}
+`
+
+const BackerSpan = styled.span<{ colour: string }>`
+  ${backerCss}
+`
+
+const Backer: FC<BackerProps> = ({ colour, title, href }) => {
+  return href ? (
     <BackerLink colour={colour} title={title} href={href}>
       <Title>{title}</Title>
     </BackerLink>
+  ) : (
+    <BackerSpan colour={colour} title={title}>
+      <Title>{title}</Title>
+    </BackerSpan>
   )
 }
 
