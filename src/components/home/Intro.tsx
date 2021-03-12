@@ -5,66 +5,93 @@ import type { UseMeasureRef } from 'react-use/lib/useMeasure'
 
 import LogoSvg from '../../images/mstable-logo.svg'
 import { Section } from '../layout/Section'
-import { MainAndAside } from '../layout/Grid'
 import { logoVisibilityCtx } from '../../context'
 import { FullBleed } from '../layout/FullBleed'
 import { BigStats } from './BigStats'
 import { AppCTA } from '../CTA'
-import { Colors } from '../../theme'
+
+const DownArrow = styled.div`
+  position: relative;
+  display: block;
+  overflow: visible;
+  > * {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 3rem;
+    left: 50%;
+    margin-left: -1rem;
+    opacity: 0.4;
+    position: absolute;
+    text-align: center;
+    top: -1rem;
+    transition: opacity 0.3s ease;
+    width: 2rem;
+    &:hover {
+      opacity: 1;
+    }
+  }
+`
 
 const LogoImg = styled.img`
-  width: 100%;
-  margin-bottom: 64px;
+  margin: 4rem auto;
 
   @media (min-width: 520px) {
-    min-width: 400px;
-    width: 35%;
+    max-width: 28rem;
   }
 `
 
 const MissionText = styled.div`
   h1 {
-    margin-top: -5px;
-    margin-bottom: 32px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 38ch;
     font-size: 24px;
     font-weight: normal;
 
     @media (min-width: 400px) {
-      font-size: 36px;
-      margin-right: 4.5rem;
+      font-size: 32px;
     }
   }
 `
 
 const BottomSection = styled(Section)`
-  margin-bottom: 0;
-  > * {
-    max-width: 75ch;
+  max-width: 50ch;
+  margin: 0 auto;
+
+  > div {
+    > :first-child {
+      margin-bottom: 6rem;
+      > :first-child {
+        > * {
+          text-align: center;
+        }
+      }
+    }
+    > :last-child {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      > :first-child {
+        width: auto;
+        button {
+          width: auto;
+        }
+      }
+    }
   }
 `
 
 const StyledFullBleed = styled(FullBleed)`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 200px;
-`
-
-const HireText = styled.h3`
-  margin-top: 32px;
-  a {
-    color: ${Colors.lightBlue};
-    text-shadow: rgba(0, 153, 255, 0.5) 0 0 8px;
-  }
-  a:hover {
-    color: ${Colors.gold};
-    text-shadow: rgba(124, 95, 0, 0.4) 0 1px 1px;
+  margin-bottom: 0;
+  > * {
+    margin-bottom: 4rem;
   }
 `
 
 export const Intro: FC = () => {
   const { y } = useWindowScroll()
-  const [ref, { height, top }] = useMeasure()
+  const [ref, { height, top, bottom }] = useMeasure()
   const [, setLogoVisibility] = useContext(logoVisibilityCtx)
 
   useEffect(() => {
@@ -75,21 +102,21 @@ export const Intro: FC = () => {
     <StyledFullBleed dark ref={ref as UseMeasureRef<HTMLDivElement>}>
       <Section>
         <LogoImg src={LogoSvg} alt="mStable" />
-        <MainAndAside>
-          <MissionText>
-            <h1>Autonomous and non-custodial infrastructure for pegged-value crypto assets.</h1>
-            <HireText>
-              <a href="https://cryptocurrencyjobs.co/startups/mstable/">We’re hiring ➔</a>
-            </HireText>
-          </MissionText>
-          <div>
-            <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
-          </div>
-        </MainAndAside>
+        <MissionText>
+          <h1>Autonomous and non-custodial infrastructure for pegged-value crypto assets.</h1>
+        </MissionText>
       </Section>
       <BottomSection>
         <BigStats />
+        <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
       </BottomSection>
+      <DownArrow
+        onClick={() => {
+          window.scrollTo({ top: bottom, behavior: 'smooth' })
+        }}
+      >
+        <div>↓</div>
+      </DownArrow>
     </StyledFullBleed>
   )
 }

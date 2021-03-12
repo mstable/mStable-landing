@@ -33,6 +33,7 @@ const ControlsContainer = styled.div`
   display: flex;
   align-items: center;
   color: rgba(225, 225, 225, 0.6);
+  justify-content: center;
 
   // flex-gap polyfill fail
   > * {
@@ -40,12 +41,11 @@ const ControlsContainer = styled.div`
   }
 `
 
-const SlidesContainer = styled.div`
-  margin-bottom: 32px;
-`
-
 const Container = styled.div`
   overflow: hidden;
+  > :first-child {
+    margin-bottom: 1rem;
+  }
 `
 
 const Controls: FC<{ remaining: number; current: number; length: number }> = ({ remaining, current, length }) => {
@@ -88,9 +88,9 @@ export const Slider: FC<{ className?: string }> = ({ children, className }) => {
 
   return (
     <Container className={className}>
-      <SlidesContainer ref={ref as (instance: HTMLDivElement) => void}>
+      <div ref={ref as (instance: HTMLDivElement) => void}>
         <Slides curIndex={curIndex}>{children}</Slides>
-      </SlidesContainer>
+      </div>
       <Controls remaining={+((remaining / DURATION) * 100).toFixed(1)} current={curIndex + 1} length={length} />
     </Container>
   )

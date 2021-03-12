@@ -44,7 +44,7 @@ export const Governance: FC = () => {
             </p>
             <p>Proposals and ideas are surfaced on the Discord or public forum, and are finalised by on-chain signalling by MTA holders.</p>
           </div>
-          <AppCTA href="https://governance.mstable.org">Governance App</AppCTA>
+          <AppCTA href="https://governance.mstable.org">Govern mStable</AppCTA>
         </MainAndAside>
         <GetInformed>
           <h3>Join us and get informed</h3>

@@ -15,7 +15,6 @@ export const Button = styled.button`
   justify-content: center;
   color: ${Colors.blue};
   text-align: center;
-  font-weight: bold;
   font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 1s ease;

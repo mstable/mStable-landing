@@ -7,8 +7,6 @@ import Ether from '../images/ether-logo.svg'
 import { Button } from './Button'
 
 const StyledExternalLink = styled(ExternalLink)<{ arrow?: boolean }>`
-  font-weight: bold;
-
   &:before {
     // Right arrow and nbsp
     content: ${({ arrow }) => (arrow ? '"\\2794\\a0"' : 'none')};
@@ -16,6 +14,7 @@ const StyledExternalLink = styled(ExternalLink)<{ arrow?: boolean }>`
 `
 
 export const AppCTAButton = styled(Button)`
+  font-weight: normal;
   background: ${Colors.blue};
   color: white;
   border: none;

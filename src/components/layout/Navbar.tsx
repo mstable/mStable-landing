@@ -57,8 +57,15 @@ const Nav = styled.nav`
 
   ul {
     display: flex;
-    gap: 1rem;
     line-height: 100%;
+
+    // flex-gap polyfill fail
+    > * {
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 `
 

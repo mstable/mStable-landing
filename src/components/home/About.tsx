@@ -70,9 +70,16 @@ export const About: FC = () => {
           <Item href="https://app.mstable.org/earn" title="EARN" description="All contributors can earn MTA to govern the protocol" />
           <Item href="https://governance.mstable.org" title="GOVERN" description="Governed by a global community" />
         </Grid>
-        <CTA arrow href="https://docs.mstable.org">
-          Protocol docs
-        </CTA>
+        <p>
+          <CTA arrow href="https://cryptocurrencyjobs.co/startups/mstable/">
+            We’re hiring!
+          </CTA>
+        </p>
+        <p>
+          <CTA arrow href="https://docs.mstable.org">
+            Protocol docs
+          </CTA>
+        </p>
       </Section>
     </FullBleed>
   )
