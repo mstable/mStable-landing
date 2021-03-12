@@ -1,18 +1,19 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link } from 'react-router-dom'
 
-import M from '../../images/mstable-m.svg'
+import { logoVisibilityCtx } from '../../context'
+import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
 import Ether from '../../images/ether-logo.svg'
 import { ExternalLink } from '../ExternalLink'
-import { useLogoVisibility } from './Wrapper'
 import { Constants } from '../../theme'
 
 const AppLink = styled(ExternalLink)`
   display: flex;
-  align-items: center;
 
   img {
+    position: relative;
+    top: -3px;
     height: 20px;
   }
 
@@ -44,7 +45,6 @@ const FixedContainer = styled.div`
 `
 
 const Nav = styled.nav`
-  text-transform: uppercase;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,27 +57,35 @@ const Nav = styled.nav`
 
   ul {
     display: flex;
-    gap: 32px;
-    line-height: 48px;
+    line-height: 100%;
+
+    // flex-gap polyfill fail
+    > * {
+      margin-right: 1rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 `
 
-const LogoImg = styled.img<{ visible: boolean }>`
-  width: 20px;
-  height: auto;
-  transition: opacity 2s ease;
-  opacity: ${({ visible }) => (visible ? 1 : 0)};
+const LogoImg = styled(LogoSvg)<{ stable: number }>`
+  height: 20px;
+  width: auto;
+  #stable {
+    transition: opacity 2s ease;
+    opacity: ${({ stable }) => stable};
+  }
 `
 
 export const NavBar: FC = () => {
-  const [visible] = useLogoVisibility()
+  const [visible] = useContext(logoVisibilityCtx)
   return (
     <FixedContainer>
       <Nav>
-        <Link to="/">
-          <LogoImg src={M} alt="mStable" visible={visible} />
+        <Link to="/" title="mStable">
+          <LogoImg stable={visible ? 1 : 0} />
         </Link>
-
         <ul>
           <li>
             <ExternalLink href="https://github.com/mstable">Code</ExternalLink>

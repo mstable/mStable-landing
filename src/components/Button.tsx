@@ -14,10 +14,8 @@ export const Button = styled.button`
   border-radius: 1.75rem;
   justify-content: center;
   color: ${Colors.blue};
-  text-transform: uppercase;
   text-align: center;
-  font-weight: bold;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 1s ease;
 

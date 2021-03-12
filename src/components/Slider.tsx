@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import useInterval from 'react-use/lib/useInterval'
 import useSlider from 'use-slider'
@@ -33,6 +33,7 @@ const ControlsContainer = styled.div`
   display: flex;
   align-items: center;
   color: rgba(225, 225, 225, 0.6);
+  justify-content: center;
 
   // flex-gap polyfill fail
   > * {
@@ -40,19 +41,14 @@ const ControlsContainer = styled.div`
   }
 `
 
-const SlidesContainer = styled.div`
-  margin-bottom: 32px;
-`
-
 const Container = styled.div`
   overflow: hidden;
+  > :first-child {
+    margin-bottom: 1rem;
+  }
 `
 
-const Controls: FC<{ remaining: number; current: number; length: number }> = ({
-  remaining,
-  current,
-  length,
-}) => {
+const Controls: FC<{ remaining: number; current: number; length: number }> = ({ remaining, current, length }) => {
   return (
     <ControlsContainer>
       <CurrentSlide>
@@ -82,7 +78,7 @@ export const Slider: FC<{ className?: string }> = ({ children, className }) => {
 
   const [remaining, setRemaining] = useState(DURATION)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setRemaining(DURATION)
   }, [curIndex])
 
@@ -92,14 +88,10 @@ export const Slider: FC<{ className?: string }> = ({ children, className }) => {
 
   return (
     <Container className={className}>
-      <SlidesContainer ref={ref as (instance: HTMLDivElement) => void}>
+      <div ref={ref as (instance: HTMLDivElement) => void}>
         <Slides curIndex={curIndex}>{children}</Slides>
-      </SlidesContainer>
-      <Controls
-        remaining={+((remaining / DURATION) * 100).toFixed(1)}
-        current={curIndex + 1}
-        length={length}
-      />
+      </div>
+      <Controls remaining={+((remaining / DURATION) * 100).toFixed(1)} current={curIndex + 1} length={length} />
     </Container>
   )
 }

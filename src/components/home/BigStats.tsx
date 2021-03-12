@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import 'use-slider/lib/slider.min.css'
 import styled from 'styled-components'
-import CountUp from 'react-countup'
+// @ts-ignore
+import CountUp from 'react-countup-v2'
 
 import { Slider } from '../Slider'
 import { useData } from './DataProvider'
@@ -12,11 +13,11 @@ const StyledCountUp = styled(CountUp)`
 `
 
 const BigStat = styled.div`
-  font-size: 24px;
+  font-size: 1.3rem;
   padding: 1px; // hide the edges for the slider
 
   @media (min-width: 400px) {
-    font-size: 30px;
+    font-size: 1.6rem;
   }
 `
 
@@ -26,52 +27,62 @@ const Blue = styled.span`
 `
 
 const Empty = styled.div`
-  min-height: 300px;
+  min-height: 10rem;
 `
 
-const StyledSlider = styled(Slider)`
-  min-height: 300px;
-`
+const StyledSlider = styled(Slider)``
+
+const apyOptions = { decimalPlaces: 2, suffix: '%' }
 
 export const BigStats: FC = () => {
   const { loading, value } = useData()
-  const musd = value?.musd
-  const mta = value?.mta
 
-  return loading ||
-    !(musd && musd.totalSupply && musd.cumulativeMinted && mta) ? (
+  return loading || !value ? (
     <Empty />
   ) : (
     <StyledSlider>
       <BigStat>
-        mStable users have minted a total of{' '}
+        Currently earning{' '}
         <Blue>
-          <StyledCountUp separator="," end={musd.cumulativeMinted} /> mUSD
+          <StyledCountUp separator="," endVal={value.musd.dailyAPY} options={apyOptions} />
+        </Blue>{' '}
+        for mUSD and{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.mbtc.dailyAPY} options={apyOptions} />
+        </Blue>{' '}
+        for mBTC
+      </BigStat>
+      <BigStat>
+        mStable users have minted{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.musd.cumulativeMinted} /> mUSD
+        </Blue>{' '}
+        and{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.mbtc.cumulativeMinted} /> mBTC
         </Blue>
       </BigStat>
       <BigStat>
-        The mStable protocol has swapped{' '}
-        <Blue>
-          {'$'}
-          <StyledCountUp separator="," end={musd.cumulativeSwapped} />
-        </Blue>{' '}
-        worth of stablecoins
+        Over <Blue>$500m</Blue> swapped
       </BigStat>
       <BigStat>
-        The mStable protocol has{' '}
         <Blue>
-          <StyledCountUp separator="," end={musd.totalSupply} /> mUSD
+          <StyledCountUp separator="," endVal={value.musd.totalSupply} /> mUSD
         </Blue>{' '}
-        in circulation
+        and{' '}
+        <Blue>
+          <StyledCountUp separator="," endVal={value.mbtc.totalSupply} /> mBTC
+        </Blue>{' '}
+        are in circulation
       </BigStat>
       <BigStat>
         mStable has{' '}
         <Blue>
-          <StyledCountUp separator="," end={mta.totalStakers} /> governors
+          <StyledCountUp separator="," endVal={value.mta.totalStakers} /> governors
         </Blue>{' '}
         staking a total of{' '}
         <Blue>
-          <StyledCountUp separator="," end={mta.totalStaked} /> MTA
+          <StyledCountUp separator="," endVal={value.mta.totalStaked} /> MTA
         </Blue>
       </BigStat>
     </StyledSlider>

@@ -17,7 +17,6 @@ const Links = styled.div`
 
 const StyledFullBleed = styled(FullBleed)`
   background-color: white;
-  color: black;
 `
 
 const GetInformed = styled.div`
@@ -40,16 +39,12 @@ export const Governance: FC = () => {
         <MainAndAside>
           <div>
             <p>
-              mStable is governed by MTA holders who have staked their tokens to
-              vote on proposals. mStable's governance goes through a process
-              where consensus is reached in progressively concrete stages.
+              mStable is governed by MTA holders who have staked their tokens to vote on proposals. mStable's governance goes through a
+              process where consensus is reached in progressively concrete stages.
             </p>
-            <p>
-              Proposals and ideas are surfaced on the Discord or public forum,
-              and are finalised by on-chain signalling by MTA holders.
-            </p>
+            <p>Proposals and ideas are surfaced on the Discord or public forum, and are finalised by on-chain signalling by MTA holders.</p>
           </div>
-          <AppCTA href="https://governance.mstable.org">Governance App</AppCTA>
+          <AppCTA href="https://governance.mstable.org">Govern mStable</AppCTA>
         </MainAndAside>
         <GetInformed>
           <h3>Join us and get informed</h3>

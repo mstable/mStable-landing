@@ -1,8 +1,6 @@
 declare module '*.svg' {
   import React = require('react')
   export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>
-  const src: string
-  export default src
 }
 
 declare module '*.png'
@@ -14,17 +12,9 @@ declare module 'react-element-scroll-hook' {
     percentage: number
     value: number
     total: number
-    className:
-      | 'scroll-left'
-      | 'scroll-middle-x'
-      | 'scroll-right'
-      | 'no-scroll-x'
+    className: 'scroll-left' | 'scroll-middle-x' | 'scroll-right' | 'no-scroll-x'
     direction: number
   }
-  const useScrollInfo: () => [
-    { x: Coords; y: Coords },
-    (instance: HTMLElement | null) => void,
-    HTMLElement | null,
-  ]
+  const useScrollInfo: () => [{ x: Coords; y: Coords }, (instance: HTMLElement | null) => void, HTMLElement | null]
   export default useScrollInfo
 }

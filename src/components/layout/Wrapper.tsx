@@ -1,12 +1,9 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import createStateContext from 'react-use/lib/createStateContext'
 
 import { NavBar } from './Navbar'
 import { Footer } from './Footer'
 import { SEO } from './SEO'
-
-import '../../styles/index.styl'
 import { metadata } from '../../strings'
 
 interface Props {
@@ -29,24 +26,15 @@ const Container = styled.div`
   }
 `
 
-const [useLogoVisibility, LogoVisibilityProvider] = createStateContext(false)
-
 export const Wrapper: FC<Props> = ({ children, title, description }) => {
   return (
     <>
-      <SEO
-        description={description ?? metadata.description}
-        title={title ?? metadata.title}
-      />
-      <LogoVisibilityProvider>
-        <Container>
-          <NavBar />
-          {children}
-          <Footer />
-        </Container>
-      </LogoVisibilityProvider>
+      <SEO description={description ?? metadata.description} title={title ?? metadata.title} />
+      <Container>
+        <NavBar />
+        {children}
+        <Footer />
+      </Container>
     </>
   )
 }
-
-export { useLogoVisibility }

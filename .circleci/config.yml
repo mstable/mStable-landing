@@ -4,11 +4,11 @@ executors:
   gcp:
     docker:
       - image: alsco77/node-gcp-dockerfile:origin
-    resource_class: medium+
+    resource_class: medium
   node:
     docker:
-      - image: circleci/node:10.13.0
-    resource_class: medium+
+      - image: circleci/node:15.3.0
+    resource_class: medium
 jobs:
   build:
     executor: node
@@ -17,21 +17,21 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - restore_cache:
-          key: dependency-cache-v1-{{ checksum "yarn.lock" }}
+          key: dependency-cache-v2-{{ checksum "yarn.lock" }}
       - run:
           name: 'Install and build'
           command: |
             yarn install
-            yarn clean
-            sh ./pre-build.sh
             yarn build
       - persist_to_workspace:
           root: ~/
           paths:
-            - project/public
             - project/*
+            - project/dist/*
+            - project/dist/client/*
+            - project/dist/server/*
       - save_cache:
-          key: dependency-cache-v1-{{ checksum "yarn.lock" }}
+          key: dependency-cache-v2-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
   deployStaging:

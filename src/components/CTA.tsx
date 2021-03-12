@@ -7,9 +7,6 @@ import Ether from '../images/ether-logo.svg'
 import { Button } from './Button'
 
 const StyledExternalLink = styled(ExternalLink)<{ arrow?: boolean }>`
-  text-transform: uppercase;
-  font-weight: bold;
-
   &:before {
     // Right arrow and nbsp
     content: ${({ arrow }) => (arrow ? '"\\2794\\a0"' : 'none')};
@@ -17,6 +14,7 @@ const StyledExternalLink = styled(ExternalLink)<{ arrow?: boolean }>`
 `
 
 export const AppCTAButton = styled(Button)`
+  font-weight: normal;
   background: ${Colors.blue};
   color: white;
   border: none;
@@ -32,27 +30,15 @@ export const AppCTAButton = styled(Button)`
   }
 `
 
-export const CTA: FC<
-  ComponentProps<typeof ExternalLink> & { arrow?: boolean }
-> = ({ arrow, children, className, title, href }) => {
+export const CTA: FC<ComponentProps<typeof ExternalLink> & { arrow?: boolean }> = ({ arrow, children, className, title, href }) => {
   return (
-    <StyledExternalLink
-      className={className}
-      href={href}
-      title={title}
-      arrow={arrow}
-    >
+    <StyledExternalLink className={className} href={href} title={title} arrow={arrow}>
       {children}
     </StyledExternalLink>
   )
 }
 
-export const AppCTA: FC<ComponentProps<typeof ExternalLink>> = ({
-  children,
-  className,
-  title,
-  href,
-}) => {
+export const AppCTA: FC<ComponentProps<typeof ExternalLink>> = ({ children, className, title, href }) => {
   return (
     <ExternalLink href={href} title={title}>
       <AppCTAButton className={className}>

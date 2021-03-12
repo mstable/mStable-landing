@@ -1,75 +1,68 @@
 {
   "name": "mstable-landing",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "mStable Landing Page",
   "author": "Stability Labs Pty. Ltd. <hello@stabilitylabs.co>",
   "license": "LGPL-3.0-or-later",
-  "dependencies": {
-    "@types/numeral": "^0.0.28",
-    "@types/react-countup": "^4.3.0",
-    "@types/react-helmet": "^6.1.0",
-    "@types/recharts": "^1.8.16",
-    "@types/styled-components": "^5.1.4",
-    "date-fns": "^2.16.1",
-    "flex-gap-polyfill": "^1.0.4",
-    "gatsby-plugin-google-analytics": "^2.3.19",
-    "gatsby-plugin-styled-components": "^3.3.14",
-    "gatsby": "^2.26.1",
-    "gatsby-plugin-favicon": "^3.1.6",
-    "gatsby-plugin-react-helmet": "^3.1.21",
-    "gatsby-plugin-stylus": "^2.1.20",
-    "gatsby-source-filesystem": "^2.1.46",
-    "numeral": "^2.0.6",
-    "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "react-countup": "^4.3.3",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^6.1.0",
-    "react-hook-inview": "^4.3.3",
-    "react-loading-skeleton": "^2.1.1",
-    "react-scripts": "^3.4.4",
-    "react-use": "^15.3.4",
-    "recharts": "^1.8.5",
-    "resize-observer-polyfill": "^1.5.1",
-    "styled-components": "^5.2.0",
-    "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c"
-  },
-  "browserslist": [
-    ">0.3%",
-    "not ie 11",
-    "not dead",
-    "not op_mini all"
-  ],
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "babel-core": "^6.26.3",
-    "babel-plugin-styled-components": "^1.11.1",
-    "babel-plugin-styled-components-postcss": "^1.0.5-alpha.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-gatsby": "^0.5.14",
-    "babel-preset-react": "^6.24.1",
-    "core-js": "^3.7.0",
-    "postcss": "^6.0.23",
-    "prettier": "^2.1.2"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "scripts": {
-    "build": "yarn gatsby build --verbose",
-    "develop": "yarn gatsby develop",
-    "lint": "yarn prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-    "start": "yarn develop",
-    "serve": "yarn gatsby serve",
-    "clean": "yarn gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mstable/mstable-landing.git"
-  },
   "bugs": {
     "url": "https://github.com/mstable/mstable-landing/issues"
+  },
+  "scripts": {
+    "dev": "yarn vite --port 1337 --open --force",
+    "build": "rm -rf dist && yarn vite-ssr build",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@types/numeral": "^2.0.1",
+    "@types/react-countup": "^4.3.0",
+    "@types/react-router-config": "^5.0.2",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/recharts": "^1.8.19",
+    "@types/styled-components": "^5.1.7",
+    "countup.js": "./lib/countup.js",
+    "date-fns": "^2.19.0",
+    "flex-gap-polyfill": "^2.2.1",
+    "numeral": "^2.0.6",
+    "react": "^17.0.0",
+    "react-countup-v2": "^3.0.1",
+    "react-dom": "^17.0.0",
+    "react-helmet-async": "^1.0.9",
+    "react-hook-inview": "^4.3.8",
+    "react-loading-skeleton": "^2.2.0",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "react-use": "15.3.8",
+    "recharts": "^1.8.5",
+    "resize-observer-polyfill": "^1.5.1",
+    "styled-components": "^5.2.1",
+    "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c",
+    "vite-plugin-svgr": "^0.2.0",
+    "vite-ssr": "JamesLefrere/vite-ssr#7b50e4f10e44b716c726e278b070a88f5bf4bbe3"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "postcss": "^8.2.7",
+    "prettier": "^2.2.1",
+    "serve-static": "^1.14.1",
+    "stylus": "0.53.0",
+    "typescript": "^4.1.2",
+    "vite": "^2.0.5"
+  },
+  "resolutions": {
+    "countup.js": "./lib/countup.js"
+  },
+  "prettier": {
+    "printWidth": 140,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
   }
 }

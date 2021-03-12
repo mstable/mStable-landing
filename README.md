@@ -1,20 +1,30 @@
 <h1 align="center">
-  mStable Landing Page
+  mstable.org
 </h1>
 
 ## Develop
 
-    npm install -g gatsby-cli
-    gatsby develop
+    yarn
+    yarn dev
+
+This project uses:
+
+- [Vite](https://github.com/vitejs/vite) for frontend tooling
+- [React](https://reactjs.org/) for UI components
+- [React Router](https://reactrouter.com/) for routing
+- [Styled Components](https://styled-components.com/) for styling the UI
+- And a few other libraries for various components
 
 ## Build
 
-    gatsby build
+    yarn build
+
+## Serve locally (with SSR)
+
+    yarn start
 
 ## Files
 
-1.  **`/pages/index.js`**: This is where basically the whole website content sits.
-
-2.  **`/components/SEO.js`**: All meta titles and descriptions are here.
-
-3.  **`/styles/`**: The CSS styles but in Stylus. All color definitions and font sizes are in `index.styl`
+- `/src/pages/*.tsx`: Pages defined here are served on routes dynamically (based on the file name).
+- `/src/components/SEO.tsx`: All meta titles and descriptions are here.
+- `/src/components/images/*`: All images used in page content, including SVGs.

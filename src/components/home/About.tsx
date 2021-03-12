@@ -12,8 +12,7 @@ const ItemContainer = styled.div<{ inView: boolean }>`
   transition: all 1s ease;
   opacity: ${({ inView }) => (inView ? 1 : 0)};
   transform-origin: center bottom;
-  transform: ${({ inView }) =>
-    `scale(${inView ? 1 : 0.8}) translateY(${inView ? 0 : 20}px)`};
+  transform: ${({ inView }) => `scale(${inView ? 1 : 0.8}) translateY(${inView ? 0 : 20}px)`};
   margin-bottom: 32px;
 
   h4 {
@@ -35,11 +34,7 @@ const ItemContainer = styled.div<{ inView: boolean }>`
   }
 `
 
-const Item: FC<{ href: string; title: string; description: string }> = ({
-  href,
-  description,
-  title,
-}) => {
+const Item: FC<{ href: string; title: string; description: string }> = ({ href, description, title }) => {
   const [ref, inView] = useInView({
     unobserveOnEnter: true,
     threshold: 1,
@@ -70,30 +65,21 @@ export const About: FC = () => {
     <FullBleed dark={false}>
       <Section subtitle="mStable combines lending income with trading fees to produce higher yielding assets.">
         <Grid>
-          <Item
-            href="https://app.mstable.org/swap"
-            title="SWAP"
-            description="Swap USD stablecoins with zero-slippage"
-          />
-          <Item
-            href="https://app.mstable.org/save"
-            title="SAVE"
-            description="USD savings account for anyone, anywhere"
-          />
-          <Item
-            href="https://app.mstable.org/earn"
-            title="EARN"
-            description="All contributors can earn MTA to govern the protocol"
-          />
-          <Item
-            href="https://governance.mstable.org"
-            title="GOVERN"
-            description="Governed by a global community"
-          />
+          <Item href="https://app.mstable.org/swap" title="SWAP" description="Efficiently swap pegged crypto assets" />
+          <Item href="https://app.mstable.org/save" title="SAVE" description="High yield savings account for anyone, anywhere" />
+          <Item href="https://app.mstable.org/earn" title="EARN" description="All contributors can earn MTA to govern the protocol" />
+          <Item href="https://governance.mstable.org" title="GOVERN" description="Governed by a global community" />
         </Grid>
-        <CTA arrow href="https://docs.mstable.org">
-          Protocol docs
-        </CTA>
+        <p>
+          <CTA arrow href="https://cryptocurrencyjobs.co/startups/mstable/">
+            We’re hiring!
+          </CTA>
+        </p>
+        <p>
+          <CTA arrow href="https://docs.mstable.org">
+            Protocol docs
+          </CTA>
+        </p>
       </Section>
     </FullBleed>
   )

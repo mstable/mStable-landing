@@ -15,9 +15,11 @@ const Container = styled.div`
 export const Graph = <T extends unknown>({
   url,
   component: GraphComponent,
+  asset,
 }: {
+  asset: 'musd' | 'mbtc'
   url: string
-  component: FC<{ data: T; isMobile: boolean }>
+  component: FC<{ data: T; isMobile: boolean; asset: 'musd' | 'mbtc' }>
 }) => {
   const isMobile = useMedia('(max-width: 400px)')
   const fetched = useRef<boolean>(false)
@@ -36,11 +38,7 @@ export const Graph = <T extends unknown>({
 
   return (
     <Container ref={ref}>
-      {loading ? (
-        <Skeleton height={150} />
-      ) : (
-        <GraphComponent data={value as T} isMobile={isMobile} />
-      )}
+      {loading ? <Skeleton height={150} /> : <GraphComponent data={value as T} isMobile={isMobile} asset={asset} />}
     </Container>
   )
 }
