@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useWindowScroll, useMeasure } from 'react-use'
 import type { UseMeasureRef } from 'react-use/lib/useMeasure'
 
-import LogoSvg from '../../images/mstable-logo.svg'
 import { Section } from '../layout/Section'
 import { logoVisibilityCtx } from '../../context'
 import { FullBleed } from '../layout/FullBleed'
@@ -24,7 +23,7 @@ const DownArrow = styled.div`
     opacity: 0.4;
     position: absolute;
     text-align: center;
-    top: -1rem;
+    top: 0;
     transition: opacity 0.3s ease;
     width: 2rem;
     &:hover {
@@ -33,25 +32,15 @@ const DownArrow = styled.div`
   }
 `
 
-const LogoImg = styled.img`
-  margin: 4rem auto;
+const MissionH1 = styled.h1`
+  text-align: center;
+  margin: 4rem auto 2rem auto;
+  max-width: 38ch;
+  font-size: 2rem;
+  font-weight: normal;
 
-  @media (min-width: 520px) {
-    max-width: 28rem;
-  }
-`
-
-const MissionText = styled.div`
-  h1 {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 38ch;
-    font-size: 24px;
-    font-weight: normal;
-
-    @media (min-width: 400px) {
-      font-size: 32px;
-    }
+  @media (min-width: 400px) {
+    font-size: 2.4rem;
   }
 `
 
@@ -61,7 +50,7 @@ const BottomSection = styled(Section)`
 
   > div {
     > :first-child {
-      margin-bottom: 6rem;
+      margin-bottom: 8rem;
       > :first-child {
         > * {
           text-align: center;
@@ -101,10 +90,7 @@ export const Intro: FC = () => {
   return (
     <StyledFullBleed dark ref={ref as UseMeasureRef<HTMLDivElement>}>
       <Section>
-        <LogoImg src={LogoSvg} alt="mStable" />
-        <MissionText>
-          <h1>Autonomous and non-custodial infrastructure for pegged-value crypto assets.</h1>
-        </MissionText>
+        <MissionH1>Autonomous and non-custodial infrastructure for pegged-value crypto assets.</MissionH1>
       </Section>
       <BottomSection>
         <BigStats />

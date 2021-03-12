@@ -2,13 +2,14 @@ import React, { FC } from 'react'
 
 import styled from 'styled-components'
 
-import { Colors } from '../../theme'
 import { FullBleed } from '../layout/FullBleed'
 import { Section } from '../layout/Section'
+import { ExternalLink } from '../ExternalLink'
 
 interface BackerProps {
   title: string
   colour: string
+  href?: string
 }
 
 const Title = styled.h4`
@@ -18,7 +19,7 @@ const Title = styled.h4`
   margin: 0;
 `
 
-const BackerLink = styled.span<{ colour: string }>`
+const BackerLink = styled(ExternalLink)<{ colour: string }>`
   background: black;
   border-radius: 1rem;
   padding: 0.7rem 1rem;
@@ -33,9 +34,9 @@ const BackerLink = styled.span<{ colour: string }>`
   }
 `
 
-const Backer: FC<BackerProps> = ({ colour, title }) => {
+const Backer: FC<BackerProps> = ({ colour, title, href = '#' }) => {
   return (
-    <BackerLink colour={colour} title={title}>
+    <BackerLink colour={colour} title={title} href={href}>
       <Title>{title}</Title>
     </BackerLink>
   )
@@ -62,20 +63,24 @@ const BackersGrid = styled.div`
 
 const backersList: BackerProps[] = [
   {
-    title: 'Three Arrows Capital',
-    colour: '#ab3994',
-  },
-  {
     title: 'DACM',
     colour: '#ff875b',
+    href: 'https://dacm.io/',
+  },
+  {
+    title: 'Three Arrows Capital',
+    colour: '#ab3994',
+    href: 'https://www.threearrowscap.com/',
   },
   {
     title: 'Alameda Research',
     colour: '#fff',
+    href: 'https://www.alameda-research.com/',
   },
   {
-    title: 'Defiance Capital',
+    title: 'DeFiance Capital',
     colour: '#00d395',
+    href: 'https://www.defiance.capital/',
   },
   {
     title: 'Decision Tree Capital',
@@ -84,22 +89,27 @@ const backersList: BackerProps[] = [
   {
     title: 'Anthony Sassano',
     colour: '#ade57d',
+    href: 'https://twitter.com/sassal0x',
   },
   {
     title: 'Kain Warwick',
     colour: '#f77b27',
+    href: 'https://twitter.com/kaiynne',
   },
   {
     title: 'Eric Conner',
     colour: '#ff007a',
+    href: 'https://twitter.com/econoar',
   },
   {
     title: 'Zhuoxun Yin',
     colour: '#e61c3f',
+    href: 'https://twitter.com/zhuoxunyin',
   },
   {
     title: 'Andrew Kang',
     colour: '#00e5dd',
+    href: 'https://twitter.com/Rewkang',
   },
   {
     title: '...and more',
@@ -112,8 +122,8 @@ export const Backers: FC = () => {
     <FullBleed dark>
       <Section title="Backed by the best">
         <BackersGrid>
-          {backersList.map(({ title, colour }) => (
-            <Backer key={title} title={title} colour={colour} />
+          {backersList.map(({ title, colour, href }) => (
+            <Backer key={title} title={title} colour={colour} href={href} />
           ))}
         </BackersGrid>
       </Section>

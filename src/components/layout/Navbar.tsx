@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import { logoVisibilityCtx } from '../../context'
-import M from '../../images/mstable-m.svg'
+import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
 import Ether from '../../images/ether-logo.svg'
 import { ExternalLink } from '../ExternalLink'
 import { Constants } from '../../theme'
@@ -69,11 +69,13 @@ const Nav = styled.nav`
   }
 `
 
-const LogoImg = styled.img<{ visible: boolean }>`
-  width: 20px;
-  height: auto;
-  transition: opacity 2s ease;
-  opacity: ${({ visible }) => (visible ? 1 : 0)};
+const LogoImg = styled(LogoSvg)<{ stable: number }>`
+  height: 20px;
+  width: auto;
+  #stable {
+    transition: opacity 2s ease;
+    opacity: ${({ stable }) => stable};
+  }
 `
 
 export const NavBar: FC = () => {
@@ -81,10 +83,9 @@ export const NavBar: FC = () => {
   return (
     <FixedContainer>
       <Nav>
-        <Link to="/">
-          <LogoImg src={M} alt="mStable" visible={visible} />
+        <Link to="/" title="mStable">
+          <LogoImg stable={visible ? 1 : 0} />
         </Link>
-
         <ul>
           <li>
             <ExternalLink href="https://github.com/mstable">Code</ExternalLink>

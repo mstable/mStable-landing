@@ -63,7 +63,7 @@ export const BigStats: FC = () => {
         </Blue>
       </BigStat>
       <BigStat>
-        Over <Blue>$500m</Blue> in pegged-value crypto assets swapped
+        Over <Blue>$500m</Blue> swapped
       </BigStat>
       <BigStat>
         <Blue>
