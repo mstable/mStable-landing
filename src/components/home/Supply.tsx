@@ -12,7 +12,10 @@ const SupplyGraph: FC<{
   isMobile: boolean
 }> = ({ data, isMobile, asset }) => {
   const suffix = asset === 'mbtc' ? 'mBTC ' : '$'
-  const filteredData = useMemo(() => data?.filter((d) => d[asset]), [data, asset])
+  const filteredData = useMemo(
+    () => data?.filter((datum, index, arr) => datum[asset] && arr.findIndex((_datum) => _datum.d === datum.d) === index),
+    [data, asset],
+  )
   return (
     <ResponsiveContainer aspect={isMobile ? 60 / 24 : 60 / 18}>
       <AreaChart margin={{ top: 0, right: 10, bottom: 6, left: 10 }} barCategoryGap={1} data={filteredData}>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import { Area, XAxis, YAxis, Tooltip, AreaChart, ResponsiveContainer } from 'recharts'
 
 import { formatBTCAmount, formatDollarAmount, formatISODate, toK, toK2 } from '../../utils'
@@ -11,10 +11,11 @@ const TotalsGraph: FC<{
   data: { d: string; m: number; s: number; r: number }[]
   isMobile: boolean
 }> = ({ data, isMobile, asset }) => {
+  const filteredData = useMemo(() => data?.filter((datum, index, arr) => arr.findIndex((_datum) => _datum.d === datum.d) === index), [data])
   const suffix = asset === 'mbtc' ? 'BTC ' : '$'
   return (
     <ResponsiveContainer aspect={isMobile ? 60 / 24 : 60 / 18}>
-      <AreaChart margin={{ top: 0, right: 10, bottom: 6, left: 10 }} barCategoryGap={1} data={data}>
+      <AreaChart margin={{ top: 0, right: 10, bottom: 6, left: 10 }} barCategoryGap={1} data={filteredData}>
         <XAxis hide dataKey="d" />
         <YAxis
           hide={isMobile}
