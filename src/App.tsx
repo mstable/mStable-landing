@@ -12,18 +12,20 @@ export const App: FC = () => {
   return (
     <HelmetProvider>
       <LogoVisibilityProvider>
-        <Wrapper>
-          <Switch>
-            {routes.map((route) => (
-              <Route path={route.path} exact key={route.path}>
-                {<route.component />}
-              </Route>
-            ))}
-            <Route path="*">
-              <NotFound />
+        <Switch>
+          {routes.map(({ path, seo: { title, description }, component: RouteComponent }) => (
+            <Route path={path} exact key={path}>
+              <Wrapper title={title} description={description}>
+                <RouteComponent />
+              </Wrapper>
             </Route>
-          </Switch>
-        </Wrapper>
+          ))}
+          <Route path="*">
+            <Wrapper>
+              <NotFound />
+            </Wrapper>
+          </Route>
+        </Switch>
       </LogoVisibilityProvider>
     </HelmetProvider>
   )

@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect } from 'react'
+import React, { FC, useContext, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import { useWindowScroll, useMeasure } from 'react-use'
 import type { UseMeasureRef } from 'react-use/lib/useMeasure'
@@ -83,7 +83,7 @@ export const Intro: FC = () => {
   const [ref, { height, top, bottom }] = useMeasure()
   const [, setLogoVisibility] = useContext(logoVisibilityCtx)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setLogoVisibility(y > height + top)
   }, [y, height, top])
 

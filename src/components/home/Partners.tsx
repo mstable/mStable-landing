@@ -178,7 +178,7 @@ const partnersList: PartnerProps[] = [
 export const Partners: FC = () => {
   return (
     <FullBleed background={IntegrationsBackground} dark>
-      <Section title="Integrated with leading protocols">
+      <Section h2="Integrated with leading protocols">
         <PartnersGrid>
           {partnersList.map(({ image, description, title, subtitle, href, colour }) => (
             <Partner key={title} title={title} colour={colour} subtitle={subtitle} description={description} image={image} href={href} />
