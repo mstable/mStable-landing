@@ -40,7 +40,7 @@ export const Governance: FC = () => {
         <MainAndAside>
           <div>
             <p>
-              mStable is governed by <Link to="/governance-token-mta">MTA</Link> holders who have staked their tokens to vote on proposals.
+              mStable is governed by <Link to="/governance-token-meta">MTA</Link> holders who have staked their tokens to vote on proposals.
               mStable's governance goes through a process where consensus is reached in progressively concrete stages.
             </p>
             <p>Proposals and ideas are surfaced on the Discord or public forum, and are finalised by on-chain signalling by MTA holders.</p>

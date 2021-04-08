@@ -73,7 +73,7 @@ export const About: FC = () => {
             title="POOLS"
             description={
               <>
-                All contributors can earn <Link to="/governance-token-mta">MTA</Link> in mStable's native liquidity pools
+                All contributors can earn <Link to="/governance-token-meta">MTA</Link> in mStable's native liquidity pools
               </>
             }
           />
