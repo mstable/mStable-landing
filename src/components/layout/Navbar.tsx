@@ -93,6 +93,9 @@ export const NavBar: FC = () => {
           <li>
             <ExternalLink href="https://docs.mstable.org">Docs</ExternalLink>
           </li>
+          <Link to="/governance-token-meta" title="Meta (MTA)">
+            Meta
+          </Link>
           <li>
             <AppLink href="https://mstable.app">
               <img src={Ether} alt="App" />

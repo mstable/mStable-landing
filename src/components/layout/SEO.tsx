@@ -7,7 +7,7 @@ export interface Props {
 }
 
 export const SEO: FC<Props> = ({ title, description }) => {
-  const url = 'https://mstable.org'
+  const url = `https://mstable.org${document.location.pathname}`
 
   return (
     <Helmet

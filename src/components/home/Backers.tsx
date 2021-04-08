@@ -132,7 +132,7 @@ const backersList: BackerProps[] = [
 export const Backers: FC = () => {
   return (
     <FullBleed dark>
-      <Section title="Backed by the best">
+      <Section h2="Backed by the best">
         <BackersGrid>
           {backersList.map(({ title, colour, href }) => (
             <Backer key={title} title={title} colour={colour} href={href} />

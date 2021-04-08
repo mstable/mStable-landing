@@ -41,14 +41,11 @@ const Links = styled.div`
 export const Security: FC = () => {
   return (
     <FullBleed>
-      <Section title="Secure, non-custodial contracts">
+      <Section h1="Secure, non-custodial contracts">
         <TwoColumns>
           <Header>
             <p>Smart contract security is mStable’s first priority.</p>
-            <p>
-              The mStable protocol was fully audited by Consensys Diligence and
-              no critical bugs were found.
-            </p>
+            <p>The mStable protocol was fully audited by Consensys Diligence and no critical bugs were found.</p>
           </Header>
           <div />
         </TwoColumns>
@@ -59,18 +56,13 @@ export const Security: FC = () => {
               <Quote>
                 <img src={QuoteImg} alt="Quote" />
                 <p>
-                  Code quality is high and the code is well-documented. Test
-                  coverage is outstanding with near-100% branch coverage. The
-                  code adheres to best practices and does not contain trivial
-                  bugs.
+                  Code quality is high and the code is well-documented. Test coverage is outstanding with near-100% branch coverage. The
+                  code adheres to best practices and does not contain trivial bugs.
                 </p>
               </Quote>
             </div>
             <Links>
-              <CTA
-                arrow
-                href="https://consensys.net/diligence/audits/2020/07/mstable-1.1/"
-              >
+              <CTA arrow href="https://consensys.net/diligence/audits/2020/07/mstable-1.1/">
                 Read the audit
               </CTA>
               <img src={Consensys} alt="Consensys" />
@@ -80,9 +72,7 @@ export const Security: FC = () => {
             <div>
               <h3>Bug Bounty Program</h3>
               <p>
-                An open reward pool for discovering and reporting
-                vulnerabilities in mStable is ongoing, with rewards of up to
-                US$50,000.
+                An open reward pool for discovering and reporting vulnerabilities in mStable is ongoing, with rewards of up to US$50,000.
               </p>
             </div>
             <Links>

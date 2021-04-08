@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import styled from 'styled-components'
 import { useInView } from 'react-hook-inview'
 
@@ -6,6 +6,7 @@ import { Section } from '../layout/Section'
 import { FullBleed } from '../layout/FullBleed'
 import { CTA } from '../CTA'
 import { ExternalLink } from '../ExternalLink'
+import { Link } from 'react-router-dom'
 
 const ItemContainer = styled.div<{ inView: boolean }>`
   position: relative;
@@ -34,7 +35,7 @@ const ItemContainer = styled.div<{ inView: boolean }>`
   }
 `
 
-const Item: FC<{ href: string; title: string; description: string }> = ({ href, description, title }) => {
+const Item: FC<{ href: string; title: string; description: string | ReactNode }> = ({ href, description, title }) => {
   const [ref, inView] = useInView({
     unobserveOnEnter: true,
     threshold: 1,
@@ -63,11 +64,19 @@ const Grid = styled.div`
 export const About: FC = () => {
   return (
     <FullBleed dark={false}>
-      <Section subtitle="mStable combines lending income with trading fees to produce higher yielding assets.">
+      <Section h3="mStable combines lending income with trading fees to produce higher yielding assets.">
         <Grid>
-          <Item href="https://app.mstable.org/swap" title="SWAP" description="Efficiently swap pegged crypto assets" />
-          <Item href="https://app.mstable.org/save" title="SAVE" description="High yield savings account for anyone, anywhere" />
-          <Item href="https://app.mstable.org/earn" title="EARN" description="All contributors can earn MTA to govern the protocol" />
+          <Item href="https://app.mstable.org/#/musd/swap" title="SWAP" description="Efficiently swap pegged crypto assets" />
+          <Item href="https://app.mstable.org/#/musd/save" title="SAVE" description="High yield savings account for anyone, anywhere" />
+          <Item
+            href="https://app.mstable.org/#/musd/pools"
+            title="POOLS"
+            description={
+              <>
+                All contributors can earn <Link to="/governance-token-mta">MTA</Link> in mStable's native liquidity pools
+              </>
+            }
+          />
           <Item href="https://governance.mstable.org" title="GOVERN" description="Governed by a global community" />
         </Grid>
         <p>

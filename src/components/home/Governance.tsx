@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import { Section } from '../layout/Section'
 import { AppCTA, CTA } from '../CTA'
@@ -35,12 +36,12 @@ const Jobs = styled.div`
 export const Governance: FC = () => {
   return (
     <StyledFullBleed>
-      <Section title="An open & decentralised ecosystem">
+      <Section h2="An open & decentralised ecosystem">
         <MainAndAside>
           <div>
             <p>
-              mStable is governed by MTA holders who have staked their tokens to vote on proposals. mStable's governance goes through a
-              process where consensus is reached in progressively concrete stages.
+              mStable is governed by <Link to="/governance-token-mta">MTA</Link> holders who have staked their tokens to vote on proposals.
+              mStable's governance goes through a process where consensus is reached in progressively concrete stages.
             </p>
             <p>Proposals and ideas are surfaced on the Discord or public forum, and are finalised by on-chain signalling by MTA holders.</p>
           </div>

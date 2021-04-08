@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useLayoutEffect, useState } from 'react'
 import styled from 'styled-components'
 import useInterval from 'react-use/lib/useInterval'
 import useSlider from 'use-slider'
@@ -78,7 +78,7 @@ export const Slider: FC<{ className?: string }> = ({ children, className }) => {
 
   const [remaining, setRemaining] = useState(DURATION)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setRemaining(DURATION)
   }, [curIndex])
 
