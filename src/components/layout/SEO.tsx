@@ -4,10 +4,11 @@ import { Helmet } from 'react-helmet-async'
 export interface Props {
   title: string
   description: string
+  path: string
 }
 
-export const SEO: FC<Props> = ({ title, description }) => {
-  const url = `https://mstable.org${document.location.pathname}`
+export const SEO: FC<Props> = ({ title, description, path }) => {
+  const url = `https://mstable.org/${path}`
 
   return (
     <Helmet

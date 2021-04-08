@@ -7,8 +7,6 @@ import { App } from './App'
 import { routes } from './routes'
 
 export default viteSSR(App, { routes }, ({ url, ...context }) => {
-  if (import.meta.env.SSR) {
-    const [{ route = {} } = {}] = matchRoutes(routes, url.pathname)
-    return { ...route, ...context, url }
-  }
+  const [{ route = {} } = {}] = matchRoutes(routes, url.pathname)
+  return { ...route, ...context, url }
 })
