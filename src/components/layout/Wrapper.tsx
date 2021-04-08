@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 
 import { NavBar } from './Navbar'
@@ -9,6 +9,7 @@ import { metadata } from '../../strings'
 interface Props {
   title?: string
   description?: string
+  path: string
 }
 
 const Container = styled.div`
@@ -26,10 +27,13 @@ const Container = styled.div`
   }
 `
 
-export const Wrapper: FC<Props> = ({ children, title, description }) => {
+export const Wrapper: FC<Props> = ({ children, path, title, description }) => {
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
   return (
     <>
-      <SEO description={description ?? metadata.description} title={title ?? metadata.title} />
+      <SEO path={path} description={description ?? metadata.description} title={title ?? metadata.title} />
       <Container>
         <NavBar />
         {children}

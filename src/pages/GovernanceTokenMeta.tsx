@@ -19,6 +19,7 @@ const BigButton = styled(CTA)`
   box-shadow: rgba(0, 153, 255, 0.4) 0 6px 20px;
   padding: 0.75rem 1.75rem;
   border-radius: 1.5rem;
+  transition: all 0.5s ease;
 
   &:hover {
     color: white;
