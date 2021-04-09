@@ -6,6 +6,7 @@ import { TwoColumns as TwoColumnsBase } from '../components/layout/Grid'
 import { FullBleed } from '../components/layout/FullBleed'
 import { CTA } from '../components/CTA'
 import { Colors } from '../theme'
+import { ExternalLink } from '../components/ExternalLink'
 
 const BigButton = styled(CTA)`
   text-transform: none;
@@ -49,7 +50,7 @@ const Headline = styled.span`
     color: ${Colors.whiteTransparent};
     > span {
       color: white;
-      font-weight: 600;
+      font-weight: bold;
     }
   }
 `
@@ -62,6 +63,10 @@ const Header = styled.div`
     display: block;
     max-width: 40ch;
     font-weight: normal;
+    span {
+      font-weight: bold;
+      color: white;
+    }
   }
 
   img {
@@ -101,7 +106,7 @@ const TwoColumns = styled(TwoColumnsBase)`
 
 export const SEO = {
   title: 'mStable Governance Token Meta (MTA)',
-  description: 'Meta (MTA) is the governance token of mStable',
+  description: 'Meta (MTA) is the governance token for the DeFi protocol mStable, with staking and yield farming rewards',
 }
 
 export const GovernanceTokenMeta: FC = () => {
@@ -121,30 +126,34 @@ export const GovernanceTokenMeta: FC = () => {
       >
         <Header>
           <img alt="mStable MTA Token" src="/tokens/mta.png" />
-          <h3>
-            Meta (MTA) coordinates mStable’s decentralised governance, fosters long-term alignment for stakeholders, and creates value for
-            the protocol and its users.
-          </h3>
+          <div>
+            <h3>
+              Meta (<span>MTA</span>) coordinates mStable’s decentralised governance, fosters long-term alignment for stakeholders, and
+              creates value for the protocol and its users.
+            </h3>
+            <ExternalLink href="https://coingecko.com/en/coins/meta">See MTA on Coingecko</ExternalLink>
+          </div>
         </Header>
         <TwoColumns>
           <div />
           <div>
             <div>
-              <h4>MTA Staking</h4>
+              <h4>What is mStable's governance token MTA used for?</h4>
               <p>
-                MTA governors vote on the direction of the protocol and its parameters. MTA stakers can earn <span>boosted rewards</span>{' '}
-                across the protocol to incentivise long-term holders.
+                MTA stakers earn staking rewards and can also earn <span>boosted rewards</span> across the protocol to incentivise long-term
+                holders. By staking, MTA governors vote on the direction of the protocol, its parameters and funding.
               </p>
             </div>
             <Links>
               <BigButton href="https://governance.mstable.org">Stake MTA</BigButton>
+              <BigButton href="https://medium.com/mstable/guide-mstable-staking-249660be3e0">Guide: Staking MTA</BigButton>
             </Links>
           </div>
         </TwoColumns>
         <TwoColumns>
           <div>
             <div>
-              <h4>Earn MTA tokens</h4>
+              <h4>How can I earn MTA tokens?</h4>
               <p>
                 Anyone can earn MTA through mStable’s rewards: <span>MTA Staking, Save Vaults, Feeder Pools</span>, and the{' '}
                 <span>Grants Program</span>.
@@ -160,7 +169,7 @@ export const GovernanceTokenMeta: FC = () => {
           <div />
           <div>
             <div>
-              <h4>Buy MTA tokens</h4>
+              <h4>Which exchanges sell MTA tokens?</h4>
               <p>
                 MTA is traded on major exchanges like <span>Huobi</span> and <span>FTX</span>, and decentralized exchanges like{' '}
                 <span>Uniswap</span>.
