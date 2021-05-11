@@ -97,7 +97,7 @@ export const NavBar: FC = () => {
             Meta
           </Link>
           <li>
-            <AppLink href="https://mstable.app">
+            <AppLink href="https://app.mstable.org">
               <img src={Ether} alt="App" />
               <div>App</div>
             </AppLink>
