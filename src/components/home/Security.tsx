@@ -16,10 +16,10 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 32px;
-  padding: 16px;
-  border-radius: 3px;
-  border: 1px rgba(0, 0, 0, 0.2) solid;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
 `
 
 const Quote = styled.blockquote`

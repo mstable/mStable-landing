@@ -2,14 +2,14 @@ import styled from 'styled-components'
 
 export const Grid = styled.div`
   > * {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
   }
 
   @media (min-width: 520px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    gap: 16px;
+    gap: 2rem;
     grid-template-areas: 'left left left right right right' 'main main main main aside aside';
     > * {
       margin-bottom: 0;

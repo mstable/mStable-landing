@@ -14,12 +14,12 @@ const ItemContainer = styled.div<{ inView: boolean }>`
   opacity: ${({ inView }) => (inView ? 1 : 0)};
   transform-origin: center bottom;
   transform: ${({ inView }) => `scale(${inView ? 1 : 0.8}) translateY(${inView ? 0 : 20}px)`};
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 
   h4 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 16px;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
 
   @media (min-width: 520px) {
@@ -51,13 +51,13 @@ const Item: FC<{ href: string; title: string; description: string | ReactNode }>
 }
 
 const Grid = styled.div`
-  margin: 32px 0;
+  margin: 2rem 0;
 
   @media (min-width: 520px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    gap: 32px;
+    gap: 2rem;
   }
 `
 

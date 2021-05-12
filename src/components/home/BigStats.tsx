@@ -23,14 +23,16 @@ const BigStat = styled.div`
 
 const Blue = styled.span`
   color: ${Colors.lightBlue};
-  text-shadow: rgba(0, 153, 255, 0.5) 0 0 8px;
+  text-shadow: rgba(0, 35, 57, 0.5) 0 0 8px;
 `
 
 const Empty = styled.div`
   min-height: 10rem;
 `
 
-const StyledSlider = styled(Slider)``
+const StyledSlider = styled(Slider)`
+  min-height: 20rem;
+`
 
 const apyOptions = { decimalPlaces: 2, suffix: '%' }
 

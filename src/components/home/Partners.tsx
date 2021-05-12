@@ -56,7 +56,7 @@ const PartnerLink = styled(ExternalLink)<{ colour: string }>`
   background: black;
   border-radius: 1rem;
   padding: 0.7rem 1rem;
-  border: 1px rgba(255, 255, 255, 0.15) solid;
+  border: 2px rgba(255, 255, 255, 0.15) solid;
   transition: border-color 1s ease;
   color: white;
   font-weight: normal;
