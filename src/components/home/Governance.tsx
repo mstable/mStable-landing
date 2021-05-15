@@ -16,10 +16,6 @@ const Links = styled.div`
   }
 `
 
-const StyledFullBleed = styled(FullBleed)`
-  background-color: white;
-`
-
 const GetInformed = styled.div`
   margin-top: 32px;
 `
@@ -35,7 +31,7 @@ const Jobs = styled.div`
 
 export const Governance: FC = () => {
   return (
-    <StyledFullBleed>
+    <FullBleed>
       <Section h2="An open & decentralised ecosystem">
         <MainAndAside>
           <div>
@@ -68,6 +64,6 @@ export const Governance: FC = () => {
           </CTA>
         </Jobs>
       </Section>
-    </StyledFullBleed>
+    </FullBleed>
   )
 }

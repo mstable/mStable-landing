@@ -13,17 +13,21 @@ interface BackerProps {
 }
 
 const Title = styled.h4`
-  font-size: 1.2rem;
-  font-weight: normal;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: white;
   margin: 0;
 `
 
 const backerCss = css<{ colour: string }>`
+  height: 8rem;
+  border: 2px rgba(255, 255, 255, 0.1) solid;
   background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 1rem;
   padding: 0.7rem 1rem;
-  border: 1px rgba(255, 255, 255, 0.15) solid;
   transition: border-color 1s ease;
   color: white;
   font-weight: normal;
@@ -56,7 +60,7 @@ const Backer: FC<BackerProps> = ({ colour, title, href }) => {
 
 const BackersGrid = styled.div`
   display: grid;
-  gap: 16px;
+  gap: 1rem;
   grid-template-rows: 1fr;
 
   > :last-child {
@@ -68,8 +72,8 @@ const BackersGrid = styled.div`
   }
 
   @media (min-width: 800px) {
-    gap: 24px;
-    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `
 

@@ -8,6 +8,7 @@ import { logoVisibilityCtx } from '../../context'
 import { FullBleed } from '../layout/FullBleed'
 import { BigStats } from './BigStats'
 import { AppCTA } from '../CTA'
+import { Coins } from './Coins'
 
 const DownArrow = styled.div`
   position: relative;
@@ -33,8 +34,7 @@ const DownArrow = styled.div`
 `
 
 const MissionH1 = styled.h1`
-  text-align: center;
-  margin: 4rem auto 2rem auto;
+  margin: 4rem 0 0;
   max-width: 38ch;
   font-size: 2rem;
   font-weight: normal;
@@ -47,24 +47,14 @@ const MissionH1 = styled.h1`
 const BottomSection = styled(Section)`
   max-width: 50ch;
   margin: 0 auto;
+  overflow: visible;
 
   > div {
     > :first-child {
-      margin-bottom: 8rem;
+      margin-bottom: 12rem;
       > :first-child {
         > * {
           text-align: center;
-        }
-      }
-    }
-    > :last-child {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      > :first-child {
-        width: auto;
-        button {
-          width: auto;
         }
       }
     }
@@ -73,8 +63,25 @@ const BottomSection = styled(Section)`
 
 const StyledFullBleed = styled(FullBleed)`
   margin-bottom: 0;
+  background: transparent;
   > * {
-    margin-bottom: 4rem;
+    margin: 0 0 4rem 0;
+    max-width: 100%;
+    width: 100%;
+  }
+`
+
+const Container = styled.div`
+  position: relative;
+
+  > :first-child {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
   }
 `
 
@@ -88,21 +95,24 @@ export const Intro: FC = () => {
   }, [y, height, top])
 
   return (
-    <StyledFullBleed dark ref={ref as UseMeasureRef<HTMLDivElement>}>
-      <Section>
-        <MissionH1>Autonomous and non-custodial infrastructure for pegged-value crypto assets.</MissionH1>
-      </Section>
-      <BottomSection>
-        <BigStats />
-        <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
-      </BottomSection>
-      <DownArrow
-        onClick={() => {
-          window.scrollTo({ top: bottom, behavior: 'smooth' })
-        }}
-      >
-        <div>↓</div>
-      </DownArrow>
-    </StyledFullBleed>
+    <Container>
+      <Coins />
+      <StyledFullBleed dark ref={ref as UseMeasureRef<HTMLDivElement>}>
+        <Section>
+          <MissionH1>The best passive savings account in DeFi.</MissionH1>
+        </Section>
+        <BottomSection>
+          <BigStats />
+          <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
+          <DownArrow
+            onClick={() => {
+              window.scrollTo({ top: bottom, behavior: 'smooth' })
+            }}
+          >
+            <div>↓</div>
+          </DownArrow>
+        </BottomSection>
+      </StyledFullBleed>
+    </Container>
   )
 }

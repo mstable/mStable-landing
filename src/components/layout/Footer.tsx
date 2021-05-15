@@ -21,7 +21,8 @@ const Header = styled.h4`
 const Links = styled.div`
   > * {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
   }
   a {
     font-weight: normal;

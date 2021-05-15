@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { ExternalLink } from './ExternalLink'
 
 const Icon = styled.img`
@@ -38,11 +38,31 @@ const Header = styled.div`
 
 const Content = styled.div``
 
+const gradientShift = keyframes`
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+`
+
 const Container = styled.div`
-  background-image: linear-gradient(95deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-  padding: 2rem;
-  border-radius: 5rem;
-  overflow: hidden;
+  background: linear-gradient(-130deg, #201d26, #d49346, #201d26, #4255cd, #201d26);
+  background-size: 200% 200%;
+  animation: ${gradientShift} 12s linear infinite;
+  padding: 0.15rem;
+  border-radius: 2rem;
+
+  > div {
+    border-radius: 1.9rem;
+    background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
+    padding: 2rem;
+    overflow: hidden;
+  }
 `
 
 export const Asset: FC<{
@@ -54,23 +74,25 @@ export const Asset: FC<{
   const isMusd = symbol === 'mUSD'
   return (
     <Container>
-      <Header>
-        <Icon src={icon} alt={symbol} />
-        <HeaderGroup>
-          <h3>{symbol}</h3>
-          <p>{description}</p>
-          <Links>
-            <ExternalLink href={`https://etherscan.io/token/${address}`}>Etherscan</ExternalLink>
-            {isMusd && (
-              <>
-                <span>|</span>
-                <ExternalLink href={`https://www.duneanalytics.com/alsco77/mstable_5`}>Dune Analytics</ExternalLink>
-              </>
-            )}
-          </Links>
-        </HeaderGroup>
-      </Header>
-      <Content>{children}</Content>
+      <div>
+        <Header>
+          <Icon src={icon} alt={symbol} />
+          <HeaderGroup>
+            <h3>{symbol}</h3>
+            <p>{description}</p>
+            <Links>
+              <ExternalLink href={`https://etherscan.io/token/${address}`}>Etherscan</ExternalLink>
+              {isMusd && (
+                <>
+                  <span>|</span>
+                  <ExternalLink href={`https://www.duneanalytics.com/alsco77/mstable_5`}>Dune Analytics</ExternalLink>
+                </>
+              )}
+            </Links>
+          </HeaderGroup>
+        </Header>
+        <Content>{children}</Content>
+      </div>
     </Container>
   )
 }

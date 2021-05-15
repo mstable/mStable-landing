@@ -6,17 +6,11 @@ import 'use-slider/lib/slider.min.css'
 
 const DURATION = 9000
 
-const CurrentSlide = styled.div`
-  font-weight: bold;
-  font-family: 'DM Mono', monospace;
-  font-size: 14px;
-`
-
 const Line = styled.div`
   position: relative;
-  width: 100px;
-  height: 8px;
-  background: rgba(215, 215, 215, 0.3);
+  width: 3rem;
+  height: 2px;
+  background: rgba(215, 215, 215, 0.2);
 `
 
 const Remaining = styled.div`
@@ -26,19 +20,7 @@ const Remaining = styled.div`
   height: 100%;
   width: 0;
   transition: width 0.3s ease;
-  background: rgba(222, 222, 222, 0.6);
-`
-
-const ControlsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  color: rgba(225, 225, 225, 0.6);
-  justify-content: center;
-
-  // flex-gap polyfill fail
-  > * {
-    margin-right: 16px;
-  }
+  background: rgba(222, 222, 222, 0.4);
 `
 
 const Container = styled.div`
@@ -50,14 +32,9 @@ const Container = styled.div`
 
 const Controls: FC<{ remaining: number; current: number; length: number }> = ({ remaining, current, length }) => {
   return (
-    <ControlsContainer>
-      <CurrentSlide>
-        {current}/{length}
-      </CurrentSlide>
-      <Line>
-        <Remaining style={{ width: `${remaining}%` }} />
-      </Line>
-    </ControlsContainer>
+    <Line>
+      <Remaining style={{ width: `${remaining}%` }} />
+    </Line>
   )
 }
 
@@ -88,10 +65,10 @@ export const Slider: FC<{ className?: string }> = ({ children, className }) => {
 
   return (
     <Container className={className}>
+      <Controls remaining={+((remaining / DURATION) * 100).toFixed(1)} current={curIndex + 1} length={length} />
       <div ref={ref as (instance: HTMLDivElement) => void}>
         <Slides curIndex={curIndex}>{children}</Slides>
       </div>
-      <Controls remaining={+((remaining / DURATION) * 100).toFixed(1)} current={curIndex + 1} length={length} />
     </Container>
   )
 }
