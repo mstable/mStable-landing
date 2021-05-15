@@ -1,13 +1,12 @@
 import React, { FC, useRef, useMemo, Suspense, MutableRefObject, ComponentProps } from 'react'
 import styled from 'styled-components'
-
-import { useGLTF } from '@react-three/drei'
-import { Canvas, useFrame, RenderCallback } from '@react-three/fiber'
+import { useWindowScroll, useMedia } from 'react-use'
 
 import * as THREE from 'three'
 import type { Group } from 'three'
 import { EffectComposer, Vignette, SMAA, DepthOfField } from '@react-three/postprocessing'
-import { useWindowScroll } from 'react-use'
+import { useGLTF } from '@react-three/drei'
+import { Canvas, useFrame, RenderCallback } from '@react-three/fiber'
 
 const Container = styled.div`
   position: absolute;
@@ -50,8 +49,8 @@ const Asset: FC<AssetProps> = ({ asset, timeOffset, position, scale, rotation })
 const Actors: FC = () => {
   return (
     <>
-      <Asset asset="musd" timeOffset={4} position={[11, 1, -6.5]} scale={50} rotation={[1, 0, 0]} />
-      <Asset asset="mbtc" timeOffset={8} position={[-11, 1, -6.5]} scale={50} rotation={[1, 0, 0]} />
+      <Asset asset="musd" timeOffset={4} position={[9, 1, -6.5]} scale={50} rotation={[1, 0, 0]} />
+      <Asset asset="mbtc" timeOffset={8} position={[-9, 1, -6.5]} scale={50} rotation={[1, 0, 0]} />
       <Asset asset="mta" timeOffset={0} position={[0, 2, -6.5]} scale={70} rotation={[2, 0, 0]} />
     </>
   )
@@ -60,21 +59,22 @@ const Actors: FC = () => {
 const Effects: FC = () => {
   const { y } = useWindowScroll()
   const depthRef = useRef<ComponentProps<typeof DepthOfField>>(null as never)
-  const xRef = useRef<number>(0)
+  const bokehScale = useRef<number>(0)
+
   useFrame(() => {
-    if (y > 500 && xRef.current < 4) {
-      xRef.current += 0.1
-    } else if (y < 500 && xRef.current > 0) {
-      xRef.current -= 0.1
+    if (y > 500 && bokehScale.current < 4) {
+      bokehScale.current += 0.1
+    } else if (y < 500 && bokehScale.current > 0) {
+      bokehScale.current -= 0.1
     }
 
-    ;(depthRef.current as any).bokehScale = xRef.current
+    ;(depthRef.current as any).bokehScale = bokehScale.current
   })
 
   return (
     <EffectComposer>
       <SMAA />
-      <DepthOfField ref={depthRef} bokehScale={xRef.current} />
+      <DepthOfField ref={depthRef} bokehScale={bokehScale.current} />
       <Vignette eskil={false} offset={0} darkness={0.75} />
     </EffectComposer>
   )
@@ -192,18 +192,19 @@ const Dots: FC = () => {
 }
 
 const canvasProps: Omit<ComponentProps<typeof Canvas>, 'children'> = {
-  resize: { scroll: false },
-  gl: { antialias: true, alpha: false },
+  resize: { scroll: false, debounce: { scroll: 500, resize: 500 } },
+  gl: { antialias: false, alpha: false },
   camera: { position: [0, 0, 15] as never, near: 2, far: 40 },
-  onCreated: ({ gl }) => gl.setClearColor('transparent'),
+  onCreated: ({ gl }) => gl.setClearColor(0x00000000),
 }
 
 export const Coins: FC = () => {
+  const isWide = useMedia('(min-width: 540px)')
   return (
     <Container>
       <Canvas resize={canvasProps.resize} gl={canvasProps.gl} camera={canvasProps.camera} onCreated={canvasProps.onCreated}>
         <Suspense fallback={null}>
-          <Effects />
+          {isWide && <Effects />}
           <Rig />
           <Dots />
           <Actors />
