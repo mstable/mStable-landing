@@ -44,7 +44,7 @@
     "three": "^0.128.0",
     "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c",
     "vite-plugin-svgr": "^0.2.0",
-    "vite-ssr": "JamesLefrere/vite-ssr#7b50e4f10e44b716c726e278b070a88f5bf4bbe3"
+    "vite-ssr": "^0.9.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

@@ -8,7 +8,6 @@ import { logoVisibilityCtx } from '../../context'
 import { FullBleed } from '../layout/FullBleed'
 import { BigStats } from './BigStats'
 import { AppCTA } from '../CTA'
-import { Coins } from './Coins'
 
 const DownArrow = styled.div`
   position: relative;
@@ -71,20 +70,6 @@ const StyledFullBleed = styled(FullBleed)`
   }
 `
 
-const Container = styled.div`
-  position: relative;
-
-  > :first-child {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: -1;
-  }
-`
-
 export const Intro: FC = () => {
   const { y } = useWindowScroll()
   const [ref, { height, top, bottom }] = useMeasure()
@@ -95,24 +80,21 @@ export const Intro: FC = () => {
   }, [y, height, top])
 
   return (
-    <Container>
-      <Coins />
-      <StyledFullBleed dark ref={ref as UseMeasureRef<HTMLDivElement>}>
-        <Section>
-          <MissionH1>The best passive savings account in DeFi.</MissionH1>
-        </Section>
-        <BottomSection>
-          <BigStats />
-          <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
-          <DownArrow
-            onClick={() => {
-              window.scrollTo({ top: bottom, behavior: 'smooth' })
-            }}
-          >
-            <div>↓</div>
-          </DownArrow>
-        </BottomSection>
-      </StyledFullBleed>
-    </Container>
+    <StyledFullBleed dark ref={ref as UseMeasureRef<HTMLDivElement>}>
+      <Section>
+        <MissionH1>The best passive savings account in DeFi.</MissionH1>
+      </Section>
+      <BottomSection>
+        <BigStats />
+        <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
+        <DownArrow
+          onClick={() => {
+            window.scrollTo({ top: bottom, behavior: 'smooth' })
+          }}
+        >
+          <div>↓</div>
+        </DownArrow>
+      </BottomSection>
+    </StyledFullBleed>
   )
 }

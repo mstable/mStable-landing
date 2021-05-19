@@ -69,11 +69,13 @@ const Header = styled.div`
     }
   }
 
-  img {
+  > img {
     display: block;
     max-width: 8rem;
     height: auto;
     margin: 0 auto;
+    box-shadow: rgba(255, 255, 255, 0.4) 0 0 3rem;
+    border-radius: 50%;
   }
 
   @media (min-width: 600px) {

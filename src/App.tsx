@@ -13,15 +13,15 @@ export const App: FC = () => {
     <HelmetProvider>
       <LogoVisibilityProvider>
         <Switch>
-          {routes.map(({ path, seo: { title, description }, component: RouteComponent }) => (
+          {routes.map(({ path, seo: { title, description }, isHome, component: RouteComponent }) => (
             <Route path={path} exact key={path}>
-              <Wrapper title={title} description={description} path={path}>
+              <Wrapper title={title} description={description} path={path} isHome={isHome}>
                 <RouteComponent />
               </Wrapper>
             </Route>
           ))}
           <Route path="*">
-            <Wrapper path={'/404'}>
+            <Wrapper path={'/404'} isHome={false}>
               <NotFound />
             </Wrapper>
           </Route>
