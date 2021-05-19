@@ -20,14 +20,14 @@ handlers:
     http_headers:
       X-Frame-Options: deny
   - url: /
-    static_files: dist/client/index.html
+    static_files: index.html
     secure: always
-    upload: dist/client/index.html
+    upload: index.html
     http_headers:
       X-Frame-Options: deny
   - url: /(.*)/$
-    static_files: dist/client/index.html
+    static_files: index.html
     secure: always
-    upload: dist/client/index.html
+    upload: index.html
     http_headers:
       X-Frame-Options: deny
