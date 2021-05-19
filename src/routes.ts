@@ -8,9 +8,11 @@ const kebabize = (str: string): string =>
 
 export const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\/pages\/(.*)\.tsx$/)?.[1] as string
+  const isHome = name === 'Home'
   return {
     name,
-    path: name === 'Home' ? '/' : `/${kebabize(name)}`,
+    path: isHome ? '/' : `/${kebabize(name)}`,
+    isHome,
     component: pages[path][name],
     seo: pages[path].SEO ?? {},
   }

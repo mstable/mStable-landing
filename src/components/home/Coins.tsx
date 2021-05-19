@@ -46,7 +46,7 @@ const Asset: FC<AssetProps> = ({ asset, timeOffset, position, scale, rotation })
   )
 }
 
-const Actors: FC = () => {
+const Assets: FC = () => {
   return (
     <>
       <Asset asset="musd" timeOffset={4} position={[9, 1, -6.5]} scale={50} rotation={[1, 0, 0]} />
@@ -56,12 +56,14 @@ const Actors: FC = () => {
   )
 }
 
-const Effects: FC = () => {
+const Effects: FC<{ alwaysBlur: boolean }> = ({ alwaysBlur }) => {
   const { y } = useWindowScroll()
   const depthRef = useRef<ComponentProps<typeof DepthOfField>>(null as never)
-  const bokehScale = useRef<number>(0)
+  const bokehScale = useRef<number>(alwaysBlur ? 4 : 0)
 
   useFrame(() => {
+    if (alwaysBlur) return
+
     if (y > 500 && bokehScale.current < 4) {
       bokehScale.current += 0.1
     } else if (y < 500 && bokehScale.current > 0) {
@@ -80,7 +82,7 @@ const Effects: FC = () => {
   )
 }
 
-const Rig: FC = () => {
+const Lights: FC = () => {
   const point1 = useRef<THREE.PointLight>(null as never)
   const point2 = useRef<THREE.PointLight>(null as never)
   const spot1 = useRef<THREE.SpotLight>(null as never)
@@ -198,16 +200,16 @@ const canvasProps: Omit<ComponentProps<typeof Canvas>, 'children'> = {
   onCreated: ({ gl }) => gl.setClearColor(0x00000000),
 }
 
-export const Coins: FC = () => {
+export const Coins: FC<{ isHome: boolean }> = ({ isHome }) => {
   const isWide = useMedia('(min-width: 540px)')
   return (
     <Container>
       <Canvas resize={canvasProps.resize} gl={canvasProps.gl} camera={canvasProps.camera} onCreated={canvasProps.onCreated}>
         <Suspense fallback={null}>
-          {isWide && <Effects />}
-          <Rig />
+          {isWide && <Effects alwaysBlur={!isHome} />}
+          <Lights />
           <Dots />
-          <Actors />
+          {isHome && <Assets />}
         </Suspense>
       </Canvas>
     </Container>
