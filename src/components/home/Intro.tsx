@@ -8,6 +8,7 @@ import { logoVisibilityCtx } from '../../context'
 import { FullBleed } from '../layout/FullBleed'
 import { BigStats } from './BigStats'
 import { AppCTA } from '../CTA'
+import { AssetAnimation } from './AssetAnimation'
 
 const DownArrow = styled.div`
   position: relative;
@@ -50,7 +51,6 @@ const BottomSection = styled(Section)`
 
   > div {
     > :first-child {
-      margin-bottom: 12rem;
       > :first-child {
         > * {
           text-align: center;
@@ -86,6 +86,7 @@ export const Intro: FC = () => {
       </Section>
       <BottomSection>
         <BigStats />
+        <AssetAnimation />
         <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
         <DownArrow
           onClick={() => {

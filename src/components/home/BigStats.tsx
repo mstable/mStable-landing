@@ -21,7 +21,6 @@ const BigStat = styled.div`
 
   > span {
     position: relative;
-
     padding: 2rem 0rem;
   }
 
@@ -53,10 +52,6 @@ const Empty = styled.div`
   min-height: 10rem;
 `
 
-const StyledSlider = styled(Slider)`
-  min-height: 20rem;
-`
-
 const apyOptions = { decimalPlaces: 2, suffix: '%' }
 
 export const BigStats: FC = () => {
@@ -65,7 +60,7 @@ export const BigStats: FC = () => {
   return loading || !value ? (
     <Empty />
   ) : (
-    <StyledSlider>
+    <Slider>
       <BigStat>
         <span>
           Currently earning{' '}
@@ -120,6 +115,6 @@ export const BigStats: FC = () => {
           </Blue>
         </span>
       </BigStat>
-    </StyledSlider>
+    </Slider>
   )
 }

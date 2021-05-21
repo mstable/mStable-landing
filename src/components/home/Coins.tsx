@@ -1,60 +1,17 @@
-import React, { FC, useRef, useMemo, Suspense, MutableRefObject, ComponentProps } from 'react'
+import React, { FC, useRef, useMemo, Suspense, ComponentProps } from 'react'
 import styled from 'styled-components'
 import { useWindowScroll, useMedia } from 'react-use'
 
 import * as THREE from 'three'
-import type { Group } from 'three'
 import { EffectComposer, Vignette, SMAA, DepthOfField } from '@react-three/postprocessing'
 import { useGLTF } from '@react-three/drei'
-import { Canvas, useFrame, RenderCallback } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 
 const Container = styled.div`
   position: absolute;
   left: 0;
   right: 0;
 `
-
-const floatEffect = (group: MutableRefObject<Group>, timeOffset: number): RenderCallback => ({ clock }) => {
-  const t = clock.getElapsedTime() + timeOffset
-  // Gently rotate and float up and down
-  group.current.rotation.x -= Math.sin(t * 0.5) / 300
-  group.current.rotation.z -= Math.cos(t * 0.28) / 1200
-  group.current.rotation.y += Math.sin(t * 0.2) / 800
-  group.current.position.y += Math.sin(t * 0.25) / 100
-  group.current.position.z -= Math.sin(t * 0.09) / 2000
-}
-
-type AssetProps = JSX.IntrinsicElements['group'] & {
-  asset: 'musd' | 'mbtc' | 'mta'
-  timeOffset: number
-}
-
-const Asset: FC<AssetProps> = ({ asset, timeOffset, position, scale, rotation }) => {
-  const group = useRef<Group>(null as never)
-  const { nodes } = useGLTF(`/assets/${asset}.gltf`)
-  useFrame(floatEffect(group, timeOffset))
-
-  return (
-    <group ref={group} dispose={null} position={position} scale={scale} rotation={rotation}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes._9ed88209_ea31_436a_be4f_464f9621b8d3 as any).geometry as never}
-        material={(nodes._9ed88209_ea31_436a_be4f_464f9621b8d3 as any).material as never}
-      />
-    </group>
-  )
-}
-
-const Assets: FC = () => {
-  return (
-    <>
-      <Asset asset="musd" timeOffset={4} position={[9, 1, -6.5]} scale={50} rotation={[1, 0, 0]} />
-      <Asset asset="mbtc" timeOffset={8} position={[-9, 1, -6.5]} scale={50} rotation={[1, 0, 0]} />
-      <Asset asset="mta" timeOffset={0} position={[0, 2, -6.5]} scale={70} rotation={[2, 0, 0]} />
-    </>
-  )
-}
 
 const Effects: FC<{ alwaysBlur: boolean }> = ({ alwaysBlur }) => {
   const { y } = useWindowScroll()
@@ -132,6 +89,7 @@ const Lights: FC = () => {
     </>
   )
 }
+
 const roundedSquareWave = (t: number, delta: number, a: number, f: number): number => {
   return ((2 * a) / Math.PI) * Math.atan(Math.sin(2 * Math.PI * t * f) / delta)
 }
@@ -209,7 +167,6 @@ export const Coins: FC<{ isHome: boolean }> = ({ isHome }) => {
           {isWide && <Effects alwaysBlur={!isHome} />}
           <Lights />
           <Dots />
-          {isHome && <Assets />}
         </Suspense>
       </Canvas>
     </Container>
