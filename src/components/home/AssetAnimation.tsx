@@ -16,10 +16,8 @@ const floatEffect = (group: MutableRefObject<Group>, timeOffset: number): Render
   const t = clock.getElapsedTime() + timeOffset
   // Gently rotate and float up and down
   group.current.rotation.x -= Math.sin(t * 0.5) / 300
+  group.current.position.y += Math.sin(t * 0.25) / 300
   group.current.rotation.z -= Math.cos(t * 0.28) / 1200
-  group.current.rotation.y += Math.sin(t * 0.2) / 800
-  group.current.position.y += Math.sin(t * 0.25) / 100
-  group.current.position.z -= Math.sin(t * 0.09) / 2000
 }
 
 type AssetProps = JSX.IntrinsicElements['group'] & {
@@ -47,9 +45,9 @@ const Asset: FC<AssetProps> = ({ asset, timeOffset, position, scale, rotation })
 const Assets: FC = () => {
   return (
     <>
-      <Asset asset="musd" timeOffset={4} position={[20, -4.5, -6.5]} scale={120} rotation={[1, 0, 0]} />
-      <Asset asset="mbtc" timeOffset={8} position={[-20, -4, -6.5]} scale={120} rotation={[1, 0, 0]} />
-      <Asset asset="mta" timeOffset={0} position={[0, 5, -6.5]} scale={150} rotation={[2, 0, 0]} />
+      <Asset asset="musd" timeOffset={4} position={[20, -4.5, -6.5]} scale={100} rotation={[1, 0, 0]} />
+      <Asset asset="mbtc" timeOffset={8} position={[-20, -4, -6.5]} scale={100} rotation={[1, 0, 0]} />
+      <Asset asset="mta" timeOffset={0} position={[0, 5, -6.5]} scale={130} rotation={[2, 0, 0]} />
     </>
   )
 }
