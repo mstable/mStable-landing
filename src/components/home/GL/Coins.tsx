@@ -3,13 +3,13 @@ import { Canvas, RenderCallback, useFrame } from '@react-three/fiber'
 import React, { ComponentProps, FC, MutableRefObject, Suspense, useRef } from 'react'
 import styled from 'styled-components'
 import { Group } from 'three'
+import { Effects } from './Effects'
 import { Lights } from './Lights'
 
 const Container = styled.div`
   display: flex;
-  height: 400px;
+  height: 24rem;
   width: 100%;
-  padding: 1rem;
 `
 
 const floatEffect = (group: MutableRefObject<Group>, timeOffset: number): RenderCallback => ({ clock }) => {
@@ -33,8 +33,6 @@ const Asset: FC<AssetProps> = ({ asset, timeOffset, position, scale, rotation })
   return (
     <group ref={group} dispose={null} position={position} scale={scale} rotation={rotation}>
       <mesh
-        castShadow
-        receiveShadow
         geometry={(nodes._9ed88209_ea31_436a_be4f_464f9621b8d3 as any).geometry as never}
         material={(nodes._9ed88209_ea31_436a_be4f_464f9621b8d3 as any).material as never}
       />
@@ -42,32 +40,39 @@ const Asset: FC<AssetProps> = ({ asset, timeOffset, position, scale, rotation })
   )
 }
 
-const Assets: FC = () => {
+const CoinsGL: FC = () => {
   return (
     <>
-      <Asset asset="musd" timeOffset={4} position={[20, -4.5, -6.5]} scale={100} rotation={[1, 0, 0]} />
-      <Asset asset="mbtc" timeOffset={8} position={[-20, -4, -6.5]} scale={100} rotation={[1, 0, 0]} />
-      <Asset asset="mta" timeOffset={0} position={[0, 5, -6.5]} scale={130} rotation={[2, 0, 0]} />
+      <Asset asset="musd" timeOffset={4} position={[25, -4.5, -6.5]} scale={120} rotation={[1.5, 0, 0]} />
+      <Asset asset="mbtc" timeOffset={8} position={[-25, -4, -6.5]} scale={120} rotation={[1.5, 0, 0]} />
+      <Asset asset="mta" timeOffset={0} position={[0, 5, -6.5]} scale={150} rotation={[2, 0, 0]} />
     </>
   )
 }
 
 const canvasProps: Omit<ComponentProps<typeof Canvas>, 'children'> = {
   resize: { scroll: false, debounce: { scroll: 400, resize: 400 } },
-  gl: { antialias: false, alpha: true },
+  gl: { antialias: true, alpha: true },
   camera: { position: [0, 0, 15] as never, near: 2, far: 40 },
-  onCreated: ({ gl }) => gl.setClearColor(0x000000, 0),
+  onCreated: ({ gl }) => {
+    gl.setClearColor(0x000000, 0)
+  },
 }
 
-export const AssetAnimation: FC = () => {
+export const Coins: FC = () => {
   return (
     <Container>
       <Canvas resize={canvasProps.resize} gl={canvasProps.gl} camera={canvasProps.camera} onCreated={canvasProps.onCreated}>
         <Suspense fallback={null}>
+          <Effects />
           <Lights />
-          <Assets />
+          <CoinsGL />
         </Suspense>
       </Canvas>
     </Container>
   )
 }
+
+useGLTF.preload('/assets/mta.gltf')
+useGLTF.preload('/assets/musd.gltf')
+useGLTF.preload('/assets/mbtc.gltf')
