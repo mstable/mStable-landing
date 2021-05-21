@@ -8,7 +8,7 @@ import { logoVisibilityCtx } from '../../context'
 import { FullBleed } from '../layout/FullBleed'
 import { BigStats } from './BigStats'
 import { AppCTA } from '../CTA'
-import { AssetAnimation } from './AssetAnimation'
+import { Coins } from './GL/Coins'
 
 const DownArrow = styled.div`
   position: relative;
@@ -86,7 +86,7 @@ export const Intro: FC = () => {
       </Section>
       <BottomSection>
         <BigStats />
-        <AssetAnimation />
+        <Coins />
         <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
         <DownArrow
           onClick={() => {

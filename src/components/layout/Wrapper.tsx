@@ -5,7 +5,7 @@ import { NavBar } from './Navbar'
 import { Footer } from './Footer'
 import { SEO } from './SEO'
 import { metadata } from '../../strings'
-import { Coins } from '../home/Coins'
+import { Dots } from '../home/GL/Dots'
 
 interface Props {
   title?: string
@@ -53,7 +53,7 @@ export const Wrapper: FC<Props> = ({ children, path, title, description, isHome 
       <Container>
         <NavBar />
         <Inner>
-          <Coins isHome={isHome} />
+          <Dots isHome={isHome} />
           <div>{children}</div>
         </Inner>
         <Footer />
