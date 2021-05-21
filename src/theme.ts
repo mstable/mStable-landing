@@ -16,5 +16,5 @@ export enum Colors {
 }
 
 export enum Constants {
-  navHeight = '48px',
+  navHeight = '56px',
 }

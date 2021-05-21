@@ -29,7 +29,6 @@ const Header = styled.header<Props>`
 
   h1 {
     margin: 4rem 0 2rem 0;
-    max-width: 38ch;
     font-size: 2rem;
     font-weight: normal;
 
