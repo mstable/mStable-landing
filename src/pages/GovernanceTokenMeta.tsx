@@ -13,7 +13,7 @@ const BigButton = styled(CTA)`
   font-weight: 500;
   font-size: 1.1rem;
   width: auto;
-  background: ${Colors.blue};
+  background: ${Colors.lightBlue};
   color: white;
   border: none;
   text-shadow: rgba(0, 75, 124, 0.4) 0 1px 1px;

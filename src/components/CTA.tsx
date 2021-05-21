@@ -54,12 +54,12 @@ export const AppCTAButton = styled(Button)`
 
   text-shadow: rgba(0, 75, 124, 0.4) 0 1px 1px;
   box-shadow: rgba(0, 153, 255, 0.6) 0 4px 24px;
-  transition: transform 0.8s ease;
+  transition: transform 0.25s ease-out;
 
   &:hover,
   &:focus {
     color: white;
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `
 

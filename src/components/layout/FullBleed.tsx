@@ -9,7 +9,7 @@ export const FullBleed = styled.div<{ background?: string; dark?: boolean }>`
 
   background: transparent;
   color: #e0e7ef;
-  text-shadow: rgb(0, 6, 16) 0 2px 2px;
+  text-shadow: black 0 0 30px;
 
   h1,
   h2 {

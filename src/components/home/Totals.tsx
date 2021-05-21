@@ -58,7 +58,7 @@ const TotalsGraph: FC<{
           yAxisId={0}
           opacity={1}
           fill="none"
-          stroke={Colors.blue}
+          stroke={Colors.lightBlue}
         />
         <Area
           strokeWidth={2}

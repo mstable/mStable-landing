@@ -2,8 +2,8 @@ import React, { FC, useRef } from 'react'
 import styled from 'styled-components'
 import useMedia from 'react-use/lib/useMedia'
 import useAsync from 'react-use/lib/useAsync'
-import Skeleton from 'react-loading-skeleton/lib'
 import { useInView } from 'react-hook-inview'
+import { ThemedSkeleton } from './ThemedSkeleton'
 
 const Container = styled.div`
   > * {
@@ -38,7 +38,7 @@ export const Graph = <T extends unknown>({
 
   return (
     <Container ref={ref}>
-      {loading ? <Skeleton height={150} /> : <GraphComponent data={value as T} isMobile={isMobile} asset={asset} />}
+      {loading ? <ThemedSkeleton height={150} /> : <GraphComponent data={value as T} isMobile={isMobile} asset={asset} />}
     </Container>
   )
 }

@@ -25,9 +25,6 @@ const Remaining = styled.div`
 
 const Container = styled.div`
   overflow: hidden;
-  > :first-child {
-    margin-bottom: 1rem;
-  }
 `
 
 const Controls: FC<{ remaining: number; current: number; length: number }> = ({ remaining, current, length }) => {

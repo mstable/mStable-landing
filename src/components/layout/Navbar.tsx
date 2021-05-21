@@ -49,7 +49,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   grid-column: 2;
-  padding: 0 24px;
+  padding: 0 2rem;
 
   a {
     color: white;

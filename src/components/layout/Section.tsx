@@ -49,7 +49,7 @@ const Header = styled.header<Props>`
     font-size: 1.6rem;
     font-weight: normal;
     margin-bottom: 1rem;
-    max-width: 30ch;
+    max-width: 50ch;
   }
 `
 

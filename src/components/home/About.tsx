@@ -53,7 +53,7 @@ const Item: FC<{ href: string; title: string; description: string | ReactNode }>
 const Grid = styled.div`
   margin: 2rem 0;
 
-  @media (min-width: 520px) {
+  @media (min-width: 600px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -61,10 +61,21 @@ const Grid = styled.div`
   }
 `
 
+const Container = styled(Section)`
+  border-radius: 1rem;
+  background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
+  padding: 2rem;
+  overflow: hidden;
+
+  @media (min-width: 520px) {
+    margin: 2rem;
+  }
+`
+
 export const About: FC = () => {
   return (
     <FullBleed dark={false}>
-      <Section h3="mStable combines lending income with trading fees to produce higher yielding assets.">
+      <Container h3="mStable combines lending income with trading fees to produce higher yielding assets.">
         <Grid>
           <Item href="https://app.mstable.org/#/musd/swap" title="SWAP" description="Efficiently swap pegged crypto assets" />
           <Item href="https://app.mstable.org/#/musd/save" title="SAVE" description="High yield savings account for anyone, anywhere" />
@@ -89,7 +100,7 @@ export const About: FC = () => {
             Protocol docs
           </CTA>
         </p>
-      </Section>
+      </Container>
     </FullBleed>
   )
 }

@@ -10,14 +10,14 @@ export const Button = styled.button`
   white-space: nowrap;
 
   background: white;
-  border: 4px ${Colors.blue} solid;
+  border: 4px ${Colors.lightBlue} solid;
   border-radius: 1.75rem;
   justify-content: center;
-  color: ${Colors.blue};
+  color: ${Colors.lightBlue};
   text-align: center;
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 1s ease;
+  transition: background-color 0.5s ease-out;
 
   &:hover {
     color: black;

@@ -40,8 +40,6 @@ const MetricContainer = styled.div`
   }
 
   @media (min-width: 520px) {
-    margin-bottom: 64px;
-
     &:before {
       content: '';
       display: block;
