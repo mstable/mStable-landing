@@ -61,11 +61,11 @@ const Social = styled.div`
 
 const Top = styled(Grid)`
   margin-bottom: 64px;
-  padding: 0 24px;
+  padding: 0 2rem;
 `
 
 const Bottom = styled(Grid)`
-  padding: 0 24px;
+  padding: 0 2rem;
 
   > :first-child {
     grid-column: left;

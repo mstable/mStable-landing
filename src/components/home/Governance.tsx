@@ -29,10 +29,28 @@ const Jobs = styled.div`
   }
 `
 
+const Container = styled(Section)`
+  > div {
+    border-radius: 1rem;
+    background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
+    padding: 2rem;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    > div {
+      gap: 0;
+    }
+
+    @media (min-width: 520px) {
+      margin: 0 2rem;
+    }
+  }
+`
+
 export const Governance: FC = () => {
   return (
     <FullBleed>
-      <Section h2="An open & decentralised ecosystem">
+      <Container h2="An open & decentralised ecosystem">
         <MainAndAside>
           <div>
             <p>
@@ -63,7 +81,7 @@ export const Governance: FC = () => {
             Explore our open positions
           </CTA>
         </Jobs>
-      </Section>
+      </Container>
     </FullBleed>
   )
 }

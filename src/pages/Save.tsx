@@ -106,63 +106,62 @@ const TwoColumns = styled(TwoColumnsBase)`
   }
 `
 
+const Icons = styled.div`
+  display: flex;
+  img:last-child {
+    margin-left: -5rem;
+  }
+`
+
 export const SEO = {
   title: 'mStable Governance Token Meta (MTA)',
   description: 'Meta (MTA) is the governance token for the DeFi protocol mStable, with staking and yield farming rewards',
 }
 
-export const GovernanceTokenMeta: FC = () => {
+export const Save: FC = () => {
   return (
     <FullBleed>
-      <Section
-        centre
-        h1={
-          <Headline>
-            mStable Meta{' '}
-            <span>
-              (<span>MTA</span>)
-            </span>
-          </Headline>
-        }
-        h2="Governance token for the mStableDAO"
-      >
+      <Section centre h1={<Headline>mStable Save</Headline>} h2="The best passive savings account in DeFi">
         <Header>
-          <img alt="mStable MTA Token" src="/tokens/mta.png" />
+          <Icons>
+            <img alt="mStable BTC" src="/tokens/imbtc.png" />
+            <img alt="mStable USD" src="/tokens/imusd.png" />
+          </Icons>
           <div>
             <h3>
-              Meta (<span>MTA</span>) coordinates mStable’s decentralised governance, fosters long-term alignment for stakeholders, and
-              creates value for the protocol and its users.
+              mStable deposits your assets to decentralised lending markets to earn a base interest rate. This rate is then further
+              increased by distributing mStable Swap fees and liquidating external protocol incentives.
             </h3>
-            <ExternalLink href="https://coingecko.com/en/coins/meta">See MTA on Coingecko</ExternalLink>
           </div>
         </Header>
         <TwoColumns>
           <div />
           <div>
             <div>
-              <h4>What is mStable's governance token MTA used for?</h4>
+              <h4>Why mStable Save?</h4>
               <p>
-                MTA stakers earn staking rewards and can also earn <span>boosted rewards</span> across the protocol to incentivise long-term
-                holders. By staking, MTA governors vote on the direction of the protocol, its parameters and funding.
+                With Save, you do not need to continuously sell rewards and pay expensive gas fees to compound your deposits. Deposit once
+                and watch your assets grow.
               </p>
             </div>
             <Links>
-              <BigButton href="https://governance.mstable.org">Stake MTA</BigButton>
-              <BigButton href="https://medium.com/mstable/guide-mstable-staking-249660be3e0">Guide: Staking MTA</BigButton>
+              <BigButton href="https://mstable.app/#/musd/save/">Start Saving</BigButton>
             </Links>
           </div>
         </TwoColumns>
         <TwoColumns>
           <div>
             <div>
-              <h4>How can I earn MTA tokens?</h4>
+              <h4>What is a Save Vault?</h4>
               <p>
-                Anyone can earn MTA through mStable’s rewards: <span>MTA Staking, Save Vaults, Feeder Pools</span>, and the{' '}
-                <span>Grants Program</span>.
+                A <span>Save Vault</span> deposits your interest-bearing assets (imAssets) to a contract that distributes{' '}
+                <span>MTA incentives</span> (imAsset Vault). You can boost the amount of MTA rewards earned - by up to 3x - by staking MTA
+                in governance.
               </p>
             </div>
             <Links>
-              <BigButton href="https://app.mstable.org/">Start earning MTA</BigButton>
+              <BigButton href="https://governance.mstable.org/">Stake MTA</BigButton>
+              <BigButton href="https://mstable.app/#/musd/save">Earn MTA</BigButton>
             </Links>
           </div>
           <div />

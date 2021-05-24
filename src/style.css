@@ -3,12 +3,12 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 ul,
 ol {
-    padding: 0;
-    list-style-type: none;
+  padding: 0;
+  list-style-type: none;
 }
 body,
 h1,
@@ -24,45 +24,45 @@ figcaption,
 blockquote,
 dl,
 dd {
-    margin: 0;
+  margin: 0;
 }
 ul[class],
 ol[class] {
-    list-style: none;
+  list-style: none;
 }
 a:not([class]) {
-    text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 img {
-    display: block;
+  display: block;
 }
 input,
 button,
 textarea,
 select {
-    font: inherit;
-    font-size: inherit;
+  font: inherit;
+  font-size: inherit;
 }
 
 html {
-    background: #000;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    scroll-behavior: smooth;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: subpixel-antialiased;
+  background: #000;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 a {
-    text-decoration: none;
-    color: rgb(23,110,222);
-    font-weight: 700;
-    transition: color 1s ease;
+  text-decoration: none;
+  color: rgb(74, 161, 255);
+  font-weight: 700;
+  transition: color 1s ease;
 }
 a:hover {
-    color: gold;
+  color: gold;
 }
 p {
-    margin-bottom: 8px;
-    max-width: 65ch;
+  margin-bottom: 8px;
+  max-width: 65ch;
 }

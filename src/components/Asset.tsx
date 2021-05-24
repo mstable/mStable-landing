@@ -33,7 +33,7 @@ const Header = styled.div`
   display: flex;
   gap: 16px;
   align-items: center;
-  margin-bottom: 32px;
+  padding: 1rem 2rem;
 `
 
 const Content = styled.div``
@@ -51,16 +51,16 @@ const gradientShift = keyframes`
 `
 
 const Container = styled.div`
-  background: linear-gradient(-130deg, #201d26, #d49346, #201d26, #4255cd, #201d26);
+  background: linear-gradient(-130deg, #201d26, #d49346, #4255cd, #201d26);
   background-size: 200% 200%;
   animation: ${gradientShift} 12s linear infinite;
-  padding: 0.15rem;
-  border-radius: 2rem;
+  padding: 0.1rem;
+  border-radius: 1rem;
 
   > div {
-    border-radius: 1.9rem;
+    border-radius: 1rem;
     background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
-    padding: 2rem;
+    padding: 1rem;
     overflow: hidden;
   }
 `

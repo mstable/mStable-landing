@@ -62,7 +62,7 @@ const SupplyGraph: FC<{
           yAxisId={0}
           opacity={1}
           fill="none"
-          stroke={Colors.blue}
+          stroke={Colors.lightBlue}
         />
       </AreaChart>
     </ResponsiveContainer>

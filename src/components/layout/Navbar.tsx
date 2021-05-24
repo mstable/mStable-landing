@@ -6,7 +6,7 @@ import { logoVisibilityCtx } from '../../context'
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
 import Ether from '../../images/ether-logo.svg'
 import { ExternalLink } from '../ExternalLink'
-import { Constants } from '../../theme'
+import { Colors, Constants } from '../../theme'
 
 const AppLink = styled(ExternalLink)`
   display: flex;
@@ -32,6 +32,7 @@ const FixedContainer = styled.div`
   left: 0;
   right: 0;
   height: ${Constants.navHeight};
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   background: black;
   z-index: 1;
 
@@ -49,9 +50,10 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   grid-column: 2;
-  padding: 0 24px;
+  padding: 0 2rem;
 
   a {
+    display: flex;
     color: white;
   }
 
@@ -95,6 +97,9 @@ export const NavBar: FC = () => {
           </li>
           <Link to="/governance-token-meta" title="Meta (MTA)">
             Meta
+          </Link>
+          <Link to="/save" title="mStable Save">
+            Save
           </Link>
           <li>
             <AppLink href="https://app.mstable.org">
