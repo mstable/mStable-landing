@@ -6,7 +6,7 @@ import viteSSR from 'vite-ssr/plugin.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svgr(), viteSSR(), reactRefresh()],
+  plugins: [svgr(), viteSSR({ features: { reactStyledComponents: true } }), reactRefresh()],
   build: {
     assetsInlineLimit: 1,
   },

@@ -38,13 +38,14 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-use": "15.3.8",
-    "recharts": "^1.8.5",
-    "resize-observer-polyfill": "^1.5.1",
+    "recharts": "1.8.5",
+    "react-resize-detector": "2.3.0",
+    "resize-observer-polyfill": "1.5.1",
     "styled-components": "^5.2.1",
     "three": "^0.128.0",
     "use-slider": "JamesLefrere/use-slider#045600930863b386aa91b4f3b6859f1d5441d37c",
     "vite-plugin-svgr": "^0.2.0",
-    "vite-ssr": "^0.9.0"
+    "vite-ssr": "^0.10.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

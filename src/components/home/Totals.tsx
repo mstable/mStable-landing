@@ -32,7 +32,7 @@ const TotalsGraph: FC<{
         />
         <Tooltip
           cursor={true}
-          formatter={(value) => (asset === 'mbtc' ? toK2(value as number) : toK(value as number))}
+          formatter={(value: unknown) => (asset === 'mbtc' ? toK2(value as number) : toK(value as number))}
           labelFormatter={formatISODate}
           separator=""
           contentStyle={{
