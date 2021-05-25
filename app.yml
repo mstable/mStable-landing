@@ -7,27 +7,22 @@ handlers:
     upload: dist/client/manifest.json
     http_headers:
       X-Frame-Options: deny
+
   - url: /ssr-manifest\.json$
     static_files: dist/client/ssr-manifest.json
     secure: always
     upload: dist/client/ssr-manifest.json
     http_headers:
       X-Frame-Options: deny
+
   - url: /assets/(.*\.(gltf|gif|png|svg|ttf|jpeg|jpg|css|css.map|js|jsx|ts|tsx|pdf|scss|ico|json|json.map|txt))$
     static_files: dist/client/assets/\1
     secure: always
     upload: dist/client/assets/(.*)
     http_headers:
       X-Frame-Options: deny
-  - url: /
-    static_files: dist/client/index.html
+
+  - url: /.*
     secure: always
-    upload: dist/client/index.html
-    http_headers:
-      X-Frame-Options: deny
-  - url: /(.*)/$
-    static_files: dist/client/index.html
-    secure: always
-    upload: dist/client/index.html
-    http_headers:
-      X-Frame-Options: deny
+    redirect_http_response_code: 301
+    script: auto
