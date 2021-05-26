@@ -15,7 +15,7 @@ handlers:
     http_headers:
       X-Frame-Options: deny
 
-  - url: /assets/(.*\.(gltf|gif|png|svg|ttf|jpeg|jpg|css|css.map|js|jsx|ts|tsx|pdf|scss|ico|json|json.map|txt))$
+  - url: /assets/(.*\.(gltf|gif|png|svg|ttf|jpeg|jpg|css|css.map|js|jsx|ts|tsx|pdf|scss|ico|json|json.map|txt|xml))$
     static_files: dist/client/assets/\1
     secure: always
     upload: dist/client/assets/(.*)
