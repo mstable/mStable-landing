@@ -77,7 +77,7 @@ export const About: FC = () => {
     <FullBleed dark={false}>
       <Container h3="mStable combines lending income with trading fees to produce higher yielding assets.">
         <Grid>
-          <Item href="https://app.mstable.org/#/musd/swap" title="SWAP" description="Efficiently swap pegged crypto assets" />
+          <Item href="https://app.mstable.org/#/musd/forge/swap" title="SWAP" description="Efficiently swap pegged crypto assets" />
           <Item href="https://app.mstable.org/#/musd/save" title="SAVE" description="High yield savings account for anyone, anywhere" />
           <Item
             href="https://app.mstable.org/#/musd/pools"
