@@ -3,15 +3,15 @@ import useAsync, { AsyncState } from 'react-use/lib/useAsync'
 
 import { STATS_API_ENDPOINT } from '../../constants'
 
-type MassetData = {
-  cumulativeInterest: number
+interface MassetData {
+  // cumulativeInterest: number
   cumulativeMinted: number
   cumulativeSwapped: number
   cumulativeWithdrawn: number
   cumulativeDeposited: number
   cumulativeFeesPaid: number
   dailyAPY: number
-  totalHolders: number
+  // totalHolders: number
   totalMints: number
   totalSavings: number
   totalSupply: number
@@ -20,29 +20,92 @@ type MassetData = {
   utilisationRate: number
 }
 
-type MTAData = {
-  totalStakers: number
-  totalStaked: number
+interface ChartData {
+  totalSupply?: { t: number; value?: number }[]
+  cumulativeVolume?: {
+    t: number
+    m: number
+    r: number
+    s: number
+  }[]
 }
 
 interface Data {
-  timestamp: number
+  timestamp?: number
   musd: MassetData
   mbtc: MassetData
-  mta: MTAData
+  mta: {
+    totalStakers: number
+    totalStaked: number
+  }
+  charts: {
+    musd: ChartData
+    mbtc: ChartData
+  }
 }
 
-const URL = `${STATS_API_ENDPOINT}/key-metrics`
+interface MassetMetrics {
+  cumulativeMinted: number
+  cumulativeRedeemed: number
+  cumulativeSwapped: number
+  cumulativeFeesPaid: number
+  cumulativeWithdrawn: number
+  cumulativeDeposited: number
+  dailyAPY: number
+  totalMints: number
+  totalSavings: number
+  totalSupply: number
+  totalSwaps: number
+  totalTransfers: number
+  utilisationRate: number
+}
+
+type HistoricMetrics<T> = (T & { date: { _seconds: number } })[]
+
+interface Masset {
+  address: string
+  symbol: string
+  decimals: number
+  metrics: {
+    current: MassetMetrics
+    historic: HistoricMetrics<MassetMetrics>
+  }
+}
 
 const ctx = createContext<AsyncState<Data>>({} as never)
+
+const getChartData = (data: HistoricMetrics<MassetMetrics>): ChartData =>
+  data.reduce<ChartData>(
+    (prev, { totalSupply, date, cumulativeRedeemed, cumulativeSwapped, cumulativeMinted }) => ({
+      cumulativeVolume: [
+        ...(prev.cumulativeVolume ?? []),
+        { t: date._seconds * 1000, m: cumulativeMinted, r: cumulativeRedeemed, s: cumulativeSwapped },
+      ],
+      totalSupply: [...(prev.totalSupply ?? []), { t: date._seconds * 1000, value: totalSupply }],
+    }),
+    {
+      totalSupply: [],
+      cumulativeVolume: [],
+    },
+  )
 
 export const useData = () => useContext(ctx)
 
 export const DataProvider: FC = ({ children }) => {
   const ctxValue = useAsync(async (): Promise<Data> => {
-    const response = await fetch(URL)
-    const { musd, mbtc, timestamp, mta } = await response.json()
-    return { timestamp, musd, mbtc, mta } as Data
+    const responses = await Promise.all(['massets', 'stakers'].map((resource) => fetch(`${STATS_API_ENDPOINT}/${resource}`)))
+
+    const [{ musd, mbtc }, { totalStakers, totalStaked }] = (await Promise.all(responses.map((response) => response.json()))) as [
+      { musd: Masset; mbtc: Masset },
+      { totalStakers: number; totalStaked: number },
+    ]
+
+    return {
+      musd: musd.metrics.current,
+      mbtc: mbtc.metrics.current,
+      mta: { totalStaked, totalStakers },
+      charts: { musd: getChartData(musd.metrics.historic), mbtc: getChartData(mbtc.metrics.historic) },
+    } as Data
   }, [])
 
   return <ctx.Provider value={ctxValue}>{children}</ctx.Provider>
