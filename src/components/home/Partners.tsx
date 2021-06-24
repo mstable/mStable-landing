@@ -60,6 +60,7 @@ const PartnerLink = styled(ExternalLink)<{ colour: string }>`
   transition: border-color 1s ease;
   color: white;
   font-weight: normal;
+  margin: 0 2rem;
   &:hover {
     border-color: ${({ colour }) => colour};
     color: white;

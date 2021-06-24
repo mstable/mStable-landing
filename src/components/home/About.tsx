@@ -51,7 +51,7 @@ const Item: FC<{ href: string; title: string; description: string | ReactNode }>
 }
 
 const Grid = styled.div`
-  margin: 2rem 0;
+  padding: 0 2rem;
 
   @media (min-width: 600px) {
     display: grid;
@@ -61,10 +61,13 @@ const Grid = styled.div`
   }
 `
 
+const Links = styled.div`
+  padding: 0 2rem;
+`
+
 const Container = styled(Section)`
   border-radius: 1rem;
   background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
-  padding: 2rem;
   overflow: hidden;
 
   @media (min-width: 520px) {
@@ -90,16 +93,18 @@ export const About: FC = () => {
           />
           <Item href="https://governance.mstable.org" title="GOVERN" description="Governed by a global community" />
         </Grid>
-        <p>
-          <CTA arrow href="https://cryptocurrencyjobs.co/startups/mstable/">
-            We’re hiring!
-          </CTA>
-        </p>
-        <p>
-          <CTA arrow href="https://docs.mstable.org">
-            Protocol docs
-          </CTA>
-        </p>
+        <Links>
+          <p>
+            <CTA arrow href="https://cryptocurrencyjobs.co/startups/mstable/">
+              We’re hiring!
+            </CTA>
+          </p>
+          <p>
+            <CTA arrow href="https://docs.mstable.org">
+              Protocol docs
+            </CTA>
+          </p>
+        </Links>
       </Container>
     </FullBleed>
   )

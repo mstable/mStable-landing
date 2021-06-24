@@ -41,6 +41,7 @@ const Social = styled.div`
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-wrap: wrap;
     > * {
       display: block;
     }
@@ -62,6 +63,18 @@ const Social = styled.div`
 const Top = styled(Grid)`
   margin-bottom: 64px;
   padding: 0 2rem;
+
+  > div:first-child {
+    display: flex;
+
+    > * {
+      flex-basis: 50%;
+    }
+
+    @media (min-width: 600px) {
+      grid-column: 1/4;
+    }
+  }
 `
 
 const Bottom = styled(Grid)`
@@ -91,20 +104,22 @@ export const Footer: FC = () => {
       <Container>
         <Top>
           <div>
-            <Header>Protocol</Header>
-            <Links>
-              <ExternalLink href="https://app.mstable.org">App</ExternalLink>
-              <ExternalLink href="https://docs.mstable.org">Documentation</ExternalLink>
-              <ExternalLink href="https://github.com/mstable">Developers</ExternalLink>
-            </Links>
-          </div>
-          <div>
-            <Header>Governance</Header>
-            <Links>
-              <ExternalLink href="https://governance.mstable.org">Governance App</ExternalLink>
-              <ExternalLink href="https://forum.mstable.org">Forum</ExternalLink>
-              <ExternalLink href="https://snapshot.page/#/mstable">Vote</ExternalLink>
-            </Links>
+            <div>
+              <Header>Protocol</Header>
+              <Links>
+                <ExternalLink href="https://app.mstable.org">App</ExternalLink>
+                <ExternalLink href="https://docs.mstable.org">Documentation</ExternalLink>
+                <ExternalLink href="https://github.com/mstable">Developers</ExternalLink>
+              </Links>
+            </div>
+            <div>
+              <Header>Governance</Header>
+              <Links>
+                <ExternalLink href="https://governance.mstable.org">Governance App</ExternalLink>
+                <ExternalLink href="https://forum.mstable.org">Forum</ExternalLink>
+                <ExternalLink href="https://snapshot.page/#/mstable">Vote</ExternalLink>
+              </Links>
+            </div>
           </div>
           <Social>
             <Header>Keep up to date and join the community</Header>

@@ -12,14 +12,22 @@ const Header = styled.div`
   margin-bottom: 32px;
 `
 
+const Columns = styled(TwoColumns)`
+  padding: 0 2rem;
+`
+
 const Box = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1rem;
+  padding: 1rem 2rem;
   border-radius: 0.5rem;
   background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
+
+  @media (min-width: 400px) {
+    margin: 0 2rem;
+  }
 `
 
 const Quote = styled.blockquote`
@@ -42,13 +50,13 @@ export const Security: FC = () => {
   return (
     <FullBleed>
       <Section h1="Secure, non-custodial contracts">
-        <TwoColumns>
+        <Columns>
           <Header>
             <p>Smart contract security is mStable’s first priority.</p>
             <p>The mStable protocol was fully audited by Consensys Diligence and no critical bugs were found.</p>
           </Header>
           <div />
-        </TwoColumns>
+        </Columns>
         <TwoColumns>
           <Box>
             <div>

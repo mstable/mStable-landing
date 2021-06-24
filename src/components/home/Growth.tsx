@@ -17,6 +17,12 @@ import { Asset } from '../Asset'
 import { Colors } from '../../theme'
 import { useData } from './DataProvider'
 
+const StyledFull = styled(FullBleed)`
+  @media (min-width: 520px) {
+    padding: 0 2rem;
+  }
+`
+
 const MetricContainer = styled.div`
   position: relative;
   text-align: center;
@@ -126,8 +132,10 @@ export const Growth: FC = () => {
   const { loading, value } = useData()
   const assets = { musd: value?.musd, mbtc: value?.mbtc }
 
+  if (Object.keys(assets).find((asset) => !assets[asset as MassetType])) return null
+
   return (
-    <FullBleed dark>
+    <StyledFull dark>
       {Object.keys(assets).map((asset) => {
         const masset = assets[asset as MassetType]
         const { symbol, icon, address, description } = assetDetails[asset as MassetType]
@@ -164,6 +172,6 @@ export const Growth: FC = () => {
           </Section>
         )
       })}
-    </FullBleed>
+    </StyledFull>
   )
 }

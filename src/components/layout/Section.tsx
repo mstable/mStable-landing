@@ -17,14 +17,10 @@ const Container = styled.section<Props>`
     font-weight: 600;
     margin-bottom: 1rem;
   }
-
-  > * {
-    padding: 0 2rem;
-  }
 `
 
 const Header = styled.header<Props>`
-  margin-bottom: 1.5rem;
+  padding: 2rem;
   text-align: ${({ centre }) => (centre ? 'center' : 'inherit')};
 
   h1 {
@@ -41,7 +37,6 @@ const Header = styled.header<Props>`
     font-size: 2rem;
     font-weight: normal;
     color: rgba(255, 255, 255, 0.95);
-    margin-bottom: 2rem;
   }
 
   h3 {

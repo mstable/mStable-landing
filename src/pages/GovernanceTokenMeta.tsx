@@ -63,6 +63,7 @@ const Header = styled.div`
     display: block;
     max-width: 40ch;
     font-weight: normal;
+    margin-top: 2rem;
     span {
       font-weight: bold;
       color: white;
@@ -84,6 +85,10 @@ const Header = styled.div`
     align-items: center;
     justify-content: center;
     padding: 0 4rem;
+
+    h3 {
+      margin-top: 0;
+    }
 
     img {
       margin: 0 2rem 0 0;

@@ -62,6 +62,7 @@ const BackersGrid = styled.div`
   display: grid;
   gap: 1rem;
   grid-template-rows: 1fr;
+  margin: 0 2rem;
 
   > :last-child {
     margin-bottom: 0;

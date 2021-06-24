@@ -38,6 +38,7 @@ const MissionH1 = styled.h1`
   max-width: 38ch;
   font-size: 2rem;
   font-weight: normal;
+  padding: 0 2rem;
 
   @media (min-width: 400px) {
     font-size: 2.4rem;
@@ -50,6 +51,7 @@ const BottomSection = styled(Section)`
   overflow: visible;
 
   > div {
+    margin: 0 2rem;
     > :first-child {
       > :first-child {
         > * {

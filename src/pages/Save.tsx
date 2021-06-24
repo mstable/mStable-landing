@@ -63,6 +63,7 @@ const Header = styled.div`
     display: block;
     max-width: 40ch;
     font-weight: normal;
+    margin-top: 2rem;
     span {
       font-weight: bold;
       color: white;
@@ -78,12 +79,20 @@ const Header = styled.div`
     border-radius: 50%;
   }
 
+  > div:last-child {
+    padding: 0 2rem;
+  }
+
   @media (min-width: 600px) {
     text-align: left;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 4rem;
+
+    h3 {
+      margin-top: 0;
+    }
 
     img {
       margin: 0 2rem 0 0;
@@ -94,6 +103,7 @@ const Header = styled.div`
 
 const TwoColumns = styled(TwoColumnsBase)`
   gap: 2rem;
+  padding: 0 2rem;
 
   p span {
     font-weight: bold;
@@ -108,8 +118,22 @@ const TwoColumns = styled(TwoColumnsBase)`
 
 const Icons = styled.div`
   display: flex;
-  img:last-child {
-    margin-left: -5rem;
+  justify-content: center;
+
+  > div {
+    display: flex;
+
+    img:last-child {
+      margin-left: -5rem;
+    }
+
+    img {
+      max-height: 10rem;
+    }
+  }
+
+  @media (min-width: 600px) {
+    justify-content: flex-start;
   }
 `
 
@@ -124,8 +148,10 @@ export const Save: FC = () => {
       <Section centre h1={<Headline>mStable Save</Headline>} h2="The best passive savings account in DeFi">
         <Header>
           <Icons>
-            <img alt="mStable BTC" src="/tokens/imbtc.png" />
-            <img alt="mStable USD" src="/tokens/imusd.png" />
+            <div>
+              <img alt="mStable BTC" src="/tokens/imbtc.png" />
+              <img alt="mStable USD" src="/tokens/imusd.png" />
+            </div>
           </Icons>
           <div>
             <h3>
