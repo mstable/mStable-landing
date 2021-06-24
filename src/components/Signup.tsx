@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   padding-top: 2rem;
+
   input {
     appearance: none;
     outline: none;
@@ -14,6 +15,22 @@ const Wrapper = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     margin-left: 8px;
+  }
+
+  input:first-child {
+    width: 80%;
+    max-width: 16rem;
+  }
+
+  > form > div > div {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: 480px) {
+    > form > div > div {
+      justify-content: flex-end;
+    }
   }
 `
 

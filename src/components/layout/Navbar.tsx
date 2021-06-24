@@ -61,11 +61,25 @@ const Nav = styled.nav`
     display: flex;
     line-height: 100%;
 
+    > *:nth-child(2),
+    > *:nth-child(3) {
+      display: none;
+    }
+
     // flex-gap polyfill fail
     > * {
       margin-right: 1rem;
       &:last-child {
         margin-right: 0;
+      }
+    }
+  }
+
+  @media (min-width: 480px) {
+    ul {
+      *:nth-child(2),
+      *:nth-child(3) {
+        display: inherit;
       }
     }
   }
@@ -89,9 +103,6 @@ export const NavBar: FC = () => {
           <LogoImg stable={visible ? 1 : 0} />
         </Link>
         <ul>
-          <li>
-            <ExternalLink href="https://github.com/mstable">Code</ExternalLink>
-          </li>
           <li>
             <ExternalLink href="https://docs.mstable.org">Docs</ExternalLink>
           </li>
