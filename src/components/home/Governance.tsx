@@ -77,7 +77,7 @@ export const Governance: FC = () => {
         </GetInformed>
         <Jobs>
           <h3>We’re hiring!</h3>
-          <CTA arrow href="https://cryptocurrencyjobs.co/startups/mstable/">
+          <CTA arrow href="https://tinyurl.com/mstable-jobs">
             Explore our open positions
           </CTA>
         </Jobs>
