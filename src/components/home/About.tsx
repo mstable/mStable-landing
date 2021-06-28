@@ -95,7 +95,7 @@ export const About: FC = () => {
         </Grid>
         <Links>
           <p>
-            <CTA arrow href="https://cryptocurrencyjobs.co/startups/mstable/">
+            <CTA arrow href="https://tinyurl.com/mstable-jobs">
               We’re hiring!
             </CTA>
           </p>
