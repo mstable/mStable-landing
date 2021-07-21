@@ -107,7 +107,7 @@ export const Footer: FC = () => {
             <div>
               <Header>Protocol</Header>
               <Links>
-                <ExternalLink href="https://app.mstable.org">App</ExternalLink>
+                <ExternalLink href="https://mstable.app">App</ExternalLink>
                 <ExternalLink href="https://docs.mstable.org">Documentation</ExternalLink>
                 <ExternalLink href="https://github.com/mstable">Developers</ExternalLink>
               </Links>

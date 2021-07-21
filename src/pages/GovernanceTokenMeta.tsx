@@ -167,7 +167,7 @@ export const GovernanceTokenMeta: FC = () => {
               </p>
             </div>
             <Links>
-              <BigButton href="https://app.mstable.org/">Start earning MTA</BigButton>
+              <BigButton href="https://mstable.app/">Start earning MTA</BigButton>
             </Links>
           </div>
           <div />

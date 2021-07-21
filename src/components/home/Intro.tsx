@@ -89,7 +89,7 @@ export const Intro: FC = () => {
       <BottomSection>
         <BigStats />
         <Coins />
-        <AppCTA href="https://app.mstable.org">Save with mStable</AppCTA>
+        <AppCTA href="https://mstable.app">Save with mStable</AppCTA>
         <DownArrow
           onClick={() => {
             window.scrollTo({ top: bottom, behavior: 'smooth' })

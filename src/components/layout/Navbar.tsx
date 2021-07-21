@@ -113,7 +113,7 @@ export const NavBar: FC = () => {
             Save
           </Link>
           <li>
-            <AppLink href="https://app.mstable.org">
+            <AppLink href="https://mstable.app">
               <img src={Ether} alt="App" />
               <div>App</div>
             </AppLink>
