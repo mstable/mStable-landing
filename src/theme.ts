@@ -4,6 +4,8 @@ export enum Colors {
   green = 'rgb(82,204,147)',
   greenTransparent = 'rgba(82,204,147, 0.2)',
   lightBlue = 'rgb(74, 161, 255)',
+  neonBlue = 'rgba(85,213,255,1)',
+  neonBlueTransparent = 'rgba(85,213,255,0.3)',
   blue = 'rgb(23,110,222)',
   blueTransparent = 'rgba(0,92,222,0.2)',
   red = 'rgb(202,0,27)',
@@ -16,5 +18,5 @@ export enum Colors {
 }
 
 export enum Constants {
-  navHeight = '56px',
+  navHeight = '72px',
 }

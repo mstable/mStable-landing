@@ -1,21 +1,12 @@
 import React, { ComponentProps, FC } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import { ExternalLink } from './ExternalLink'
-import { Colors } from '../theme'
-import Ether from '../images/ether-logo.svg'
 import { Button } from './Button'
+import { Colors } from '../theme'
 
-const StyledExternalLink = styled(ExternalLink)<{ arrow?: boolean }>`
-  &:before {
-    // Right arrow and nbsp
-    content: ${({ arrow }) => (arrow ? '"\\2794\\a0"' : 'none')};
-  }
-`
-
-const AppCTAExternalLink = styled(ExternalLink)`
+const StyledExternalLink = styled(ExternalLink)`
   pointer-events: none;
-  padding: 2rem 0;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -29,32 +20,14 @@ const AppCTAExternalLink = styled(ExternalLink)`
   }
 `
 
-const animation = keyframes`
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-`
-
-export const AppCTAButton = styled(Button)`
-  font-weight: 600;
-
-  background: linear-gradient(-45deg, #ffb568, #9852fa, #00ade7, #252553);
-  background-size: 400% 400%;
-  animation: ${animation} 12s linear infinite;
-
+export const CTAButton = styled(Button)<{ highlight?: boolean }>`
+  font-weight: 500;
+  background: ${({ highlight }) => (highlight ? Colors.lightBlue : '#3e4b60')};
   color: white;
   border: none;
   width: 100%;
-
-  text-shadow: rgba(0, 75, 124, 0.4) 0 1px 1px;
-  box-shadow: rgba(0, 153, 255, 0.6) 0 4px 24px;
   transition: transform 0.25s ease-out;
+  resize: none;
 
   &:hover,
   &:focus {
@@ -65,19 +38,24 @@ export const AppCTAButton = styled(Button)`
 
 export const CTA: FC<ComponentProps<typeof ExternalLink> & { arrow?: boolean }> = ({ arrow, children, className, title, href }) => {
   return (
-    <StyledExternalLink className={className} href={href} title={title} arrow={arrow}>
+    <StyledExternalLink className={className} href={href} title={title}>
       {children}
     </StyledExternalLink>
   )
 }
 
-export const AppCTA: FC<ComponentProps<typeof ExternalLink>> = ({ children, className, title, href }) => {
+export const LinkButton: FC<ComponentProps<typeof ExternalLink> & { highlight?: boolean }> = ({
+  children,
+  className,
+  title,
+  href,
+  highlight,
+}) => {
   return (
-    <AppCTAExternalLink href={href} title={title}>
-      <AppCTAButton className={className}>
-        <img src={Ether} alt={title} />
-        <div>{children}</div>
-      </AppCTAButton>
-    </AppCTAExternalLink>
+    <StyledExternalLink href={href} title={title}>
+      <CTAButton className={className} highlight={highlight}>
+        {children}
+      </CTAButton>
+    </StyledExternalLink>
   )
 }

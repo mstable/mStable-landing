@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import { Section } from '../layout/Section'
-import { AppCTA, CTA } from '../CTA'
-import { MainAndAside } from '../layout/Grid'
+import { LinkButton, CTA } from '../CTA'
+import { MainAndAside } from '../layout/Gridd'
 import { FullBleed } from '../layout/FullBleed'
 
 const Links = styled.div`
@@ -31,8 +31,6 @@ const Jobs = styled.div`
 
 const Container = styled(Section)`
   > div {
-    border-radius: 1rem;
-    background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
     padding: 2rem;
     overflow: hidden;
     box-sizing: border-box;
@@ -59,7 +57,7 @@ export const Governance: FC = () => {
             </p>
             <p>Proposals and ideas are surfaced on the Discord or public forum, and are finalised by on-chain signalling by MTA holders.</p>
           </div>
-          <AppCTA href="https://governance.mstable.org">Govern mStable</AppCTA>
+          <LinkButton href="https://governance.mstable.org">Govern mStable</LinkButton>
         </MainAndAside>
         <GetInformed>
           <h3>Join us and get informed</h3>

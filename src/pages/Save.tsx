@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 
 import { Section } from '../components/layout/Section'
-import { TwoColumns as TwoColumnsBase } from '../components/layout/Grid'
+import { TwoColumns as TwoColumnsBase } from '../components/layout/Gridd'
 import { FullBleed } from '../components/layout/FullBleed'
 import { CTA } from '../components/CTA'
 import { Colors } from '../theme'
@@ -84,7 +84,6 @@ const Header = styled.div`
   }
 
   @media (min-width: 600px) {
-    text-align: left;
     display: flex;
     align-items: center;
     justify-content: center;

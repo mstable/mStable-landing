@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
 *,
 *::before,
@@ -45,7 +45,7 @@ select {
 }
 
 html {
-  background: #000;
+  background: #291e4a linear-gradient(to bottom right, #291e4a, #06152d);
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -56,11 +56,10 @@ html {
 a {
   text-decoration: none;
   color: rgb(74, 161, 255);
-  font-weight: 700;
   transition: color 1s ease;
 }
 a:hover {
-  color: gold;
+  color: rgb(74, 161, 255);
 }
 p {
   margin-bottom: 8px;

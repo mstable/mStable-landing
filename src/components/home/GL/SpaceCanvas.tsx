@@ -1,21 +1,24 @@
 import React, { FC, useRef, useMemo, Suspense, ComponentProps } from 'react'
 import styled from 'styled-components'
 import { useMedia } from 'react-use'
-
 import * as THREE from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
+
 import { Effects } from './Effects'
 import { Lights } from './Lights'
 
 const Container = styled.div`
-  position: absolute;
-  left: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
   right: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
 `
 
-const roundedSquareWave = (t: number, delta: number, a: number, f: number): number => {
-  return ((2 * a) / Math.PI) * Math.atan(Math.sin(2 * Math.PI * t * f) / delta)
-}
+const roundedSquareWave = (t: number, delta: number, a: number, f: number): number =>
+  ((2 * a) / Math.PI) * Math.atan(Math.sin(2 * Math.PI * t * f) / delta)
 
 const DotsGL: FC = () => {
   const ref = useRef<THREE.InstancedMesh>(null as never)
@@ -49,8 +52,8 @@ const DotsGL: FC = () => {
       // Distance affects the wave phase
       const t = clock.elapsedTime - dist / 2
 
-      // Oscillates between -0.2 and +0.2 with period of 8 seconds
-      const wave = roundedSquareWave(t, 0.2 * dist, 0.2, 1 / 8)
+      // Oscillates between -0.1 and +0.1 with period of 12 seconds
+      const wave = roundedSquareWave(t, 0.1 * dist, 0.1, 1 / 12)
 
       // Scale initial position by our oscillator
       vec.copy(positions[i]).multiplyScalar(wave + 2)
@@ -61,35 +64,42 @@ const DotsGL: FC = () => {
       // Update Matrix4 for this instance
       ref.current.setMatrixAt(i, transform)
     }
-    ref.current.rotation.z += 0.001
-    ref.current.rotation.x = -0.5
+    //    ref.current.rotation.z -= 0.0002
     ref.current.instanceMatrix.needsUpdate = true
   })
 
   return (
-    <instancedMesh ref={ref} args={[null as never, null as never, 480]} position={[0, -2, -10]} scale={2}>
-      <planeBufferGeometry args={[0.05, 0.05]} />
-      <meshLambertMaterial color="#888" />
+    <instancedMesh ref={ref} args={[null as never, null as never, 480]} position={[0, 0, -1]} scale={4}>
+      <planeBufferGeometry args={[0.02, 0.02]} />
+      <meshBasicMaterial color="#fff" />
     </instancedMesh>
   )
 }
 
+const Background: FC = () => (
+  <mesh position={[0, 0, -10]}>
+    <planeBufferGeometry attach="geometry" args={[320, 240]} />
+    <meshPhongMaterial attach="material" color="#291e4a" />
+  </mesh>
+)
+
 const canvasProps: Omit<ComponentProps<typeof Canvas>, 'children'> = {
   resize: { scroll: false, debounce: { scroll: 500, resize: 500 } },
-  gl: { antialias: false, alpha: false },
-  camera: { position: [0, 0, 15] as never, near: 2, far: 40 },
-  onCreated: ({ gl }) => gl.setClearColor(0x00000000),
+  gl: { antialias: false, alpha: true },
+  camera: { position: [0, 0, 50] as never, near: 2, far: 100 },
+  onCreated: ({ gl }) => gl.setClearColor(0x000000, 0),
 }
 
-export const Dots: FC<{ isHome: boolean }> = ({ isHome }) => {
+export const SpaceCanvas: FC = () => {
   const isWide = useMedia('(min-width: 540px)')
   return (
     <Container>
       <Canvas resize={canvasProps.resize} gl={canvasProps.gl} camera={canvasProps.camera} onCreated={canvasProps.onCreated}>
         <Suspense fallback={null}>
-          {isWide && <Effects alwaysBlur={!isHome} />}
-          <Lights />
+          <Background />
+          {isWide && <Effects />}
           <DotsGL />
+          <Lights />
         </Suspense>
       </Canvas>
     </Container>

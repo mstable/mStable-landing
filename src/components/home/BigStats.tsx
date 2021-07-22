@@ -1,12 +1,10 @@
 import React, { FC } from 'react'
-import 'use-slider/lib/slider.min.css'
 import styled from 'styled-components'
+import Numeral from 'numeral'
 // @ts-ignore
 import CountUp from 'react-countup-v2'
 
-import { Slider } from '../Slider'
 import { useData } from './DataProvider'
-import { Colors } from '../../theme'
 
 const StyledCountUp = styled(CountUp)`
   font-family: 'DM Mono', monospace;
@@ -14,45 +12,43 @@ const StyledCountUp = styled(CountUp)`
 
 const BigStat = styled.div`
   font-size: 1.3rem;
-  padding: 1px; // hide the edges for the slider
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
 
-  > span {
-    position: relative;
-    padding: 2rem 0rem;
-  }
-
-  > span::before {
-    position: absolute;
-    content: '';
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: linear-gradient(transparent 2%, rgba(0, 0, 0, 0.75), transparent 98%);
-    filter: blur(0.15rem);
-    inset: 1px;
-    z-index: -1;
-    border-radius: 0.75rem;
+  &:not:last-child {
+    margin-right: 1rem;
   }
 
   @media (min-width: 400px) {
-    font-size: 1.6rem;
+    > :first-child {
+      min-width: 12rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    > :last-child {
+      font-size: 1rem;
+    }
   }
-`
-
-const Blue = styled.span`
-  color: ${Colors.lightBlue};
-  text-shadow: rgba(0, 35, 57, 0.5) 0 0 1px;
 `
 
 const Empty = styled.div`
   min-height: 10rem;
 `
 
+const StatsSection = styled.div`
+  width: 100%;
+  padding: 4rem 0;
+  display: flex;
+  justify-content: space-around;
+`
+
 const apyOptions = { decimalPlaces: 2, suffix: '%' }
+
+const priceOptions = { decimalPlaces: 2, prefix: '$' }
+
+const volOptions = { decimalPlaces: 0, formattingFn: (value: number) => Numeral(value).format('0a'), prefix: '$', suffix: '+' }
 
 export const BigStats: FC = () => {
   const { loading, value } = useData()
@@ -60,61 +56,29 @@ export const BigStats: FC = () => {
   return loading || !value ? (
     <Empty />
   ) : (
-    <Slider>
+    <StatsSection>
       <BigStat>
-        <span>
-          Currently earning{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.musd.dailyAPY} options={apyOptions} />
-          </Blue>{' '}
-          for mUSD and{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mbtc.dailyAPY} options={apyOptions} />
-          </Blue>{' '}
-          for mBTC
-        </span>
+        <div>
+          $<StyledCountUp endVal={1000000000} options={volOptions} />+
+        </div>
+        <div>All Time Volume</div>
       </BigStat>
       <BigStat>
-        <span>
-          mStable users have minted{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.musd.cumulativeMinted} /> mUSD
-          </Blue>{' '}
-          and{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mbtc.cumulativeMinted} /> mBTC
-          </Blue>
-        </span>
+        <StyledCountUp endVal={931} />
+        <div>Active Governors</div>
       </BigStat>
       <BigStat>
-        <span>
-          Over <Blue>$500m</Blue> swapped
-        </span>
+        <div>
+          <StyledCountUp endVal={9.4} options={apyOptions} />
+        </div>
+        <div>Average USD APY</div>
       </BigStat>
       <BigStat>
-        <span>
-          <Blue>
-            <StyledCountUp separator="," endVal={value.musd.totalSupply} /> mUSD
-          </Blue>{' '}
-          and{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mbtc.totalSupply} /> mBTC
-          </Blue>{' '}
-          are in circulation
-        </span>
+        <div>
+          <StyledCountUp endVal={0.78} options={priceOptions} />
+        </div>
+        <div>MTA Price</div>
       </BigStat>
-      <BigStat>
-        <span>
-          mStable has{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mta.totalStakers} /> governors
-          </Blue>{' '}
-          staking a total of{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mta.totalStaked} /> MTA
-          </Blue>
-        </span>
-      </BigStat>
-    </Slider>
+    </StatsSection>
   )
 }

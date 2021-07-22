@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Consensys from '../../images/consensys.svg'
 import QuoteImg from '../../images/quote.svg'
 import { Section } from '../layout/Section'
-import { TwoColumns } from '../layout/Grid'
+import { TwoColumns } from '../layout/Gridd'
 import { FullBleed } from '../layout/FullBleed'
 import { CTA } from '../CTA'
 
@@ -22,8 +22,6 @@ const Box = styled.div`
   justify-content: space-between;
   gap: 2rem;
   padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
 
   @media (min-width: 400px) {
     margin: 0 2rem;

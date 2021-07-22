@@ -5,19 +5,18 @@ import { Colors } from '../theme'
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  padding: 0.75rem 2rem;
-  height: 3.5rem;
+  padding: 0.75rem 1.5rem;
   white-space: nowrap;
 
   background: white;
   border: 4px ${Colors.lightBlue} solid;
-  border-radius: 1.75rem;
+  border-radius: 0.75rem;
   justify-content: center;
   color: ${Colors.lightBlue};
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.5s ease-out;
 
   &:hover {
     color: black;

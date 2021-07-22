@@ -14,11 +14,11 @@ export const Home: FC = () => {
     <DataProvider>
       <Intro />
       <About />
-      <Growth />
-      <Security />
-      <Partners />
-      <Governance />
-      <Backers />
+      {/*<Growth />*/}
+      {/*<Security />*/}
+      {/*<Partners />*/}
+      {/*<Governance />*/}
+      {/*<Backers />*/}
     </DataProvider>
   )
 }

@@ -9,7 +9,7 @@ import Email from '../../images/email.svg'
 import Telegram from '../../images/telegram.svg'
 import DefiPulse from '../../images/defi-pulse-short.svg'
 import { ExternalLink } from '../ExternalLink'
-import { Grid } from './Grid'
+import { Gridd } from './Gridd'
 import { FullBleed } from './FullBleed'
 import Signup from '../Signup'
 
@@ -60,7 +60,7 @@ const Social = styled.div`
   }
 `
 
-const Top = styled(Grid)`
+const Top = styled(Gridd)`
   margin-bottom: 64px;
   padding: 0 2rem;
 
@@ -77,7 +77,7 @@ const Top = styled(Grid)`
   }
 `
 
-const Bottom = styled(Grid)`
+const Bottom = styled(Gridd)`
   padding: 0 2rem;
 
   > :first-child {

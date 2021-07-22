@@ -22,7 +22,6 @@ const Title = styled.h4`
 const backerCss = css<{ colour: string }>`
   height: 8rem;
   border: 2px rgba(255, 255, 255, 0.15) solid;
-  background: black;
   display: flex;
   align-items: center;
   justify-content: center;

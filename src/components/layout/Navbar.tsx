@@ -4,36 +4,16 @@ import { Link } from 'react-router-dom'
 
 import { logoVisibilityCtx } from '../../context'
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
-import Ether from '../../images/ether-logo.svg'
 import { ExternalLink } from '../ExternalLink'
-import { Colors, Constants } from '../../theme'
+import { Constants } from '../../theme'
+import { LinkButton } from '../CTA'
 
-const AppLink = styled(ExternalLink)`
-  display: flex;
-
-  img {
-    position: relative;
-    top: -3px;
-    height: 20px;
-  }
-
-  // flex-gap polyfill fail
-  > * {
-    margin-right: 8px;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-`
-
-const FixedContainer = styled.div`
-  position: fixed;
+const Container = styled.div`
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   height: ${Constants.navHeight};
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  background: black;
   z-index: 1;
 
   display: grid;
@@ -59,11 +39,16 @@ const Nav = styled.nav`
 
   ul {
     display: flex;
+    align-items: center;
     line-height: 100%;
 
-    > *:nth-child(2),
-    > *:nth-child(3) {
-      display: none;
+    li,
+    button {
+      font-size: 0.8rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
     }
 
     // flex-gap polyfill fail
@@ -71,15 +56,6 @@ const Nav = styled.nav`
       margin-right: 1rem;
       &:last-child {
         margin-right: 0;
-      }
-    }
-  }
-
-  @media (min-width: 480px) {
-    ul {
-      *:nth-child(2),
-      *:nth-child(3) {
-        display: inherit;
       }
     }
   }
@@ -97,29 +73,22 @@ const LogoImg = styled(LogoSvg)<{ stable: number }>`
 export const NavBar: FC = () => {
   const [visible] = useContext(logoVisibilityCtx)
   return (
-    <FixedContainer>
+    <Container>
       <Nav>
         <Link to="/" title="mStable">
           <LogoImg stable={visible ? 1 : 0} />
         </Link>
         <ul>
           <li>
-            <ExternalLink href="https://docs.mstable.org">Docs</ExternalLink>
+            <ExternalLink href="#">Governance</ExternalLink>
           </li>
-          <Link to="/governance-token-meta" title="Meta (MTA)">
-            Meta
-          </Link>
-          <Link to="/save" title="mStable Save">
-            Save
-          </Link>
           <li>
-            <AppLink href="https://mstable.app">
-              <img src={Ether} alt="App" />
-              <div>App</div>
-            </AppLink>
+            <LinkButton href="https://app.mstable.org" highlight>
+              Use mStable
+            </LinkButton>
           </li>
         </ul>
       </Nav>
-    </FixedContainer>
+    </Container>
   )
 }

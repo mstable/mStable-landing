@@ -2,9 +2,10 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 import { Colors } from '../theme'
 
-const Container = styled.a`
+const Anchor = styled.a`
+  font-weight: 500;
   &:hover {
-    color: ${Colors.gold};
+    color: ${Colors.lightBlue};
   }
 `
 
@@ -14,14 +15,8 @@ export const ExternalLink: FC<{
   className?: string
 }> = ({ children, className, href, title }) => {
   return (
-    <Container
-      className={className}
-      href={href}
-      title={title}
-      target="_blank"
-      rel="nofollow noopener"
-    >
+    <Anchor className={className} href={href} title={title} target="_blank" rel="nofollow noopener">
       {children}
-    </Container>
+    </Anchor>
   )
 }

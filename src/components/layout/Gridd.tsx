@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Grid = styled.div`
+export const Gridd = styled.div`
   > * {
     margin-bottom: 2rem;
   }
@@ -17,13 +17,13 @@ export const Grid = styled.div`
   }
 `
 
-export const SingleColumn = styled(Grid)`
+export const SingleColumn = styled(Gridd)`
   > * {
     grid-column: span 6;
   }
 `
 
-export const TwoColumns = styled(Grid)`
+export const TwoColumns = styled(Gridd)`
   > :first-child {
     grid-area: left;
   }
@@ -33,7 +33,7 @@ export const TwoColumns = styled(Grid)`
   }
 `
 
-export const MainAndAside = styled(Grid)`
+export const MainAndAside = styled(Gridd)`
   > :first-child {
     grid-area: main;
   }

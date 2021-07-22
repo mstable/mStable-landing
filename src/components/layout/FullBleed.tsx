@@ -7,15 +7,6 @@ export const FullBleed = styled.div<{ background?: string; dark?: boolean }>`
   padding-top: 4rem;
   padding-bottom: 4rem;
 
-  background: transparent;
-  color: #e0e7ef;
-  text-shadow: black 0 0 30px;
-
-  h1,
-  h2 {
-    color: white;
-  }
-
   @media (min-width: 400px) {
     > * {
       display: grid;

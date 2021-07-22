@@ -51,15 +51,9 @@ const gradientShift = keyframes`
 `
 
 const Container = styled.div`
-  background: linear-gradient(-130deg, #201d26, #d49346, #4255cd, #201d26);
-  background-size: 200% 200%;
-  animation: ${gradientShift} 12s linear infinite;
   padding: 0.1rem;
-  border-radius: 1rem;
 
   > div {
-    border-radius: 1rem;
-    background: radial-gradient(farthest-corner at 10% 10%, #181b21, black);
     padding: 1rem;
     overflow: hidden;
   }

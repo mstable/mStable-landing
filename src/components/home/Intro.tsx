@@ -6,75 +6,47 @@ import type { UseMeasureRef } from 'react-use/lib/useMeasure'
 import { Section } from '../layout/Section'
 import { logoVisibilityCtx } from '../../context'
 import { FullBleed } from '../layout/FullBleed'
+import { LinkButton } from '../CTA'
 import { BigStats } from './BigStats'
-import { AppCTA } from '../CTA'
-import { Coins } from './GL/Coins'
 
-const DownArrow = styled.div`
-  position: relative;
-  display: block;
-  overflow: visible;
-  > * {
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    font-size: 3rem;
-    left: 50%;
-    margin-left: -1rem;
-    opacity: 0.4;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    transition: opacity 0.3s ease;
-    width: 2rem;
-    &:hover {
-      opacity: 1;
+const Mission = styled(Section)`
+  margin: 2rem 0 4rem 0;
+  text-align: center;
+
+  h1,
+  h2 {
+    font-weight: normal;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    @media (min-width: 400px) {
+      font-size: 2.4rem;
     }
   }
-`
 
-const MissionH1 = styled.h1`
-  margin: 4rem 0 0;
-  max-width: 38ch;
-  font-size: 2rem;
-  font-weight: normal;
-  padding: 0 2rem;
-
-  @media (min-width: 400px) {
-    font-size: 2.4rem;
+  h2 {
+    font-size: 1.2rem;
   }
 `
 
 const BottomSection = styled(Section)`
-  max-width: 50ch;
-  margin: 0 auto;
+  margin: 2rem 0 4rem 0;
   overflow: visible;
-
   > div {
-    margin: 0 2rem;
-    > :first-child {
-      > :first-child {
-        > * {
-          text-align: center;
-        }
-      }
+    display: flex;
+    justify-content: center;
+    > :not(:last-child) {
+      margin-right: 2rem;
     }
-  }
-`
-
-const StyledFullBleed = styled(FullBleed)`
-  margin-bottom: 0;
-  background: transparent;
-  > * {
-    margin: 0 0 4rem 0;
-    max-width: 100%;
-    width: 100%;
   }
 `
 
 export const Intro: FC = () => {
   const { y } = useWindowScroll()
-  const [ref, { height, top, bottom }] = useMeasure()
+  const [ref, { height, top }] = useMeasure()
   const [, setLogoVisibility] = useContext(logoVisibilityCtx)
 
   useLayoutEffect(() => {
@@ -82,22 +54,21 @@ export const Intro: FC = () => {
   }, [y, height, top])
 
   return (
-    <StyledFullBleed dark ref={ref as UseMeasureRef<HTMLDivElement>}>
-      <Section>
-        <MissionH1>The best passive savings account in DeFi.</MissionH1>
-      </Section>
+    <FullBleed ref={ref as UseMeasureRef<HTMLDivElement>}>
+      <Mission>
+        <h1>Decentralised Stablecoin Ecosystem</h1>
+        <h2>
+          mStable is a fully encompassing stablecoin ecosystem. It is built on the EVM and designed to address challenges faced with
+          stablecoin innovation and growth.
+        </h2>
+      </Mission>
       <BottomSection>
-        <BigStats />
-        <Coins />
-        <AppCTA href="https://mstable.app">Save with mStable</AppCTA>
-        <DownArrow
-          onClick={() => {
-            window.scrollTo({ top: bottom, behavior: 'smooth' })
-          }}
-        >
-          <div>↓</div>
-        </DownArrow>
+        <LinkButton href="https://app.mstable.org" highlight>
+          Use mStable
+        </LinkButton>
+        <LinkButton href="">Learn more</LinkButton>
       </BottomSection>
-    </StyledFullBleed>
+      <BigStats />
+    </FullBleed>
   )
 }
