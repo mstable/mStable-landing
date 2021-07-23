@@ -18,6 +18,8 @@ interface Product {
 
 const StyledCountUp = styled(CountUp)`
   font-family: 'DM Mono', monospace;
+  font-size: 1.25rem;
+  padding-right: 0.5rem;
 `
 
 const apyOptions = { decimalPlaces: 2, suffix: '%' }
@@ -56,7 +58,7 @@ const ProductContent = styled.div`
   margin: 6rem 0 8rem 0;
 
   h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-bottom: 1rem;
   }
@@ -68,6 +70,7 @@ const ProductContent = styled.div`
       color: ${Colors.neonBlue};
       &.tilde {
         color: rgba(255, 255, 255, 0.25);
+        padding-left: 0.5rem;
       }
     }
   }
@@ -184,15 +187,12 @@ const TabButton = styled.button<{ active: boolean; highlight: string }>`
   align-items: center;
   justify-content: center;
   color: ${({ highlight }) => highlight};
-  padding: 0.4rem 1rem;
+  padding: 0 1rem 0.75rem 1rem;
   border-bottom: 2px ${({ active, highlight }) => (active ? highlight : 'rgba(255, 255, 255, 0.2)')} solid;
   transition: border-bottom-color 0.8s ease;
   flex-basis: calc(33%);
-  font-size: 1.2rem;
-
-  &:not(:last-child) {
-    margin-right: 2rem;
-  }
+  font-size: 1.5rem;
+  font-weight: 600;
 
   &:hover {
     border-bottom-color: ${({ highlight }) => highlight};
@@ -204,7 +204,7 @@ const TabButton = styled.button<{ active: boolean; highlight: string }>`
 `
 
 const Products = styled.div`
-  margin: 0 auto;
+  margin: 3.5rem 0 0;
 
   > :first-child {
     display: flex;
@@ -220,7 +220,7 @@ const Products = styled.div`
 export const About: FC = () => {
   const [productIdx, setProductIdx] = useState(1)
   return (
-    <Section h1="Explore our products" h2="Low slippage swaps, interest-bearing assets and an open community.">
+    <Section h1="Explore our products">
       <Products>
         <div>
           {PRODUCTS.map((p, idx) => (

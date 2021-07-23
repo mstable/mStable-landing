@@ -15,21 +15,25 @@ const BigStat = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+
+  p {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 3rem;
+  }
 
   &:not:last-child {
     margin-right: 1rem;
   }
 
   @media (min-width: 400px) {
-    > :first-child {
-      min-width: 12rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    > :last-child {
-      font-size: 1rem;
-    }
   }
 `
 
@@ -38,17 +42,17 @@ const Empty = styled.div`
 `
 
 const StatsSection = styled.div`
-  width: 100%;
-  padding: 4rem 0;
+  margin: 5rem 0 7.5rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  > div {
+    padding: 1rem 0;
+    width: 12rem;
+  }
 `
-
-const apyOptions = { decimalPlaces: 2, suffix: '%' }
-
-const priceOptions = { decimalPlaces: 2, prefix: '$' }
-
-const volOptions = { decimalPlaces: 0, formattingFn: (value: number) => Numeral(value).format('0a'), prefix: '$', suffix: '+' }
 
 export const BigStats: FC = () => {
   const { loading, value } = useData()
@@ -58,26 +62,20 @@ export const BigStats: FC = () => {
   ) : (
     <StatsSection>
       <BigStat>
-        <div>
-          $<StyledCountUp endVal={1000000000} options={volOptions} />+
-        </div>
-        <div>All Time Volume</div>
+        <h3>$1b+</h3>
+        <p>All Time Volume</p>
       </BigStat>
       <BigStat>
-        <StyledCountUp endVal={931} />
-        <div>Active Governors</div>
+        <h3>782</h3>
+        <p>Active Governors</p>
       </BigStat>
       <BigStat>
-        <div>
-          <StyledCountUp endVal={9.4} options={apyOptions} />
-        </div>
-        <div>Average USD APY</div>
+        <h3>9.40%</h3>
+        <p>Average USD APY</p>
       </BigStat>
       <BigStat>
-        <div>
-          <StyledCountUp endVal={0.78} options={priceOptions} />
-        </div>
-        <div>MTA Price</div>
+        <h3>$0.78</h3>
+        <p>MTA Price</p>
       </BigStat>
     </StatsSection>
   )

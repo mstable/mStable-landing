@@ -11,28 +11,13 @@ const StyledExternalLink = styled(ExternalLink)`
   align-items: center;
   flex-direction: column;
   user-select: none;
+
+  :hover {
+    text-decoration: none;
+  }
+
   > :first-child {
     pointer-events: all;
-    width: auto;
-    button {
-      width: auto;
-    }
-  }
-`
-
-export const CTAButton = styled(Button)<{ highlight?: boolean }>`
-  font-weight: 500;
-  background: ${({ highlight }) => (highlight ? Colors.lightBlue : '#3e4b60')};
-  color: white;
-  border: none;
-  width: 100%;
-  transition: transform 0.25s ease-out;
-  resize: none;
-
-  &:hover,
-  &:focus {
-    color: white;
-    transform: scale(1.05);
   }
 `
 
@@ -53,9 +38,9 @@ export const LinkButton: FC<ComponentProps<typeof ExternalLink> & { highlight?: 
 }) => {
   return (
     <StyledExternalLink href={href} title={title}>
-      <CTAButton className={className} highlight={highlight}>
+      <Button className={className} highlight={highlight}>
         {children}
-      </CTAButton>
+      </Button>
     </StyledExternalLink>
   )
 }

@@ -18,20 +18,25 @@ const Inner = styled.div`
   > div {
     overflow-x: hidden;
   }
-`
 
-const Container = styled.div`
   display: grid;
-  min-height: 100vh;
-
   grid-template-columns:
     1fr
     min(1200px, 100%)
     1fr;
 
   > * {
+    padding: 0 2rem;
+
     grid-column: 2;
   }
+`
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 `
 
 export const Wrapper: FC<Props> = ({ children, path, title, description, isHome }) => {

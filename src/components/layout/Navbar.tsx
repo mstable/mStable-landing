@@ -5,16 +5,18 @@ import { Link } from 'react-router-dom'
 import { logoVisibilityCtx } from '../../context'
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
 import { ExternalLink } from '../ExternalLink'
-import { Constants } from '../../theme'
+import { Colors, Constants } from '../../theme'
 import { LinkButton } from '../CTA'
 
-const Container = styled.div`
+const Container = styled.div<{ fill?: boolean }>`
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   height: ${Constants.navHeight};
   z-index: 1;
+  background: ${({ fill }) => (fill ? Colors.spaceBlue : 'transparent')};
+  transition: 0.5s linear background;
 
   display: grid;
   overflow-x: hidden;
@@ -31,10 +33,16 @@ const Nav = styled.nav`
   align-items: center;
   grid-column: 2;
   padding: 0 2rem;
+  font-size: 0.875rem;
 
   a {
     display: flex;
+    font-weight: normal;
     color: white;
+  }
+
+  button {
+    font-size: 0.875rem;
   }
 
   ul {
@@ -42,18 +50,8 @@ const Nav = styled.nav`
     align-items: center;
     line-height: 100%;
 
-    li,
-    button {
-      font-size: 0.8rem;
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-    }
-
-    // flex-gap polyfill fail
     > * {
-      margin-right: 1rem;
+      margin-right: 2rem;
       &:last-child {
         margin-right: 0;
       }
@@ -73,12 +71,18 @@ const LogoImg = styled(LogoSvg)<{ stable: number }>`
 export const NavBar: FC = () => {
   const [visible] = useContext(logoVisibilityCtx)
   return (
-    <Container>
+    <Container fill={visible}>
       <Nav>
         <Link to="/" title="mStable">
-          <LogoImg stable={visible ? 1 : 0} />
+          <LogoImg stable={0} />
         </Link>
         <ul>
+          <li>
+            <ExternalLink href="#">Products</ExternalLink>
+          </li>
+          <li>
+            <ExternalLink href="#">Community</ExternalLink>
+          </li>
           <li>
             <ExternalLink href="#">Governance</ExternalLink>
           </li>

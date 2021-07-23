@@ -10,37 +10,46 @@ import { LinkButton } from '../CTA'
 import { BigStats } from './BigStats'
 
 const Mission = styled(Section)`
-  margin: 2rem 0 4rem 0;
-  text-align: center;
-
-  h1,
-  h2 {
-    font-weight: normal;
-    padding: 0 2rem;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   h1 {
+    font-weight: 600;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     @media (min-width: 400px) {
-      font-size: 2.4rem;
+      font-size: 2.25rem;
     }
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.125rem;
+    opacity: 0.5;
+    max-width: 90ch;
+    font-weight: normal;
   }
 `
 
 const BottomSection = styled(Section)`
-  margin: 2rem 0 4rem 0;
   overflow: visible;
   > div {
     display: flex;
     justify-content: center;
     > :not(:last-child) {
-      margin-right: 2rem;
+      margin-right: 1.5rem;
     }
+  }
+`
+
+const Container = styled(FullBleed)`
+  padding: 5rem 0;
+
+  > * {
+    margin-top: 5rem;
   }
 `
 
@@ -50,16 +59,16 @@ export const Intro: FC = () => {
   const [, setLogoVisibility] = useContext(logoVisibilityCtx)
 
   useLayoutEffect(() => {
-    setLogoVisibility(y > height + top)
+    setLogoVisibility(y > top)
   }, [y, height, top])
 
   return (
-    <FullBleed ref={ref as UseMeasureRef<HTMLDivElement>}>
+    <Container ref={ref as UseMeasureRef<HTMLDivElement>}>
       <Mission>
         <h1>Decentralised Stablecoin Ecosystem</h1>
         <h2>
-          mStable is a fully encompassing stablecoin ecosystem. It is built on the EVM and designed to address challenges faced with
-          stablecoin innovation and growth.
+          Low slippage swaps, interest-bearing assets, and an open community. mStable is a stablecoin ecosystem, built on the EVM and
+          powered by $MTA.
         </h2>
       </Mission>
       <BottomSection>
@@ -69,6 +78,6 @@ export const Intro: FC = () => {
         <LinkButton href="">Learn more</LinkButton>
       </BottomSection>
       <BigStats />
-    </FullBleed>
+    </Container>
   )
 }

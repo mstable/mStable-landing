@@ -4,8 +4,6 @@ import styled from 'styled-components'
 export const FullBleed = styled.div<{ background?: string; dark?: boolean }>`
   width: 100%;
   grid-column: 1 / 4 !important;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 
   @media (min-width: 400px) {
     > * {

@@ -71,7 +71,7 @@ const DotsGL: FC = () => {
   return (
     <instancedMesh ref={ref} args={[null as never, null as never, 480]} position={[0, 0, -1]} scale={4}>
       <planeBufferGeometry args={[0.02, 0.02]} />
-      <meshBasicMaterial color="#fff" />
+      <meshBasicMaterial color="#887f9b" />
     </instancedMesh>
   )
 }
@@ -96,7 +96,7 @@ export const SpaceCanvas: FC = () => {
     <Container>
       <Canvas resize={canvasProps.resize} gl={canvasProps.gl} camera={canvasProps.camera} onCreated={canvasProps.onCreated}>
         <Suspense fallback={null}>
-          <Background />
+          {/* <Background /> */}
           {isWide && <Effects />}
           <DotsGL />
           <Lights />

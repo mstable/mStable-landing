@@ -15,6 +15,7 @@ export enum Colors {
   whiteTransparent = 'rgba(255,255,255,0.5)',
   darkGrey = 'rgba(30,30,30,1)',
   darkerGrey = 'rgba(50,50,50,1)',
+  spaceBlue = 'rgba(5, 20, 44, 1)',
 }
 
 export enum Constants {

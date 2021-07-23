@@ -8,29 +8,28 @@ interface Props {
   className?: string
 }
 
-const Container = styled.section<Props>`
-  margin: 2rem 0 4rem 0;
-`
+const Container = styled.section<Props>``
 
 const Header = styled.header<Props>`
-  padding: 2rem 0 4rem 0;
+  padding: 2rem 0;
   text-align: center;
 
   h1,
   h2 {
-    font-weight: normal;
     padding: 0 2rem;
   }
 
   h1 {
-    font-size: 1.4rem;
+    font-weight: 600;
+    font-size: 1.75rem;
     margin-bottom: 1rem;
     @media (min-width: 400px) {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
   }
 
   h2 {
+    font-weight: normal;
     font-size: 1.2rem;
     opacity: 0.5;
   }

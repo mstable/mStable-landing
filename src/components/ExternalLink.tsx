@@ -1,12 +1,8 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { Colors } from '../theme'
 
 const Anchor = styled.a`
   font-weight: 500;
-  &:hover {
-    color: ${Colors.lightBlue};
-  }
 `
 
 export const ExternalLink: FC<{
