@@ -19,10 +19,10 @@ const Mission = styled(Section)`
 
   h1 {
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin-bottom: 1.5rem;
     @media (min-width: 400px) {
-      font-size: 2.25rem;
+      font-size: 2.75rem;
     }
   }
 
@@ -67,8 +67,8 @@ export const Intro: FC = () => {
       <Mission>
         <h1>Decentralised Stablecoin Ecosystem</h1>
         <h2>
-          Low slippage swaps, interest-bearing assets, and an open community. mStable is a stablecoin ecosystem, built on the EVM and
-          powered by $MTA.
+          Low slippage swaps, interest-bearing assets, and an open community.
+          <br /> mStable is a stablecoin ecosystem, built on the EVM and powered by $MTA.
         </h2>
       </Mission>
       <BottomSection>

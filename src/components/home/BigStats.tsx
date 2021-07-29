@@ -32,9 +32,6 @@ const BigStat = styled.div`
   &:not:last-child {
     margin-right: 1rem;
   }
-
-  @media (min-width: 400px) {
-  }
 `
 
 const Empty = styled.div`
@@ -57,16 +54,19 @@ const StatsSection = styled.div`
 export const BigStats: FC = () => {
   const { loading, value } = useData()
 
+  console.log(value)
+
   return loading || !value ? (
     <Empty />
   ) : (
     <StatsSection>
       <BigStat>
         <h3>$1b+</h3>
+
         <p>All Time Volume</p>
       </BigStat>
       <BigStat>
-        <h3>782</h3>
+        <h3>{value.mta.totalStakers}</h3>
         <p>Active Governors</p>
       </BigStat>
       <BigStat>

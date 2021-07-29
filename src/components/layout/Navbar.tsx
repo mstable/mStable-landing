@@ -15,11 +15,12 @@ const Container = styled.div<{ fill?: boolean }>`
   right: 0;
   height: ${Constants.navHeight};
   z-index: 1;
-  background: ${({ fill }) => (fill ? Colors.spaceBlue : 'transparent')};
   transition: 0.5s linear background;
-
+  background: ${({ fill }) => (fill ? Colors.spaceBlue : 'transparent')};
   display: grid;
   overflow-x: hidden;
+  z-index: 1;
+  overflow: hidden;
 
   grid-template-columns:
     1fr

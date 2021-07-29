@@ -1,36 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Colors } from '../theme'
 
 const Wrapper = styled.div`
-  padding-top: 2rem;
+  padding: 2rem 0;
 
   input {
     appearance: none;
     outline: none;
     user-select: none;
-    background: rgb(255, 255, 255);
-    color: rgb(37, 39, 45);
+    background: rgb(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 1);
     cursor: pointer;
-    padding: 8px 16px;
+    padding: 0.5rem 0.875rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
-    margin-left: 8px;
+    border-radius: 0.625rem;
+    margin-left: 0.25rem;
+    font-size: 0.875rem;
   }
 
   input:first-child {
-    width: 80%;
-    max-width: 16rem;
+    max-width: 11.5rem;
+
+    ::placeholder {
+      color: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  input:nth-child(2) {
+    background: ${Colors.blue};
   }
 
   > form > div > div {
     display: flex;
-    justify-content: flex-start;
-  }
-
-  @media (min-width: 480px) {
-    > form > div > div {
-      justify-content: flex-end;
-    }
+    justify-content: center;
   }
 `
 

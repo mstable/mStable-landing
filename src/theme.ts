@@ -4,8 +4,6 @@ export enum Colors {
   green = 'rgb(82,204,147)',
   greenTransparent = 'rgba(82,204,147, 0.2)',
   lightBlue = 'rgb(74, 161, 255)',
-  neonBlue = 'rgba(85,213,255,1)',
-  neonBlueTransparent = 'rgba(85,213,255,0.3)',
   blue = 'rgb(23,110,222)',
   blueTransparent = 'rgba(0,92,222,0.2)',
   red = 'rgb(202,0,27)',
@@ -16,6 +14,15 @@ export enum Colors {
   darkGrey = 'rgba(30,30,30,1)',
   darkerGrey = 'rgba(50,50,50,1)',
   spaceBlue = 'rgba(5, 20, 44, 1)',
+  neonBlue = 'rgba(85,213,255,1)',
+  neonBlueDark = 'rgba(12, 36, 61, 1)',
+  neonBlueTransparent = 'rgba(85,213,255,0.2)',
+  neonOrange = 'rgba(250,195,113,1)',
+  neonOrangeDark = 'rgba(28, 36, 53, 1)',
+  neonOrangeTransparent = 'rgba(250,195,113,0.2)',
+  neonPink = 'rgba(251,136,215,1)',
+  neonPinkDark = 'rgba(28, 32, 61, 1)',
+  neonPinkTransparent = 'rgba(251,136,215,0.2)',
 }
 
 export enum Constants {
