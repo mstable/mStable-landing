@@ -76,13 +76,6 @@ const DotsGL: FC = () => {
   )
 }
 
-const Background: FC = () => (
-  <mesh position={[0, 0, -10]}>
-    <planeBufferGeometry attach="geometry" args={[320, 240]} />
-    <meshPhongMaterial attach="material" color="#291e4a" />
-  </mesh>
-)
-
 const canvasProps: Omit<ComponentProps<typeof Canvas>, 'children'> = {
   resize: { scroll: false, debounce: { scroll: 500, resize: 500 } },
   gl: { antialias: false, alpha: true },
@@ -96,7 +89,6 @@ export const SpaceCanvas: FC = () => {
     <Container>
       <Canvas resize={canvasProps.resize} gl={canvasProps.gl} camera={canvasProps.camera} onCreated={canvasProps.onCreated}>
         <Suspense fallback={null}>
-          {/* <Background /> */}
           {isWide && <Effects />}
           <DotsGL />
           <Lights />

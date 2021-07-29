@@ -13,6 +13,7 @@ import { ExternalLink } from '../ExternalLink'
 import { Gridd } from './Gridd'
 import { FullBleed } from './FullBleed'
 import Signup from '../Signup'
+import { MTA_BUY_LINK } from '../../constants'
 
 const Header = styled.h3`
   font-weight: 600;
@@ -95,7 +96,7 @@ const Bottom = styled.div`
   display: grid;
   margin-top: 5rem;
   grid-template-columns: repeat(2, 1fr);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   gap: 2rem;
 
   a {
@@ -228,9 +229,9 @@ export const Footer: FC = () => {
               <b>mStable</b> powered by <ExternalLink href="https://ethereum.org/en/">Ethereum</ExternalLink>
             </div>
             <div>
-              <Link href={''}>Buy MTA</Link>
-              <Link href={''}>About</Link>
-              <Link href={''}>Brand</Link>
+              <Link href={MTA_BUY_LINK}>Buy MTA</Link>
+              <Link href={'https://docs.mstable.org/'}>Docs</Link>
+              <Link href={'https://docs.mstable.org/mstable-assets/brand-assets'}>Brand</Link>
               <EasterEgg>Ape Together Strong 💪</EasterEgg>
             </div>
           </div>

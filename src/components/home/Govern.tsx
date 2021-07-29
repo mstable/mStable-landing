@@ -20,6 +20,7 @@ import { Colors } from '../../theme'
 import { useData } from './DataProvider'
 import GovernMTA from '../../images/govern.svg'
 import MTA from '../../images/mstable-m.svg'
+import { MTA_BUY_LINK } from '../../constants'
 
 const IconContainer = styled.div`
   display: flex;
@@ -67,7 +68,7 @@ export const Govern: FC = () => {
       <div>
         <Section h1="Discuss, vote, govern" h2="Powered by the mStable Governance token: MTA" />
         <IconContainer>
-          <LinkButton href="" highlight>
+          <LinkButton href={MTA_BUY_LINK} highlight>
             Buy MTA
           </LinkButton>
         </IconContainer>

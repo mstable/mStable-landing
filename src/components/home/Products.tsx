@@ -1,12 +1,10 @@
 import React, { FC, ReactNode } from 'react'
 // @ts-ignore
-import CountUp from 'react-countup-v2'
 
 import { Section } from '../layout/Section'
 import styled from 'styled-components'
-import { ExternalLink } from '../ExternalLink'
-import { LinkButton } from '../CTA'
 import { Colors } from '../../theme'
+import { LinkButton } from '../CTA'
 
 interface Product {
   key: string
@@ -16,15 +14,8 @@ interface Product {
   hue: string
   buttonBg: string
   bg: string
+  href: string
 }
-
-const StyledCountUp = styled(CountUp)`
-  font-family: 'DM Mono', monospace;
-  font-size: 1.25rem;
-  padding-right: 0.5rem;
-`
-
-const apyOptions = { decimalPlaces: 2, suffix: '%' }
 
 const AMMIcon = (
   <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,106 +47,6 @@ const StkMTAIcon = (
   </svg>
 )
 
-const ProductContent = styled.div`
-  margin: 6rem 0 8rem 0;
-
-  h3 {
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-  h4 {
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin-bottom: 0.25rem;
-    span {
-      color: ${Colors.neonBlue};
-      &.tilde {
-        color: rgba(255, 255, 255, 0.25);
-        padding-left: 0.5rem;
-      }
-    }
-  }
-  p {
-    margin-bottom: 2rem;
-    span {
-      opacity: 0.5;
-    }
-    span:last-child {
-      opacity: 0.3;
-    }
-  }
-  > div:last-child {
-    display: flex;
-    align-items: center;
-    > * {
-      margin-right: 2rem;
-    }
-    button {
-      color: ${Colors.neonBlue};
-      background: ${Colors.neonBlueTransparent};
-    }
-    a {
-      color: ${Colors.whiteTransparent};
-    }
-  }
-`
-
-const Save: FC = () => (
-  <ProductContent>
-    <h3>High yielding savings accounts.</h3>
-    <h4>
-      Earn <span className="tilde">~</span>
-      <StyledCountUp options={apyOptions} endVal={7.23} /> on stablecoins and <span className="tilde">~</span>
-      <StyledCountUp options={apyOptions} endVal={3.25} /> on BTC.
-    </h4>
-    <p>
-      <span>Powered by the mStable AMM.</span> <span>Current APY is not reflective of future rates.</span>
-    </p>
-    <div>
-      <ExternalLink href="">Docs</ExternalLink>
-      <ExternalLink href="">Learn How</ExternalLink>
-      <LinkButton href="" highlight>
-        Use Save
-      </LinkButton>
-    </div>
-  </ProductContent>
-)
-
-const AMM: FC = () => (
-  <ProductContent>
-    <h3>Low slippage, low fees.</h3>
-    <h4>Token swaps and meta-assets – backed by same-base assets.</h4>
-    <p>
-      <span>Powered by the mStable AMM.</span> <span>Current APY is not reflective of future rates.</span>
-    </p>
-    <div>
-      <ExternalLink href="">Docs</ExternalLink>
-      <ExternalLink href="">Learn How</ExternalLink>
-      <LinkButton href="" highlight>
-        Use Forge
-      </LinkButton>
-    </div>
-  </ProductContent>
-)
-
-const Stake: FC = () => (
-  <ProductContent>
-    <h3>Discuss, vote, govern.</h3>
-    <h4>stkMTA is a composable, yield-bearing asset backed by MTA.</h4>
-    <p>
-      <span>Powered by the mStable AMM.</span> <span>Current APY is not reflective of future rates.</span>
-    </p>
-    <div>
-      <ExternalLink href="">Docs</ExternalLink>
-      <ExternalLink href="">Learn How</ExternalLink>
-      <LinkButton href="" highlight>
-        Use Governance
-      </LinkButton>
-    </div>
-  </ProductContent>
-)
-
 const PRODUCTS: Product[] = [
   {
     key: 'amm',
@@ -165,6 +56,7 @@ const PRODUCTS: Product[] = [
     hue: Colors.neonOrange,
     buttonBg: Colors.neonOrangeTransparent,
     bg: Colors.neonOrangeDark,
+    href: 'https://mstable.app',
   },
   {
     key: 'save',
@@ -174,6 +66,7 @@ const PRODUCTS: Product[] = [
     hue: Colors.neonBlue,
     buttonBg: Colors.neonBlueTransparent,
     bg: Colors.neonBlueDark,
+    href: 'https://mstable.app/save',
   },
   {
     key: 'stake',
@@ -183,6 +76,7 @@ const PRODUCTS: Product[] = [
     hue: Colors.neonPink,
     buttonBg: Colors.neonPinkTransparent,
     bg: Colors.neonPinkDark,
+    href: 'https://governance.mstable.org',
   },
 ]
 
@@ -260,13 +154,13 @@ const Inner = styled.div`
   }
 `
 
-const Card: FC<Product> = ({ title, tagline, icon, bg, hue, buttonBg }) => (
+const Card: FC<Product> = ({ title, tagline, icon, bg, hue, buttonBg, href }) => (
   <CardContainer hue={hue} bg={bg} buttonBg={buttonBg}>
     <div>{icon}</div>
     <div>
       <h3>{title}</h3>
       <p>{tagline}</p>
-      <button>{`Use ${title}`}</button>
+      <LinkButton href={href}>{`Use ${title}`}</LinkButton>
     </div>
   </CardContainer>
 )

@@ -92,70 +92,21 @@ const getChartData = (data: HistoricMetrics<MassetMetrics>): ChartData =>
 export const useData = () => useContext(ctx)
 
 export const DataProvider: FC = ({ children }) => {
-  // const ctxValue = useAsync(async (): Promise<Data> => {
-  //   const responses = await Promise.all(['massets', 'stakers'].map((resource) => fetch(`${STATS_API_ENDPOINT}/${resource}`)))
-  //
-  //   const [{ musd, mbtc }, { totalStakers, totalStaked }] = (await Promise.all(responses.map((response) => response.json()))) as [
-  //     { musd: Masset; mbtc: Masset },
-  //     { totalStakers: number; totalStaked: number },
-  //   ]
-  //
-  //   return {
-  //     musd: musd.metrics.current,
-  //     mbtc: mbtc.metrics.current,
-  //     mta: { totalStaked, totalStakers },
-  //     charts: { musd: getChartData(musd.metrics.historic), mbtc: getChartData(mbtc.metrics.historic) },
-  //   } as Data
-  // }, [])
+  const ctxValue = useAsync(async (): Promise<Data> => {
+    const responses = await Promise.all(['massets', 'stakers'].map((resource) => fetch(`${STATS_API_ENDPOINT}/${resource}`)))
 
-  return (
-    <ctx.Provider
-      value={useMemo(
-        () => ({
-          loading: false,
-          value: {
-            musd: {
-              cumulativeMinted: 0,
-              cumulativeSwapped: 0,
-              cumulativeWithdrawn: 0,
-              cumulativeDeposited: 0,
-              cumulativeFeesPaid: 0,
-              dailyAPY: 0,
-              totalMints: 0,
-              totalSavings: 0,
-              totalSupply: 0,
-              totalSwaps: 0,
-              totalTransfers: 0,
-              utilisationRate: 0,
-            },
-            mbtc: {
-              cumulativeMinted: 0,
-              cumulativeSwapped: 0,
-              cumulativeWithdrawn: 0,
-              cumulativeDeposited: 0,
-              cumulativeFeesPaid: 0,
-              dailyAPY: 0,
-              totalMints: 0,
-              totalSavings: 0,
-              totalSupply: 0,
-              totalSwaps: 0,
-              totalTransfers: 0,
-              utilisationRate: 0,
-            },
-            mta: {
-              totalStakers: 0,
-              totalStaked: 0,
-            },
-            charts: {
-              musd: {},
-              mbtc: {},
-            },
-          },
-        }),
-        [],
-      )}
-    >
-      {children}
-    </ctx.Provider>
-  )
+    const [{ musd, mbtc }, { totalStakers, totalStaked }] = (await Promise.all(responses.map((response) => response.json()))) as [
+      { musd: Masset; mbtc: Masset },
+      { totalStakers: number; totalStaked: number },
+    ]
+
+    return {
+      musd: musd.metrics.current,
+      mbtc: mbtc.metrics.current,
+      mta: { totalStaked, totalStakers },
+      charts: { musd: getChartData(musd.metrics.historic), mbtc: getChartData(mbtc.metrics.historic) },
+    } as Data
+  }, [])
+
+  return <ctx.Provider value={ctxValue}>{children}</ctx.Provider>
 }

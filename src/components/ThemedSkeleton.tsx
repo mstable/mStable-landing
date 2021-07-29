@@ -14,7 +14,7 @@ export const ThemedSkeleton: FC<ComponentProps<typeof Skeleton> & { className?: 
   const { className } = props
   return (
     <Container className={className}>
-      <SkeletonTheme color={Colors.darkGrey} highlightColor={Colors.darkerGrey}>
+      <SkeletonTheme color={'rgba(255,255,255,0.1)'} highlightColor={'rgba(5, 20, 44, 0.1)'}>
         <Skeleton {...props} />
       </SkeletonTheme>
     </Container>

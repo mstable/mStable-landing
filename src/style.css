@@ -45,8 +45,7 @@ select {
 }
 
 html {
-  background: #05142c;
-  background: linear-gradient(180deg, #251741 0%, #251741 10%, #05142c 50%);
+  background: #05142c radial-gradient(#2d126399, #05142c 75%);
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;

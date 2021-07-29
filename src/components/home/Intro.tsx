@@ -72,10 +72,10 @@ export const Intro: FC = () => {
         </h2>
       </Mission>
       <BottomSection>
-        <LinkButton href="https://app.mstable.org" highlight>
+        <LinkButton href="https://mstable.app" highlight>
           Use mStable
         </LinkButton>
-        <LinkButton href="">Learn more</LinkButton>
+        <LinkButton href="https://www.notion.so/mStable-7b694f44df6344369feaa5223b297162">Learn more</LinkButton>
       </BottomSection>
       <BigStats />
     </Container>

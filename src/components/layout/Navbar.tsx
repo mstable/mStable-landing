@@ -79,16 +79,13 @@ export const NavBar: FC = () => {
         </Link>
         <ul>
           <li>
-            <ExternalLink href="#">Products</ExternalLink>
+            <ExternalLink href="https://duneanalytics.com/derc/mta-community">Analytics</ExternalLink>
           </li>
           <li>
-            <ExternalLink href="#">Community</ExternalLink>
+            <ExternalLink href="https://governance.mstable.org">Governance</ExternalLink>
           </li>
           <li>
-            <ExternalLink href="#">Governance</ExternalLink>
-          </li>
-          <li>
-            <LinkButton href="https://app.mstable.org" highlight>
+            <LinkButton href="https://mstable.app" highlight>
               Use mStable
             </LinkButton>
           </li>

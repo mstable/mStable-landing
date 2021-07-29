@@ -1,13 +1,14 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import Numeral from 'numeral'
 // @ts-ignore
-import CountUp from 'react-countup-v2'
 
 import { useData } from './DataProvider'
+import { ThemedSkeleton } from '../ThemedSkeleton'
 
-const StyledCountUp = styled(CountUp)`
-  font-family: 'DM Mono', monospace;
+const Skeleton = styled(ThemedSkeleton)`
+  width: 6rem;
+  height: 4rem;
+  margin-bottom: 1rem;
 `
 
 const BigStat = styled.div`
@@ -27,15 +28,13 @@ const BigStat = styled.div`
   h3 {
     font-weight: 600;
     font-size: 3rem;
+    height: 4rem;
+    margin-bottom: 1rem;
   }
 
   &:not:last-child {
     margin-right: 1rem;
   }
-`
-
-const Empty = styled.div`
-  min-height: 10rem;
 `
 
 const StatsSection = styled.div`
@@ -54,27 +53,22 @@ const StatsSection = styled.div`
 export const BigStats: FC = () => {
   const { loading, value } = useData()
 
-  console.log(value)
-
-  return loading || !value ? (
-    <Empty />
-  ) : (
+  return (
     <StatsSection>
       <BigStat>
-        <h3>$1b+</h3>
-
+        {!loading && value?.mta?.totalStakers ? <h3>$–b+</h3> : <Skeleton />}
         <p>All Time Volume</p>
       </BigStat>
       <BigStat>
-        <h3>{value.mta.totalStakers}</h3>
+        {!loading && value?.mta?.totalStakers ? <h3>{value.mta.totalStakers}</h3> : <Skeleton />}
         <p>Active Governors</p>
       </BigStat>
       <BigStat>
-        <h3>9.40%</h3>
+        {!loading && value?.musd?.dailyAPY ? <h3>{Math.floor(value.musd.dailyAPY)}%</h3> : <Skeleton />}
         <p>Average USD APY</p>
       </BigStat>
       <BigStat>
-        <h3>$0.78</h3>
+        {!loading && value?.musd?.dailyAPY ? <h3>$–</h3> : <Skeleton />}
         <p>MTA Price</p>
       </BigStat>
     </StatsSection>
