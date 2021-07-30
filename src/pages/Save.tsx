@@ -6,7 +6,6 @@ import { TwoColumns as TwoColumnsBase } from '../components/layout/Gridd'
 import { FullBleed } from '../components/layout/FullBleed'
 import { CTA } from '../components/CTA'
 import { Colors } from '../theme'
-import { ExternalLink } from '../components/ExternalLink'
 
 const BigButton = styled(CTA)`
   text-transform: none;

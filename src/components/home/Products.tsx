@@ -75,7 +75,7 @@ const PRODUCTS: Product[] = [
     icon: StkMTAIcon,
     hue: Colors.neonPink,
     buttonBg: Colors.neonPinkTransparent,
-    bg: Colors.neonPinkDark,
+    bg: Colors.neonPinkDark75,
     href: 'https://governance.mstable.org',
   },
 ]
@@ -127,6 +127,11 @@ const CardContainer = styled.div<{ hue: string; bg: string; buttonBg: string }>`
       padding: 0.5rem 0;
       width: 100%;
       color: ${({ hue }) => hue};
+
+      &:hover {
+        box-shadow: 0 0 0.5rem ${({ buttonBg }) => buttonBg};
+        transform: scale(1.02);
+      }
     }
   }
 `

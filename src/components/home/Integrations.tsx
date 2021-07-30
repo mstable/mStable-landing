@@ -140,16 +140,11 @@ const Icons = styled.div`
   }
 
   @media (min-width: 600px) {
-    /* transform: scale(1); */
     padding: 2rem 0;
   }
 
   > div:nth-child(1) {
     padding: 0 10%;
-
-    img {
-      /* transform: scale(0.833); */
-    }
 
     @media (min-width: 600px) {
       padding: 0 20%;
@@ -157,10 +152,6 @@ const Icons = styled.div`
   }
 
   > div:nth-child(2) {
-    img {
-      /* transform: scale(0.8); */
-    }
-
     @media (min-width: 600px) {
       padding: 0 12.5%;
     }
@@ -175,10 +166,6 @@ const Icons = styled.div`
   }
 
   > div:nth-child(4) {
-    img {
-      /* transform: scale(0.833); */
-    }
-
     @media (min-width: 600px) {
       padding: 0 2.5%;
     }

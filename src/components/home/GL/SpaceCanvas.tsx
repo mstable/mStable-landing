@@ -70,7 +70,7 @@ const DotsGL: FC = () => {
 
   return (
     <instancedMesh ref={ref} args={[null as never, null as never, 480]} position={[0, 0, -1]} scale={4}>
-      <planeBufferGeometry args={[0.02, 0.02]} />
+      <planeBufferGeometry args={[0.025, 0.025]} />
       <meshBasicMaterial color="#b2a8c9" />
     </instancedMesh>
   )

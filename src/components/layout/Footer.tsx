@@ -8,10 +8,8 @@ import Github from '../../images/social/github.svg'
 import Email from '../../images/social/email.svg'
 import Telegram from '../../images/social/telegram.svg'
 import DefiPulse from '../../images/social/defi-pulse.svg'
-import Arrow from '../../images/arrow-circle.svg'
+import Arrow from '../../images/icons/arrow-circle.svg'
 import { ExternalLink } from '../ExternalLink'
-import { Gridd } from './Gridd'
-import { FullBleed } from './FullBleed'
 import Signup from '../Signup'
 import { MTA_BUY_LINK } from '../../constants'
 
@@ -210,7 +208,7 @@ export const Footer: FC = () => {
         <Top>
           <div>
             <Header>Protocol</Header>
-            <LinkWithChevron href="https://app.mstable.org" title="App" />
+            <LinkWithChevron href="https://mstable.app" title="App" />
             <LinkWithChevron href="https://docs.mstable.org" title="Documentation" />
             <LinkWithChevron href="https://github.com/mstable" title="Developers" />
           </div>

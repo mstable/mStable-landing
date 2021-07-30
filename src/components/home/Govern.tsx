@@ -1,25 +1,12 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
 // @ts-ignore
-import ReactCountUp from 'react-countup-v2'
-import { useInView } from 'react-hook-inview'
-import Skeleton from 'react-loading-skeleton'
 
-import Musd from '../../images/musd.svg'
-import Mbtc from '../../images/mbtc.svg'
 import { Section } from '../layout/Section'
 import { FullBleed } from '../layout/FullBleed'
 import { LinkButton } from '../CTA'
 
-import { TwoColumns } from '../layout/Gridd'
-import { toK, toK2 } from '../../utils'
-import { Totals } from './Totals'
-import { Supply } from './Supply'
-import { Asset } from '../Asset'
 import { Colors } from '../../theme'
-import { useData } from './DataProvider'
-import GovernMTA from '../../images/govern.svg'
-import MTA from '../../images/mstable-m.svg'
 import { MTA_BUY_LINK } from '../../constants'
 
 const IconContainer = styled.div`
@@ -27,15 +14,20 @@ const IconContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  /* height: 6rem; */
 
-  button {
-    color: ${Colors.neonPink};
-    background: ${Colors.neonPinkDark};
-    margin: 2rem;
+  div {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
 
-    :hover {
+    button {
       color: ${Colors.neonPink};
+      background: ${Colors.neonPinkDark100};
+
+      :hover {
+        color: ${Colors.neonPink};
+        box-shadow: 0 0 0.25rem ${Colors.neonPink};
+      }
     }
   }
 `
@@ -68,9 +60,12 @@ export const Govern: FC = () => {
       <div>
         <Section h1="Discuss, vote, govern" h2="Powered by the mStable Governance token: MTA" />
         <IconContainer>
-          <LinkButton href={MTA_BUY_LINK} highlight>
-            Buy MTA
-          </LinkButton>
+          <div>
+            <LinkButton href={'/governance-token-meta'}>Learn More</LinkButton>
+            <LinkButton href={MTA_BUY_LINK} highlight>
+              Buy MTA
+            </LinkButton>
+          </div>
         </IconContainer>
       </div>
     </Container>

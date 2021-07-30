@@ -10,7 +10,7 @@ import Defiance from '../../images/backers/defiance_cap.png'
 import DACM from '../../images/backers/dacm.png'
 import Alameda from '../../images/backers/alameda.png'
 import ThreeArrows from '../../images/backers/three_arrows.png'
-import TwitterIcon from '../../images/twitter-light.svg'
+import TwitterIcon from '../../images/social/twitter.svg'
 
 interface BackerProps {
   title: string

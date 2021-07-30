@@ -2,7 +2,6 @@
 import React, { ComponentProps, FC } from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import styled from 'styled-components'
-import { Colors } from '../theme'
 
 const Container = styled.div`
   > div > span > * {

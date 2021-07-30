@@ -23,6 +23,7 @@ const BigStat = styled.div`
 
   p {
     font-size: 1rem;
+    font-size: 0.875rem;
   }
 
   h3 {
@@ -30,6 +31,18 @@ const BigStat = styled.div`
     font-size: 3rem;
     height: 4rem;
     margin-bottom: 1rem;
+    font-size: 2rem;
+    height: 3rem;
+  }
+
+  @media (min-width: 400px) {
+    p {
+      font-size: 1rem;
+    }
+    h3 {
+      font-size: 3rem;
+      height: 4rem;
+    }
   }
 
   &:not:last-child {
@@ -42,11 +55,26 @@ const StatsSection = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 
   > div {
     padding: 1rem 0;
-    width: 12rem;
+    flex-basis: calc(50% - 1rem);
+  }
+
+  @media (min-width: 400px) {
+    gap: 2rem;
+
+    > div {
+      width: calc(50% - 2rem);
+      max-width: 12rem;
+    }
+  }
+
+  @media (min-width: 600px) {
+    > div {
+      width: 12rem;
+    }
   }
 `
 

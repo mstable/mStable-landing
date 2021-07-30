@@ -21,7 +21,8 @@ export enum Colors {
   neonOrangeDark = 'rgba(48, 38, 73, 0.75)',
   neonOrangeTransparent = 'rgba(250,195,113,0.2)',
   neonPink = 'rgba(251,136,215,1)',
-  neonPinkDark = 'rgba(49, 32, 85, 0.75)',
+  neonPinkDark75 = 'rgba(49, 32, 85, 0.75)',
+  neonPinkDark100 = 'rgba(49, 32, 85, 1)',
   neonPinkTransparent = 'rgba(251,136,215,0.2)',
 }
 

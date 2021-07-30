@@ -26,9 +26,14 @@ const Inner = styled.div`
     1fr;
 
   > * {
-    padding: 0 2rem;
-
+    padding: 0 1rem;
     grid-column: 2;
+  }
+
+  @media (min-width: 400px) {
+    > * {
+      padding: 0 2rem;
+    }
   }
 `
 
