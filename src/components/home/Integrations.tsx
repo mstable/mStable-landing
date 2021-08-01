@@ -13,7 +13,6 @@ import Uniswap from '../../images/integrations/uniswap.svg'
 import Polygon from '../../images/integrations/polygon.svg'
 
 import { ExternalLink } from '../ExternalLink'
-import { FullBleed } from '../layout/FullBleed'
 import { Section } from '../layout/Section'
 
 interface Props {
@@ -127,7 +126,6 @@ const PartnerLink = styled(ExternalLink)<{ colour: string; offset: number }>`
 const Icons = styled.div`
   display: flex;
   flex-direction: column;
-  transform: scale(0.875);
 
   div {
     margin: 0.25rem 0;
@@ -139,7 +137,7 @@ const Icons = styled.div`
     }
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 480px) {
     padding: 2rem 0;
   }
 
@@ -172,14 +170,6 @@ const Icons = styled.div`
   }
 `
 
-const Container = styled(FullBleed)`
-  padding: 5rem 0;
-
-  > * {
-    margin-top: 5rem;
-  }
-`
-
 const Integration: FC<Props> = ({ href, colour, image, title }) => {
   const offset = Math.floor(Math.random() * 3)
   console.log(offset)
@@ -190,20 +180,16 @@ const Integration: FC<Props> = ({ href, colour, image, title }) => {
   )
 }
 
-export const Integrations: FC = () => {
-  return (
-    <Container>
-      <Section h1="Open & decentralised" h2="Integrated with leading protocols">
-        <Icons>
-          {partnerRows.map((row) => (
-            <div>
-              {row.map(({ image, title, href, colour }) => (
-                <Integration key={title} title={title} colour={colour} image={image} href={href} />
-              ))}
-            </div>
+export const Integrations: FC = () => (
+  <Section h1="Open & decentralised" h2="Integrated with leading protocols">
+    <Icons>
+      {partnerRows.map((row) => (
+        <div>
+          {row.map(({ image, title, href, colour }) => (
+            <Integration key={title} title={title} colour={colour} image={image} href={href} />
           ))}
-        </Icons>
-      </Section>
-    </Container>
-  )
-}
+        </div>
+      ))}
+    </Icons>
+  </Section>
+)

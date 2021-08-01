@@ -51,7 +51,6 @@ const BigStat = styled.div`
 `
 
 const StatsSection = styled.div`
-  margin: 5rem 0 7.5rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

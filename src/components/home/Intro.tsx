@@ -1,27 +1,39 @@
-import React, { FC, useContext, useLayoutEffect } from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
-import { useWindowScroll, useMeasure } from 'react-use'
-import type { UseMeasureRef } from 'react-use/lib/useMeasure'
 
 import { Section } from '../layout/Section'
-import { logoVisibilityCtx } from '../../context'
-import { FullBleed } from '../layout/FullBleed'
 import { LinkButton } from '../CTA'
 import { BigStats } from './BigStats'
 
-const Mission = styled(Section)`
-  > div {
+const Action = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+`
+
+const Container = styled(Section)`
+  > header {
+    @media (max-width: calc(480px - 1px)) {
+      margin-top: 0;
+    }
+  }
+
+  > div:last-child {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+
+    @media (min-width: 480px) {
+      gap: 5rem;
+    }
   }
 
   h1 {
     font-weight: 600;
-    font-size: 2.25rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
-    @media (min-width: 400px) {
+    @media (min-width: 480px) {
       font-size: 2.75rem;
     }
   }
@@ -31,53 +43,21 @@ const Mission = styled(Section)`
     opacity: 0.5;
     max-width: 90ch;
     font-weight: normal;
-  }
-`
-
-const BottomSection = styled(Section)`
-  overflow: visible;
-  > div {
-    display: flex;
-    justify-content: center;
-    > :not(:last-child) {
-      margin-right: 1.5rem;
+    @media (min-width: 480px) {
+      font-size: 2.75rem;
+      font-size: 1.25rem;
     }
   }
 `
 
-const Container = styled(FullBleed)`
-  padding: 5rem 0;
-
-  > * {
-    margin-top: 5rem;
-  }
-`
-
-export const Intro: FC = () => {
-  const { y } = useWindowScroll()
-  const [ref, { height, top }] = useMeasure()
-  const [, setLogoVisibility] = useContext(logoVisibilityCtx)
-
-  useLayoutEffect(() => {
-    setLogoVisibility(y > top)
-  }, [y, height, top])
-
-  return (
-    <Container ref={ref as UseMeasureRef<HTMLDivElement>}>
-      <Mission>
-        <h1>Decentralised Stablecoin Ecosystem</h1>
-        <h2>
-          Low slippage swaps, interest-bearing assets, and an open community.
-          <br /> mStable is a stablecoin ecosystem, built on the EVM and powered by $MTA.
-        </h2>
-      </Mission>
-      <BottomSection>
-        <LinkButton href="https://mstable.app" highlight>
-          Use mStable
-        </LinkButton>
-        <LinkButton href="https://www.notion.so/mStable-7b694f44df6344369feaa5223b297162">Learn more</LinkButton>
-      </BottomSection>
-      <BigStats />
-    </Container>
-  )
-}
+export const Intro: FC = () => (
+  <Container h1="Decentralised Stablecoin Ecosystem" h2="Low slippage swaps, interest-bearing assets, and open governance.">
+    <Action>
+      <LinkButton href="https://mstable.app" highlight>
+        Use mStable
+      </LinkButton>
+      <LinkButton href="https://www.notion.so/mStable-7b694f44df6344369feaa5223b297162">Learn more</LinkButton>
+    </Action>
+    <BigStats />
+  </Container>
+)

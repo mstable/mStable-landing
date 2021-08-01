@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 
 import styled, { css } from 'styled-components'
 
-import { FullBleed } from '../layout/FullBleed'
 import { Section } from '../layout/Section'
 import { ExternalLink } from '../ExternalLink'
 
@@ -112,7 +111,6 @@ const BackersGrid = styled.div`
   display: grid;
   gap: 2rem;
   grid-template-rows: 1fr;
-  margin: 2rem;
 
   > * {
     :nth-child(-n + 9):nth-child(n + 5) {
@@ -127,20 +125,13 @@ const BackersGrid = styled.div`
   @media (min-width: 800px) {
     gap: 2.5rem;
     grid-template-columns: repeat(3, 1fr);
+    margin: 2rem;
 
     > * {
       :nth-child(-n + 9):nth-child(n + 5) {
         display: inherit;
       }
     }
-  }
-`
-
-const Container = styled(FullBleed)`
-  padding: 5rem 0;
-
-  > * {
-    margin-top: 5rem;
   }
 `
 
@@ -165,14 +156,12 @@ const Backer: FC<BackerProps> = ({ colour, image, title, href }) => {
 
 export const Backers: FC = () => {
   return (
-    <Container>
-      <Section h1="Backed by the best">
-        <BackersGrid>
-          {backersList.map(({ title, image, colour, href }) => (
-            <Backer key={title} title={title} colour={colour} href={href} image={image} />
-          ))}
-        </BackersGrid>
-      </Section>
-    </Container>
+    <Section h1="Backed by the best">
+      <BackersGrid>
+        {backersList.map(({ title, image, colour, href }) => (
+          <Backer key={title} title={title} colour={colour} href={href} image={image} />
+        ))}
+      </BackersGrid>
+    </Section>
   )
 }

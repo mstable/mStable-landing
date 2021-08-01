@@ -1,15 +1,11 @@
 import React, { ComponentProps, FC } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-import { ExternalLink } from './ExternalLink'
+import { ExternalLink, Link } from './ExternalLink'
 import { Button } from './Button'
-import { Colors } from '../theme'
 
-const StyledExternalLink = styled(ExternalLink)`
+const LinkDefaults = css`
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   user-select: none;
 
   :hover {
@@ -21,26 +17,41 @@ const StyledExternalLink = styled(ExternalLink)`
   }
 `
 
+const StyledExternalLink = styled(ExternalLink)`
+  ${LinkDefaults}
+`
+
+const StyledLink = styled(Link)`
+  ${LinkDefaults}
+`
+
 export const CTA: FC<ComponentProps<typeof ExternalLink> & { arrow?: boolean }> = ({ arrow, children, className, title, href }) => {
   return (
-    <StyledExternalLink className={className} href={href} title={title}>
+    <ExternalLink className={className} href={href} title={title}>
       {children}
-    </StyledExternalLink>
+    </ExternalLink>
   )
 }
 
-export const LinkButton: FC<ComponentProps<typeof ExternalLink> & { highlight?: boolean }> = ({
+export const LinkButton: FC<ComponentProps<typeof ExternalLink> & { highlight?: boolean; external?: boolean }> = ({
   children,
   className,
   title,
   href,
   highlight,
+  external = true,
 }) => {
-  return (
+  return external ? (
     <StyledExternalLink href={href} title={title}>
       <Button className={className} highlight={highlight}>
         {children}
       </Button>
     </StyledExternalLink>
+  ) : (
+    <StyledLink href={href} title={title}>
+      <Button className={className} highlight={highlight}>
+        {children}
+      </Button>
+    </StyledLink>
   )
 }

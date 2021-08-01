@@ -66,11 +66,11 @@ const PRODUCTS: Product[] = [
     hue: Colors.neonBlue,
     buttonBg: Colors.neonBlueTransparent,
     bg: Colors.neonBlueDark,
-    href: 'https://mstable.app/save',
+    href: 'https://mstable.app/#/musd/save',
   },
   {
     key: 'stake',
-    title: 'stkMTA',
+    title: 'Governance',
     tagline: 'Composable, yield-bearing asset backed by $MTA',
     icon: StkMTAIcon,
     hue: Colors.neonPink,
@@ -138,10 +138,14 @@ const CardContainer = styled.div<{ hue: string; bg: string; buttonBg: string }>`
 
 const Inner = styled.div`
   display: grid;
-  column-gap: 2rem;
+  column-gap: 1rem;
   overflow-x: scroll;
   grid-template-columns: repeat(3, 1fr) 1px;
-  padding: 0 0 1rem 2rem;
+  padding: 0 0 1rem 1rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &:after {
     content: '';
@@ -152,10 +156,21 @@ const Inner = styled.div`
     width: 18rem;
   }
 
+  @media (min-width: 480px) {
+    column-gap: 2rem;
+    padding: 0 0 1rem 2rem;
+  }
+
   // (n * width) + (n + 1) * margin
   @media (min-width: 62rem) {
     display: flex;
     justify-content: center;
+  }
+`
+
+const Container = styled(Section)`
+  > div:last-child {
+    padding: 0;
   }
 `
 
@@ -171,11 +186,11 @@ const Card: FC<Product> = ({ title, tagline, icon, bg, hue, buttonBg, href }) =>
 )
 
 export const Products: FC = () => (
-  <Section h1="Explore our products">
+  <Container h1="Explore our products">
     <Inner>
       {PRODUCTS.map((product) => (
         <Card {...product} />
       ))}
     </Inner>
-  </Section>
+  </Container>
 )

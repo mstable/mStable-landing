@@ -1,12 +1,66 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-import { logoVisibilityCtx } from '../../context'
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
-import { ExternalLink } from '../ExternalLink'
+import { ExternalLink, ExternalLinkChevron } from '../ExternalLink'
 import { Colors, Constants } from '../../theme'
 import { LinkButton } from '../CTA'
+import { MobileNav as UnstyledMobileNav } from '../MobileNav'
+import useMeasure, { UseMeasureRef } from 'react-use/lib/useMeasure'
+import { useToggle, useWindowScroll } from 'react-use'
+
+const LogoImg = styled(LogoSvg)<{ stable?: number }>`
+  height: 20px;
+  width: auto;
+  #stable {
+    transition: opacity 2s ease;
+    opacity: ${({ stable }) => stable ?? 0};
+  }
+`
+
+const DesktopNav = styled.div`
+  display: none;
+  @media (min-width: 600px) {
+    display: block;
+  }
+`
+
+const MobileNav = styled(UnstyledMobileNav)`
+  display: block;
+  @media (min-width: 600px) {
+    display: none;
+  }
+`
+
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 2;
+  padding: 0 1rem;
+
+  @media (min-width: 480px) {
+    padding: 0 2rem;
+  }
+
+  a {
+    display: flex;
+    font-weight: normal;
+    color: white;
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+`
 
 const Container = styled.div<{ fill?: boolean }>`
   position: sticky;
@@ -18,9 +72,7 @@ const Container = styled.div<{ fill?: boolean }>`
   transition: 0.5s linear background;
   background: ${({ fill }) => (fill ? Colors.spaceBlue : 'transparent')};
   display: grid;
-  overflow-x: hidden;
   z-index: 1;
-  overflow: hidden;
 
   grid-template-columns:
     1fr
@@ -28,68 +80,75 @@ const Container = styled.div<{ fill?: boolean }>`
     1fr;
 `
 
-const Nav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  grid-column: 2;
-  padding: 0 2rem;
-  font-size: 0.875rem;
+const urls: {
+  title: string
+  href: string
+  isButton?: boolean
+}[] = [
+  {
+    title: 'Analytics',
+    href: 'https://duneanalytics.com/derc/mta-community',
+  },
+  {
+    title: 'Governance',
+    href: 'https://governance.mstable.org',
+  },
+  {
+    title: 'Use mStable',
+    href: 'https://mstable.app',
+    isButton: true,
+  },
+]
 
-  a {
-    display: flex;
-    font-weight: normal;
-    color: white;
-  }
+const DesktopLinks: FC = () => (
+  <ul>
+    {urls.map(({ title, href, isButton = false }) => (
+      <li>
+        {isButton ? (
+          <LinkButton external={false} href={href} highlight>
+            {title}
+          </LinkButton>
+        ) : (
+          <ExternalLink href={href}>{title}</ExternalLink>
+        )}
+      </li>
+    ))}
+  </ul>
+)
 
-  button {
-    font-size: 0.875rem;
-  }
-
-  ul {
-    display: flex;
-    align-items: center;
-    line-height: 100%;
-
-    > * {
-      margin-right: 2rem;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-`
-
-const LogoImg = styled(LogoSvg)<{ stable: number }>`
-  height: 20px;
-  width: auto;
-  #stable {
-    transition: opacity 2s ease;
-    opacity: ${({ stable }) => stable};
-  }
-`
+const MobileLinks: FC = () => (
+  <ul>
+    {urls.map(({ title, href }) => (
+      <li>
+        <ExternalLinkChevron href={href}>{title}</ExternalLinkChevron>
+      </li>
+    ))}
+  </ul>
+)
 
 export const NavBar: FC = () => {
-  const [visible] = useContext(logoVisibilityCtx)
+  const { y } = useWindowScroll()
+  const [backgroundVisible, setBackgroundVisibility] = useToggle(false)
+  const [ref, { bottom }] = useMeasure()
+
+  useLayoutEffect(() => {
+    if (backgroundVisible && y > bottom) return
+    if (!backgroundVisible && y < bottom) return
+    setBackgroundVisibility(y > bottom)
+  }, [y, top])
+
   return (
-    <Container fill={visible}>
+    <Container fill={backgroundVisible} ref={ref as UseMeasureRef<HTMLDivElement>}>
       <Nav>
         <Link to="/" title="mStable">
-          <LogoImg stable={0} />
+          <LogoImg />
         </Link>
-        <ul>
-          <li>
-            <ExternalLink href="https://duneanalytics.com/derc/mta-community">Analytics</ExternalLink>
-          </li>
-          <li>
-            <ExternalLink href="https://governance.mstable.org">Governance</ExternalLink>
-          </li>
-          <li>
-            <LinkButton href="https://mstable.app" highlight>
-              Use mStable
-            </LinkButton>
-          </li>
-        </ul>
+        <DesktopNav>
+          <DesktopLinks />
+        </DesktopNav>
+        <MobileNav>
+          <MobileLinks />
+        </MobileNav>
       </Nav>
     </Container>
   )

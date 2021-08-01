@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import Discord from '../../images/social/discord.svg'
 import Medium from '../../images/social/medium.svg'
@@ -8,23 +8,14 @@ import Github from '../../images/social/github.svg'
 import Email from '../../images/social/email.svg'
 import Telegram from '../../images/social/telegram.svg'
 import DefiPulse from '../../images/social/defi-pulse.svg'
-import Arrow from '../../images/icons/arrow-circle.svg'
-import { ExternalLink } from '../ExternalLink'
+import { ExternalLink, LinkChevron, ExternalLinkChevron } from '../ExternalLink'
 import Signup from '../Signup'
 import { MTA_BUY_LINK } from '../../constants'
+import { Section } from './Section'
 
 const Header = styled.h3`
   font-weight: 600;
   font-size: 1.5rem;
-`
-
-const Link = styled(ExternalLink)`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: white;
-  font-size: 1.125rem;
-  font-weight: 400;
 `
 
 const Links = styled.div`
@@ -74,7 +65,6 @@ const Social = styled.div`
 `
 
 const Top = styled.div`
-  padding: 0 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 20%;
@@ -103,10 +93,9 @@ const Bottom = styled.div`
 
   > div > div {
     display: flex;
-    padding: 2rem;
+    padding: 1rem;
     align-items: center;
     gap: 1rem;
-
     font-size: 1rem;
     flex-direction: column;
 
@@ -130,6 +119,10 @@ const Bottom = styled.div`
       position: relative;
     }
 
+    @media (min-width: 480px) {
+      padding: 2rem;
+    }
+
     @media (min-width: 600px) {
       flex-direction: row;
       justify-content: space-between;
@@ -137,7 +130,7 @@ const Bottom = styled.div`
   }
 `
 
-const Bleed = styled.div`
+const BleedCss = css`
   display: grid;
   grid-column: 1 / 4 !important;
 
@@ -151,14 +144,24 @@ const Bleed = styled.div`
   }
 `
 
-const Container = styled.footer`
-  background: linear-gradient(180deg, transparent, #000000);
-
-  > div:first-child {
-    > * {
-      margin: 5rem 0;
+const TopFooter = styled(Section)`
+  ${BleedCss}
+  > div:last-child > div:first-child {
+    margin-bottom: 5rem;
+  }
+  @media (min-width: 480px) {
+    > div:last-child > div:first-child {
+      margin-bottom: 10rem;
     }
   }
+`
+
+const BottomFooter = styled.div`
+  ${BleedCss}
+`
+
+const Container = styled.footer`
+  background: linear-gradient(180deg, transparent, #000000);
 `
 
 const KeepUpdated: FC = () => (
@@ -191,49 +194,41 @@ const KeepUpdated: FC = () => (
   </Social>
 )
 
-const LinkWithChevron: FC<{ title: String; href: string }> = ({ title, href }) => {
-  return (
-    <Link href={href}>
-      <span>{title}</span>
-      <img src={Arrow} />
-    </Link>
-  )
-}
-
 export const Footer: FC = () => {
   return (
     <Container>
-      <Bleed>
+      <TopFooter>
         <KeepUpdated />
         <Top>
           <div>
             <Header>Protocol</Header>
-            <LinkWithChevron href="https://mstable.app" title="App" />
-            <LinkWithChevron href="https://docs.mstable.org" title="Documentation" />
-            <LinkWithChevron href="https://github.com/mstable" title="Developers" />
+            <ExternalLinkChevron href="https://mstable.app">App</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://docs.mstable.org">Documentation</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://github.com/mstable">Developers</ExternalLinkChevron>
+            <LinkChevron href="/save">Save Info</LinkChevron>
           </div>
           <div>
             <Header>Governance</Header>
-            <LinkWithChevron href="https://governance.mstable.org" title="Governance App" />
-            <LinkWithChevron href="https://forum.mstable.org" title="Forum" />
-            <LinkWithChevron href="https://snapshot.page/#/mstable" title="Vote" />
+            <ExternalLinkChevron href="https://governance.mstable.org">Governance App</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://forum.mstable.org">Forum</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://snapshot.page/#/mstable">Vote</ExternalLinkChevron>
           </div>
         </Top>
-      </Bleed>
+      </TopFooter>
       <Bottom>
-        <Bleed>
+        <BottomFooter>
           <div>
             <div>
               <b>mStable</b> powered by <ExternalLink href="https://ethereum.org/en/">Ethereum</ExternalLink>
             </div>
             <div>
-              <Link href={MTA_BUY_LINK}>Buy MTA</Link>
-              <Link href={'https://docs.mstable.org/'}>Docs</Link>
-              <Link href={'https://docs.mstable.org/mstable-assets/brand-assets'}>Brand</Link>
+              <ExternalLink href={MTA_BUY_LINK}>Buy MTA</ExternalLink>
+              <ExternalLink href={'https://docs.mstable.org/'}>Docs</ExternalLink>
+              <ExternalLink href={'https://docs.mstable.org/mstable-assets/brand-assets'}>Brand</ExternalLink>
               <EasterEgg>Ape Together Strong 💪</EasterEgg>
             </div>
           </div>
-        </Bleed>
+        </BottomFooter>
       </Bottom>
     </Container>
   )

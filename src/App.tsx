@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { ThemeProvider } from './context/ThemeProvider'
 
-import { LogoVisibilityProvider } from './context'
 import { Wrapper } from './components/layout/Wrapper'
 import { NotFound } from './pages/NotFound'
 import { routes } from './routes'
@@ -11,7 +11,7 @@ import './style.css'
 export const App: FC = () => {
   return (
     <HelmetProvider>
-      <LogoVisibilityProvider>
+      <ThemeProvider>
         <Switch>
           {routes.map(({ path, seo: { title, description }, isHome, component: RouteComponent }) => (
             <Route path={path} exact key={path}>
@@ -26,7 +26,7 @@ export const App: FC = () => {
             </Wrapper>
           </Route>
         </Switch>
-      </LogoVisibilityProvider>
+      </ThemeProvider>
     </HelmetProvider>
   )
 }

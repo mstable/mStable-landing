@@ -8,9 +8,14 @@ interface Props {
   className?: string
 }
 
-const Container = styled.section<Props>``
+const Container = styled.section<Props>`
+  ${({ theme }) => theme.mixins.defaultSpacing};
+`
 
 const Header = styled.header<Props>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem 0;
   text-align: center;
 
@@ -22,16 +27,23 @@ const Header = styled.header<Props>`
   h1 {
     font-weight: 600;
     font-size: 1.75rem;
-    margin-bottom: 1rem;
     @media (min-width: 400px) {
       font-size: 2rem;
     }
   }
 
+  h1:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
   h2 {
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 1rem;
     opacity: 0.5;
+
+    @media (min-width: 400px) {
+      font-size: 1.125rem;
+    }
   }
 `
 

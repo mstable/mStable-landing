@@ -20,7 +20,7 @@ export const Lights: FC = () => {
 
   return (
     <>
-      <pointLight ref={point1} color="#291e4a" intensity={4} position={[0, 200, 500]} />
+      <pointLight ref={point1} color="#ebebfa" intensity={4} position={[0, 500, 500]} />
     </>
   )
 }

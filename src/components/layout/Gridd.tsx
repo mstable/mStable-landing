@@ -9,7 +9,6 @@ export const Gridd = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    gap: 2rem;
     grid-template-areas: 'left left left right right right' 'main main main main aside aside';
     > * {
       margin-bottom: 0;

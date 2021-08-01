@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect } from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 
 import { SpaceCanvas } from '../home/GL/SpaceCanvas'
@@ -11,7 +11,6 @@ interface Props {
   title?: string
   description?: string
   path: string
-  isHome: boolean
 }
 
 const Inner = styled.div`
@@ -26,14 +25,7 @@ const Inner = styled.div`
     1fr;
 
   > * {
-    padding: 0 1rem;
     grid-column: 2;
-  }
-
-  @media (min-width: 400px) {
-    > * {
-      padding: 0 2rem;
-    }
   }
 `
 
@@ -44,21 +36,16 @@ const Container = styled.div`
   width: 100%;
 `
 
-export const Wrapper: FC<Props> = ({ children, path, title, description, isHome }) => {
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0 })
-  }, [])
-  return (
-    <>
-      <SEO path={path} description={description ?? metadata.description} title={title ?? metadata.title} />
-      <Container>
-        <SpaceCanvas />
-        <NavBar />
-        <Inner>
-          <div>{children}</div>
-        </Inner>
-        <Footer />
-      </Container>
-    </>
-  )
-}
+export const Wrapper: FC<Props> = ({ children, path, title, description }) => (
+  <>
+    <SEO path={path} description={description ?? metadata.description} title={title ?? metadata.title} />
+    <Container>
+      <SpaceCanvas />
+      <NavBar />
+      <Inner>
+        <div>{children}</div>
+      </Inner>
+      <Footer />
+    </Container>
+  </>
+)

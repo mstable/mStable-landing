@@ -4,31 +4,9 @@ import styled from 'styled-components'
 import { Section } from '../components/layout/Section'
 import { TwoColumns as TwoColumnsBase } from '../components/layout/Gridd'
 import { FullBleed } from '../components/layout/FullBleed'
-import { CTA } from '../components/CTA'
+import { LinkButton } from '../components/CTA'
 import { Colors } from '../theme'
 import { ExternalLink } from '../components/ExternalLink'
-
-const BigButton = styled(CTA)`
-  text-transform: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  width: auto;
-  background: ${Colors.lightBlue};
-  color: white;
-  border: none;
-  text-shadow: rgba(0, 75, 124, 0.4) 0 1px 1px;
-  box-shadow: rgba(0, 153, 255, 0.4) 0 6px 20px;
-  padding: 0.75rem 1.75rem;
-  border-radius: 1.5rem;
-  transition: all 0.5s ease;
-
-  &:hover {
-    color: white;
-    background: ${Colors.gold};
-    text-shadow: rgba(124, 95, 0, 0.4) 0 1px 1px;
-    box-shadow: rgba(255, 197, 0, 0.4) 0 6px 20px;
-  }
-`
 
 const Links = styled.div`
   display: flex;
@@ -50,14 +28,16 @@ const Headline = styled.span`
     color: ${Colors.whiteTransparent};
     > span {
       color: white;
-      font-weight: bold;
+      font-weight: 500;
     }
   }
 `
 
 const Header = styled.div`
-  margin-bottom: 6rem;
-  text-align: center;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 2rem;
+  padding: 2rem 0;
 
   h3 {
     display: block;
@@ -75,38 +55,62 @@ const Header = styled.div`
     max-width: 8rem;
     height: auto;
     margin: 0 auto;
-    box-shadow: rgba(255, 255, 255, 0.4) 0 0 3rem;
+    box-shadow: rgba(77, 217, 252, 0.25) 0 0 1.5rem;
     border-radius: 50%;
+    margin-bottom: 4rem;
   }
 
   @media (min-width: 600px) {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 4rem;
+    padding: 4rem 0 5rem;
 
     h3 {
       margin-top: 0;
     }
 
     img {
-      margin: 0 2rem 0 0;
+      margin: 0 4rem 0 0;
       max-width: 10rem;
     }
   }
 `
 
 const TwoColumns = styled(TwoColumnsBase)`
-  gap: 2rem;
+  padding: 0;
+
+  @media (min-width: 480px) {
+    padding: 2rem 0;
+  }
+
+  p {
+    opacity: 0.75;
+  }
 
   p span {
-    font-weight: bold;
+    font-weight: 500;
   }
 
   h4 {
     font-size: 1.5rem;
     color: white;
     margin-bottom: 1rem;
+    font-weight: 500;
+  }
+`
+
+const Container = styled(Section)`
+  padding: 0 0.5rem;
+
+  > header {
+    @media (max-width: calc(480px - 1px)) {
+      margin-top: 0;
+    }
+  }
+
+  > div {
+    margin-top: 0;
   }
 `
 
@@ -118,8 +122,7 @@ export const SEO = {
 export const GovernanceTokenMeta: FC = () => {
   return (
     <FullBleed>
-      <Section
-        centre
+      <Container
         h1={
           <Headline>
             mStable Meta{' '}
@@ -135,13 +138,12 @@ export const GovernanceTokenMeta: FC = () => {
           <div>
             <h3>
               Meta (<span>MTA</span>) coordinates mStable’s decentralised governance, fosters long-term alignment for stakeholders, and
-              creates value for the protocol and its users.
+              creates value for the protocol and its users. &nbsp;
+              <ExternalLink href="https://coingecko.com/en/coins/meta">See MTA on Coingecko</ExternalLink>
             </h3>
-            <ExternalLink href="https://coingecko.com/en/coins/meta">See MTA on Coingecko</ExternalLink>
           </div>
         </Header>
         <TwoColumns>
-          <div />
           <div>
             <div>
               <h4>What is mStable's governance token MTA used for?</h4>
@@ -151,12 +153,18 @@ export const GovernanceTokenMeta: FC = () => {
               </p>
             </div>
             <Links>
-              <BigButton href="https://governance.mstable.org">Stake MTA</BigButton>
-              <BigButton href="https://medium.com/mstable/guide-mstable-staking-249660be3e0">Guide: Staking MTA</BigButton>
+              <LinkButton highlight href="https://governance.mstable.org">
+                Stake MTA
+              </LinkButton>
+              <LinkButton highlight href="https://medium.com/mstable/guide-mstable-staking-249660be3e0">
+                Guide: Staking MTA
+              </LinkButton>
             </Links>
           </div>
+          <div />
         </TwoColumns>
         <TwoColumns>
+          <div />
           <div>
             <div>
               <h4>How can I earn MTA tokens?</h4>
@@ -166,13 +174,13 @@ export const GovernanceTokenMeta: FC = () => {
               </p>
             </div>
             <Links>
-              <BigButton href="https://mstable.app/">Start earning MTA</BigButton>
+              <LinkButton highlight href="https://mstable.app/">
+                Start earning MTA
+              </LinkButton>
             </Links>
           </div>
-          <div />
         </TwoColumns>
         <TwoColumns>
-          <div />
           <div>
             <div>
               <h4>Where can I buy mStable MTA?</h4>
@@ -182,14 +190,23 @@ export const GovernanceTokenMeta: FC = () => {
               </p>
             </div>
             <Links>
-              <BigButton href="https://app.uniswap.org/#/swap?outputCurrency=0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2">Uniswap</BigButton>
-              <BigButton href="https://ftx.com/trade/MTA/USD">FTX</BigButton>
-              <BigButton href="https://www.huobi.com/en-us/exchange/?s=mta_usdt">Huobi</BigButton>
-              <BigButton href="https://www.gate.io/trade/MTA_USDT">Gate.io</BigButton>
+              <LinkButton highlight href="https://app.uniswap.org/#/swap?outputCurrency=0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2">
+                Uniswap
+              </LinkButton>
+              <LinkButton highlight href="https://ftx.com/trade/MTA/USD">
+                FTX
+              </LinkButton>
+              <LinkButton highlight href="https://www.huobi.com/en-us/exchange/?s=mta_usdt">
+                Huobi
+              </LinkButton>
+              <LinkButton highlight href="https://www.gate.io/trade/MTA_USDT">
+                Gate.io
+              </LinkButton>
             </Links>
           </div>
+          <div />
         </TwoColumns>
-      </Section>
+      </Container>
     </FullBleed>
   )
 }
