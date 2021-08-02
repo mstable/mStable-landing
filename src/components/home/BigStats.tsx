@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import { useData } from './DataProvider'
 import { ThemedSkeleton } from '../ThemedSkeleton'
 
+const BTC_PRICE_ESTIMATE = 35000
+
 const Skeleton = styled(ThemedSkeleton)`
   width: 6rem;
   height: 4rem;
@@ -80,10 +82,19 @@ const StatsSection = styled.div`
 export const BigStats: FC = () => {
   const { loading, value } = useData()
 
+  const mtaPrice = (value?.mta?.totalStakedUSD && value.mta.totalStakedUSD / value.mta.totalStaked) || undefined
+  const volumeEstimate =
+    (!!value &&
+      value.musd.cumulativeMinted +
+        value.musd.cumulativeSwapped +
+        value.musd.cumulativeWithdrawn +
+        (value.mbtc.cumulativeMinted + value.mbtc.cumulativeSwapped + value.mbtc.cumulativeWithdrawn) * BTC_PRICE_ESTIMATE) ||
+    undefined
+
   return (
     <StatsSection>
       <BigStat>
-        {!loading && value?.mta?.totalStakers ? <h3>$–b+</h3> : <Skeleton />}
+        {!loading && volumeEstimate ? <h3>${volumeEstimate.toString().substr(0, 1)}b+</h3> : <Skeleton />}
         <p>All Time Volume</p>
       </BigStat>
       <BigStat>
@@ -95,7 +106,7 @@ export const BigStats: FC = () => {
         <p>Average USD APY</p>
       </BigStat>
       <BigStat>
-        {!loading && value?.musd?.dailyAPY ? <h3>$–</h3> : <Skeleton />}
+        {!loading && mtaPrice ? <h3>${mtaPrice}</h3> : <Skeleton />}
         <p>MTA Price</p>
       </BigStat>
     </StatsSection>

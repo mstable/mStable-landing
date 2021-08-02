@@ -37,6 +37,7 @@ interface Data {
   mta: {
     totalStakers: number
     totalStaked: number
+    totalStakedUSD?: number
   }
   charts: {
     musd: ChartData
