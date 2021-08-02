@@ -172,7 +172,6 @@ const Icons = styled.div`
 
 const Integration: FC<Props> = ({ href, colour, image, title }) => {
   const offset = Math.floor(Math.random() * 3)
-  console.log(offset)
   return (
     <PartnerLink colour={colour} href={href} title={title} offset={offset}>
       <img src={image} alt={title} />
@@ -183,8 +182,8 @@ const Integration: FC<Props> = ({ href, colour, image, title }) => {
 export const Integrations: FC = () => (
   <Section h1="Open & decentralised" h2="Integrated with leading protocols">
     <Icons>
-      {partnerRows.map((row) => (
-        <div>
+      {partnerRows.map((row, i) => (
+        <div key={`${i}-${row[0].title}`}>
           {row.map(({ image, title, href, colour }) => (
             <Integration key={title} title={title} colour={colour} image={image} href={href} />
           ))}

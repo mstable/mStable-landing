@@ -106,7 +106,7 @@ export const BigStats: FC = () => {
         <p>Average USD APY</p>
       </BigStat>
       <BigStat>
-        {!loading && mtaPrice ? <h3>${mtaPrice}</h3> : <Skeleton />}
+        {!loading && mtaPrice ? <h3>${mtaPrice.toFixed(2)}</h3> : <Skeleton />}
         <p>MTA Price</p>
       </BigStat>
     </StatsSection>

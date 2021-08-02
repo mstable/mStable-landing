@@ -62,7 +62,7 @@ const Nav = styled.nav`
   }
 `
 
-const Container = styled.div<{ fill?: boolean }>`
+const Container = styled.div<{ backgroundFill: boolean }>`
   position: sticky;
   top: 0;
   left: 0;
@@ -70,7 +70,7 @@ const Container = styled.div<{ fill?: boolean }>`
   height: ${Constants.navHeight};
   z-index: 1;
   transition: 0.5s linear background;
-  background: ${({ fill }) => (fill ? Colors.spaceBlue : 'transparent')};
+  background: ${({ backgroundFill }) => (backgroundFill ? Colors.spaceBlue : 'transparent')};
   display: grid;
   z-index: 1;
 
@@ -103,7 +103,7 @@ const urls: {
 const DesktopLinks: FC = () => (
   <ul>
     {urls.map(({ title, href, isButton = false }) => (
-      <li>
+      <li key={title}>
         {isButton ? (
           <LinkButton external={false} href={href} highlight>
             {title}
@@ -138,7 +138,7 @@ export const NavBar: FC = () => {
   }, [y, top])
 
   return (
-    <Container fill={backgroundVisible} ref={ref as UseMeasureRef<HTMLDivElement>}>
+    <Container backgroundFill={backgroundVisible} ref={ref as UseMeasureRef<HTMLDivElement>}>
       <Nav>
         <Link to="/" title="mStable">
           <LogoImg />
