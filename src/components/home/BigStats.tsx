@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-// @ts-ignore
 
 import { useData } from './DataProvider'
 import { ThemedSkeleton } from '../ThemedSkeleton'
