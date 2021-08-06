@@ -1,48 +1,37 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { canUseDOM } from 'exenv'
 
-import { logoVisibilityCtx } from '../../context'
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
-import Ether from '../../images/ether-logo.svg'
-import { ExternalLink } from '../ExternalLink'
+import { ExternalLink, ExternalLinkChevron } from '../ExternalLink'
 import { Colors, Constants } from '../../theme'
+import { LinkButton } from '../CTA'
+import { MobileNav as UnstyledMobileNav } from '../MobileNav'
+import useMeasure, { UseMeasureRef } from 'react-use/lib/useMeasure'
+import { useToggle, useWindowScroll } from 'react-use'
 
-const AppLink = styled(ExternalLink)`
-  display: flex;
-
-  img {
-    position: relative;
-    top: -3px;
-    height: 20px;
-  }
-
-  // flex-gap polyfill fail
-  > * {
-    margin-right: 8px;
-    &:last-child {
-      margin-right: 0;
-    }
+const LogoImg = styled(LogoSvg)<{ stable?: number }>`
+  height: 20px;
+  width: auto;
+  #stable {
+    transition: opacity 2s ease;
+    opacity: ${({ stable }) => stable ?? 0};
   }
 `
 
-const FixedContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: ${Constants.navHeight};
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  background: black;
-  z-index: 1;
+const DesktopNav = styled.div`
+  display: none;
+  @media (min-width: 600px) {
+    display: block;
+  }
+`
 
-  display: grid;
-  overflow-x: hidden;
-
-  grid-template-columns:
-    1fr
-    min(1200px, 100%)
-    1fr;
+const MobileNav = styled(UnstyledMobileNav)`
+  display: block;
+  @media (min-width: 600px) {
+    display: none;
+  }
 `
 
 const Nav = styled.nav`
@@ -50,76 +39,129 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   grid-column: 2;
-  padding: 0 2rem;
+  padding: 0 1rem;
+
+  @media (min-width: 480px) {
+    padding: 0 2rem;
+  }
 
   a {
     display: flex;
+    font-weight: normal;
     color: white;
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
   }
 
   ul {
     display: flex;
-    line-height: 100%;
-
-    > *:nth-child(2),
-    > *:nth-child(3) {
-      display: none;
-    }
-
-    // flex-gap polyfill fail
-    > * {
-      margin-right: 1rem;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-
-  @media (min-width: 480px) {
-    ul {
-      *:nth-child(2),
-      *:nth-child(3) {
-        display: inherit;
-      }
-    }
+    align-items: center;
+    gap: 2rem;
   }
 `
 
-const LogoImg = styled(LogoSvg)<{ stable: number }>`
-  height: 20px;
-  width: auto;
-  #stable {
-    transition: opacity 2s ease;
-    opacity: ${({ stable }) => stable};
-  }
+const Container = styled.div<{ backgroundFill: boolean }>`
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: ${Constants.navHeight};
+  transition: 0.5s linear background;
+  background: ${({ backgroundFill }) => (backgroundFill ? Colors.spaceBlue : 'transparent')};
+  display: grid;
+  z-index: 1;
+
+  grid-template-columns:
+    1fr
+    min(1200px, 100%)
+    1fr;
 `
 
-export const NavBar: FC = () => {
-  const [visible] = useContext(logoVisibilityCtx)
+const urls: {
+  title: string
+  href: string
+  isButton?: boolean
+}[] = [
+  {
+    title: 'Analytics',
+    href: 'https://duneanalytics.com/derc/mta-community',
+  },
+  {
+    title: 'Governance',
+    href: 'https://governance.mstable.org',
+  },
+  {
+    title: 'Use mStable',
+    href: 'https://mstable.app',
+    isButton: true,
+  },
+]
+
+const DesktopLinks: FC = () => (
+  <ul>
+    {urls.map(({ title, href, isButton = false }) => (
+      <li key={title}>
+        {isButton ? (
+          <LinkButton external={false} href={href} highlight>
+            {title}
+          </LinkButton>
+        ) : (
+          <ExternalLink href={href}>{title}</ExternalLink>
+        )}
+      </li>
+    ))}
+  </ul>
+)
+
+const MobileLinks: FC = () => (
+  <ul>
+    {urls.map(({ title, href }) => (
+      <li>
+        <ExternalLinkChevron href={href}>{title}</ExternalLinkChevron>
+      </li>
+    ))}
+  </ul>
+)
+
+const Content: FC = () => (
+  <Nav>
+    <Link to="/" title="mStable">
+      <LogoImg />
+    </Link>
+    <DesktopNav>
+      <DesktopLinks />
+    </DesktopNav>
+    <MobileNav>
+      <MobileLinks />
+    </MobileNav>
+  </Nav>
+)
+
+const NavBarClient: FC = () => {
+  const { y } = useWindowScroll()
+  const [backgroundVisible, setBackgroundVisibility] = useToggle(false)
+  const [ref, { bottom }] = useMeasure()
+
+  useLayoutEffect(() => {
+    if (backgroundVisible && y > bottom) return
+    if (!backgroundVisible && y < bottom) return
+    setBackgroundVisibility(y > bottom)
+  }, [y, bottom])
+
   return (
-    <FixedContainer>
-      <Nav>
-        <Link to="/" title="mStable">
-          <LogoImg stable={visible ? 1 : 0} />
-        </Link>
-        <ul>
-          <li>
-            <ExternalLink href="https://docs.mstable.org">Docs</ExternalLink>
-          </li>
-          <Link to="/governance-token-meta" title="Meta (MTA)">
-            Meta
-          </Link>
-          <Link to="/save" title="mStable Save">
-            Save
-          </Link>
-          <li>
-            <AppLink href="https://mstable.app">
-              <img src={Ether} alt="App" />
-              <div>App</div>
-            </AppLink>
-          </li>
-        </ul>
-      </Nav>
-    </FixedContainer>
+    <Container backgroundFill={backgroundVisible} ref={ref as UseMeasureRef<HTMLDivElement>}>
+      <Content />
+    </Container>
   )
 }
+
+const NavBarServer: FC = () => (
+  <Container backgroundFill>
+    <Content />
+  </Container>
+)
+
+export const NavBar: FC = canUseDOM ? NavBarClient : NavBarServer

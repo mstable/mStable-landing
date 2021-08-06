@@ -1,120 +1,113 @@
 import React, { FC } from 'react'
-import 'use-slider/lib/slider.min.css'
 import styled from 'styled-components'
-// @ts-ignore
-import CountUp from 'react-countup-v2'
 
-import { Slider } from '../Slider'
 import { useData } from './DataProvider'
-import { Colors } from '../../theme'
+import { ThemedSkeleton } from '../ThemedSkeleton'
 
-const StyledCountUp = styled(CountUp)`
-  font-family: 'DM Mono', monospace;
+const BTC_PRICE_ESTIMATE = 35000
+
+const Skeleton = styled(ThemedSkeleton)`
+  width: 6rem;
+  height: 4rem;
+  margin-bottom: 1rem;
 `
 
 const BigStat = styled.div`
   font-size: 1.3rem;
-  padding: 1px; // hide the edges for the slider
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
 
-  > span {
-    position: relative;
-    padding: 2rem 0rem;
+  p {
+    font-size: 1rem;
+    font-size: 0.875rem;
   }
 
-  > span::before {
-    position: absolute;
-    content: '';
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: linear-gradient(transparent 2%, rgba(0, 0, 0, 0.75), transparent 98%);
-    filter: blur(0.15rem);
-    inset: 1px;
-    z-index: -1;
-    border-radius: 0.75rem;
+  h3 {
+    font-weight: 600;
+    font-size: 3rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    height: 3rem;
   }
 
   @media (min-width: 400px) {
-    font-size: 1.6rem;
+    p {
+      font-size: 1rem;
+    }
+    h3 {
+      font-size: 3rem;
+      height: 4rem;
+    }
+  }
+
+  &:not:last-child {
+    margin-right: 1rem;
   }
 `
 
-const Blue = styled.span`
-  color: ${Colors.lightBlue};
-  text-shadow: rgba(0, 35, 57, 0.5) 0 0 1px;
-`
+const StatsSection = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 
-const Empty = styled.div`
-  min-height: 10rem;
-`
+  > div {
+    padding: 1rem 0;
+    flex-basis: calc(50% - 1rem);
+  }
 
-const apyOptions = { decimalPlaces: 2, suffix: '%' }
+  @media (min-width: 400px) {
+    gap: 2rem;
+
+    > div {
+      width: calc(50% - 2rem);
+      max-width: 12rem;
+    }
+  }
+
+  @media (min-width: 600px) {
+    > div {
+      width: 12rem;
+    }
+  }
+`
 
 export const BigStats: FC = () => {
   const { loading, value } = useData()
 
-  return loading || !value ? (
-    <Empty />
-  ) : (
-    <Slider>
+  const mtaPrice = (value?.mta?.totalStakedUSD && value.mta.totalStakedUSD / value.mta.totalStaked) || undefined
+  const volumeEstimate =
+    (!!value &&
+      value.musd.cumulativeMinted +
+        value.musd.cumulativeSwapped +
+        value.musd.cumulativeWithdrawn +
+        (value.mbtc.cumulativeMinted + value.mbtc.cumulativeSwapped + value.mbtc.cumulativeWithdrawn) * BTC_PRICE_ESTIMATE) ||
+    undefined
+
+  return (
+    <StatsSection>
       <BigStat>
-        <span>
-          Currently earning{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.musd.dailyAPY} options={apyOptions} />
-          </Blue>{' '}
-          for mUSD and{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mbtc.dailyAPY} options={apyOptions} />
-          </Blue>{' '}
-          for mBTC
-        </span>
+        {!loading && volumeEstimate ? <h3>${volumeEstimate.toString().substr(0, 1)}b+</h3> : <Skeleton />}
+        <p>All Time Volume</p>
       </BigStat>
       <BigStat>
-        <span>
-          mStable users have minted{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.musd.cumulativeMinted} /> mUSD
-          </Blue>{' '}
-          and{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mbtc.cumulativeMinted} /> mBTC
-          </Blue>
-        </span>
+        {!loading && value?.mta?.totalStakers ? <h3>{value.mta.totalStakers}</h3> : <Skeleton />}
+        <p>Active Governors</p>
       </BigStat>
       <BigStat>
-        <span>
-          Over <Blue>$500m</Blue> swapped
-        </span>
+        {!loading && value?.musd?.dailyAPY ? <h3>{Math.floor(value.musd.dailyAPY)}%</h3> : <Skeleton />}
+        <p>Average USD APY</p>
       </BigStat>
       <BigStat>
-        <span>
-          <Blue>
-            <StyledCountUp separator="," endVal={value.musd.totalSupply} /> mUSD
-          </Blue>{' '}
-          and{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mbtc.totalSupply} /> mBTC
-          </Blue>{' '}
-          are in circulation
-        </span>
+        {!loading && mtaPrice ? <h3>${mtaPrice.toFixed(2)}</h3> : <Skeleton />}
+        <p>MTA Price</p>
       </BigStat>
-      <BigStat>
-        <span>
-          mStable has{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mta.totalStakers} /> governors
-          </Blue>{' '}
-          staking a total of{' '}
-          <Blue>
-            <StyledCountUp separator="," endVal={value.mta.totalStaked} /> MTA
-          </Blue>
-        </span>
-      </BigStat>
-    </Slider>
+    </StatsSection>
   )
 }

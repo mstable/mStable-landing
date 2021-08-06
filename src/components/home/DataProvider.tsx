@@ -1,4 +1,4 @@
-import React, { createContext, FC, useContext } from 'react'
+import React, { createContext, FC, useContext, useMemo } from 'react'
 import useAsync, { AsyncState } from 'react-use/lib/useAsync'
 
 import { STATS_API_ENDPOINT } from '../../constants'
@@ -37,6 +37,7 @@ interface Data {
   mta: {
     totalStakers: number
     totalStaked: number
+    totalStakedUSD?: number
   }
   charts: {
     musd: ChartData
@@ -95,15 +96,14 @@ export const DataProvider: FC = ({ children }) => {
   const ctxValue = useAsync(async (): Promise<Data> => {
     const responses = await Promise.all(['massets', 'stakers'].map((resource) => fetch(`${STATS_API_ENDPOINT}/${resource}`)))
 
-    const [{ musd, mbtc }, { totalStakers, totalStaked }] = (await Promise.all(responses.map((response) => response.json()))) as [
-      { musd: Masset; mbtc: Masset },
-      { totalStakers: number; totalStaked: number },
-    ]
+    const [{ musd, mbtc }, { totalStakers, totalStaked, totalStakedUSD }] = (await Promise.all(
+      responses.map((response) => response.json()),
+    )) as [{ musd: Masset; mbtc: Masset }, { totalStakers: number; totalStaked: number; totalStakedUSD?: number }]
 
     return {
       musd: musd.metrics.current,
       mbtc: mbtc.metrics.current,
-      mta: { totalStaked, totalStakers },
+      mta: { totalStaked, totalStakers, totalStakedUSD },
       charts: { musd: getChartData(musd.metrics.historic), mbtc: getChartData(mbtc.metrics.historic) },
     } as Data
   }, [])

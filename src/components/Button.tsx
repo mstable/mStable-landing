@@ -2,26 +2,32 @@ import styled from 'styled-components'
 
 import { Colors } from '../theme'
 
-export const Button = styled.button`
+export const Button = styled.button<{ highlight?: boolean }>`
   display: flex;
   align-items: center;
-  padding: 0.75rem 2rem;
-  height: 3.5rem;
+  padding: 0.5rem 1rem;
   white-space: nowrap;
-
-  background: white;
-  border: 4px ${Colors.lightBlue} solid;
-  border-radius: 1.75rem;
+  border: none;
+  border-radius: 0.75rem;
   justify-content: center;
-  color: ${Colors.lightBlue};
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.5s ease-out;
+  background: ${({ highlight }) => (highlight ? Colors.blue : '#3e4b60')};
+  color: white;
+  transition: transform 0.25s ease-out;
 
-  &:hover {
-    color: black;
-    border-color: black;
+  ${({ highlight }) =>
+    highlight && {
+      textShadow: `rgba(0, 75, 124, 0.25) 0 1px 1px`,
+      boxShadow: `rgba(0, 153, 255, 0.5) 0 0px 15px`,
+    }}
+
+  &:hover,
+  &:focus {
+    color: white;
+    transform: scale(1.025);
   }
 
   // flex-gap polyfill fail

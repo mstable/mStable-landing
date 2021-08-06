@@ -5,53 +5,53 @@ interface Props {
   h1?: string | ReactNode
   h2?: string | ReactNode
   h3?: string | ReactNode
-  centre?: boolean
   className?: string
 }
 
 const Container = styled.section<Props>`
-  margin-bottom: 2rem;
-
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
+  ${({ theme }) => theme.mixins.defaultSpacing};
 `
 
 const Header = styled.header<Props>`
-  padding: 2rem;
-  text-align: ${({ centre }) => (centre ? 'center' : 'inherit')};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  text-align: center;
+
+  h1,
+  h2 {
+    padding: 0 2rem;
+  }
 
   h1 {
-    margin: 4rem 0 2rem 0;
-    font-size: 2rem;
-    font-weight: normal;
-
+    font-weight: 600;
+    font-size: 1.75rem;
     @media (min-width: 400px) {
-      font-size: 2.4rem;
+      font-size: 2rem;
     }
   }
 
-  h2 {
-    font-size: 2rem;
-    font-weight: normal;
-    color: rgba(255, 255, 255, 0.95);
+  h1:not(:last-child) {
+    margin-bottom: 1rem;
   }
 
-  h3 {
-    font-size: 1.6rem;
+  h2 {
     font-weight: normal;
-    margin-bottom: 1rem;
-    max-width: 50ch;
+    font-size: 1rem;
+    opacity: 0.5;
+
+    @media (min-width: 400px) {
+      font-size: 1.125rem;
+    }
   }
 `
 
-export const Section: FC<Props> = ({ centre, h1, h2, h3, children, className }) => {
+export const Section: FC<Props> = ({ h1, h2, h3, children, className }) => {
   return (
     <Container className={className}>
       {(h1 || h2 || h3) && (
-        <Header centre={centre}>
+        <Header>
           {h1 && <h1>{h1}</h1>}
           {h2 && <h2>{h2}</h2>}
           {h3 && <h3>{h3}</h3>}

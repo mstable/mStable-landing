@@ -12,13 +12,15 @@ const Container = styled.div`
   width: 100%;
 `
 
-const floatEffect = (group: MutableRefObject<Group>, timeOffset: number): RenderCallback => ({ clock }) => {
-  const t = clock.getElapsedTime() + timeOffset
-  // Gently rotate and float up and down
-  group.current.rotation.x -= Math.sin(t * 0.5) / 300
-  group.current.position.y += Math.sin(t * 0.25) / 300
-  group.current.rotation.z -= Math.cos(t * 0.28) / 1200
-}
+const floatEffect =
+  (group: MutableRefObject<Group>, timeOffset: number): RenderCallback =>
+  ({ clock }) => {
+    const t = clock.getElapsedTime() + timeOffset
+    // Gently rotate and float up and down
+    group.current.rotation.x -= Math.sin(t * 0.5) / 300
+    group.current.position.y += Math.sin(t * 0.25) / 300
+    group.current.rotation.z -= Math.cos(t * 0.28) / 1200
+  }
 
 type AssetProps = JSX.IntrinsicElements['group'] & {
   asset: 'musd' | 'mbtc' | 'mta'
@@ -27,7 +29,7 @@ type AssetProps = JSX.IntrinsicElements['group'] & {
 
 const Asset: FC<AssetProps> = ({ asset, timeOffset, position, scale, rotation }) => {
   const group = useRef<Group>(null as never)
-  const { nodes } = useGLTF(`/assets/${asset}.gltf`)
+  const { nodes } = useGLTF(`/assets/${asset}.gltf`) as any
   useFrame(floatEffect(group, timeOffset))
 
   return (
