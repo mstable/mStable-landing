@@ -41,7 +41,7 @@ const Container = styled(Section)`
   h2 {
     font-size: 1.125rem;
     opacity: 0.5;
-    max-width: 90ch;
+    max-width: 80ch;
     font-weight: normal;
     @media (min-width: 480px) {
       font-size: 2.75rem;
@@ -51,7 +51,10 @@ const Container = styled(Section)`
 `
 
 export const Intro: FC = () => (
-  <Container h1="Decentralised Stablecoin Ecosystem" h2="Low slippage swaps, interest-bearing assets, and open governance.">
+  <Container
+    h1="Decentralised Stablecoin Ecosystem"
+    h2="Swap, save and protect your stablecoins on mStable, a decentralised, community driven platform powered by $MTA"
+  >
     <Action>
       <LinkButton href="https://mstable.app" highlight>
         Use mStable

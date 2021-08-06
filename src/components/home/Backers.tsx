@@ -120,9 +120,15 @@ const BackersGrid = styled.div`
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
+
+    > * {
+      :nth-child(-n + 8):nth-child(n + 5) {
+        display: inherit;
+      }
+    }
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 1000px) {
     gap: 2.5rem;
     grid-template-columns: repeat(3, 1fr);
     margin: 2rem;

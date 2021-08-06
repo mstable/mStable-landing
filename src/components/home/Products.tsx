@@ -12,6 +12,7 @@ interface Product {
   tagline: string
   icon: ReactNode
   hue: string
+  buttonTitle: string
   buttonBg: string
   bg: string
   href: string
@@ -51,9 +52,10 @@ const PRODUCTS: Product[] = [
   {
     key: 'amm',
     title: 'mStable AMM',
-    tagline: 'Low slippage trades for stablecoins and BTC',
+    tagline: 'Capital efficient AMM that supports low slippage stablecoin and bitcoin swaps',
     icon: AMMIcon,
     hue: Colors.neonOrange,
+    buttonTitle: 'Swap stablecoins',
     buttonBg: Colors.neonOrangeTransparent,
     bg: Colors.neonOrangeDark,
     href: 'https://mstable.app',
@@ -61,9 +63,10 @@ const PRODUCTS: Product[] = [
   {
     key: 'save',
     title: 'Save',
-    tagline: 'High yielding savings accounts',
+    tagline: 'High yielding savings accounts, powered by the mStable AMM',
     icon: SaveIcon,
     hue: Colors.neonBlue,
+    buttonTitle: 'Start saving',
     buttonBg: Colors.neonBlueTransparent,
     bg: Colors.neonBlueDark,
     href: 'https://mstable.app/#/musd/save',
@@ -71,9 +74,10 @@ const PRODUCTS: Product[] = [
   {
     key: 'stake',
     title: 'Governance',
-    tagline: 'Composable, yield-bearing asset backed by $MTA',
+    tagline: 'MTA stakers earn by governing and securing mStable',
     icon: StkMTAIcon,
     hue: Colors.neonPink,
+    buttonTitle: 'Govern mStable',
     buttonBg: Colors.neonPinkTransparent,
     bg: Colors.neonPinkDark75,
     href: 'https://governance.mstable.org',
@@ -98,7 +102,7 @@ const CardContainer = styled.div<{ hue: string; bg: string; buttonBg: string }>`
   > div:nth-child(2) {
     display: flex;
     flex-direction: column;
-    height: 14rem;
+    height: 15rem;
     justify-content: space-between;
 
     * {
@@ -114,7 +118,7 @@ const CardContainer = styled.div<{ hue: string; bg: string; buttonBg: string }>`
 
     p {
       opacity: 0.8;
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
 
     button {
@@ -174,13 +178,13 @@ const Container = styled(Section)`
   }
 `
 
-const Card: FC<Product> = ({ title, tagline, icon, bg, hue, buttonBg, href }) => (
+const Card: FC<Product> = ({ title, tagline, icon, bg, hue, buttonBg, href, buttonTitle }) => (
   <CardContainer hue={hue} bg={bg} buttonBg={buttonBg}>
     <div>{icon}</div>
     <div>
       <h3>{title}</h3>
       <p>{tagline}</p>
-      <LinkButton href={href}>{`Use ${title}`}</LinkButton>
+      <LinkButton href={href}>{`${buttonTitle}`}</LinkButton>
     </div>
   </CardContainer>
 )

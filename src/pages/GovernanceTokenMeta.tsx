@@ -202,6 +202,12 @@ export const GovernanceTokenMeta: FC = () => {
               <LinkButton highlight href="https://www.gate.io/trade/MTA_USDT">
                 Gate.io
               </LinkButton>
+              <LinkButton
+                highlight
+                href="https://app.bancor.network/eth/swap?from=0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C&to=0xa3BeD4E1c75D00fa6f4E5E6922DB7261B5E9AcD2"
+              >
+                Bancor
+              </LinkButton>
             </Links>
           </div>
           <div />

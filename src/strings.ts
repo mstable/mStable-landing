@@ -1,6 +1,4 @@
-export const metadata = { 
-  title:
-    'mStable – Autonomous and non-custodial stablecoin infrastructure',
-  description:
-    'mStable unites stablecoins, lending and swapping into one standard.'
+export const metadata = {
+  title: 'mStable – Decentralised Stablecoin Ecosystem',
+  description: 'Swap, save and protect your stablecoins on mStable, a decentralised, community driven platform powered by $MTA',
 }

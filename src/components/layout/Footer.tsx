@@ -205,7 +205,7 @@ export const Footer: FC = () => {
             <ExternalLinkChevron href="https://mstable.app">App</ExternalLinkChevron>
             <ExternalLinkChevron href="https://docs.mstable.org">Documentation</ExternalLinkChevron>
             <ExternalLinkChevron href="https://github.com/mstable">Developers</ExternalLinkChevron>
-            <LinkChevron href="/save">Save Info</LinkChevron>
+            <LinkChevron href="/save">About Save</LinkChevron>
           </div>
           <div>
             <Header>Governance</Header>
