@@ -135,7 +135,7 @@ export const NavBar: FC = () => {
     if (backgroundVisible && y > bottom) return
     if (!backgroundVisible && y < bottom) return
     setBackgroundVisibility(y > bottom)
-  }, [y, top])
+  }, [y, bottom])
 
   return (
     <Container backgroundFill={backgroundVisible} ref={ref as UseMeasureRef<HTMLDivElement>}>
