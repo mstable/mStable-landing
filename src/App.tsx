@@ -15,13 +15,13 @@ export const App: FC = () => {
         <Switch>
           {routes.map(({ path, seo: { title, description }, isHome, component: RouteComponent }) => (
             <Route path={path} exact key={path}>
-              <Wrapper title={title} description={description} path={path} isHome={isHome}>
+              <Wrapper title={title} description={description} path={path}>
                 <RouteComponent />
               </Wrapper>
             </Route>
           ))}
           <Route path="*">
-            <Wrapper path={'/404'} isHome={false}>
+            <Wrapper path={'/404'}>
               <NotFound />
             </Wrapper>
           </Route>

@@ -1,6 +1,7 @@
 import React, { FC, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { canUseDOM } from 'exenv'
 
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
 import { ExternalLink, ExternalLinkChevron } from '../ExternalLink'
@@ -68,7 +69,6 @@ const Container = styled.div<{ backgroundFill: boolean }>`
   left: 0;
   right: 0;
   height: ${Constants.navHeight};
-  z-index: 1;
   transition: 0.5s linear background;
   background: ${({ backgroundFill }) => (backgroundFill ? Colors.spaceBlue : 'transparent')};
   display: grid;
@@ -126,7 +126,21 @@ const MobileLinks: FC = () => (
   </ul>
 )
 
-export const NavBar: FC = () => {
+const Content: FC = () => (
+  <Nav>
+    <Link to="/" title="mStable">
+      <LogoImg />
+    </Link>
+    <DesktopNav>
+      <DesktopLinks />
+    </DesktopNav>
+    <MobileNav>
+      <MobileLinks />
+    </MobileNav>
+  </Nav>
+)
+
+const NavBarClient: FC = () => {
   const { y } = useWindowScroll()
   const [backgroundVisible, setBackgroundVisibility] = useToggle(false)
   const [ref, { bottom }] = useMeasure()
@@ -139,17 +153,15 @@ export const NavBar: FC = () => {
 
   return (
     <Container backgroundFill={backgroundVisible} ref={ref as UseMeasureRef<HTMLDivElement>}>
-      <Nav>
-        <Link to="/" title="mStable">
-          <LogoImg />
-        </Link>
-        <DesktopNav>
-          <DesktopLinks />
-        </DesktopNav>
-        <MobileNav>
-          <MobileLinks />
-        </MobileNav>
-      </Nav>
+      <Content />
     </Container>
   )
 }
+
+const NavBarServer: FC = () => (
+  <Container backgroundFill>
+    <Content />
+  </Container>
+)
+
+export const NavBar: FC = canUseDOM ? NavBarClient : NavBarServer
