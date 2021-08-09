@@ -8,7 +8,16 @@ import { BigStats } from './BigStats'
 const Action = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+
+  > *:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+
+  @media (min-width: 480px) {
+    > *:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
 `
 
 const Container = styled(Section)`
@@ -22,10 +31,15 @@ const Container = styled(Section)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 2.5rem;
+
+    > *:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
 
     @media (min-width: 480px) {
-      gap: 5rem;
+      > *:not(:last-child) {
+        margin-bottom: 5rem;
+      }
     }
   }
 

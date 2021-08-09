@@ -109,8 +109,11 @@ const BackerSpan = styled.span<{ colour: string }>`
 
 const BackersGrid = styled.div`
   display: grid;
-  gap: 2rem;
   grid-template-rows: 1fr;
+
+  > *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 
   > * {
     :nth-child(-n + 9):nth-child(n + 5) {
@@ -129,9 +132,12 @@ const BackersGrid = styled.div`
   }
 
   @media (min-width: 1000px) {
-    gap: 2.5rem;
     grid-template-columns: repeat(3, 1fr);
     margin: 2rem;
+
+    > *:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
 
     > * {
       :nth-child(-n + 9):nth-child(n + 5) {

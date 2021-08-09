@@ -8,7 +8,6 @@ import { ReactComponent as MenuIcon } from '../images/icons/menu.svg'
 import { ReactComponent as CloseIcon } from '../images/icons/close.svg'
 import { ReactComponent as LogoSvg } from '../images/mstable-logo.svg'
 import { Colors } from '../theme'
-import { ExternalLinkChevron } from './ExternalLink'
 
 const LogoImg = styled(LogoSvg)<{ stable?: number }>`
   height: 20px;
@@ -23,7 +22,6 @@ const MenuButton = styled.button`
   outline: none;
   border: none;
   width: 2.25rem;
-  border-radius: 1.25rem;
   background: none;
   cursor: pointer;
 
@@ -58,9 +56,12 @@ const Inner = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.25rem;
     font-size: 1.125rem;
     padding: 0 1.25rem 1rem 1rem;
+
+    > *:not(:last-child) {
+      margin-bottom: 1.25rem;
+    }
 
     > * {
       width: 100%;

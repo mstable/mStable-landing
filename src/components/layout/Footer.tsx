@@ -20,7 +20,7 @@ const Header = styled.h3`
 
 const Links = styled.div`
   > * {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     margin-right: 0.5rem;
   }
   a {
@@ -35,14 +35,6 @@ const Links = styled.div`
   }
 `
 
-const EasterEgg = styled.div`
-  font-size: 10px;
-  opacity: 0.1;
-  position: absolute;
-  bottom: -1.5rem;
-  right: 0;
-`
-
 const Social = styled.div`
   margin: 4px 0 8px 0;
   text-align: center;
@@ -52,11 +44,13 @@ const Social = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
-    gap: 1.5rem;
     flex-wrap: wrap;
+
     > * {
       display: block;
+    }
+    > *:not(:last-child) {
+      margin-right: 1.5rem;
     }
     img {
       height: 28px;
@@ -72,7 +66,10 @@ const Top = styled.div`
   > div {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+
+    > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
   }
 
   @media (min-width: 600px) {
@@ -85,7 +82,6 @@ const Bottom = styled.div`
   margin-top: 5rem;
   grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  gap: 2rem;
 
   a {
     font-size: 1rem;
@@ -95,9 +91,12 @@ const Bottom = styled.div`
     display: flex;
     padding: 1rem;
     align-items: center;
-    gap: 1rem;
     font-size: 1rem;
     flex-direction: column;
+
+    > *:not(:last-child) {
+      margin-right: 1rem;
+    }
 
     b {
       color: white;
@@ -115,8 +114,11 @@ const Bottom = styled.div`
 
     > div:last-child {
       display: flex;
-      gap: 1.5rem;
       position: relative;
+
+      > *:not(:last-child) {
+        margin-right: 1.5rem;
+      }
     }
 
     @media (min-width: 480px) {
@@ -225,7 +227,6 @@ export const Footer: FC = () => {
               <ExternalLink href={MTA_BUY_LINK}>Buy MTA</ExternalLink>
               <ExternalLink href={'https://docs.mstable.org/'}>Docs</ExternalLink>
               <ExternalLink href={'https://docs.mstable.org/mstable-assets/brand-assets'}>Brand</ExternalLink>
-              <EasterEgg>Ape Together Strong 💪</EasterEgg>
             </div>
           </div>
         </BottomFooter>
