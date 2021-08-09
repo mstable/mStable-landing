@@ -63,7 +63,7 @@ const PRODUCTS: Product[] = [
   {
     key: 'save',
     title: 'Save',
-    tagline: 'High yielding savings accounts, powered by the mStable AMM',
+    tagline: 'High yielding savings accounts, powered by meta-assets (mAssets)',
     icon: SaveIcon,
     hue: Colors.neonBlue,
     buttonTitle: 'Start saving',
@@ -142,10 +142,13 @@ const CardContainer = styled.div<{ hue: string; bg: string; buttonBg: string }>`
 
 const Inner = styled.div`
   display: grid;
-  column-gap: 1rem;
   overflow-x: scroll;
   grid-template-columns: repeat(3, 1fr) 1px;
   padding: 0 0 1rem 1rem;
+
+  > * {
+    margin-right: 1rem;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -161,7 +164,10 @@ const Inner = styled.div`
   }
 
   @media (min-width: 480px) {
-    column-gap: 2rem;
+    > * {
+      margin-right: 2rem;
+    }
+
     padding: 0 0 1rem 2rem;
   }
 

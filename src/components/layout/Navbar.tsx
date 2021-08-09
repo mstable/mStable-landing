@@ -59,7 +59,10 @@ const Nav = styled.nav`
   ul {
     display: flex;
     align-items: center;
-    gap: 2rem;
+
+    > *:not(:last-child) {
+      margin-right: 2rem;
+    }
   }
 `
 

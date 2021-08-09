@@ -50,7 +50,10 @@ const Container = styled(Section)`
 
   div {
     display: flex;
-    gap: 1.5rem;
+
+    > * {
+      margin: 0.5rem 0.75rem;
+    }
 
     button {
       color: ${Colors.neonPink};
