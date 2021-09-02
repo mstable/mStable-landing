@@ -55,10 +55,6 @@ const BigStatCss = css`
   }
 `
 
-const BigStat = styled.div`
-  ${BigStatCss};
-`
-
 const BigStatLink = styled(ExternalLink)`
   ${BigStatCss};
 
@@ -115,18 +111,18 @@ export const BigStats: FC = () => {
 
   return (
     <StatsSection>
-      <BigStat>
+      <BigStatLink href="https://mstable.app/#/musd/stats">
         {!loading && volumeEstimate ? <h3>${volumeEstimate.toString().substr(0, 1)}b+</h3> : <Skeleton />}
         <p>All Time Volume</p>
-      </BigStat>
+      </BigStatLink>
       <BigStatLink href="https://governance.mstable.org/#/">
         {!loading && value?.mta?.totalStakers ? <h3>{value.mta.totalStakers}</h3> : <Skeleton />}
         <p>Active Governors</p>
       </BigStatLink>
-      <BigStat>
+      <BigStatLink href="https://dune.xyz/derc/mta-community">
         {!loading && value?.musd?.dailyAPY ? <h3>{Math.floor(value.musd.dailyAPY)}%</h3> : <Skeleton />}
         <p>Average USD APY</p>
-      </BigStat>
+      </BigStatLink>
       <BigStatLink href="https://www.coingecko.com/en/coins/meta">
         {!loading && mtaPrice ? <h3>${mtaPrice.toFixed(2)}</h3> : <Skeleton />}
         <p>MTA Price</p>
