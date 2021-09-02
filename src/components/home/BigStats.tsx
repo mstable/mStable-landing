@@ -55,10 +55,6 @@ const BigStatCss = css`
   }
 `
 
-const BigStat = styled.div`
-  ${BigStatCss};
-`
-
 const BigStatLink = styled(ExternalLink)`
   ${BigStatCss};
 

@@ -98,10 +98,10 @@ const PRODUCTS: Product[] = [
     tagline: 'Meta stablecoins used as stable value throughout DeFi, backed by the mStable AMM',
     icon: mAssetIcon,
     hue: Colors.neonYellow,
-    buttonTitle: 'mAssets',
+    buttonTitle: 'Use mAssets',
     buttonBg: Colors.neonYellowTransparent,
     bg: Colors.neonYellowDark,
-    href: 'https://mstable.app',
+    href: 'https://mstable.app/#/musd/swap',
   },
 ]
 
