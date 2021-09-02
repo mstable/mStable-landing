@@ -48,6 +48,15 @@ const StkMTAIcon = (
   </svg>
 )
 
+const mAssetIcon = (
+  <svg width="40" height="37" viewBox="0 0 40 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M0.248027 5.29002C0.248027 3.69246 0.150319 2.14766 0 0.550102H7.11011L7.35814 3.79043C8.15483 2.69776 10.094 0 15.1146 0C20.8869 0 22.5254 3.54175 23.0214 4.73992C25.1109 0.700814 28.4931 0.0527493 31.0785 0.0527493C36.1518 0.0527493 38.1962 3.09715 38.7373 4.09185C40.0827 6.28473 39.9775 9.32912 39.9775 11.522V25.3198H32.5667V10.9267C32.5667 8.22892 32.1684 5.23727 28.3352 5.23727C23.9309 5.23727 23.8331 9.38187 23.8331 13.1196V25.3198H16.4224V10.776C16.4224 8.83177 16.3698 5.23727 12.2961 5.23727C7.66629 5.23727 7.66629 9.23116 7.66629 10.9267V25.3198H0.248027V5.29002ZM0 30.8585H40V37H0V30.8585Z"
+      fill="#F2FB88"
+    />
+  </svg>
+)
+
 const PRODUCTS: Product[] = [
   {
     key: 'amm',
@@ -81,6 +90,18 @@ const PRODUCTS: Product[] = [
     buttonBg: Colors.neonPinkTransparent,
     bg: Colors.neonPinkDark75,
     href: 'https://governance.mstable.org',
+  },
+
+  {
+    key: 'massets',
+    title: 'mAssets',
+    tagline: 'Meta stablecoins used as stable value throughout DeFi, backed by the mStable AMM',
+    icon: mAssetIcon,
+    hue: Colors.neonYellow,
+    buttonTitle: 'mAssets',
+    buttonBg: Colors.neonYellowTransparent,
+    bg: Colors.neonYellowDark,
+    href: 'https://mstable.app',
   },
 ]
 
