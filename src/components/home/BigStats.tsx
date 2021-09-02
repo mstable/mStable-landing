@@ -111,7 +111,7 @@ export const BigStats: FC = () => {
 
   return (
     <StatsSection>
-      <BigStatLink href="https://dune.xyz/derc/mta-community">
+      <BigStatLink href="https://mstable.app/#/musd/stats">
         {!loading && volumeEstimate ? <h3>${volumeEstimate.toString().substr(0, 1)}b+</h3> : <Skeleton />}
         <p>All Time Volume</p>
       </BigStatLink>
