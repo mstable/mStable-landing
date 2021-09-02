@@ -59,6 +59,17 @@ const mAssetIcon = (
 
 const PRODUCTS: Product[] = [
   {
+    key: 'massets',
+    title: 'mAssets',
+    tagline: 'Meta stablecoins used as stable value throughout DeFi',
+    icon: mAssetIcon,
+    hue: Colors.neonYellow,
+    buttonTitle: 'Use mAssets',
+    buttonBg: Colors.neonYellowTransparent,
+    bg: Colors.neonYellowDark,
+    href: 'https://mstable.app/#/musd/swap',
+  },
+  {
     key: 'amm',
     title: 'mStable AMM',
     tagline: 'Capital efficient AMM that supports low slippage stablecoin and bitcoin swaps',
@@ -72,7 +83,7 @@ const PRODUCTS: Product[] = [
   {
     key: 'save',
     title: 'Save',
-    tagline: 'High yielding savings accounts, powered by meta-assets (mAssets)',
+    tagline: 'High yielding savings accounts, powered by the mStable AMM',
     icon: SaveIcon,
     hue: Colors.neonBlue,
     buttonTitle: 'Start saving',
@@ -90,18 +101,6 @@ const PRODUCTS: Product[] = [
     buttonBg: Colors.neonPinkTransparent,
     bg: Colors.neonPinkDark75,
     href: 'https://governance.mstable.org',
-  },
-
-  {
-    key: 'massets',
-    title: 'mAssets',
-    tagline: 'Meta stablecoins used as stable value throughout DeFi, backed by the mStable AMM',
-    icon: mAssetIcon,
-    hue: Colors.neonYellow,
-    buttonTitle: 'Use mAssets',
-    buttonBg: Colors.neonYellowTransparent,
-    bg: Colors.neonYellowDark,
-    href: 'https://mstable.app/#/musd/swap',
   },
 ]
 
