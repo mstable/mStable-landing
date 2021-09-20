@@ -94,7 +94,7 @@ const urls: {
   },
   {
     title: 'Governance',
-    href: 'https://governance.mstable.org',
+    href: 'https://staking.mstable.app',
   },
   {
     title: 'Use mStable',

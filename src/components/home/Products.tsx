@@ -67,7 +67,7 @@ const PRODUCTS: Product[] = [
     buttonTitle: 'Use mAssets',
     buttonBg: Colors.neonPurpleTransparent,
     bg: Colors.neonPurpleDark,
-    href: 'https://mstable.app/#/musd/swap',
+    href: 'https://mstable.app',
   },
   {
     key: 'amm',
@@ -78,7 +78,7 @@ const PRODUCTS: Product[] = [
     buttonTitle: 'Swap stablecoins',
     buttonBg: Colors.neonOrangeTransparent,
     bg: Colors.neonOrangeDark,
-    href: 'https://mstable.app',
+    href: 'https://mstable.app/#/musd/swap,
   },
   {
     key: 'save',
@@ -100,7 +100,7 @@ const PRODUCTS: Product[] = [
     buttonTitle: 'Govern mStable',
     buttonBg: Colors.neonPinkTransparent,
     bg: Colors.neonPinkDark75,
-    href: 'https://governance.mstable.org',
+    href: 'https://staking.mstable.app/',
   },
 ]
 

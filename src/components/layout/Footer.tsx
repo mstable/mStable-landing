@@ -205,13 +205,13 @@ export const Footer: FC = () => {
           <div>
             <Header>Protocol</Header>
             <ExternalLinkChevron href="https://mstable.app">App</ExternalLinkChevron>
-            <ExternalLinkChevron href="https://docs.mstable.org">Documentation</ExternalLinkChevron>
-            <ExternalLinkChevron href="https://github.com/mstable">Developers</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://mstable.gitbook.io/mstable-docs">Documentation</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://mstable.gitbook.io/developer-docs">Developers</ExternalLinkChevron>
             <LinkChevron href="/save">About Save</LinkChevron>
           </div>
           <div>
             <Header>Governance</Header>
-            <ExternalLinkChevron href="https://governance.mstable.org">Governance App</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://staking.mstable.app">Governance App</ExternalLinkChevron>
             <ExternalLinkChevron href="https://forum.mstable.org">Forum</ExternalLinkChevron>
             <ExternalLinkChevron href="https://snapshot.page/#/mstable">Vote</ExternalLinkChevron>
           </div>
@@ -225,8 +225,8 @@ export const Footer: FC = () => {
             </div>
             <div>
               <ExternalLink href={MTA_BUY_LINK}>Buy MTA</ExternalLink>
-              <ExternalLink href={'https://docs.mstable.org/'}>Docs</ExternalLink>
-              <ExternalLink href={'https://docs.mstable.org/mstable-assets/brand-assets'}>Brand</ExternalLink>
+              <ExternalLink href={'https://mstable.gitbook.io/developer-docs/'}>Docs</ExternalLink>
+              <ExternalLink href={'https://mstable.gitbook.io/mstable-docs/advanced/brand-assets'}>Brand</ExternalLink>
             </div>
           </div>
         </BottomFooter>
