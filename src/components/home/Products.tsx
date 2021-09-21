@@ -78,7 +78,7 @@ const PRODUCTS: Product[] = [
     buttonTitle: 'Swap stablecoins',
     buttonBg: Colors.neonOrangeTransparent,
     bg: Colors.neonOrangeDark,
-    href: 'https://mstable.app/#/musd/swap,
+    href: 'https://mstable.app/#/musd/swap',
   },
   {
     key: 'save',
