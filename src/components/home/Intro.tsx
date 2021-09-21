@@ -73,7 +73,7 @@ export const Intro: FC = () => (
       <LinkButton href="https://mstable.app" highlight>
         Use mStable
       </LinkButton>
-      <LinkButton href="https://www.notion.so/mStable-7b694f44df6344369feaa5223b297162">Learn more</LinkButton>
+      <LinkButton href="https://mstable.gitbook.io/mstable-docs">Learn more</LinkButton>
     </Action>
     <BigStats />
   </Container>
