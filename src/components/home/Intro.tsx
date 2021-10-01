@@ -73,7 +73,7 @@ export const Intro: FC = () => (
       <LinkButton href="https://mstable.app" highlight>
         Use mStable
       </LinkButton>
-      <LinkButton href="https://mstable.gitbook.io/mstable-docs">Learn more</LinkButton>
+      <LinkButton href="https://docs.mstable.org/">Learn more</LinkButton>
     </Action>
     <BigStats />
   </Container>

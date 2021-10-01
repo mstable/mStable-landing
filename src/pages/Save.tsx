@@ -190,7 +190,7 @@ export const Save: FC = () => {
               </p>
             </div>
             <Links>
-              <LinkButton highlight href="https://governance.mstable.org/">
+              <LinkButton highlight href="https://staking.mstable.app/">
                 Stake MTA
               </LinkButton>
               <LinkButton highlight href="https://mstable.app/#/musd/save">
