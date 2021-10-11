@@ -22,6 +22,13 @@ handlers:
     http_headers:
       X-Frame-Options: deny
 
+  - url: /reports/(.*\.(gltf|gif|png|svg|ttf|jpeg|jpg|css|css.map|js|jsx|ts|tsx|pdf|scss|ico|json|json.map|txt|xml))$
+    static_files: dist/client/reports/\1
+    secure: always
+    upload: dist/client/reports/(.*)
+    http_headers:
+      X-Frame-Options: deny
+
   - url: /.*
     secure: always
     redirect_http_response_code: 301
