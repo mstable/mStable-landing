@@ -11,6 +11,7 @@ import Curve from '../../images/integrations/curve.png'
 import Sablier from '../../images/integrations/sablier.svg'
 import Uniswap from '../../images/integrations/uniswap.svg'
 import Polygon from '../../images/integrations/polygon.svg'
+import Synthetix from '../../images/integrations/synthetix.svg'
 
 import { ExternalLink } from '../ExternalLink'
 import { Section } from '../layout/Section'
@@ -28,6 +29,12 @@ const partnersList: Props[] = [
     colour: '#ab3994',
     href: 'https://aave.com/',
     image: Aave,
+  },
+  {
+    title: 'Synthetix',
+    colour: '#00d1ff',
+    href: 'https://synthetix.io/',
+    image: Synthetix,
   },
   {
     title: 'Argent',
