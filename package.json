@@ -43,7 +43,7 @@
     "recharts": "1.8.5",
     "resize-observer-polyfill": "1.5.1",
     "styled-components": "^5.2.1",
-    "three": "^0.128.0",
+    "three": "^0.137.0",
     "use-onclickoutside": "^0.4.0",
     "vite-plugin-svgr": "^0.2.0",
     "vite-ssr": "^0.10.0"
