@@ -230,6 +230,11 @@ export const Footer: FC = () => {
             <div>
               <ExternalLink href={MTA_BUY_LINK}>Buy MTA</ExternalLink>
               <ExternalLink href={'https://developers.mstable.org/'}>Docs</ExternalLink>
+              <ExternalLink
+                href={'https://www.notion.so/mstable/Shape-the-future-of-finance-with-mStable-6273a1b556fd4558adb5380925d8d1ac'}
+              >
+                Careers
+              </ExternalLink>
               <ExternalLink href={'https://docs.mstable.org/advanced/brand-assets'}>Brand</ExternalLink>
             </div>
           </div>
