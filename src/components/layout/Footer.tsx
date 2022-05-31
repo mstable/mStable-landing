@@ -6,7 +6,6 @@ import Medium from '../../images/social/medium.svg'
 import Twitter from '../../images/social/twitter.svg'
 import Github from '../../images/social/github.svg'
 import Email from '../../images/social/email.svg'
-import Telegram from '../../images/social/telegram.svg'
 import Notion from '../../images/social/notion.svg'
 import DefiPulse from '../../images/social/defi-pulse.svg'
 import { ExternalLink, LinkChevron, ExternalLinkChevron } from '../ExternalLink'
@@ -186,9 +185,6 @@ const KeepUpdated: FC = () => (
       </ExternalLink>
       <ExternalLink href="https://twitter.com/mstable_">
         <img src={Twitter} alt="Twitter" />
-      </ExternalLink>
-      <ExternalLink href="https://t.me/mstableofficial">
-        <img src={Telegram} alt="Telegram" />
       </ExternalLink>
       <ExternalLink href="https://www.notion.so/mStable-7b694f44df6344369feaa5223b297162">
         <img src={Notion} alt="Notion" />
