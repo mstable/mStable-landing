@@ -1,13 +1,16 @@
-import React, { FC, useRef } from 'react'
+import { useRef } from 'react'
+
 import { Link } from 'react-router-dom'
 import { useToggle } from 'react-use'
 import styled from 'styled-components'
 import useOnClickOutside from 'use-onclickoutside'
 
-import { ReactComponent as MenuIcon } from '../images/icons/menu.svg'
 import { ReactComponent as CloseIcon } from '../images/icons/close.svg'
+import { ReactComponent as MenuIcon } from '../images/icons/menu.svg'
 import { ReactComponent as LogoSvg } from '../images/mstable-logo.svg'
 import { Colors } from '../theme'
+
+import type { FC } from 'react'
 
 const LogoImg = styled(LogoSvg)<{ stable?: number }>`
   height: 20px;

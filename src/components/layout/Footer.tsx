@@ -1,17 +1,18 @@
-import React, { FC } from 'react'
 import styled, { css } from 'styled-components'
 
-import Discord from '../../images/social/discord.svg'
-import Medium from '../../images/social/medium.svg'
-import Twitter from '../../images/social/twitter.svg'
-import Github from '../../images/social/github.svg'
-import Email from '../../images/social/email.svg'
-import Notion from '../../images/social/notion.svg'
-import DefiPulse from '../../images/social/defi-pulse.svg'
-import { ExternalLink, LinkChevron, ExternalLinkChevron } from '../ExternalLink'
-import Signup from '../Signup'
 import { MTA_BUY_LINK } from '../../constants'
+import DefiPulse from '../../images/social/defi-pulse.svg'
+import Discord from '../../images/social/discord.svg'
+import Email from '../../images/social/email.svg'
+import Github from '../../images/social/github.svg'
+import Medium from '../../images/social/medium.svg'
+import Notion from '../../images/social/notion.svg'
+import Twitter from '../../images/social/twitter.svg'
+import { ExternalLink, ExternalLinkChevron, LinkChevron } from '../ExternalLink'
+import Signup from '../Signup'
 import { Section } from './Section'
+
+import type { FC } from 'react'
 
 const Header = styled.h3`
   font-weight: 600;

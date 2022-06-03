@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
 import styled from 'styled-components'
 
-import { Section } from '../components/layout/Section'
-import { TwoColumns as TwoColumnsBase } from '../components/layout/Gridd'
-import { FullBleed } from '../components/layout/FullBleed'
 import { LinkButton } from '../components/CTA'
-import { Colors } from '../theme'
 import { Coins } from '../components/home/GL/Coins'
+import { FullBleed } from '../components/layout/FullBleed'
+import { TwoColumns as TwoColumnsBase } from '../components/layout/Gridd'
+import { Section } from '../components/layout/Section'
+
+import type { FC } from 'react'
 
 const Icons = styled.div`
   display: flex;
@@ -41,16 +41,6 @@ const Links = styled.div`
   > * {
     margin-right: 1rem;
     margin-bottom: 1rem;
-  }
-`
-
-const Headline = styled.span`
-  > span {
-    color: ${Colors.whiteTransparent};
-    > span {
-      color: white;
-      font-weight: 500;
-    }
   }
 `
 

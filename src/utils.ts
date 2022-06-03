@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 import formatDate from 'date-fns/format'
 import Numeral from 'numeral'
 

@@ -1,15 +1,19 @@
-import React, { FC, useLayoutEffect } from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { useLayoutEffect } from 'react'
+
 import { canUseDOM } from 'exenv'
+import { Link } from 'react-router-dom'
+import { useToggle, useWindowScroll } from 'react-use'
+import useMeasure from 'react-use/lib/useMeasure'
+import styled from 'styled-components'
 
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
-import { ExternalLink, ExternalLinkChevron } from '../ExternalLink'
 import { Colors, Constants } from '../../theme'
 import { LinkButton } from '../CTA'
+import { ExternalLink, ExternalLinkChevron } from '../ExternalLink'
 import { MobileNav as UnstyledMobileNav } from '../MobileNav'
-import useMeasure, { UseMeasureRef } from 'react-use/lib/useMeasure'
-import { useToggle, useWindowScroll } from 'react-use'
+
+import type { FC } from 'react'
+import type { UseMeasureRef } from 'react-use/lib/useMeasure'
 
 const LogoImg = styled(LogoSvg)<{ stable?: number }>`
   height: 20px;
@@ -122,7 +126,7 @@ const DesktopLinks: FC = () => (
 const MobileLinks: FC = () => (
   <ul>
     {urls.map(({ title, href }) => (
-      <li>
+      <li key={href}>
         <ExternalLinkChevron href={href}>{title}</ExternalLinkChevron>
       </li>
     ))}
@@ -152,7 +156,7 @@ const NavBarClient: FC = () => {
     if (backgroundVisible && y > bottom) return
     if (!backgroundVisible && y < bottom) return
     setBackgroundVisibility(y > bottom)
-  }, [y, bottom])
+  }, [y, bottom, backgroundVisible, setBackgroundVisibility])
 
   return (
     <Container backgroundFill={backgroundVisible} ref={ref as UseMeasureRef<HTMLDivElement>}>

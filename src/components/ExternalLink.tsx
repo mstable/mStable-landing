@@ -1,6 +1,8 @@
-import React, { FC } from 'react'
 import styled from 'styled-components'
+
 import Arrow from '../images/icons/arrow-circle.svg'
+
+import type { FC } from 'react'
 
 interface Props {
   href: string

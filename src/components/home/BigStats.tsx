@@ -1,9 +1,10 @@
-import React, { FC } from 'react'
 import styled, { css } from 'styled-components'
 
-import { useData } from './DataProvider'
-import { ThemedSkeleton } from '../ThemedSkeleton'
 import { ExternalLink } from '../ExternalLink'
+import { ThemedSkeleton } from '../ThemedSkeleton'
+import { useData } from './DataProvider'
+
+import type { FC } from 'react'
 
 const BTC_PRICE_ESTIMATE = 35000
 

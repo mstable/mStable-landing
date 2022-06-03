@@ -1,11 +1,14 @@
-import React, { FC, useRef, useMemo, Suspense, ComponentProps } from 'react'
-import styled from 'styled-components'
-import { useMedia } from 'react-use'
-import * as THREE from 'three'
+import { Suspense, useMemo, useRef } from 'react'
+
 import { Canvas, useFrame } from '@react-three/fiber'
+import { useMedia } from 'react-use'
+import styled from 'styled-components'
+import * as THREE from 'three'
 
 import { Effects } from './Effects'
 import { Lights } from './Lights'
+
+import type { ComponentProps, FC } from 'react'
 
 const Container = styled.div`
   position: fixed;

@@ -1,12 +1,13 @@
-import React, { FC } from 'react'
 import styled from 'styled-components'
 
-import { Section } from '../components/layout/Section'
-import { TwoColumns as TwoColumnsBase } from '../components/layout/Gridd'
-import { FullBleed } from '../components/layout/FullBleed'
 import { LinkButton } from '../components/CTA'
-import { Colors } from '../theme'
 import { ExternalLink } from '../components/ExternalLink'
+import { FullBleed } from '../components/layout/FullBleed'
+import { TwoColumns as TwoColumnsBase } from '../components/layout/Gridd'
+import { Section } from '../components/layout/Section'
+import { Colors } from '../theme'
+
+import type { FC } from 'react'
 
 const Links = styled.div`
   display: flex;

@@ -1,11 +1,12 @@
-import React, { FC } from 'react'
 import styled from 'styled-components'
 
-import { SpaceCanvas } from '../home/GL/SpaceCanvas'
-import { NavBar } from './Navbar'
-import { Footer } from './Footer'
-import { SEO } from './SEO'
 import { metadata } from '../../strings'
+import { SpaceCanvas } from '../home/GL/SpaceCanvas'
+import { Footer } from './Footer'
+import { NavBar } from './Navbar'
+import { SEO } from './SEO'
+
+import type { FC } from 'react'
 
 interface Props {
   title?: string

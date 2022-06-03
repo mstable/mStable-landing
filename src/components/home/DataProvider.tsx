@@ -1,7 +1,11 @@
-import React, { createContext, FC, useContext, useMemo } from 'react'
-import useAsync, { AsyncState } from 'react-use/lib/useAsync'
+import React, { createContext, useContext } from 'react'
+
+import useAsync from 'react-use/lib/useAsync'
 
 import { STATS_API_ENDPOINT } from '../../constants'
+
+import type { FC } from 'react'
+import type { AsyncState } from 'react-use/lib/useAsync'
 
 interface MassetData {
   // cumulativeInterest: number

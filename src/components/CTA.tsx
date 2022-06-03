@@ -1,8 +1,9 @@
-import React, { ComponentProps, FC } from 'react'
 import styled, { css } from 'styled-components'
 
-import { ExternalLink, Link } from './ExternalLink'
 import { Button } from './Button'
+import { ExternalLink, Link } from './ExternalLink'
+
+import type { ComponentProps, FC } from 'react'
 
 const LinkDefaults = css`
   pointer-events: none;

@@ -1,12 +1,13 @@
-import React, { FC } from 'react'
-import { Area, XAxis, YAxis, Tooltip, AreaChart, ResponsiveContainer } from 'recharts'
-
-import { formatBTCAmount, formatDollarAmount, formatISODate, toK, toK2 } from '../../utils'
-import { Colors } from '../../theme'
-import { useData } from './DataProvider'
 import { useMedia } from 'react-use'
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import styled from 'styled-components'
+
+import { Colors } from '../../theme'
+import { formatBTCAmount, formatDollarAmount, formatISODate, toK, toK2 } from '../../utils'
 import { ThemedSkeleton } from '../ThemedSkeleton'
+import { useData } from './DataProvider'
+
+import type { FC } from 'react'
 
 const Container = styled.div`
   > * {

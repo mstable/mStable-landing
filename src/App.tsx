@@ -1,31 +1,59 @@
-import React, { FC } from 'react'
-import { Switch, Route } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
-import { ThemeProvider } from './context/ThemeProvider'
-
-import { Wrapper } from './components/layout/Wrapper'
-import { NotFound } from './pages/NotFound'
-import { routes } from './routes'
 import './style.css'
 
-export const App: FC = () => {
+import { HelmetProvider } from 'react-helmet-async'
+import { Route, Routes } from 'react-router-dom'
+
+import { Wrapper } from './components/layout/Wrapper'
+import { ThemeProvider } from './context/ThemeProvider'
+import { GovernanceTokenMeta } from './pages/GovernanceTokenMeta'
+import { Home } from './pages/Home'
+import { NotFound } from './pages/NotFound'
+import { Save } from './pages/Save'
+
+import type { FC } from 'react'
+
+export const App: FC<{ url: string }> = ({ url }) => {
   return (
     <HelmetProvider>
       <ThemeProvider>
-        <Switch>
-          {routes.map(({ path, seo: { title, description }, isHome, component: RouteComponent }) => (
-            <Route path={path} exact key={path}>
-              <Wrapper title={title} description={description} path={path}>
-                <RouteComponent />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Wrapper path="/">
+                <Home />
               </Wrapper>
-            </Route>
-          ))}
-          <Route path="*">
-            <Wrapper path={'/404'}>
-              <NotFound />
-            </Wrapper>
-          </Route>
-        </Switch>
+            }
+          />
+          <Route
+            path="save"
+            element={
+              <Wrapper title="mStable Save" description="High yielding savings accounts powered by the mStable AMM" path="save">
+                <Save />
+              </Wrapper>
+            }
+          />
+          <Route
+            path="governance-token-meta"
+            element={
+              <Wrapper
+                title="mStable Governance Token Meta (MTA)"
+                description="Meta (MTA) is the governance token for the DeFi protocol mStable, with staking and yield farming rewards"
+                path="governance-token-meta"
+              >
+                <GovernanceTokenMeta />
+              </Wrapper>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Wrapper path={'/404'}>
+                <NotFound />
+              </Wrapper>
+            }
+          />
+        </Routes>
       </ThemeProvider>
     </HelmetProvider>
   )
