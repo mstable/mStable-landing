@@ -83,7 +83,7 @@ const PRODUCTS: Product[] = [
   {
     key: 'save',
     title: 'Save',
-    tagline: 'High yielding savings accounts, powered by the mStable AMM',
+    tagline: 'Earn yield on your stablecoins',
     icon: SaveIcon,
     hue: Colors.neonBlue,
     buttonTitle: 'Start saving',
@@ -94,7 +94,7 @@ const PRODUCTS: Product[] = [
   {
     key: 'stake',
     title: 'Governance',
-    tagline: 'MTA stakers earn by governing and securing mStable',
+    tagline: 'MTA stakers earn by governing mStable',
     icon: StkMTAIcon,
     hue: Colors.neonPink,
     buttonTitle: 'Govern mStable',

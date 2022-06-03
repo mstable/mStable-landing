@@ -58,6 +58,27 @@ const Social = styled.div`
   }
 `
 
+const RiskContainer = styled.span`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 2;
+  font-size: 1rem;
+  padding: 0 2rem;
+
+  a {
+    font-weight: normal;
+    opacity: 0.5;
+    font-size: 1rem;
+    color: white;
+  }
+`
+
+const RiskLabel = styled.span`
+  text-align: center;
+`
+
 const Top = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -196,11 +217,22 @@ const KeepUpdated: FC = () => (
   </Social>
 )
 
+const Risk: FC = () => (
+  <RiskContainer>
+    <RiskLabel>
+      All DeFi products carry risk. Please do your own research before using.<br/>
+      <a href="https://docs.mstable.org/advanced/app-usage-terms-and-conditions">Read more ↗</a>
+    </RiskLabel>
+  </RiskContainer>
+)
+
 export const Footer: FC = () => {
   return (
     <Container>
+      <Risk />
       <TopFooter>
         <KeepUpdated />
+
         <Top>
           <div>
             <Header>Protocol</Header>
@@ -217,6 +249,7 @@ export const Footer: FC = () => {
           </div>
         </Top>
       </TopFooter>
+
       <Bottom>
         <BottomFooter>
           <div>
