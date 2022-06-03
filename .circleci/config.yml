@@ -7,7 +7,7 @@ executors:
     resource_class: medium
   node:
     docker:
-      - image: circleci/node:15.3.0
+      - image: circleci/node:16.13.1
     resource_class: medium
 jobs:
   build:
