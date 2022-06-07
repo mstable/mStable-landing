@@ -61,7 +61,7 @@ const PRODUCTS: Product[] = [
   {
     key: 'massets',
     title: 'mAssets',
-    tagline: 'Meta stablecoins used as stable value throughout DeFi',
+    tagline: 'Use meta Assets for stable value throughout DeFi',
     icon: mAssetIcon,
     hue: Colors.neonPurple,
     buttonTitle: 'Use mAssets',
@@ -72,7 +72,7 @@ const PRODUCTS: Product[] = [
   {
     key: 'amm',
     title: 'mStable AMM',
-    tagline: 'Capital efficient AMM that supports low slippage stablecoin and bitcoin swaps',
+    tagline: 'Swap stablecoins and bitcoin assets with low slippage',
     icon: AMMIcon,
     hue: Colors.neonOrange,
     buttonTitle: 'Swap stablecoins',
@@ -83,7 +83,7 @@ const PRODUCTS: Product[] = [
   {
     key: 'save',
     title: 'Save',
-    tagline: 'Earn yield on your stablecoins',
+    tagline: 'Earn yield powered by DeFi lending markets and swap fees',
     icon: SaveIcon,
     hue: Colors.neonBlue,
     buttonTitle: 'Start saving',
@@ -94,7 +94,7 @@ const PRODUCTS: Product[] = [
   {
     key: 'stake',
     title: 'Governance',
-    tagline: 'MTA stakers earn by governing mStable',
+    tagline: 'Govern mStable by staking MTA and earn rewards',
     icon: StkMTAIcon,
     hue: Colors.neonPink,
     buttonTitle: 'Govern mStable',
