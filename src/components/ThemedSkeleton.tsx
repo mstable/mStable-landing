@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { ComponentProps, FC } from 'react'
+
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import styled from 'styled-components'
+
+import type { ComponentProps, FC } from 'react'
 
 const Container = styled.div`
   > div > span > * {

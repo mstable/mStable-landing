@@ -1,32 +1,39 @@
-import React, { FC } from 'react'
-import { Switch, Route } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
-import { ThemeProvider } from './context/ThemeProvider'
-
-import { Wrapper } from './components/layout/Wrapper'
-import { NotFound } from './pages/NotFound'
-import { routes } from './routes'
 import './style.css'
 
-export const App: FC = () => {
-  return (
-    <HelmetProvider>
-      <ThemeProvider>
-        <Switch>
-          {routes.map(({ path, seo: { title, description }, isHome, component: RouteComponent }) => (
-            <Route path={path} exact key={path}>
+import { HelmetProvider } from 'react-helmet-async'
+import { Route, Routes } from 'react-router-dom'
+
+import { Wrapper } from './components/layout/Wrapper'
+import { ThemeProvider } from './context/ThemeProvider'
+import { NotFound } from './pages/NotFound'
+import { routes } from './routes'
+
+import type { FC } from 'react'
+
+export const App: FC = () => (
+  <HelmetProvider>
+    <ThemeProvider>
+      <Routes>
+        {routes.map(({ path, seo: { title, description }, component: RouteComponent }) => (
+          <Route
+            path={path}
+            key={path}
+            element={
               <Wrapper title={title} description={description} path={path}>
                 <RouteComponent />
               </Wrapper>
-            </Route>
-          ))}
-          <Route path="*">
+            }
+          />
+        ))}
+        <Route
+          path="*"
+          element={
             <Wrapper path={'/404'}>
               <NotFound />
             </Wrapper>
-          </Route>
-        </Switch>
-      </ThemeProvider>
-    </HelmetProvider>
-  )
-}
+          }
+        />
+      </Routes>
+    </ThemeProvider>
+  </HelmetProvider>
+)

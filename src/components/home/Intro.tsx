@@ -1,9 +1,10 @@
-import React, { FC } from 'react'
 import styled from 'styled-components'
 
-import { Section } from '../layout/Section'
 import { LinkButton } from '../CTA'
+import { Section } from '../layout/Section'
 import { BigStats } from './BigStats'
+
+import type { FC } from 'react'
 
 const Action = styled.div`
   display: flex;

@@ -1,10 +1,13 @@
-import React, { FC, ReactNode } from 'react'
-// @ts-ignore
+import React from 'react'
 
-import { Section } from '../layout/Section'
 import styled from 'styled-components'
+
 import { Colors } from '../../theme'
 import { LinkButton } from '../CTA'
+// @ts-ignore
+import { Section } from '../layout/Section'
+
+import type { FC, ReactNode } from 'react'
 
 interface Product {
   key: string
@@ -234,6 +237,7 @@ export const Products: FC = () => (
   <Container h1="Explore our products">
     <Inner>
       {PRODUCTS.map((product) => (
+        // eslint-disable-next-line react/jsx-key
         <Card {...product} />
       ))}
     </Inner>

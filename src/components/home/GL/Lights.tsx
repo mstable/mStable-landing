@@ -1,6 +1,9 @@
-import * as THREE from 'three'
-import React, { FC, useRef } from 'react'
+import React, { useRef } from 'react'
+
 import { useFrame } from '@react-three/fiber'
+
+import type { FC } from 'react'
+import type * as THREE from 'three'
 
 const roundedSquareWave = (t: number, delta: number, amp: number, freq: number): number =>
   ((2 * amp) / Math.PI) * Math.atan(Math.sin(2 * Math.PI * t * freq) / delta)

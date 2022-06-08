@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
-
 import { EffectComposer, SMAA, Vignette } from '@react-three/postprocessing'
+
+import type { FC } from 'react'
 
 export const Effects: FC = () => (
   <EffectComposer>

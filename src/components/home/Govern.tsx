@@ -1,15 +1,16 @@
-import React, { FC } from 'react'
 import styled from 'styled-components'
-// @ts-ignore
 
-import { Section } from '../layout/Section'
-import { LinkButton } from '../CTA'
-import { Colors } from '../../theme'
-import { ExternalLink } from '../ExternalLink'
 import Bancor from '../../images/exchange/bancor.svg'
-import Uniswap from '../../images/exchange/uniswap.svg'
 import Ftx from '../../images/exchange/ftx.svg'
 import Huobi from '../../images/exchange/huobi.svg'
+import Uniswap from '../../images/exchange/uniswap.svg'
+import { Colors } from '../../theme'
+import { LinkButton } from '../CTA'
+import { ExternalLink } from '../ExternalLink'
+// @ts-ignore
+import { Section } from '../layout/Section'
+
+import type { FC } from 'react'
 
 const ExchangeContainer = styled.div`
   a {

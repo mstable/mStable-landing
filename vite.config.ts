@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite'
-import reactRefresh from '@vitejs/plugin-react-refresh'
 import svgr from 'vite-plugin-svgr'
-// @ts-ignore
 import viteSSR from 'vite-ssr/plugin.js'
+import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svgr(), viteSSR({ features: { reactStyledComponents: true } }), reactRefresh()],
+  plugins: [svgr(), viteSSR(), react()],
   build: {
     assetsInlineLimit: 1,
   },

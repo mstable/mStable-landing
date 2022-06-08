@@ -1,0 +1,6 @@
+**/dist
+**/coverage
+**/node_modules
+**/*.js
+lib
+vite.config.ts

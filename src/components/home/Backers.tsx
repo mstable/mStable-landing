@@ -1,15 +1,14 @@
-import React, { FC } from 'react'
-
 import styled, { css } from 'styled-components'
 
-import { Section } from '../layout/Section'
-import { ExternalLink } from '../ExternalLink'
-
-import Defiance from '../../images/backers/defiance_cap.png'
-import DACM from '../../images/backers/dacm.png'
 import Alameda from '../../images/backers/alameda.png'
+import DACM from '../../images/backers/dacm.png'
+import Defiance from '../../images/backers/defiance_cap.png'
 import ThreeArrows from '../../images/backers/three_arrows.png'
 import TwitterIcon from '../../images/social/twitter.svg'
+import { ExternalLink } from '../ExternalLink'
+import { Section } from '../layout/Section'
+
+import type { FC } from 'react'
 
 interface BackerProps {
   title: string

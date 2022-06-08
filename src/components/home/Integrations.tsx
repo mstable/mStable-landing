@@ -1,4 +1,3 @@
-import React, { FC } from 'react'
 import styled from 'styled-components'
 
 import OneInch from '../../images/integrations/1inch.svg'
@@ -6,15 +5,16 @@ import Aave from '../../images/integrations/aave.svg'
 import Argent from '../../images/integrations/argent.svg'
 import Balancer from '../../images/integrations/balancer.svg'
 import Compound from '../../images/integrations/compound.svg'
-import Matcha from '../../images/integrations/matcha.png'
 import Curve from '../../images/integrations/curve.png'
-import Sablier from '../../images/integrations/sablier.svg'
-import Uniswap from '../../images/integrations/uniswap.svg'
+import Matcha from '../../images/integrations/matcha.png'
 import Polygon from '../../images/integrations/polygon.svg'
+import Sablier from '../../images/integrations/sablier.svg'
 import Synthetix from '../../images/integrations/synthetix.svg'
-
+import Uniswap from '../../images/integrations/uniswap.svg'
 import { ExternalLink } from '../ExternalLink'
 import { Section } from '../layout/Section'
+
+import type { FC } from 'react'
 
 interface Props {
   title: string

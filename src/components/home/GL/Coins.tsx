@@ -1,10 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Suspense, useRef } from 'react'
+
 import { useGLTF } from '@react-three/drei'
-import { Canvas, RenderCallback, useFrame } from '@react-three/fiber'
-import React, { ComponentProps, FC, MutableRefObject, Suspense, useRef } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
 import styled from 'styled-components'
-import { Group } from 'three'
+
 import { Effects } from './Effects'
 import { Lights } from './Lights'
+
+import type { RenderCallback } from '@react-three/fiber'
+import type { ComponentProps, FC, MutableRefObject } from 'react'
+import type { Group } from 'three'
 
 const Container = styled.div`
   display: flex;
