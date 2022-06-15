@@ -37,10 +37,10 @@ const partnersList: Props[] = [
     image: Synthetix,
   },
   {
-    title: 'Argent',
-    colour: '#ff875b',
-    href: 'https://www.argent.xyz/',
-    image: Argent,
+    title: 'Minke',
+    colour: '#01b6d0',
+    href: 'https://www.minke.app/',
+    image: Minke,
   },
   {
     title: 'Balancer',
