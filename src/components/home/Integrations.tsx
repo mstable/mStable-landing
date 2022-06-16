@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 import OneInch from '../../images/integrations/1inch.svg'
 import Aave from '../../images/integrations/aave.svg'
-import Argent from '../../images/integrations/argent.svg'
 import Balancer from '../../images/integrations/balancer.svg'
 import Compound from '../../images/integrations/compound.svg'
 import Curve from '../../images/integrations/curve.png'
 import Matcha from '../../images/integrations/matcha.png'
+import Minke from '../../images/integrations/minke.png'
 import Polygon from '../../images/integrations/polygon.svg'
 import Sablier from '../../images/integrations/sablier.svg'
 import Synthetix from '../../images/integrations/synthetix.svg'
@@ -37,10 +37,10 @@ const partnersList: Props[] = [
     image: Synthetix,
   },
   {
-    title: 'Argent',
-    colour: '#ff875b',
-    href: 'https://www.argent.xyz/',
-    image: Argent,
+    title: 'Minke',
+    colour: '#01b6d0',
+    href: 'https://www.minke.app/',
+    image: Minke,
   },
   {
     title: 'Balancer',
