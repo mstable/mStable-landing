@@ -47,6 +47,7 @@ interface Data {
     musd: ChartData
     mbtc: ChartData
   }
+  tvl: number
 }
 
 interface MassetMetrics {
@@ -98,17 +99,18 @@ export const useData = () => useContext(ctx)
 
 export const DataProvider: FC = ({ children }) => {
   const ctxValue = useAsync(async (): Promise<Data> => {
-    const responses = await Promise.all(['massets', 'stakers'].map((resource) => fetch(`${STATS_API_ENDPOINT}/${resource}`)))
+    const responses = await Promise.all(['massets', 'stakers', 'tvl'].map((resource) => fetch(`${STATS_API_ENDPOINT}/${resource}`)))
 
-    const [{ musd, mbtc }, { totalStakers, totalStaked, totalStakedUSD }] = (await Promise.all(
+    const [{ musd, mbtc }, { totalStakers, totalStaked, totalStakedUSD }, { tvl }] = (await Promise.all(
       responses.map((response) => response.json()),
-    )) as [{ musd: Masset; mbtc: Masset }, { totalStakers: number; totalStaked: number; totalStakedUSD?: number }]
+    )) as [{ musd: Masset; mbtc: Masset }, { totalStakers: number; totalStaked: number; totalStakedUSD?: number }, { tvl: number }]
 
     return {
       musd: musd.metrics.current,
       mbtc: mbtc.metrics.current,
       mta: { totalStaked, totalStakers, totalStakedUSD },
       charts: { musd: getChartData(musd.metrics.historic), mbtc: getChartData(mbtc.metrics.historic) },
+      tvl,
     } as Data
   }, [])
 

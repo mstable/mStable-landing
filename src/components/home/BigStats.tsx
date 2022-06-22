@@ -98,6 +98,19 @@ const StatsSection = styled.div`
   }
 `
 
+function moneyFormat(amount: number) {
+  // Nine Zeroes for Billions
+  return Math.abs(Number(amount)) >= 1.0e9
+    ? (Math.abs(Number(amount)) / 1.0e9).toFixed(1) + 'B'
+    : // Six Zeroes for Millions
+    Math.abs(Number(amount)) >= 1.0e6
+    ? (Math.abs(Number(amount)) / 1.0e6).toFixed(1) + 'M'
+    : // Three Zeroes for Thousands
+    Math.abs(Number(amount)) >= 1.0e3
+    ? (Math.abs(Number(amount)) / 1.0e3).toFixed(1) + 'k'
+    : Math.abs(Number(amount))
+}
+
 export const BigStats: FC = () => {
   const { loading, value } = useData()
 
@@ -120,9 +133,9 @@ export const BigStats: FC = () => {
         {!loading && value?.mta?.totalStakers ? <h3>{value.mta.totalStakers}</h3> : <Skeleton />}
         <p>Active Governors</p>
       </BigStatLink>
-      <BigStatLink href="https://dune.xyz/derc/mta-community">
-        {!loading && value?.musd?.dailyAPY ? <h3>{Math.floor(value.musd.dailyAPY)}%</h3> : <Skeleton />}
-        <p>Average USD APY</p>
+      <BigStatLink href="https://defillama.com/protocol/mstable">
+        {!loading && value?.tvl ? <h3>{moneyFormat(value.tvl)}</h3> : <Skeleton />}
+        <p>TVL(USD)</p>
       </BigStatLink>
       <BigStatLink href="https://www.coingecko.com/en/coins/meta">
         {!loading && mtaPrice ? <h3>${mtaPrice.toFixed(2)}</h3> : <Skeleton />}
