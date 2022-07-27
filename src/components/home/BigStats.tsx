@@ -134,8 +134,8 @@ export const BigStats: FC = () => {
         <p>Active Governors</p>
       </BigStatLink>
       <BigStatLink href="https://defillama.com/protocol/mstable">
-        {!loading && value?.tvl ? <h3>{moneyFormat(value.tvl)}</h3> : <Skeleton />}
-        <p>TVL(USD)</p>
+        {!loading && value?.tvl ? <h3>${moneyFormat(value.tvl)}</h3> : <Skeleton />}
+        <p>TVL (USD)</p>
       </BigStatLink>
       <BigStatLink href="https://www.coingecko.com/en/coins/meta">
         {!loading && mtaPrice ? <h3>${mtaPrice.toFixed(2)}</h3> : <Skeleton />}
