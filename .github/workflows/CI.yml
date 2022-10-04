@@ -37,7 +37,7 @@ jobs:
         id: deploy
         uses: "google-github-actions/deploy-appengine@v0"
         with:
-          deliverables: "./app.yaml"
+          deliverables: 'app.yml'
 
       - name: Discord notification
         env:
