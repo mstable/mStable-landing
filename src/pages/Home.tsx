@@ -1,4 +1,3 @@
-import { Backers } from '../components/home/Backers'
 import { DataProvider } from '../components/home/DataProvider'
 import { Govern } from '../components/home/Govern'
 import { Integrations } from '../components/home/Integrations'
@@ -14,7 +13,7 @@ export const Home: FC = () => {
       <Products />
       <Integrations />
       <Govern />
-      <Backers />
+      {/* <Backers /> */}
     </DataProvider>
   )
 }
