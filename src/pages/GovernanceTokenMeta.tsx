@@ -186,16 +186,13 @@ export const GovernanceTokenMeta: FC = () => {
             <div>
               <h4>Where can I buy mStable MTA?</h4>
               <p>
-                MTA is traded on major exchanges like <span>Huobi</span> and <span>FTX</span>, and decentralized exchanges like{' '}
+                MTA is traded on major exchanges like <span>Huobi</span> and decentralized exchanges like{' '}
                 <span>Uniswap</span>.
               </p>
             </div>
             <Links>
               <LinkButton highlight href="https://app.uniswap.org/#/swap?outputCurrency=0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2">
                 Uniswap
-              </LinkButton>
-              <LinkButton highlight href="https://ftx.com/trade/MTA/USD">
-                FTX
               </LinkButton>
               <LinkButton highlight href="https://www.huobi.com/en-us/exchange/?s=mta_usdt">
                 Huobi
