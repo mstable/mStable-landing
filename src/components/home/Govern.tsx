@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import Bancor from '../../images/exchange/bancor.svg'
-import Ftx from '../../images/exchange/ftx.svg'
 import Huobi from '../../images/exchange/huobi.svg'
 import Uniswap from '../../images/exchange/uniswap.svg'
 import { Colors } from '../../theme'
@@ -77,9 +76,6 @@ export const Govern: FC = () => {
       <ExchangeContainer>
         <ExternalLink href="https://app.bancor.network/eth/swap?from=0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C&to=0xa3BeD4E1c75D00fa6f4E5E6922DB7261B5E9AcD2">
           <img src={Bancor} alt="Buy on Bancor" />
-        </ExternalLink>
-        <ExternalLink href="https://ftx.com/trade/MTA/USD">
-          <img src={Ftx} alt="Buy on FTX" />
         </ExternalLink>
         <ExternalLink href="https://www.huobi.com/en-us/exchange/mta_eth">
           <img src={Huobi} alt="https://www.huobi.com/en-us/exchange/mta_eth/" />
