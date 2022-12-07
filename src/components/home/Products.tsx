@@ -291,7 +291,7 @@ export const Products: FC = () => (
         <img src={Metavault} />
       </div>
       <h3 className="title">Meta Vaults</h3>
-      <p className="tagline">Earn diversified yield across DeFi. DIMITRI NEEDS TO ADD TEXT HERE</p>
+      <p className="tagline">Meta Vaults are the future of decentralized finance (DeFi), offering users an easy and accessible way to generate yield. Our yield-generating strategies are implemented using smart contracts and combine and compose multiple yield sources into one, allowing to earn a yield that is diversified and adaptable to market conditions. <br></br>With Meta Vaults, users no longer need to interact with multiple DeFi products to get exposure to yield generating strategies - it is all integrated into the Meta Vault. Try Meta Vaults today and discover a simpler way to generate yield in the world of DeFi.</p>
       <LinkButton href="https://yield.mstable.org">Use Meta Vaults</LinkButton>
     </MvContainer>
     <Inner>
