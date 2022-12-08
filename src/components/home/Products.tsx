@@ -2,6 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
+import Metavault from '../../images/integrations/metavault.svg'
 import { Colors } from '../../theme'
 import { LinkButton } from '../CTA'
 // @ts-ignore
@@ -222,6 +223,56 @@ const Container = styled(Section)`
   }
 `
 
+const MvContainer = styled.div`
+  background: linear-gradient(
+    125deg,
+    ${Colors.neonPurpleTransparent} 0%,
+    ${Colors.neonOrangeTransparent} 25%,
+    ${Colors.neonBlueTransparent} 50%,
+    ${Colors.neonPinkTransparent} 75%
+  );
+  backdrop-filter: opacity(90%) contrast(120%);
+  margin: 2rem;
+  border-radius: 1rem;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  .title {
+    font-size: 2rem;
+    font-weight: 500;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  .tagline {
+    opacity: 0.8;
+    font-size: 1rem;
+  }
+
+  button {
+    background: linear-gradient(
+      125deg,
+      ${Colors.neonPurpleTransparent} 0%,
+      ${Colors.neonOrangeTransparent} 25%,
+      ${Colors.neonBlueTransparent} 50%,
+      ${Colors.neonPinkTransparent} 75%
+    );
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    min-width: 212px;
+
+    &:hover {
+      box-shadow: 0 0 0.5rem ${Colors.neonBlueTransparent};
+      transform: scale(1.02);
+    }
+  }
+`
+
 const Card: FC<Product> = ({ title, tagline, icon, bg, hue, buttonBg, href, buttonTitle }) => (
   <CardContainer hue={hue} bg={bg} buttonBg={buttonBg}>
     <div>{icon}</div>
@@ -235,6 +286,14 @@ const Card: FC<Product> = ({ title, tagline, icon, bg, hue, buttonBg, href, butt
 
 export const Products: FC = () => (
   <Container h1="Explore our products">
+    <MvContainer>
+      <div className="icon">
+        <img src={Metavault} />
+      </div>
+      <h3 className="title">Meta Vaults</h3>
+      <p className="tagline">Meta Vaults are the future of decentralized finance. Our yield-generating strategies are implemented using smart contracts and combine and compose multiple yield sources into one, allowing to earn a yield that is diversified and adaptable to market conditions. </p>
+      <LinkButton href="https://yield.mstable.org">Use Meta Vaults</LinkButton>
+    </MvContainer>
     <Inner>
       {PRODUCTS.map((product) => (
         // eslint-disable-next-line react/jsx-key
