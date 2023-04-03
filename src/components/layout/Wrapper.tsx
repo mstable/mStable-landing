@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { metadata } from '../../strings'
 import { SpaceCanvas } from '../home/GL/SpaceCanvas'
-import { Banner } from './Banner'
 import { Footer } from './Footer'
 import { NavBar } from './Navbar'
 import { SEO } from './SEO'
@@ -44,7 +43,6 @@ export const Wrapper: FC<Props> = ({ children, path, title, description }) => (
     <Container>
       <SpaceCanvas />
       <NavBar />
-      <Banner />
       <Inner>
         <div>{children}</div>
       </Inner>

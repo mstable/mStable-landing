@@ -22,10 +22,10 @@ const Action = styled.div`
 `
 
 const Container = styled(Section)`
+  margin-top: 0;
+  padding-top: 0;
   > header {
-    @media (max-width: calc(480px - 1px)) {
-      margin-top: 0;
-    }
+    margin-top: 0;
   }
 
   > div:last-child {

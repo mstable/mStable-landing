@@ -1,3 +1,4 @@
+import { Banner } from '../components/home/Banner'
 import { DataProvider } from '../components/home/DataProvider'
 import { Govern } from '../components/home/Govern'
 import { Integrations } from '../components/home/Integrations'
@@ -9,6 +10,7 @@ import type { FC } from 'react'
 export const Home: FC = () => {
   return (
     <DataProvider>
+      <Banner />
       <Intro />
       <Products />
       <Integrations />
