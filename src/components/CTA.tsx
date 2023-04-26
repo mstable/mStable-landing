@@ -34,23 +34,24 @@ export const CTA: FC<ComponentProps<typeof ExternalLink> & { arrow?: boolean }> 
   )
 }
 
-export const LinkButton: FC<ComponentProps<typeof ExternalLink> & { highlight?: boolean; external?: boolean }> = ({
+export const LinkButton: FC<ComponentProps<typeof ExternalLink> & { highlight?: boolean; external?: boolean; disabled?: boolean }> = ({
   children,
   className,
   title,
   href,
   highlight,
   external = true,
+  disabled = false,
 }) => {
   return external ? (
     <StyledExternalLink href={href} title={title}>
-      <Button className={className} highlight={highlight}>
+      <Button className={className} highlight={highlight} disabled={disabled}>
         {children}
       </Button>
     </StyledExternalLink>
   ) : (
     <StyledLink href={href} title={title}>
-      <Button className={className} highlight={highlight}>
+      <Button className={className} highlight={highlight} disabled={disabled}>
         {children}
       </Button>
     </StyledLink>

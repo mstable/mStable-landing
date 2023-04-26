@@ -93,17 +93,8 @@ const urls: {
   isButton?: boolean
 }[] = [
   {
-    title: 'Analytics',
-    href: 'https://duneanalytics.com/derc/mta-community',
-  },
-  {
-    title: 'Governance',
-    href: 'https://staking.mstable.app',
-  },
-  {
-    title: 'Use mStable',
-    href: 'https://mstable.app',
-    isButton: true,
+    title: 'Withdraw',
+    href: 'https://withdraw.mstable.app',
   },
 ]
 

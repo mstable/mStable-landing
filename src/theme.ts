@@ -57,6 +57,9 @@ export const mixins = {
       }
     }
   `,
+  sectionSpacing: css`
+    margin: 5rem 0;
+  `,
 }
 
 export const defaultTheme: DefaultTheme = {
