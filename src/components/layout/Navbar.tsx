@@ -93,8 +93,9 @@ const urls: {
   isButton?: boolean
 }[] = [
   {
-    title: 'Withdraw',
+    title: 'Legacy Support',
     href: 'https://withdraw.mstable.app',
+    isButton: true,
   },
 ]
 
@@ -103,7 +104,7 @@ const DesktopLinks: FC = () => (
     {urls.map(({ title, href, isButton = false }) => (
       <li key={title}>
         {isButton ? (
-          <LinkButton external={false} href={href} highlight>
+          <LinkButton external={false} href={href}>
             {title}
           </LinkButton>
         ) : (
