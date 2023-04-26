@@ -52,7 +52,7 @@ export const Adverts: FC = () => {
             Bridge to Optimism
           </LinkButton>
           <LinkButton href="https://app.velodrome.finance/liquidity/manage?address=0x66a8bd7ccfd52bfb5bc838d149fba78e6920303f" highlight>
-            Earn x% APY
+            Earn{apr > 1 && ` ${apr.toFixed(2)}% APR`}
           </LinkButton>
         </CardActions>
       </Card>
