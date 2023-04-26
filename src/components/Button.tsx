@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Colors } from '../theme'
 
-export const Button = styled.button<{ highlight?: boolean }>`
+export const Button = styled.button<{ highlight?: boolean; disabled?: boolean }>`
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -14,7 +14,7 @@ export const Button = styled.button<{ highlight?: boolean }>`
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  background: ${({ highlight }) => (highlight ? Colors.blue : '#3e4b60')};
+  background: ${({ highlight, disabled }) => (highlight ? Colors.blue : disabled ? 'rgba(62,75,96, 0.3)' : '#3e4b60')};
   color: white;
   transition: transform 0.25s ease-out;
 
@@ -28,6 +28,12 @@ export const Button = styled.button<{ highlight?: boolean }>`
   &:focus {
     color: white;
     transform: scale(1.025);
+
+    ${({ disabled }) =>
+      disabled && {
+        cursor: 'default',
+        transform: 'none',
+      }}
   }
 
   // flex-gap polyfill fail

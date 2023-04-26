@@ -186,8 +186,7 @@ export const GovernanceTokenMeta: FC = () => {
             <div>
               <h4>Where can I buy mStable MTA?</h4>
               <p>
-                MTA is traded on major exchanges like <span>Huobi</span> and decentralized exchanges like{' '}
-                <span>Uniswap</span>.
+                MTA is traded on major exchanges like <span>Huobi</span> and decentralized exchanges like <span>Uniswap</span>.
               </p>
             </div>
             <Links>
