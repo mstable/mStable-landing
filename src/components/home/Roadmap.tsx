@@ -31,7 +31,7 @@ const Container = styled.section`
 
 export const Roadmap = () => {
   return (
-    <Section h1="Roadmap" h2="Have a look at the future of mStable Yield product">
+    <Section h1="Roadmap" h2="Have a look at the future of mStable">
       <Container>
         <div>
           <h3>Phase 1 - Increased Focus</h3>
