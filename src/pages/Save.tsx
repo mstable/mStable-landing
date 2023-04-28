@@ -146,7 +146,7 @@ export const Save: FC = () => {
           </Icons>
           <div>
             <h3>
-              mStable deposits your assets to decentralised lending markets to earn a base interest rate. This rate is then further
+              mStable deposits your assets to decentralized lending markets to earn a base interest rate. This rate is then further
               increased by distributing mStable Swap fees and liquidating external protocol incentives.
             </h3>
           </div>

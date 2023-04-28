@@ -187,7 +187,7 @@ const Integration: FC<Props> = ({ href, colour, image, title }) => {
 }
 
 export const Integrations: FC = () => (
-  <Section h1="Open & decentralised" h2="Integrated with leading protocols">
+  <Section h1="Open & decentralized" h2="Integrated with leading protocols">
     <Icons>
       {partnerRows.map((row, i) => (
         <div key={`${i}-${row[0].title}`}>
