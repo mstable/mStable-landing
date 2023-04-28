@@ -37,7 +37,7 @@ export const Ecosystem = () => {
             </ExternalLink>
           </CardHeader>
           <CardContent>
-            <p>Create your own vault of find the best asset managers.</p>
+            <p>Create your own vault or find the best asset managers.</p>
           </CardContent>
         </Card>
       </Container>
