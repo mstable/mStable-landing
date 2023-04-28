@@ -9,6 +9,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
 
   img {
