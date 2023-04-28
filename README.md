@@ -27,4 +27,4 @@ This project uses:
 
 - `/src/pages/*.tsx`: Pages defined here are served on routes dynamically (based on the file name).
 - `/src/components/SEO.tsx`: All meta titles and descriptions are here.
-- `/src/components/images/*`: All images used in page content, including SVGs.
+- `/src/components/images/*`: All images used in page content, including SVGs
