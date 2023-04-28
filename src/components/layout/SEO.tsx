@@ -29,7 +29,7 @@ export const SEO: FC<Props> = ({ title, description, path }) => {
         { name: 'og:url', content: url },
         { name: 'rating', content: 'General' },
         { name: 'robots', content: 'index,follow' },
-        { name: 'subject', content: 'A decentralised stablecoin ecosystem' },
+        { name: 'subject', content: 'A decentralized stablecoin ecosystem' },
         { name: 'twitter:description', content: description },
         { name: 'twitter:title', content: title },
         { name: 'twitter:url', content: url },

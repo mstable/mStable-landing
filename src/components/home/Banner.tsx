@@ -45,7 +45,10 @@ export const Banner = () => {
           This strategic acquisition marks a significant milestone for mStable, positioning us to become a leading yield vault aggregator
           across multiple chains and broaden our reach within the DeFi ecosystem.
         </p>
-        <LinkButton highlight href="https://forum.mstable.org/t/dhedge-acquisition-update/1024">
+        <LinkButton
+          highlight
+          href="https://medium.com/mstable/mstable-acquisition-completed-by-dhedge-the-next-chapter-of-defi-yield-vaults-begins-79a326157132"
+        >
           Read More
         </LinkButton>
       </Modal>

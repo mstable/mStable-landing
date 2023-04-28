@@ -138,7 +138,7 @@ export const GovernanceTokenMeta: FC = () => {
           <img alt="mStable MTA Token" src="/tokens/mta.png" />
           <div>
             <h3>
-              Meta (<span>MTA</span>) coordinates mStable’s decentralised governance, fosters long-term alignment for stakeholders, and
+              Meta (<span>MTA</span>) coordinates mStable’s decentralized governance, fosters long-term alignment for stakeholders, and
               creates value for the protocol and its users. &nbsp;
               <ExternalLink href="https://coingecko.com/en/coins/meta">See MTA on Coingecko</ExternalLink>
             </h3>

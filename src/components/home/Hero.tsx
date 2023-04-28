@@ -53,6 +53,6 @@ const Container = styled(Section)`
 export const Hero: FC = () => (
   <Container
     h1="Decentralised Stablecoin Ecosystem"
-    h2="Trade and earn yield on your stablecoins on mStable, a decentralised and non-custodial protocol powered by $MTA"
+    h2="Trade and earn yield on your stablecoins on mStable, a decentralized and non-custodial protocol powered by $MTA"
   />
 )
