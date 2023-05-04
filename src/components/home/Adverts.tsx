@@ -27,7 +27,7 @@ export const Adverts: FC = () => {
       try {
         const { data } = await (await fetch(VELODROME_API_ENDPOINT)).json()
         const a = data.find((d: { symbol: string }) => d.symbol === 'vAMM-USDC/MTA').apr
-        setApr(a * 100)
+        setApr(a)
       } catch {
         setApr(0)
       }
