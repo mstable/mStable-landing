@@ -221,7 +221,8 @@ const KeepUpdated: FC = () => (
 const Risk: FC = () => (
   <RiskContainer>
     <RiskLabel>
-      All DeFi products carry risk. Please do your own research before using.<br/>
+      All DeFi products carry risk. Please do your own research before using.
+      <br />
       <a href="https://docs.mstable.org/advanced/app-usage-terms-and-conditions">Read more ↗</a>
     </RiskLabel>
   </RiskContainer>
@@ -237,7 +238,7 @@ export const Footer: FC = () => {
         <Top>
           <div>
             <Header>Protocol</Header>
-            <ExternalLinkChevron href="https://mstable.app">App</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://yield.mstable.app/">App</ExternalLinkChevron>
             <ExternalLinkChevron href="https://docs.mstable.org/">Documentation</ExternalLinkChevron>
             <ExternalLinkChevron href="https://developers.mstable.org/">Developers</ExternalLinkChevron>
             <LinkChevron href="/save">About Save</LinkChevron>
