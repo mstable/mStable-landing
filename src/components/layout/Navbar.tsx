@@ -91,7 +91,14 @@ const urls: {
   title: string
   href: string
   isButton?: boolean
+  highlight?: boolean
 }[] = [
+  {
+    title: 'Open App',
+    href: 'https://yield.mstable.app/',
+    isButton: true,
+    highlight: true,
+  },
   {
     title: 'Legacy Support',
     href: 'https://withdraw.mstable.app',
@@ -101,10 +108,10 @@ const urls: {
 
 const DesktopLinks: FC = () => (
   <ul>
-    {urls.map(({ title, href, isButton = false }) => (
+    {urls.map(({ title, href, isButton = false, highlight }) => (
       <li key={title}>
         {isButton ? (
-          <LinkButton external={false} href={href}>
+          <LinkButton external={false} href={href} highlight={highlight}>
             {title}
           </LinkButton>
         ) : (

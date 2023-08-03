@@ -28,8 +28,8 @@ export const Products: FC = () => {
           <p>New yield products to earn best in market yields.</p>
         </CardContent>
         <CardActions>
-          <LinkButton href="" disabled>
-            More Coming Soon
+          <LinkButton href="https://yield.mstable.app" highlight external={false}>
+            mStable Yield App
           </LinkButton>
         </CardActions>
       </Card>
@@ -41,7 +41,9 @@ export const Products: FC = () => {
           <p>Withdraw from your legacy mStable product positions.</p>
         </CardContent>
         <CardActions>
-          <LinkButton href="https://withdraw.mstable.app">Legacy Support App</LinkButton>
+          <LinkButton href="https://withdraw.mstable.app" external={false}>
+            Legacy Support
+          </LinkButton>
         </CardActions>
       </Card>
     </Container>
