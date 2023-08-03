@@ -42,7 +42,7 @@ export const Products: FC = () => {
         </CardContent>
         <CardActions>
           <LinkButton href="https://withdraw.mstable.app" external={false}>
-            Legacy Support App
+            Legacy Support
           </LinkButton>
         </CardActions>
       </Card>

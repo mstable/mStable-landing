@@ -94,7 +94,7 @@ const urls: {
   highlight?: boolean
 }[] = [
   {
-    title: 'Yield App',
+    title: 'Open App',
     href: 'https://yield.mstable.app/',
     isButton: true,
     highlight: true,
