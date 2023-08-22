@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { MTA_BUY_LINK } from '../../constants'
+import { MTA_BUY_LINK, YIELD_APP_LINK } from '../../constants'
 import DefiPulse from '../../images/social/defi-pulse.svg'
 import Discord from '../../images/social/discord.svg'
 import Email from '../../images/social/email.svg'
@@ -238,7 +238,7 @@ export const Footer: FC = () => {
         <Top>
           <div>
             <Header>Protocol</Header>
-            <ExternalLinkChevron href="https://yield.mstable.app/">App</ExternalLinkChevron>
+            <ExternalLinkChevron href={YIELD_APP_LINK}>App</ExternalLinkChevron>
             <ExternalLinkChevron href="https://docs.mstable.org/">Documentation</ExternalLinkChevron>
             <ExternalLinkChevron href="https://developers.mstable.org/">Developers</ExternalLinkChevron>
             <LinkChevron href="/save">About Save</LinkChevron>
