@@ -2,6 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
+import { WITHDRAW_APP_LINK, YIELD_APP_LINK } from '../../constants'
 import { Card, CardActions, CardContent, CardHeader } from '../Card'
 import { LinkButton } from '../CTA'
 
@@ -28,7 +29,7 @@ export const Products: FC = () => {
           <p>New yield products to earn best in market yields.</p>
         </CardContent>
         <CardActions>
-          <LinkButton href="https://yield.mstable.app" highlight external={false}>
+          <LinkButton href={YIELD_APP_LINK} highlight external={false}>
             mStable Yield App
           </LinkButton>
         </CardActions>
@@ -41,7 +42,7 @@ export const Products: FC = () => {
           <p>Withdraw from your legacy mStable product positions.</p>
         </CardContent>
         <CardActions>
-          <LinkButton href="https://withdraw.mstable.app" external={false}>
+          <LinkButton href={WITHDRAW_APP_LINK} external={false}>
             Legacy Support
           </LinkButton>
         </CardActions>

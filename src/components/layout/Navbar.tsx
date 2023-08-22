@@ -6,6 +6,7 @@ import { useToggle, useWindowScroll } from 'react-use'
 import useMeasure from 'react-use/lib/useMeasure'
 import styled from 'styled-components'
 
+import { WITHDRAW_APP_LINK, YIELD_APP_LINK } from '../../constants'
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
 import { Colors, Constants } from '../../theme'
 import { LinkButton } from '../CTA'
@@ -95,13 +96,13 @@ const urls: {
 }[] = [
   {
     title: 'Open App',
-    href: 'https://yield.mstable.app/',
+    href: YIELD_APP_LINK,
     isButton: true,
     highlight: true,
   },
   {
     title: 'Legacy Support',
-    href: 'https://withdraw.mstable.app',
+    href: WITHDRAW_APP_LINK,
     isButton: true,
   },
 ]

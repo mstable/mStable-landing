@@ -3,6 +3,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
+import { MTA_BURN_APP_LINK, YIELD_APP_LINK } from '../../constants'
 import { Card, CardActions, CardContent, CardHeader } from '../Card'
 import { LinkButton } from '../CTA'
 
@@ -33,7 +34,7 @@ export const Adverts: FC = () => (
           <p>Unlock maximum returns with Meta Harvester, the vault that redefines DeFi yield farming. </p>
         </CardContent>
         <CardActions>
-          <LinkButton href="https://yield.mstable.app/vault/0x9c6de13d4648a6789017641f6b1a025816e66228" highlight external={false}>
+          <LinkButton href={`${YIELD_APP_LINK}/vault/0x9c6de13d4648a6789017641f6b1a025816e66228`} highlight external={false}>
             Meta Harvester
           </LinkButton>
         </CardActions>
@@ -69,7 +70,7 @@ export const Adverts: FC = () => (
           <p>Burn MTA to receive stablecoin yield on Optimism. Swap fixed at $0.0318 USD / MTA.</p>
         </CardContent>
         <CardActions>
-          <LinkButton href="https://withdraw.mstable.app/burn" external={false}>
+          <LinkButton href={MTA_BURN_APP_LINK} external={false}>
             MTA Buyback
           </LinkButton>
         </CardActions>
