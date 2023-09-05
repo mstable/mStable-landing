@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { MTA_BUY_LINK, YIELD_APP_LINK } from '../../constants'
+import { DHEDGE_APP_LINK, DHEDGE_AUDIT_LINK, MTA_BUY_LINK, YIELD_APP_LINK } from '../../constants'
 import DefiPulse from '../../images/social/defi-pulse.svg'
 import Discord from '../../images/social/discord.svg'
 import Email from '../../images/social/email.svg'
@@ -188,6 +188,11 @@ const Container = styled.footer`
   background: linear-gradient(180deg, transparent, #000000);
 `
 
+const ExternalLinContainer = styled.div`
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+`
+
 const KeepUpdated: FC = () => (
   <Social>
     <Header>Keep up to date</Header>
@@ -256,9 +261,9 @@ export const Footer: FC = () => {
         <BottomFooter>
           <div>
             <div>
-              <b>mStable</b> powered by <ExternalLink href="https://ethereum.org/en/">Ethereum</ExternalLink>
+              <b>mStable</b> powered by <ExternalLink href={DHEDGE_APP_LINK}>dHEDGE</ExternalLink>
             </div>
-            <div>
+            <ExternalLinContainer>
               <ExternalLink href={MTA_BUY_LINK}>Buy MTA</ExternalLink>
               <ExternalLink href={'https://developers.mstable.org/'}>Docs</ExternalLink>
               <ExternalLink
@@ -267,7 +272,8 @@ export const Footer: FC = () => {
                 Careers
               </ExternalLink>
               <ExternalLink href={'https://docs.mstable.org/advanced/brand-assets'}>Brand</ExternalLink>
-            </div>
+              <ExternalLink href={DHEDGE_AUDIT_LINK}>Audit</ExternalLink>
+            </ExternalLinContainer>
           </div>
         </BottomFooter>
       </Bottom>

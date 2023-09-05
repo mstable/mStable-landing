@@ -6,3 +6,7 @@ export const MTA_BUY_LINK =
 export const WITHDRAW_APP_LINK = 'https://withdraw.mstable.org'
 export const MTA_BURN_APP_LINK = `${WITHDRAW_APP_LINK}/burn`
 export const YIELD_APP_LINK = 'https://yield.mstable.org'
+
+export const DHEDGE_APP_LINK = 'https://dhedge.org'
+
+export const DHEDGE_AUDIT_LINK = 'https://skynet.certik.com/projects/dhedge'
