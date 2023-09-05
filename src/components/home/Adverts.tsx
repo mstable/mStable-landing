@@ -1,6 +1,4 @@
 /* eslint-disable no-empty */
-import React from 'react'
-
 import styled from 'styled-components'
 
 import { YIELD_APP_LINK } from '../../constants'
@@ -16,10 +14,6 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-`
-
-const ContainerWithSpacing = styled(Container)`
-  ${({ theme }) => theme.mixins.sectionSpacing};
 `
 
 export const Adverts: FC = () => (
