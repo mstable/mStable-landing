@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { DHEDGE_APP_LINK, DHEDGE_AUDIT_LINK, MTA_BUY_LINK, YIELD_APP_LINK } from '../../constants'
+import { DHEDGE_APP_LINK, DHEDGE_AUDIT_LINK, YIELD_APP_LINK } from '../../constants'
 import DefiPulse from '../../images/social/defi-pulse.svg'
 import Discord from '../../images/social/discord.svg'
 import Email from '../../images/social/email.svg'
@@ -264,7 +264,6 @@ export const Footer: FC = () => {
               <b>mStable</b> powered by <ExternalLink href={DHEDGE_APP_LINK}>dHEDGE</ExternalLink>
             </div>
             <ExternalLinContainer>
-              <ExternalLink href={MTA_BUY_LINK}>Buy MTA</ExternalLink>
               <ExternalLink href={'https://developers.mstable.org/'}>Docs</ExternalLink>
               <ExternalLink
                 href={'https://www.notion.so/mstable/Shape-the-future-of-finance-with-mStable-6273a1b556fd4558adb5380925d8d1ac'}

@@ -30,16 +30,16 @@ export const Products: FC = () => {
         </CardContent>
         <CardActions>
           <LinkButton href={YIELD_APP_LINK} highlight external={false}>
-            mStable Yield App
+            Earn Yield
           </LinkButton>
         </CardActions>
       </Card>
       <Card bgColor="purple">
         <CardHeader>
-          <h2>Exit Legacy Products</h2>
+          <h2>Legacy Support</h2>
         </CardHeader>
         <CardContent>
-          <p>Withdraw from your legacy mStable product positions.</p>
+          <p>Withdraw from your legacy mStable product positions. Option to redeem governance token at floor price.</p>
         </CardContent>
         <CardActions>
           <LinkButton href={WITHDRAW_APP_LINK} external={false}>
