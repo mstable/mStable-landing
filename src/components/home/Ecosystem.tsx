@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Card, CardContent, CardHeader } from '../Card'
 import { ExternalLink } from '../ExternalLink'
 import { Section } from '../layout/Section'
+import { Banner } from './Banner'
 
 const Container = styled.section`
   width: 100%;
@@ -42,6 +43,7 @@ export const Ecosystem = () => {
           </CardContent>
         </Card>
       </Container>
+      <Banner />
     </Section>
   )
 }

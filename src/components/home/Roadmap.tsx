@@ -34,18 +34,24 @@ export const Roadmap = () => {
     <Section h1="Roadmap" h2="Have a look at the future of mStable">
       <Container>
         <div>
-          <h3>Phase 1 - Increased Focus</h3>
+          <h3>
+            Phase 1 - Increased Focus <br /> (completed)
+          </h3>
           <ul>
             <li>High yield vaults on Optimism</li>
             <li>MTA liquidity on Velodrome</li>
-            <li>MTA buy-back and burn</li>
+            <li>MTA buy-back and burn release</li>
             <li>Long term support withdrawals</li>
           </ul>
         </div>
         <div>
-          <h3>Phase 2 - Flatcoin</h3>
+          <h3>
+            Phase 2 - Flatcoin <br /> (in development)
+          </h3>
           <ul>
             <li>Flatcoin with no de-peg risk</li>
+            <li>Primitive with minimal dependencies</li>
+            <li>Powered by perps market</li>
             <li>More info soon</li>
           </ul>
         </div>
