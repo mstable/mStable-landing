@@ -50,4 +50,4 @@ const Container = styled(Section)`
   }
 `
 
-export const Hero: FC = () => <Container h1="Automated Stable Yields" h2="Earn yield on your stablecoins on mStable" />
+export const Hero: FC = () => <Container h1="Stable Yield Aggregator" h2="Always earn the best" />
