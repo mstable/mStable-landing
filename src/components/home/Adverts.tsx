@@ -24,8 +24,8 @@ export const Adverts: FC = () => (
           <h2>mStable Meta Harvester</h2>
         </CardHeader>
         <CardContent>
-          <p>Discover the Future of Yield Farming! 🚀</p>
-          <p>Unlock maximum returns with Meta Harvester, the vault that redefines DeFi yield farming. </p>
+          <p>Always earn the best yield 🚀</p>
+          <p>The Meta Harvester automatically switches to the highest yield source supported</p>
         </CardContent>
         <CardActions>
           <LinkButton href={`${YIELD_APP_LINK}/vault/0x9c6de13d4648a6789017641f6b1a025816e66228`} highlight external={false}>

@@ -38,12 +38,8 @@ export const Banner = () => {
     <Container>
       <Modal>
         <p>
-          We are delighted to announce that mStable has been acquired by <ExternalLink href="https://app.dhedge.org/">dHEDGE</ExternalLink>,
-          a decentralized asset management platform.
-        </p>
-        <p>
-          This strategic acquisition marks a significant milestone for mStable, positioning us to become a leading yield vault aggregator
-          across multiple chains and broaden our reach within the DeFi ecosystem.
+          We are delighted to announce that mStable has been acquired by <ExternalLink href="https://app.dhedge.org/">dHEDGE</ExternalLink>.
+          This strategic acquisition marks a significant milestone for mStable.
         </p>
         <LinkButton
           highlight
