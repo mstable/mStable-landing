@@ -11,10 +11,11 @@ import type { FC } from 'react'
 const Container = styled.section`
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  align-items: center;
+  gap: 3rem;
   ${({ theme }) => theme.mixins.sectionSpacing};
 `
 
@@ -23,14 +24,15 @@ export const Products: FC = () => {
     <Container>
       <Card bgColor="orange">
         <CardHeader>
-          <h2>mStable Yield Products</h2>
+          <h2>mStable Meta Harvester</h2>
         </CardHeader>
         <CardContent>
-          <p>New yield products to earn best in market yields.</p>
+          <p>Always earn the best yield 🚀</p>
+          <p>The Meta Harvester automatically switches to the highest yield source supported</p>
         </CardContent>
         <CardActions>
-          <LinkButton href={YIELD_APP_LINK} highlight external={false}>
-            Earn Yield
+          <LinkButton href={`${YIELD_APP_LINK}/vault/0x9c6de13d4648a6789017641f6b1a025816e66228`} highlight external={false}>
+            Meta Harvester
           </LinkButton>
         </CardActions>
       </Card>
