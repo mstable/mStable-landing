@@ -24,9 +24,7 @@ const Modal = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  background-color: rgba(44, 48, 78, 0.4);
   backdrop-filter: blur(2px);
-  border-radius: 1rem;
 
   > p {
     text-align: center;
