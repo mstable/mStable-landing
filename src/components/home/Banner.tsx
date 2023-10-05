@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { DHEDGE_APP_LINK } from '../../constants'
 import { LinkButton } from '../CTA'
 import { ExternalLink } from '../ExternalLink'
 
@@ -36,7 +37,7 @@ export const Banner = () => {
     <Container>
       <Modal>
         <p>
-          We are delighted to announce that mStable has been acquired by <ExternalLink href="https://app.dhedge.org/">dHEDGE</ExternalLink>.
+          We are delighted to announce that mStable has been acquired by <ExternalLink href={DHEDGE_APP_LINK}>dHEDGE</ExternalLink>.
           This strategic acquisition marks a significant milestone for mStable.
         </p>
         <LinkButton

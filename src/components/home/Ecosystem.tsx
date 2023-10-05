@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import { DHEDGE_APP_LINK } from '../../constants'
 import { Card, CardContent, CardHeader } from '../Card'
 import { ExternalLink } from '../ExternalLink'
 import { Section } from '../layout/Section'
@@ -34,7 +35,7 @@ export const Ecosystem = () => {
         </Card>
         <Card>
           <CardHeader>
-            <ExternalLink href="https://app.dhedge.org/#">
+            <ExternalLink href={DHEDGE_APP_LINK}>
               <img src="/assets/img/dhedge_logo.svg" alt="dhedge" />
             </ExternalLink>
           </CardHeader>
