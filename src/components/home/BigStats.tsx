@@ -125,11 +125,11 @@ export const BigStats: FC = () => {
 
   return (
     <StatsSection>
-      <BigStatLink href="https://mstable.app/#/musd/stats">
+      <BigStatLink href="https://app.mstable.org/#/musd/stats">
         {!loading && volumeEstimate ? <h3>${volumeEstimate.toString().substr(0, 1)}b+</h3> : <Skeleton />}
         <p>All Time Volume</p>
       </BigStatLink>
-      <BigStatLink href="https://staking.mstable.app/">
+      <BigStatLink href="https://staking.mstable.org/">
         {!loading && value?.mta?.totalStakers ? <h3>{value.mta.totalStakers}</h3> : <Skeleton />}
         <p>Active Governors</p>
       </BigStatLink>

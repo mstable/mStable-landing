@@ -161,7 +161,7 @@ export const Save: FC = () => {
               </p>
             </div>
             <Links>
-              <LinkButton highlight href="https://mstable.app/#/musd/save/">
+              <LinkButton highlight href="https://app.mstable.org/#/musd/save/">
                 Start Saving
               </LinkButton>
             </Links>
@@ -180,10 +180,10 @@ export const Save: FC = () => {
               </p>
             </div>
             <Links>
-              <LinkButton highlight href="https://staking.mstable.app/">
+              <LinkButton highlight href="https://staking.mstable.org/">
                 Stake MTA
               </LinkButton>
-              <LinkButton highlight href="https://mstable.app/#/musd/save">
+              <LinkButton highlight href="https://app.mstable.org/#/musd/save">
                 Earn MTA
               </LinkButton>
             </Links>

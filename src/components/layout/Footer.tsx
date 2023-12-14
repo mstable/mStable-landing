@@ -250,7 +250,7 @@ export const Footer: FC = () => {
           </div>
           <div>
             <Header>Governance</Header>
-            <ExternalLinkChevron href="https://staking.mstable.app">Governance App</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://staking.mstable.org">Governance App</ExternalLinkChevron>
             <ExternalLinkChevron href="https://forum.mstable.org">Forum</ExternalLinkChevron>
             <ExternalLinkChevron href="https://snapshot.page/#/mstable">Vote</ExternalLinkChevron>
           </div>
