@@ -154,7 +154,7 @@ export const GovernanceTokenMeta: FC = () => {
               </p>
             </div>
             <Links>
-              <LinkButton highlight href="https://staking.mstable.app">
+              <LinkButton highlight href="https://staking.mstable.org">
                 Stake MTA
               </LinkButton>
               <LinkButton highlight href="https://medium.com/mstable/staking-migration-guide-8f0ec7e0b267">
@@ -175,7 +175,7 @@ export const GovernanceTokenMeta: FC = () => {
               </p>
             </div>
             <Links>
-              <LinkButton highlight href="https://mstable.app/">
+              <LinkButton highlight href="https://mstable.org/">
                 Start earning MTA
               </LinkButton>
             </Links>
