@@ -252,7 +252,7 @@ export const Footer: FC = () => {
             <Header>Governance</Header>
             <ExternalLinkChevron href="https://staking.mstable.org">Governance App</ExternalLinkChevron>
             <ExternalLinkChevron href="https://forum.mstable.org">Forum</ExternalLinkChevron>
-            <ExternalLinkChevron href="https://snapshot.page/#/mstable">Vote</ExternalLinkChevron>
+            <ExternalLinkChevron href="https://snapshot.box/#/s:gov.dhedge.eth">Vote</ExternalLinkChevron>
           </div>
         </Top>
       </TopFooter>
