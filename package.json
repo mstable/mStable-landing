@@ -30,7 +30,7 @@
     "countup.js": "./lib/countup.js"
   },
   "dependencies": {
-    "@react-three/drei": "^4.3.3",
+    "@react-three/drei": "^8.20.2",
     "@react-three/fiber": "^6.1.1",
     "@react-three/postprocessing": "^2.0.3",
     "@types/exenv": "^1.2.0",
