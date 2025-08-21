@@ -8,7 +8,7 @@ export interface Props {
   path: string
 }
 
-const imgUrl = 'https://mstable.org/assets/img/mstable-mobile-coming-soon.png'
+const imgUrl = 'https://mstable.org/assets/img/mstable-snippet.png'
 
 export const SEO: FC<Props> = ({ title, description, path }) => {
   const url = `https://mstable.org/${path === '/' ? '' : path}`
