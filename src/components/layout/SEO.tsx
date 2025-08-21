@@ -8,8 +8,10 @@ export interface Props {
   path: string
 }
 
+const imgUrl = 'https://mstable.org/assets/img/mstable-mobile-coming-soon.png'
+
 export const SEO: FC<Props> = ({ title, description, path }) => {
-  const url = `https://mstable.org/${path}`
+  const url = `https://mstable.org/${path === '/' ? '' : path}`
 
   return (
     <Helmet
@@ -27,12 +29,14 @@ export const SEO: FC<Props> = ({ title, description, path }) => {
         { name: 'identifier-URL', content: url },
         { name: 'language', content: 'EN' },
         { name: 'og:url', content: url },
+        { name: 'og:image', content: imgUrl },
         { name: 'rating', content: 'General' },
         { name: 'robots', content: 'index,follow' },
         { name: 'subject', content: 'A decentralized stablecoin ecosystem' },
         { name: 'twitter:description', content: description },
         { name: 'twitter:title', content: title },
         { name: 'twitter:url', content: url },
+        { name: 'twitter:image', content: imgUrl },
         { name: 'url', content: url },
       ]}
     />
