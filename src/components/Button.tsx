@@ -7,33 +7,36 @@ export const Button = styled.button<{ highlight?: boolean; disabled?: boolean }>
   align-items: center;
   padding: 0.5rem 1rem;
   white-space: nowrap;
-  border: none;
-  border-radius: 0.75rem;
+  border: 1px solid ${({ highlight }) => (highlight ? Colors.solidBrandBorderDefault : Colors.dimBrandBorderDefault)};
+  border-radius: 9999px;
   justify-content: center;
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  background: ${({ highlight, disabled }) => (highlight ? Colors.blue : disabled ? 'rgba(62,75,96, 0.3)' : '#3e4b60')};
-  color: white;
+  background: ${({ highlight, disabled }) =>
+    highlight ? Colors.solidBrandBgDefault : disabled ? 'rgba(62,75,96, 0.3)' : Colors.dimBrandBgDefault};
+  color: ${({ highlight }) => (highlight ? Colors.solidBrandContentDefault : Colors.dimBrandContentDefault)};
   transition: transform 0.25s ease-out;
-
-  ${({ highlight }) =>
-    highlight && {
-      textShadow: `rgba(0, 75, 124, 0.25) 0 1px 1px`,
-      boxShadow: `rgba(0, 153, 255, 0.5) 0 0px 15px`,
-    }}
+  height: 3.5rem;
 
   &:hover,
   &:focus {
-    color: white;
-    transform: scale(1.025);
+    background: ${({ highlight }) => (highlight ? Colors.solidBrandBgHover : Colors.dimBrandBgHover)};
+    color: ${({ highlight }) => (highlight ? Colors.solidBrandContentHover : Colors.dimBrandContentHover)};
+    border: 1px solid ${({ highlight }) => (highlight ? Colors.solidBrandBorderHover : Colors.dimBrandBorderHover)};
 
     ${({ disabled }) =>
       disabled && {
         cursor: 'default',
         transform: 'none',
       }}
+  }
+
+  &:active {
+    background: ${({ highlight }) => (highlight ? Colors.solidBrandBgPressed : Colors.dimBrandBgPressed)};
+    color: ${({ highlight }) => (highlight ? Colors.solidBrandContentPressed : Colors.dimBrandContentPressed)};
+    border: 1px solid ${({ highlight }) => (highlight ? Colors.solidBrandBorderPressed : Colors.dimBrandBorderPressed)};
   }
 
   // flex-gap polyfill fail

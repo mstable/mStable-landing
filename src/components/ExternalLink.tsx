@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Anchor = styled.a`
-  color: white;
+  color: rgba(2, 21, 14, 0.9);
   font-size: 1.125rem;
   font-weight: 400;
 `

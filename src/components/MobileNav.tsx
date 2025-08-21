@@ -27,6 +27,7 @@ const MenuButton = styled.button`
   width: 2.25rem;
   background: none;
   cursor: pointer;
+  color: rgba(2, 21, 14, 0.9);
 
   svg {
     display: block;
@@ -38,7 +39,7 @@ const Inner = styled.div`
   width: 100%;
   display: flex;
   border-radius: 0.75rem;
-  background: ${Colors.spaceBlueLight};
+  background: ${Colors.bgBase};
   max-width: calc(1200px - 2rem);
   flex-direction: column;
 

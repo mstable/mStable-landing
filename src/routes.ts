@@ -6,14 +6,19 @@ const kebabize = (str: string): string =>
     .map((ch, idx) => (ch.toUpperCase() === ch ? `${idx !== 0 ? '-' : ''}${ch.toLowerCase()}` : ch))
     .join('')
 
-export const routes = Object.keys(pages).map((path) => {
-  const name = path.match(/\.\/pages\/(.*)\.tsx$/)?.[1] as string
-  const isHome = name === 'Home'
-  return {
-    name,
-    path: isHome ? '/' : `/${kebabize(name)}`,
-    isHome,
-    component: pages[path][name],
-    seo: pages[path].SEO ?? {},
-  }
-})
+const getName = (path: string) => path.match(/\.\/pages\/(.*)\.tsx$/)?.[1] as string
+const isHomeName = (name: string) => name === 'Home'
+
+export const routes = Object.keys(pages)
+  .filter((path) => isHomeName(getName(path)))
+  .map((path) => {
+    const name = getName(path)
+    const isHome = isHomeName(name)
+    return {
+      name,
+      path: isHome ? '/' : `/${kebabize(name)}`,
+      isHome,
+      component: pages[path][name],
+      seo: pages[path].SEO ?? {},
+    }
+  })

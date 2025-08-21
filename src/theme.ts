@@ -33,29 +33,35 @@ export enum Colors {
   neonPinkDark75 = 'rgba(49, 32, 85, 0.75)',
   neonPinkDark100 = 'rgba(49, 32, 85, 1)',
   neonPinkTransparent = 'rgba(251,136,215,0.2)',
+  bgBase = '#DCDCDC',
+  solidBrandBgDefault = '#98BC45',
+  solidBrandBgHover = '#B8D672',
+  solidBrandBgPressed = '#98BC45',
+  solidBrandContentDefault = '#20290A',
+  solidBrandContentHover = '#39451C',
+  solidBrandContentPressed = '#20290A',
+  solidBrandBorderDefault = '#00000000',
+  solidBrandBorderHover = '#00000000',
+  solidBrandBorderPressed = '#00000000',
+  dimBrandBgDefault = '#98BC4533',
+  dimBrandBgHover = '#98BC451F',
+  dimBrandBgPressed = '#98BC4533',
+  dimBrandContentDefault = '#43531C',
+  dimBrandContentHover = '#51671E',
+  dimBrandContentPressed = '#43531C',
+  dimBrandBorderDefault = '#00000000',
+  dimBrandBorderHover = '#00000000',
+  dimBrandBorderPressed = '#00000000',
 }
 
 export enum Constants {
+  rootPt = '76px',
   navHeight = '72px',
 }
 
 export const mixins = {
   defaultSpacing: css`
     padding: 2.5rem 0;
-
-    > * {
-      margin-top: 2.5rem;
-      padding: 0 1rem;
-    }
-
-    @media (min-width: 480px) {
-      padding: 5rem 0;
-
-      > * {
-        margin-top: 5rem;
-        padding: 0 2rem;
-      }
-    }
   `,
   sectionSpacing: css`
     margin: 5rem 0;
