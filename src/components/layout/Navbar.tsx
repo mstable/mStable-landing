@@ -6,7 +6,7 @@ import { useToggle, useWindowScroll } from 'react-use'
 import useMeasure from 'react-use/lib/useMeasure'
 import styled from 'styled-components'
 
-import { WITHDRAW_APP_LINK, YIELD_APP_LINK } from '../../constants'
+import { WITHDRAW_APP_LINK, X_LINK } from '../../constants'
 import { ReactComponent as LogoSvg } from '../../images/mstable-logo.svg'
 import { Colors, Constants } from '../../theme'
 import { LinkButton } from '../CTA'
@@ -17,11 +17,15 @@ import type { FC } from 'react'
 import type { UseMeasureRef } from 'react-use/lib/useMeasure'
 
 const LogoImg = styled(LogoSvg)<{ stable?: number }>`
-  height: 20px;
+  height: 2rem;
   width: auto;
   #stable {
     transition: opacity 2s ease;
     opacity: ${({ stable }) => stable ?? 0};
+  }
+
+  @media (min-width: 992px) {
+    height: 4rem;
   }
 `
 
@@ -53,7 +57,7 @@ const Nav = styled.nav`
   a {
     display: flex;
     font-weight: normal;
-    color: white;
+    color: rgba(2, 21, 14, 0.9);
     font-size: 1rem;
   }
 
@@ -66,7 +70,7 @@ const Nav = styled.nav`
     align-items: center;
 
     > *:not(:last-child) {
-      margin-right: 2rem;
+      margin-right: 1.375rem;
     }
   }
 `
@@ -78,7 +82,7 @@ const Container = styled.div<{ backgroundFill: boolean }>`
   right: 0;
   height: ${Constants.navHeight};
   transition: 0.5s linear background;
-  background: ${({ backgroundFill }) => (backgroundFill ? Colors.spaceBlue : 'transparent')};
+  background: ${({ backgroundFill }) => (backgroundFill ? Colors.bgBase : 'transparent')};
   display: grid;
   z-index: 1;
 
@@ -95,15 +99,15 @@ const urls: {
   highlight?: boolean
 }[] = [
   {
-    title: 'Open App',
-    href: YIELD_APP_LINK,
+    title: 'Follow on X',
+    href: X_LINK,
     isButton: true,
-    highlight: true,
   },
   {
     title: 'Legacy Support',
     href: WITHDRAW_APP_LINK,
     isButton: true,
+    highlight: true,
   },
 ]
 
@@ -112,7 +116,7 @@ const DesktopLinks: FC = () => (
     {urls.map(({ title, href, isButton = false, highlight }) => (
       <li key={title}>
         {isButton ? (
-          <LinkButton external={false} href={href} highlight={highlight}>
+          <LinkButton external href={href} highlight={highlight}>
             {title}
           </LinkButton>
         ) : (

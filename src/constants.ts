@@ -10,3 +10,5 @@ export const YIELD_APP_LINK = 'https://yield.mstable.org'
 export const DHEDGE_APP_LINK = 'https://dhedge.org'
 
 export const DHEDGE_AUDIT_LINK = 'https://skynet.certik.com/projects/dhedge'
+
+export const X_LINK = 'https://x.com/mstable_'
