@@ -1,4 +1,3 @@
-import { DataProvider } from '../components/home/DataProvider'
 import { Hero } from '../components/home/Hero'
 
 import type { FC } from 'react'
@@ -9,9 +8,5 @@ export const SEO = {
 }
 
 export const Home: FC = () => {
-  return (
-    <DataProvider>
-      <Hero />
-    </DataProvider>
-  )
+  return <Hero />
 }
